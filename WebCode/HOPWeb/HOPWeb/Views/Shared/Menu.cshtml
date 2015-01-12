@@ -1,0 +1,72 @@
+﻿<div class="sidebar" id="sidebar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'fixed');
+        } catch (e) {
+        }
+    </script>
+    @{
+        var plugs = BusinessWeb.Areas.Back.Models.PlugParser.Parser();
+        var rootPath = "http://" + Request.Url.Authority;
+    }
+    <!--#sidebar-shortcuts-->
+    <ul class="nav nav-list">
+        <li>
+            <a href="@Url.Action("Index", "Home")">
+                <i class="icon-dashboard"></i><span class="top-menu-text">
+                    主面板
+                </span>
+            </a>
+        </li>
+        @{
+
+            BusinessWeb.Areas.Back.Models.PlugDisplay currentPlug = null;
+        }
+        @foreach (var plug in plugs)
+        {
+            var currentPath = Request.Url.AbsolutePath;
+
+            var topClass = "";
+
+            if (plug.Children != null && plug.Children.Count > 0)
+            {
+                var temp = plug.Children.FirstOrDefault(m => currentPath.Length > 1 && m.PlugUrl.Contains(currentPath));
+                if (temp != null) { topClass = "open active"; currentPlug = temp; }
+            }
+
+            <li class="@topClass">
+                <a href="@(string.IsNullOrEmpty(plug.PlugUrl)?"javascript:;":(rootPath+plug.PlugUrl))" class="dropdown-toggle"><i class="@plug.ImageClass"></i><span class="top-menu-text">@plug.PlugName</span><b class="arrow icon-angle-down"></b></a>
+
+                @if (plug.Children != null && plug.Children.Count > 0)
+                {
+
+
+                    <ul class="submenu">
+                        @foreach (var secondPlug in plug.Children)
+                        {
+                            var subClass = "";
+                            if (currentPlug == secondPlug)
+                            {
+                                subClass = "active";
+                            }
+                            <li class="@subClass" id="li_menu_@secondPlug.PlugCode"><a href="@(rootPath+secondPlug.PlugUrl)"><i class="icon-double-angle-right"></i><i class="@secondPlug.ImageClass"></i>
+                                <span class="label-PlugName">@secondPlug.PlugName</span></a> </li>
+                        }
+
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+    <!--/.nav-list-->
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+    <script type="text/javascript">
+        var rootPath = '@rootPath';
+        try {
+            ace.settings.check('sidebar', 'collapsed');
+        } catch (e) {
+        }
+    </script>
+</div>

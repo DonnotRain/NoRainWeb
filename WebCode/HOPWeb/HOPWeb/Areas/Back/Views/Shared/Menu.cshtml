@@ -1,0 +1,65 @@
+﻿<div class="sidebar" id="sidebar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'fixed');
+        } catch (e) {
+        }
+    </script>
+    @{
+        //  var plugs = BusinessWeb.Areas.Back.Models.PlugParser.Parser();
+        var rootPath = "http://" + Request.Url.Authority;
+    }
+    <!--#sidebar-shortcuts-->
+    <ul class="nav nav-list">
+        <li>
+            <a href="@Url.Action("Index", "Home")">
+                <i class="icon-dashboard"></i><span class="top-menu-text">
+                    主面板
+                </span>
+            </a>
+        </li>
+        <li class="active open">
+            <a href="javascript:;" class="dropdown-toggle"><i class="icon-sum"></i><span class="top-menu-text">运营情况</span><b class="arrow icon-angle-down"></b></a>
+            <ul class="submenu">
+                <li class="active" id="li_menu_">
+                    <a href="javascript:;">
+                        <i class="icon-double-angle-right"></i>
+                        <i class="icon-add"></i>
+                        企业管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="dropdown-toggle"><i class="icon-sum"></i><span class="top-menu-text">系统设置</span><b class="arrow icon-angle-down"></b></a>
+            <ul class="submenu">
+                <li class="" id="li_menu_2">
+                    <a href="javascript:;">
+                        <i class="icon-double-angle-right"></i>
+                        <i class="icon-add"></i>
+                        后台操作员管理
+                    </a>
+                </li>
+                <li class="" id="li_menu_1">
+                    <a href="javascript:;">
+                        <i class="icon-double-angle-right"></i>
+                        <i class="icon-add"></i>
+                        平台功能管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!--/.nav-list-->
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+    <script type="text/javascript">
+        var rootPath = '@rootPath';
+        try {
+            ace.settings.check('sidebar', 'collapsed');
+        } catch (e) {
+        }
+    </script>
+</div>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<link href="Styles/Login.css" rel="stylesheet" type="text/css" />
+		<script src="Scripts/Cookie.js" type="text/javascript"></script>
+		<script src="jquery.js" type="text/javascript"></script>
+        <script src="http://g.tbcdn.cn/kissy/m/0.2.0/mini-min.js" type="text/javascript"></script>
+		<script src="cordova.js" type="text/javascript"></script>
+		<script src="backbutton.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="logo" align="center">
+			<img id="picLogo" src="Images/Logo.png" alt="" />
+		</div>
+		<div id="LoginForm">
+			<form method="post" action="">
+				<table align="center">
+					<tr>
+						<td><img class="smallPic" src="Images/UserName.png" />
+						<input type="text" id="txtUserName" value="王孝天" />
+						</td>
+					</tr>
+					<tr>
+						<td><img class="smallPic" src="Images/KeyWord.png" />
+						<input type="password" id="txtPassWord" value="1" />
+						</td>
+					</tr>
+					<tr>
+						<td><img class="smallPic" src="Images/KeyWord.png" />
+						<input type="corpcode" id="txtCorpCode" value="HWMT" />
+						</td>
+					</tr>
+					<tr>
+						<td><img src="Images/LightLoginButton.png" id="picLightLoginButton" onmousedown="ChangePic(true)" onmouseup="ChangePic(false)" onmouseout="ChangePic(false)" onclick="Submit()"/></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script src="Scripts/Login.js" type="text/javascript"></script>
+	</body>
+</html>

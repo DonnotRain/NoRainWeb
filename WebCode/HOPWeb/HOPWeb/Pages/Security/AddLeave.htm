@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<link href="../Styles/Form.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../Scripts/Cookie.js"></script>
+		<script src="../jquery.js" type="text/javascript"></script>
+		<script src="../cordova.js" type="text/javascript"></script>
+		<script src="../backbutton.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="header">
+			<img id="imgBack" src="../Images/Back.png" alt="后退" onclick="Back()" />
+			<h1> 请假界面 </h1>
+		</div>
+		<div id="content">
+			<table id="table">
+				<tr>
+					<th style="width: 40%;"> 开始时间： </th>
+					<td style="width: 60%;">
+					<input type="date" id="txtBeginDate" />
+					</td>
+				</tr>
+				<tr>
+					<th> 结束时间： </th>
+					<td>
+					<input type="date" id="txtEndDate" />
+					</td>
+				</tr>
+				<tr>
+					<th> 时&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 长： </th>
+					<td>
+					<input type="number" id="txtDuration" />
+					</td>
+				</tr>
+				<tr id="multirow">
+					<th> 原因描述： </th>
+					<td>					<textarea rows="5" cols="1" id="txtReason"></textarea></td>
+				</tr>
+			</table>
+		</div>
+		<div id="line"></div> 
+		<div id="footer">
+			<span class="m">
+				<input type="button" value="提交" onclick="Submit()" />
+				<input type="button" value="重置" onclick="Reset()" />
+			</span>
+		</div>
+		<script type="text/javascript" src="../Scripts/AddLeave.js"></script>
+	</body>
+</html>

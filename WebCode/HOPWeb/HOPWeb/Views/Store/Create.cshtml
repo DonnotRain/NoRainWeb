@@ -1,0 +1,92 @@
+﻿<div id="dlgMain" style="width: 500px; height: 440px; display: none; padding-top: 5px">
+    <form id="fm" style="margin: 0px auto;">
+        @{
+            var width = 220;
+            var easyWidth = 222;
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+            <tr>
+                <th>
+                    门店名称<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="StoreName" id="StoreName" class="required" type="text" style="width: 90%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店简称<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="AbbrName" id="AbbrName" class="required" type="text" style="width: 90%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店地址<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="Address" id="Address" class="required" type="text" style="width: 90%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店经纬度<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <a id="btnChooseFile" class="btn-chooseFile">
+                        地图上选择
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店经度<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="Longitude" id="Longitude" class="number required" type="text" style="width: 40%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店纬度<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="Latitude" id="Latitude" class="number required" type="text" style="width:  40%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    门店描述：
+                </th>
+                <td>
+                    <textarea name="Detail" id="Detail" style="width: 90%;height:80px"></textarea>
+                </td>
+            </tr>
+
+        </table>
+        <input type="hidden" id="Id" name="Id" value="" />
+    </form>
+</div>
+<div id="dlgMap" style="width: 670px; height: 540px; display: none; padding-top: 5px">
+    <div id="containMap" style="width:650px;height:340px;margin:auto 0px;margin-bottom:10px">
+
+    </div>
+    <div class="alert alert-block alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="icon-remove"></i>
+        </button>
+
+        <i class="icon-ok green"></i>
+        在地图上点击
+        <strong class="green">
+            鼠标左键
+        </strong>
+        ,获取取门店所在位置的经纬度数据。
+    </div>
+    <div style="padding-left:20px">
+        已选的经度：
+        <input name="ChoosedLongitude" id="ChoosedLongitude" class=" required" type="text" style="width: 140px" value="" />
+        已选的纬度：<input name="ChoosedLatitude" id="ChoosedLatitude" class=" required" type="text" style="width: 140px" value="" />
+    </div>
+</div>

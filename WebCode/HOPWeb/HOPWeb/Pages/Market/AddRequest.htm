@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Styles/Form.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/Cookie.js" type="text/javascript"></script>
+    <script src="../Scripts/AddRequest.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="header">
+        <img id="imgBack" src="../Images/Back.png" alt="后退" onclick="Back()" />
+        <h1>
+            新增门店需求
+        </h1>
+    </div>
+    <div id="content">
+        <table id="table">
+            <tr>
+                <th style="width: 40%;">
+                    主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 题：
+                </th>
+                <td style="width: 60%;">
+                    <input type="text" id="txtTitle" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    描&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 述：
+                </th>
+                <td>
+                    <input type="text" id="txtDetail" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    附&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 件：
+                </th>
+                <td>
+                    <img alt="上传附件" src="../Images/Upload.png" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="line">
+    </div>
+    <div id="footer">
+        <input type="button" value="提交" onclick="Submit()" />
+        <input type="button" value="重置" onclick="Reset()" />
+    </div>
+</body>
+</html>

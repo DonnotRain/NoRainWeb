@@ -1,0 +1,71 @@
+﻿<div id="dlgMain" style="width: 500px; height: 350px; display: none; padding-top: 5px">
+    <form id="fm" style="margin: 0px auto;">
+        @{
+            var width = 220;
+            var easyWidth = 222;
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+            <tr>
+                <th>
+                    主题<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="Title" id="Title" class="required" type="text" style="width: 90%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    类型<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <select name="Type" id="Type" class="easyui-combobox required" style="width: 340px">
+                         <option value="1">学习</option>
+                         <option value="2">考试</option>
+                    </select>
+                    
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    描述<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <input name="Detail" id="Detail" class="required" type="text" style="width: 90%" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    考试/学习资料<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <select name="EntityIds" id="EntityIds" class="easyui-combobox required" type="text" style="width: 340px" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    考试/学习时间<span class="label-necessary">*</span>：
+                </th>
+                 <td>
+                    <input name="ExamTime" id="ExamTime" class="Wdate" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'(new Date()).getFullYear()+'-'+((new Date()).getMonth()+1)+'-'+(new Date()).getDate()\')}'})" type="text" style="width: 340px" />
+                 </td>
+            </tr>
+            <tr>
+                <th>
+                    附件上传<span class="label-necessary">*</span>：
+                </th>
+                <td>
+                    <a id="btnChooseFile" class="btn-chooseFile">
+                        附件上传
+                       <input class="required" style="opacity: 0; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px;" type="file" id="input-file" name="input-file" onchange="$('#spanFileName').html($(this).val());">
+                    </a>
+                    <span id="spanFileName"></span>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="ID" name="ID" value="" />
+        <input type="hidden" id="CreateTime" name="CreateTime" value="" />
+        <input type="hidden" id="Creator" name="Creator" value="" />
+        <input type="hidden" id="CorpCode" name="CorpCode" value="" />
+        <input type="hidden" id="FileID" name="FileID" value="" />
+    </form>
+</div>

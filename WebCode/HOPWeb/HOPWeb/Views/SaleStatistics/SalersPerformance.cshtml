@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "商品销售额实时汇总报表";
+}
+
+@section Header{
+    <link href="~/BackAssets/select2-3.5.1/select2.css" rel="stylesheet" />
+    <link href="~/BackAssets/select2-3.5.1/select2-bootstrap.css" rel="stylesheet" />
+    <style>
+        .BMap_cpyCtrl {
+            display: none;
+        }
+    </style>
+    <style type="text/css">
+        /*覆盖easyui Tab已选中的样式*/
+        .tabs li.tabs-selected a.tabs-inner {
+            background-color: #ffffff;
+            color: #0E2D5F;
+            background: -webkit-linear-gradient(top,#C5C5C5 0,#ffffff 100%);
+            background: -moz-linear-gradient(top,#C5C5C5 0,#ffffff 100%);
+            background: -o-linear-gradient(top,#C5C5C5 0,#ffffff 100%);
+            background: linear-gradient(to bottom,#C5C5C5 0,#ffffff 100%);
+            background-repeat: repeat-x;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#C5C5C5,endColorstr=#ffffff,GradientType=0);
+        }
+        /*验证*/
+        .invalid {
+            border-color: #D00;
+        }
+
+        div.datagrid-header {
+            background-color: #FAEBD7;
+        }
+
+        .datagrid-header .datagrid-cell span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        hr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+}
+
+@section breadcrumb{
+    <li class="active">销售情况</li>}
+<div>
+
+    <div id="div-searchctr-wrap">
+        <span class="search-condition-box">销售员编号:<input id="conditionCode" type="text" style="width: 140px;height: 22px;" /></span>
+        <span class="search-condition-box">销售员名称:<input id="conditionName" type="text" style="width: 140px;height: 22px;" /></span>
+        <span class="search-condition-box">
+            销售时间:<input id="conditionBeginTime" type="text" class="Wdate" onfocus="WdatePicker()" style="width: 140px;height: 22px;" />
+        </span>
+        <span class="search-condition-box">~</span>
+        <span class="search-condition-box">
+            <input id="conditionEndTime" type="text" class="Wdate" onfocus="WdatePicker()" style="width: 140px;height: 22px;" />
+        </span>
+        <span style="float: right; margin-right: 0px;margin-top:5px; display: inline-block">
+            <button class="btn  btn-yellow btn-xs" onclick="PlugFunctions.Sale.Index.reloadDataGrid();"><i class="icon-search bigger-130"></i>查询</button>
+        </span>
+    </div>
+
+    <div class="dg-panel" style="padding: 0px 5px;">
+        <div id="dgMain">
+        </div>
+        <div id="container">
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <script src="~/BackAssets/select2-3.5.1/select2.min.js"></script>
+    <script src="~/BackAssets/My97/WdatePicker.js"></script>
+    <script src="~/BackAssets/jquery-easyui-1.4/easyloader.js"></script>
+
+    <script src="~/Scripts/jQuery.validVal/js/jquery.validVal.js"></script>
+
+    <script src="~/BackAssets/js/jquery.gritter.min.js"></script>
+
+
+    <script src="~/BackAssets/Highcharts-4.0.3/js/highcharts.js"></script>
+    <script src="~/BackAssets/Highcharts-4.0.3/js/modules/exporting.js"></script>
+
+    <script src="~/BackAssets/Highcharts-4.0.3/js/highcharts-3d.js"></script>
+
+    <script src="~/Scripts/JS/SaleStatistics/SalersPerformance.js"></script>
+    <script type="text/javascript">
+        $(".select2").select2();
+        PlugFunctions.Sale.Index.init();
+    </script>
+}

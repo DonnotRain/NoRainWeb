@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF9461D6-9341-4EA0-B300-9A3B344FE886}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HuaweiSoftware.WQT.IBll</RootNamespace>
+    <AssemblyName>HuaweiSoftware.WQT.IBll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authority\IFunctionBLL.cs" />
+    <Compile Include="Authority\IRoleBLL.cs" />
+    <Compile Include="Authority\IOperatorBll.cs" />
+    <Compile Include="IAppDownloadBll.cs" />
+    <Compile Include="Statistics\IStatisticsAttendenceBll.cs" />
+    <Compile Include="Statistics\IStatisticsBll.cs" />
+    <Compile Include="IArrangeBll.cs" />
+    <Compile Include="ICorpBll.cs" />
+    <Compile Include="IExamBll.cs" />
+    <Compile Include="IFileItem.cs" />
+    <Compile Include="IItemBll.cs" />
+    <Compile Include="IParameterBll.cs" />
+    <Compile Include="IScoreBll.cs" />
+    <Compile Include="IStoreBll.cs" />
+    <Compile Include="IStudyBll.cs" />
+    <Compile Include="IUserBll.cs" />
+    <Compile Include="IInfomationBll.cs" />
+    <Compile Include="IReturnBll.cs" />
+    <Compile Include="IRequestBll.cs" />
+    <Compile Include="ISaleBll.cs" />
+    <Compile Include="IBoardBll.cs" />
+    <Compile Include="IAttendenceBll.cs" />
+    <Compile Include="ILeaveBll.cs" />
+    <Compile Include="Common\IBaseBLL.cs" />
+    <Compile Include="Common\ICommonBLL.cs" />
+    <Compile Include="Common\ICommonSecurityBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistics\IStatisticsLeaveBll.cs" />
+    <Compile Include="Statistics\IStatisticsSaleBll.cs" />
+    <Compile Include="Statistics\IStatisticsTrainingRecordBll.cs" />
+    <Compile Include="Sys\ICategoryBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonToolkit\CommonToolkit.csproj">
+      <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
+      <Name>CommonToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{e5af736e-ba28-4b20-87fd-732853fdc5cf}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{956b2b0a-5437-4e55-b67d-bc36d362d81f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebBase\WebBase.csproj">
+      <Project>{e4d6c466-5b94-4c73-af51-a3d67dc23bc6}</Project>
+      <Name>WebBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

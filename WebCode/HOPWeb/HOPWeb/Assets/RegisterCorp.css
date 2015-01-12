@@ -1,0 +1,698 @@
+﻿
+/**
+        * Uses CSS3PIE.
+        * See my_render_ie_pie in functions.php
+        */
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #F2F2F2;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    outline: none; /*移除虚线框  IE8,FF有用*/
+    hide-focus: expression(this.hideFocus=true); /*IE6、IE7*/
+}
+
+img {
+    border: 0;
+}
+
+.lightbox {
+    width: 100%;
+    background: #999;
+    overflow: hidden;
+    zoom: 1;
+    margin: auto;
+}
+
+.h200 {
+    height: 200px;
+}
+
+.pencil_bg {
+    background: url(gfx/lightbox1.png) no-repeat center center;
+}
+/*head部分样式*/
+#head {
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+    color: #626262;
+    line-height: 64px;
+    font-family: 微软雅黑;
+}
+
+    #head .title {
+        position: absolute;
+        left: 50px;
+        color: #d90000;
+        font-weight: 900;
+        font-size: 28px;
+    }
+
+    #head .title2 {
+        position: absolute;
+        left: 145px;
+        top: 17px;
+        line-height: 16px;
+        font-size: 14px;
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        -khtml-opacity: 0.75;
+        opacity: 0.75;
+    }
+
+    #head .plateName {
+        font-weight: 600;
+        font-weight: 700;
+        color: Black;
+    }
+
+    #head .url {
+    }
+
+    #head .title3 {
+        position: absolute;
+        left: 270px;
+    }
+
+    #head .slogan {
+        border-left: 1px solid #aaa;
+        font-size: 18px;
+        font-family: verdana;
+        padding-left: 8px;
+    }
+
+#footContainer {
+    padding-top: 40px;
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+    color: #626262;
+    line-height: 64px;
+    font-family: 微软雅黑;
+}
+
+    #footContainer .title {
+        position: absolute;
+        left: 50px;
+        color: #d90000;
+        font-weight: 900;
+        font-size: 28px;
+    }
+
+    #footContainer .title2 {
+        position: absolute;
+        left: 145px;
+        top: 55px;
+        line-height: 16px;
+        font-size: 14px;
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        -khtml-opacity: 0.75;
+        opacity: 0.75;
+    }
+
+    #footContainer .plateName {
+        font-weight: 600;
+        font-weight: 700;
+        color: rgb(235, 171, 76);
+    }
+
+    #footContainer .url {
+    }
+
+    #footContainer .title3 {
+        position: absolute;
+        left: 270px;
+    }
+
+    #footContainer .slogan {
+        border-left: 1px solid #aaa;
+        font-size: 18px;
+        font-family: verdana;
+        padding-left: 8px;
+    }
+
+.header_warp {
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+    zoom: 1;
+    background: url(gfx/headerbg.jpg) no-repeat center -1px;
+    height: 97px;
+}
+
+.header {
+    margin: auto;
+    margin-top: 25px;
+    width: 1100px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+
+.main {
+    margin: auto;
+    width: 990px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.inner_box {
+    width: 1000px;
+    margin: auto;
+    height: 500px;
+    font-size: 16px;
+    font-family: 微软雅黑;
+    line-height: 25px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+
+
+/*------------Box------------*/
+
+.section {
+    float: left;
+    width: 1000px;
+}
+
+
+
+
+
+.box {
+    float: left;
+    display: inline;
+    margin: 0px 12px 20px 0px;
+    width: 986px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.3);
+    box-shadow: 0px 1px 3px rgba(0,0,0,.3);
+    box-shadow /*\**/: 0px 1px 3px #a8a8a8\9;
+    behavior: url(PIE.php);
+    padding-bottom: 10px;
+}
+
+    .box.small {
+        width: 236px;
+    }
+
+
+
+    .box.medium {
+        width: 486px;
+    }
+
+
+
+    .box.big {
+        width: 736px;
+    }
+
+    .box.triple {
+        width: 319px;
+    }
+
+    .box.triple_2_3 {
+        width: 653px;
+    }
+
+    .box.triple_fix {
+        width: 320px;
+    }
+
+
+
+    .box .title {
+        display: block;
+        border-bottom: 1px solid #d7d7d7;
+        padding: 10px 0 0 0;
+        height: 24px;
+    }
+
+
+
+        .box .title h2 {
+            float: left;
+            padding: 0 0 0 10px;
+            font: 14px Arial;
+            color: #737373;
+            line-height: 1.2em;
+            text-transform: uppercase;
+        }
+
+
+
+@-moz-document url-prefix() {
+
+    .box .title h2 {
+        font-weight: 100;
+    }
+}
+
+
+
+.box .title span.more {
+    float: right;
+    margin: -3px 10px 0;
+    background: url(../gfx/box-more.png) no-repeat left top transparent;
+    overflow: hidden;
+    cursor: pointer;
+    width: 40px;
+    height: 21px;
+}
+
+
+
+    .box .title span.more:hover {
+        background: url(../gfx/box-more.png) no-repeat left bottom transparent;
+    }
+
+
+
+.box .title span.search {
+    float: right;
+    margin: -4px 0 0;
+    margin-right: 5px;
+    background: url(../gfx/box-search.png) no-repeat left top transparent;
+    overflow: hidden;
+    cursor: pointer;
+    width: 57px;
+    height: 21px;
+}
+
+
+
+    .box .title span.search:hover {
+        background: url(../gfx/box-search.png) no-repeat left bottom transparent;
+    }
+
+
+
+.box .title .box-search {
+    float: right;
+    margin: -4px 0 0;
+}
+
+
+
+    .box .title .box-search input {
+        float: left;
+        background: url(../gfx/search-input.gif) no-repeat left top transparent;
+        border: 0;
+        outline: none;
+        padding: 4px 7px 4px;
+        margin: 0;
+        font-size: 12px;
+        color: #c9c9c9;
+        line-height: 1.5em;
+        text-transform: uppercase;
+        width: 100px;
+    }
+
+
+
+        .box .title .box-search input:focus {
+            color: #5a5a5a;
+        }
+
+
+
+    .box .title .box-search button {
+        float: left;
+        background: url(../gfx/search-button.gif) no-repeat left top transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        overflow: visible;
+        width: 28px;
+        height: 22px;
+        margin-right: 5px;
+    }
+
+
+
+.box .content {
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+}
+
+
+
+    .box .content p {
+        font-size: 14px;
+        margin: 33px;
+        line-height: 30px;
+        letter-spacing: 1px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+.box .shadow img {
+    width: 74px;
+    height: 74px;
+}
+
+
+
+.box .content a:hover span.shadow img {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
+
+.box .content div.thumb {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    position: relative;
+    overflow: hidden;
+    margin: 12px 7px 0 0;
+    *margin: 10px 9px 3px 1px;
+    width: 80px;
+    height: 80px;
+}
+
+
+
+.box .thumb div {
+    position: absolute;
+    background: url(../gfx/img-hover.png) repeat left bottom transparent;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+    .box .thumb div a.zoom {
+        display: inline-block;
+        margin: 18px 0 0;
+    }
+
+
+
+    .box .thumb div a:hover img {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+
+
+.box .content .message {
+    display: block;
+    border-bottom: 1px solid #c3d0e1;
+    padding: 0 0 13px;
+    *padding: 0 0 8px;
+    font-size: 11px;
+    font-family: MingLiU;
+}
+
+
+
+.box .content .manage_setting {
+    display: block;
+    height: 212px;
+    *height: 210px;
+}
+
+
+
+    .box .content .manage_setting ul {
+        width: 215px;
+        float: left;
+    }
+
+.index_intro {
+    padding: 25px 40px;
+    width: 900px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+/*------------footer------------*/
+
+.footer {
+    font-size: 12px;
+    background: #333 url(gfx/foot_bg.jpg);
+    width: 100%;
+    height: 126px;
+    line-height: 22px;
+    _margin-top: 20px;
+}
+
+.footer_inner {
+    font-size: 12px;
+    width: 990px;
+    margin: auto;
+    height: 126px;
+}
+
+.footer a, .footer a:link, .footer a:active, .footer a:visited {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+    .footer a:hover {
+        color: #ffffff;
+        text-decoration: none;
+        border-bottom: 1px #FFF solid;
+        padding-bottom: 1px;
+    }
+
+.footer .relevance {
+    float: left;
+    width: 700px;
+    color: #e6e6e6;
+    margin-left: 5px;
+    word-spacing: 5px;
+}
+
+    .footer .relevance p {
+        text-indent: -45pt;
+        padding-left: 65px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .footer .relevance span {
+        margin-left: 5px;
+    }
+
+.footer .foot_logo {
+    width: 243px;
+    height: 67px;
+    background: url(../gfx/foot_logo.png);
+    margin-top: 23px;
+}
+
+
+/*------------regform------------*/
+
+.regform {
+    /*width: 663px;*/
+    border-top: 1px #B4B4B4 solid;
+    padding-top: 15px;
+    border-bottom: 1px #B4B4B4 dashed;
+    padding-bottom: 10px;
+}
+
+    .regform li {
+        list-style-type: none;
+        font-size: 14px;
+        line-height: 50px;
+        margin-left: 70px;
+    }
+
+        .regform li input {
+            width: 310px;
+            height: 30px;
+            padding-left: 5px;
+            font-size: 12px;
+            border: 2px #cacaca solid;
+            vertical-align /*\**/: -7px\9;
+            line-height /*\**/: 25px\9;
+        }
+
+        .regform li span {
+            font-size: 12px;
+            margin-left: 10px;
+            color: #B1A2A2;
+        }
+
+        .regform li textarea {
+            width: 310px;
+            vertical-align: top;
+            margin-top: 15px;
+            font-size: 12px;
+            border: 2px #cacaca solid;
+            padding: 5px;
+            vertical-align /*\**/: -25px;\9
+        }
+
+/*.regform li select{width:308px;border:2px #cacaca solid; font-size:14px;padding:5px;}*/
+
+.reg_submit {
+    width: 603px;
+    margin-top: 25px;
+    margin-left: 30px;
+    padding-left: 100px;
+}
+
+.regbutton {
+    /*margin-left: 290px;*/
+    background-color: #007dc1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #124d77;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 9px 35px;
+    text-decoration: none;
+    behavior: url(PIE.php);
+}
+
+    .regbutton:hover {
+        background-color: #0061a7;
+        color: #fff;
+    }
+
+    .regbutton:active {
+        position: relative;
+        top: 1px;
+    }
+
+.smscodebtn {
+    margin-left: 5px;
+    vertical-align: 1px;
+    line-height: 18px;
+    background-color: #d0451b;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #942911;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: arial;
+    font-size: 12px;
+    padding: 6px 14px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
+}
+
+    .smscodebtn:hover {
+        background-color: #bc3315;
+        color: #fff;
+    }
+
+    .smscodebtn:active {
+        position: relative;
+        top: 1px;
+    }
+
+.select_border {
+    width: 296px;
+    *border: 2px solid #cacaca;
+    *padding: 6px 5px 2px 5px;
+    *height: 20px;
+    float: left;
+    margin-left: 1px;
+    *margin-left: 0px;
+}
+
+.select_container {
+    *border: 0;
+    *position: relative;
+    *height: 18px;
+    *overflow: hidden;
+    *width: 296px;
+}
+
+.regselect {
+    border: 2px solid #cacaca;
+    padding: 4px 3px;
+    font-size: 14px;
+    width: 309px;
+    *width: 300px;
+    margin: -1px;
+    *margin-top: -36px;
+    *line-height: normal;
+    *margin-left: -2px;
+    height: 33px;
+    *height: 22px;
+    text-transform: capitalize;
+}
+
+.disabled {
+    background: #A8A5A5;
+    cursor: default;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.result {
+    margin-top: 200px;
+    width: 712px;
+    text-align: center;
+    font-size: 16px;
+}
+
+    .result.success {
+        color: green;
+    }
+
+    .result.error {
+        color: red;
+    }
+
+.regform li span.input-info {
+    display: inline-block;
+    width: 100px;
+    color: black;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei UI';
+}
+
+.regform li input.invalid, .regform li textarea.invalid {
+    border: 1px solid red;
+}

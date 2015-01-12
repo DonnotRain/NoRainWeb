@@ -1,0 +1,454 @@
+﻿@section breadcrumb{
+    <li>最新动态</li>}
+
+@section Header
+{
+    <style type="text/css">
+        hr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="space-6"></div>
+
+            <div class="col-sm-6 infobox-container">
+                <div class="widget-box">
+                    <div class="widget-header widget-header-flat widget-header-small">
+                        <h5>
+                            <i class="icon-signal"></i>
+                            统计信息
+                        </h5>
+
+                        <div class="widget-toolbar no-border">
+                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                本周
+                                <i class="icon-angle-down icon-on-right bigger-110"></i>
+                            </button>
+
+                            <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="BaseStatic">
+                                <li class="active">
+                                    <a href="#week" class="blue">
+                                        <i class="icon-caret-right bigger-110">&nbsp;</i>
+                                        本周
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#lastweek">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        上周
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#month">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        本月
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#lastmonth">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        上月
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main no-padding">
+                            <div class="infobox infobox-green  ">
+                                <div class="infobox-icon">
+                                    <i class="icon-comments"></i>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-data-number" id="StaRequest">32</span>
+                                    <div class="infobox-content">店面需求</div>
+                                </div>
+                                <div class="stat" id="StaRequestRate">未获取</div>
+                            </div>
+
+                            <div class="infobox infobox-blue  ">
+                                <div class="infobox-icon">
+                                    <i class="icon-circle-arrow-left"></i>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-data-number" id="StaReturn">11</span>
+                                    <div class="infobox-content">退货次数</div>
+                                </div>
+
+                                <div class="badge badge-success">
+                                    <span id="StaReturnRate">未获取</span>
+                                    <i class="icon-arrow-up"></i>
+                                </div>
+                            </div>
+
+                            <div class="infobox infobox-pink  ">
+                                <div class="infobox-icon">
+                                    <i class="icon-shopping-cart"></i>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-data-number" id="StaSaleTime">8</span>
+                                    <div class="infobox-content">销售笔数</div>
+                                </div>
+                                <div class="stat stat-important" id="StaSaleTimeRate">未获取</div>
+                            </div>
+
+                            <div class="infobox infobox-red  ">
+                                <div class="infobox-icon">
+                                    <i class="icon-beaker"></i>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-data-number" id="StaTraining">7</span>
+                                    <div class="infobox-content">培训考试次数</div>
+                                </div>
+                            </div>
+
+                            <div class="infobox infobox-orange2  ">
+                                <div class="infobox-chart">
+                                    <span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-data-number" id="StaSaleAmount">未获取</span>
+                                    <div class="infobox-content">销售额</div>
+                                </div>
+
+                                <div class="badge badge-success">
+                                    <span id="StaSaleRate"> 未获取</span>
+                                    <i class="icon-arrow-up"></i>
+                                </div>
+                            </div>
+
+                            <div class="infobox infobox-blue2  ">
+                                <div class="infobox-progress">
+                                    <div class="easy-pie-chart percentage" data-percent="100" data-size="46">
+                                        <span class="percent"><i class="icon-envelope-alt"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="infobox-data">
+                                    <span class="infobox-text">请假人次</span>
+
+                                    <div class="infobox-content">
+                                        <span id="StaLeave">未获取</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /widget-main -->
+                </div>
+            </div>
+
+            <div class="vspace-sm"></div>
+
+            <div class="col-sm-6">
+                <div class="widget-box">
+                    <div class="widget-header widget-header-flat widget-header-small">
+                        <h5>
+                            <i class="icon-signal"></i>
+                            各种类销售额比例
+                        </h5>
+
+                        <div class="widget-toolbar no-border">
+                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                本周
+                                <i class="icon-angle-down icon-on-right bigger-110"></i>
+                            </button>
+
+                            <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="TypeRate">
+                                <li class="active">
+                                    <a href="#" class="blue">
+                                        <i class="icon-caret-right bigger-110">&nbsp;</i>
+                                        本周
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        上周
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        本月
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                        上月
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="piechart-placeholder"></div>
+
+                            <div class="hr hr8 hr-double"></div>
+                        </div><!-- /widget-main -->
+                    </div><!-- /widget-body -->
+                </div><!-- /widget-box -->
+            </div><!-- /span -->
+        </div><!-- /row -->
+
+        <div class="hr hr14 hr-dotted"></div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="widget-box transparent" id="recent-box">
+                    <div class="widget-header">
+                        <h4 class="lighter smaller">
+                            <i class="icon-rss orange"></i>
+                            其他消息
+                        </h4>
+
+                        <div class="widget-toolbar no-border">
+                            <ul class="nav nav-tabs" id="recent-tab">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#task-tab">竞争信息</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" href="#member-tab">退货情况</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" href="#comment-tab">培训安排</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#attendance-tab">考勤情况</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main padding-4">
+                            <div class="tab-content padding-8 overflow-visible">
+                                <div id="task-tab" class="tab-pane active">
+                                    <h4 class="smaller lighter green">
+                                        <i class="icon-list"></i>
+                                        最新竞争信息 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
+                                    </h4>
+                                    <table id="tblInformation" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                        <thead>
+                                            <tr>
+                                                <th>标题</th>
+                                                <th>详细信息</th>
+                                                <th>提交人</th>
+
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    提交时间
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="4">
+                                                    暂无数据
+                                                </td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <div id="member-tab" class="tab-pane">
+                                    <h4 class="smaller lighter green">
+                                        <i class="icon-list"></i>
+                                        退货情况 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
+                                    </h4>
+                                    <table id="tblReturn" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                        <thead>
+                                            <tr>
+                                                <th>商品名称</th>
+                                                <th>退货数量</th>
+                                                <th>退货原因</th>
+                                                <th>提交人</th>
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    提交时间
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="0">
+                                                    暂无数据
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!-- member-tab -->
+
+                                <div id="comment-tab" class="tab-pane">
+                                    <h4 class="smaller lighter green">
+                                        <i class="icon-list"></i>
+                                        培训考试安排 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
+                                    </h4>
+                                    <table id="tblTrain" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                        <thead>
+                                            <tr>
+
+                                                <th>培训/考试</th>
+                                                <th>标题</th>
+                                                <th>详情</th>
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    考试时间
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="0">
+                                                    暂无数据
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="attendance-tab" class="tab-pane">
+                                    <h4 class="smaller lighter green">
+                                        <i class="icon-list"></i>
+                                        最新请假信息 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
+                                    </h4>
+                                    <table id="tblLeave" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                        <thead>
+                                            <tr>
+                                                <th>提交人</th>
+                                                <th>原因</th>
+
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    开始时间
+                                                </th>
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    结束时间
+                                                </th>
+                                                <th>
+                                                    <i class="icon-time bigger-110"></i>
+                                                    请假时长
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="4">
+                                                    暂无数据
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div><!-- atd-tab -->
+
+                            </div>
+                        </div><!-- /widget-main -->
+                    </div><!-- /widget-body -->
+                </div><!-- /widget-box -->
+            </div>
+            <div class="col-sm-6">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="lighter">
+                        <i class="icon-signal"></i>
+                        销售情况
+                    </h4>
+                    <div class="widget-toolbar no-border">
+                        <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                            本周
+                            <i class="icon-angle-down icon-on-right bigger-110"></i>
+                        </button>
+
+                        <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="ItemsAmount">
+                            <li class="active">
+                                <a href="#" class="blue">
+                                    <i class="icon-caret-right bigger-110">&nbsp;</i>
+                                    本周
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                    上周
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                    本月
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
+                                    上月
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" data-action="collapse">
+                            <i class="icon-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                        <div id="sales-charts"></div>
+                    </div><!-- /widget-main -->
+                </div><!-- /widget-body -->
+            </div><!-- /widget-box -->
+        </div>
+
+
+    </div>
+
+    <div class="hr hr14 hr-dotted"></div>
+</div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts
+{
+    <script src='@Url.Content("~/BackAssets/js/jquery.slimscroll.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/jquery.easy-pie-chart.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/jquery.sparkline.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.pie.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.resize.min.js")'></script>
+    <script src="~/BackAssets/Highcharts-4.0.3/js/highcharts.js"></script>
+    <script src="~/BackAssets/Highcharts-4.0.3/js/modules/exporting.js"></script>
+    @*<script src="~/BackAssets/Highcharts-4.0.3/js/themes/gray.js"></script>*@
+    <script src="~/Scripts/JS/DashboardStatic.js"></script>
+}

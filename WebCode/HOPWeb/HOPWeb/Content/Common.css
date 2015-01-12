@@ -1,0 +1,400 @@
+﻿/** {
+    font-size: 9pt;
+}*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+    color: #000000;
+    background-color: #FFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+}
+
+/*a:link {
+    color: #222;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #222;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #222;
+    text-decoration: none;
+}
+
+a:active {
+    color: #222;
+    text-decoration: none;
+}*/
+
+.nav-user-info {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    font-size: 12px;
+    color: #fff;
+}
+
+    .nav-user-info a {
+        text-decoration: underline;
+        color: #fff;
+    }
+    /*用户信息导航栏*/
+    .nav-user-info > li {
+        line-height: 45px;
+        height: 45px;
+        border: none;
+        padding: 10px 3px;
+        position: relative;
+        float: left !important;
+    }
+
+        .nav-user-info > li:first-child {
+            border-left: none;
+        }
+
+.frm-table .label-necessary {
+    color: red;
+    font-family: 微软雅黑;
+    border-bottom: 0px dashed #ccc;
+}
+
+.frm-table {
+    width: 100%;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+    /*没有Tbody的情况*/
+    .frm-table > tr > th {
+        border-bottom: 1px dashed #ccc;
+        height: 27px;
+        white-space: nowrap;
+        font-weight: normal;
+        text-align: right;
+        padding: 6px 5px;
+    }
+
+        .frm-table > tr > th:first-child {
+            width: 100px;
+        }
+
+    .frm-table > tr > td {
+        width: auto;
+        height: 27px;
+        border-bottom: 1px dashed #ccc;
+        padding: 6px 2px;
+    }
+
+    .frm-table > tr:last-child > th {
+        border-bottom: 0px dashed #ccc;
+    }
+
+    .frm-table > tr:last-child > td {
+        border-bottom: 0px dashed #ccc;
+    }
+
+    .frm-table > tr > td > span {
+        line-height: 1;
+    }
+
+    .frm-table > tr > th span {
+        line-height: 1;
+    }
+
+    .frm-table > .highlight {
+        background: #F7F7F7;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    /*有Tbody的情况*/
+    .frm-table > tbody > tr > th {
+        border-bottom: 1px dashed #ccc;
+        height: 27px;
+        white-space: nowrap;
+        font-weight: normal;
+        text-align: right;
+        padding: 6px 5px;
+    }
+
+        .frm-table > tbody > tr > th:first-child {
+            width: 100px;
+        }
+
+    .frm-table > tbody > tr > td {
+        width: auto;
+        height: 27px;
+        border-bottom: 1px dashed #ccc;
+        padding: 6px 2px;
+    }
+
+    .frm-table > tbody > tr:last-child > th {
+        border-bottom: 0px dashed #ccc;
+    }
+
+    .frm-table > tbody > tr:last-child > td {
+        border-bottom: 0px dashed #ccc;
+    }
+
+    .frm-table > tbody > tr > td > span {
+        line-height: 1;
+    }
+
+    .frm-table > tbody > tr > th span {
+        line-height: 1;
+    }
+
+    .frm-table > tbody > .highlight {
+        background: #F7F7F7;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+/*验证插件*/
+input.error {
+    border: 1px solid red;
+}
+
+label.error {
+    /*border: 1px solid red;*/
+    color: red;
+}
+
+
+/*清除Easyui的树图标*/
+span.none {
+    background: none;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: central;
+}
+
+.frm-table textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    color: #222222;
+}
+
+.frm-table input[readonly] {
+    color: #939192;
+}
+
+/*子菜单字体修改*/
+.nav-list > li .submenu {
+    font-size: 12px;
+}
+
+    .nav-list > li .submenu [class^="icon-"]:not(.icon-double-angle-right) {
+        font-size: 20px;
+        vertical-align: middle;
+        margin-right: 3px;
+    }
+
+/*EasyUI 右键菜单下的图标样式*/
+.menu-icon [class^="icon-"] {
+    font-size: 16px;
+}
+
+
+/*替换easyui表格选中样式和树选中样式*/
+
+.datagrid-row-selected {
+    background: #b8cfe6;
+    color: #000;
+}
+
+.tree-node-selected {
+    background: #b8cfe6;
+    color: #000;
+}
+
+/*搜索框样式*/
+#div-searchctr-wrap {
+    overflow: hidden;
+    overflow: overlay;
+    margin: 0 0 12px;
+    border-bottom: 1px dotted #e2e2e2;
+    padding: 10px;
+}
+
+/*整体布局样式*/
+
+.page-header {
+    margin: 0 0 12px;
+    border-bottom: 1px dotted #e2e2e2;
+    padding-bottom: 16px;
+    padding-top: 7px;
+}
+
+.page-content {
+    background: #fff;
+    margin: 0;
+    padding: 8px 15px 5px;
+    height: 100%;
+}
+
+
+td.invalid input.invalid {
+    border-color: #D00;
+}
+
+.select2.invalid {
+    border: 1px solid #D00;
+    border-radius: 4px;
+}
+
+
+/*修改按钮的默认颜色*/
+.btn-green {
+    background-color: #4fd520;
+}
+
+.btn-blue {
+    background-color: #438eb9;
+}
+
+
+
+.btn-blue {
+    color: #ffffff !important;
+    text-shadow: 0 -1px 0 rgba(255,255,255,0.4) !important;
+}
+
+    .btn-blue, .btn-blue:focus {
+        background-color: #438eb9 !important;
+        border-color: #438eb9;
+    }
+
+        .btn-blue:hover, .open .btn-blue.dropdown-toggle {
+            background-color: #1b7dde !important;
+            border-color: #438eb9;
+        }
+
+        .btn-blue.no-border:hover {
+            border-color: #438eb9;
+        }
+
+        .btn-blue.no-hover:hover {
+            background-color: #438eb9 !important;
+        }
+
+        .btn-blue.active {
+            background-color: #4ea0f2 !important;
+            border-color: #1985f1;
+        }
+
+        .btn-blue.no-border.active {
+            background-color: #438eb9 !important;
+            border-color: #438eb9;
+        }
+
+        .btn-blue.disabled, .btn-blue[disabled], fieldset[disabled] .btn-blue, .btn-blue.disabled:hover, .btn-blue[disabled]:hover, fieldset[disabled] .btn-blue:hover, .btn-blue.disabled:focus, .btn-blue[disabled]:focus, fieldset[disabled] .btn-blue:focus, .btn-blue.disabled:active, .btn-blue[disabled]:active, fieldset[disabled] .btn-blue:active, .btn-blue.disabled.active, .btn-blue[disabled].active, fieldset[disabled] .btn-blue.active {
+            background-color: #438eb9 !important;
+            border-color: #438eb9;
+        }
+
+
+
+.btn-green {
+    color: #ffffff !important;
+    text-shadow: 0 -1px 0 rgba(255,255,255,0.4) !important;
+}
+
+    .btn-green, .btn-green:focus {
+        background-color: #4fd520 !important;
+        border-color: #4fd520;
+    }
+
+        .btn-green:hover, .open .btn-green.dropdown-toggle {
+            background-color: #36b509 !important;
+            border-color: #4fd520;
+        }
+
+        .btn-green.no-border:hover {
+            border-color: #4fd520;
+        }
+
+        .btn-green.no-hover:hover {
+            background-color: #4fd520 !important;
+        }
+
+        .btn-green.active {
+            background-color: #4fd520 !important;
+            border-color: #4fd520;
+        }
+
+        .btn-green.no-border.active {
+            background-color: #4fd520 !important;
+            border-color: #4fd520;
+        }
+
+        .btn-green.disabled, .btn-green[disabled], fieldset[disabled] .btn-green, .btn-green.disabled:hover, .btn-green[disabled]:hover, fieldset[disabled] .btn-green:hover, .btn-green.disabled:focus, .btn-green[disabled]:focus, fieldset[disabled] .btn-green:focus, .btn-green.disabled:active, .btn-green[disabled]:active, fieldset[disabled] .btn-green:active, .btn-green.disabled.active, .btn-green[disabled].active, fieldset[disabled] .btn-green.active {
+            background-color: #4fd520 !important;
+            border-color: #4fd520;
+        }
+
+
+/*搜索框样式*/
+#div-searchctr-wrap {
+    overflow: hidden;
+    overflow: overlay;
+}
+
+    #div-searchctr-wrap .search-condition-box {
+        padding-right: 5px;
+    }
+
+        #div-searchctr-wrap .search-condition-box > input {
+            height: 14px;
+            margin-top: 5px;
+            /*margin-bottom: 5px;*/
+            width: 140px;
+            margin-right: 2px;
+            margin-left: 2px;
+            padding-left: 3px;
+        }
+
+        #div-searchctr-wrap .search-condition-box > select {
+            height: 18px;
+            margin-top: 5px;
+            /*margin-bottom: 5px;*/
+            width: 140px;
+            margin-right: 0px;
+            margin-left: 0px;
+            padding-left: 3px;
+        }
+
+    #div-searchctr-wrap search-condition-box {
+        display: inline-block;
+    }
+
+    #div-searchctr-wrap span {
+        display: inline-block;
+    }
+
+
+/*选择文件的按钮*/
+.btn-chooseFile {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    border-color: rgb(66, 139, 202);
+    background-color: rgb(66, 139, 202);
+    position: relative;
+    padding: 5px 1em;
+    height: 28px;
+    position: relative;
+    display: inline-block;
+}
+
+    .btn-chooseFile:hover {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: underline;
+    }

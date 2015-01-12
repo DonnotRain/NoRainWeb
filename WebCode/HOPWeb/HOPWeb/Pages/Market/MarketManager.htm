@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Styles/Menu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+        <img id="imgBack" src="../Images/Back.png" alt="后退" onclick="Skip('../MainMenu')" />
+        <h1>
+            销售管理
+        </h1>
+    </div>
+    <div id="content" align="center">
+        <table align="center" width="80%" style="margin-top: 80px;">
+            <tr>
+                <td>
+                    <img src="../Images/Sell.png" alt="销售情况" onclick="Skip('Sell')" /><p>
+                        销售情况</p>
+                </td>
+                <td>
+                    <img src="../Images/Return.png" alt="汇报退货信息" onclick="Skip('Return')" /><p>
+                        汇报退货信息</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../Images/Request.png" alt="提交门店需求" onclick="Skip('RequestList')" /><p>
+                        提交门店需求</p>
+                </td>
+                <td>
+                    <img src="../Images/Infomation.png" alt="提交竞争信息" onclick="Skip('CompetiveList')" /><p>
+                        提交竞争信息</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function Skip(object) {
+            window.location.href = object + '.htm';
+        }
+    </script>
+</body>
+</html>

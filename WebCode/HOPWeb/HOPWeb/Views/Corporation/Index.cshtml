@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>外勤通APP下载 |外勤通-外勤员工定位管理软件|免费手机考勤|移动考勤管理|员工定位管理考勤|业务员轨迹定位</title>
+    <link href="~/Assets/App/style.css" rel="stylesheet" />
+    <link href="~/Assets/Corp.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="doc2">
+        <div id="hd">
+            <div class="hd-wrap">
+                <div class="hd">
+
+                    <div class="nav">
+                        <div class="header">
+                            <div id="head" style="width: 260px;">
+                                <div class="title">外勤通</div>
+                                <div class="title2">
+                                    <div class="plateName">综合业务平台</div>
+                                    <div class="url"> huaweisoft.com </div>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;">
+                                <a href="@Url.Action("Index", "Corporation")" class="current logit">首页</a>
+                                <a href="@Url.Action("Register", "Corporation")" target="_blank" class="logit">企业注册</a>
+                                <a href="http://www.huaweisoft.com/" target="_blank" class="logit">华为明天</a>
+                                <a href="@Url.Action("Index", "Home")" target="_blank" class="logit">后台入口</a>
+                            </div>
+                            <div class="fl title3">
+                                <span class="slogan">智慧管理  智能办公</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bd-wrap">
+                <div class="bd">
+                    <h2>随时随地，记录一切</h2>
+                    <p>任何地点，设备都能访问您的个人资料；网易出品安全稳定</p>
+                 
+                    <a id="downloadApp"  href="/app/download?type=ios" class="dl-btn pc-download logit" data-logname="index.windowsBanner.download-btn-windows">
+                    <img id="platformBG" src="/Assets/App/android.png" style="position:absolute;left:10px;top:18px;"></a>
+                    <img src="/Assets/App/QR/qr-Android.png" alt="多平台二维码下载" class="QR-code">
+                    <div class="multi-plat">
+                        <a href="#" class="ios logit" data-logname="index.windowsBanner.download-btn-ios">iPhone/iPad版本</a>
+                        <a class="win logit" data-logname="index.windowsBanner.download-btn-android"></a>
+                        <a href="#" class="android logit" data-logname="index.windowsBanner.download-btn-webclipper">Android版本</a>
+                    </div>
+                    <a href="@Url.Action("Index", "Home")" target="_blank" class="new-feature"></a>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        ﻿<div class="footer">
+            <div class="footer_inner">
+                <div class="relevance">
+                    <p>产品相关：<a href="###">外勤人员管理</a> | <a href="###">外勤人员定位管理</a> |<a href="###">销售人员定位管理</a> | <a href="###">外勤人员考勤管</a> | <a href="###">业务员定位管理</a> | <a href="###">销售人员管理软件管理</a></p>
+                    <span>Copyright © 2012-2014 <a href="###about.html">XXX有限公司</a> [ <a href="####" target="_blank">服务</a> ]&nbsp;<a href="###sitemap.html">网站地图</a></span>
+                </div>
+                <div id="footContainer" class="mainBlockSize">
+                    <div class="title">外勤通</div>
+                    <div class="title2">
+                        <div class="plateName">综合业务平台</div>
+                        <div class="url"> huaweisoft.com </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(function () {
+            $(".multi-plat").delegate("a", "click", function () {
+                if ($(this).hasClass("ios")) {
+                    $("#downloadApp").attr("href", "/app/download?type=ios");//.removeClass("btn-android").addClass("btn-iphone");
+                    $("#platformBG").attr("src", "/Assets/App/ios.png");
+                    $(".QR-code").attr("src", "/Assets/App/QR/qr-Android.png");
+                }
+                else if ($(this).hasClass("android")) {
+                  
+                    $("#downloadApp").attr("href", "/app/download?type=android")//.removeClass("btn-iphone").addClass("btn-android");
+                    $("#platformBG").attr("src", "/Assets/App/android.png");
+
+                    $(".QR-code").attr("src", "/Assets/App/QR/qr-iOS.png");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

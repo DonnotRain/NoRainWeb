@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Styles/Menu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+        <img id="imgBack" src="../Images/Back.png" alt="后退" onclick="Skip('../MainMenu')" />
+        <h1>
+            培训管理
+        </h1>
+    </div>
+    <div id="content" align="center">
+        <table align="center" width="80%" style="margin-top: 100px;">
+            <tr>
+                <td>
+                    <img src="../Images/LearningManeger.png" alt="学习资料" onclick="Skip('LearningList')" /><p>
+                        学习资料</p>
+                </td>
+                <td>
+                    <img src="../Images/ExamManager.png" alt="考试情况" onclick="Skip('ExamList')" /><p>
+                        考试情况</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function Skip(object) {
+            window.location.href = object + '.htm';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@RenderSection("title", false) @ViewBag.Title -华微外勤人员管理平台-后台管理</title>
+
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- shortcut icon -->
+    <link rel="shortcut icon" href="~/backfavicon.ico" />
+
+    <!-- basic styles -->
+    <link href='@Url.Content("~/BackAssets/css/bootstrap.min.css")' rel="stylesheet" />
+    <link rel="stylesheet" href='@Url.Content("~/BackAssets/css/font-awesome.min.css")' />
+
+    <link rel="stylesheet" href="~/BackAssets/css/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="~/BackAssets/css/jquery.gritter.css" />
+
+    <!--[if IE 7]>
+          <link rel="stylesheet" href='@Url.Content("~/BackAssets/css/font-awesome-ie7.min.css")' />
+        <![endif]-->
+    <!-- page specific plugin styles -->
+    <!-- ace styles -->
+    <link rel="stylesheet" href='@Url.Content("~/BackAssets/css/ace.min.css")' />
+
+    @*<link rel="stylesheet" href='@Url.Content("~/BackAssets/css/ace-rtl.min.css")' />
+        <link rel="stylesheet" href='@Url.Content("~/BackAssets/css/ace-skins.min.css")' />*@
+
+    <!--[if lte IE 8]>
+          <link rel="stylesheet" href='@Url.Content("~/BackAssets/css/ace-ie.min.css")' />
+        <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+
+    <script src='@Url.Content("~/BackAssets/js/ace-extra.min.js")'></script>
+    <link href="~/Scripts/Jquery-mask-1.0.0/jquery.mask.css" rel="stylesheet" />
+
+    <link href="~/BackAssets/messenger/css/messenger.css" rel="stylesheet" />
+    <link href="~/BackAssets/messenger/css/messenger-theme-future.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src='@Url.Content("~/BackAssets/js/html5shiv.js")'></script>
+        <script src='@Url.Content("~/BackAssets/js/respond.min.js")'></script>
+    <![endif]-->
+    <!-- 自定义通用样式-->
+    <link href="~/Content/Common.css" rel="stylesheet" />
+    <link href="~/Content/css/layout.css" rel="stylesheet" />
+    @RenderSection("Header", false)
+</head>
+<body>
+    <div class=" navbar navbar-default" id="navbar" style="height: 70px;">
+        <script type="text/javascript">
+            try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand" style="font-size: 30px">
+                    <small>
+                        @*  <i class="icon-leaf"></i>*@
+                        <img src="~/Content/images/icon.PNG" />
+                        华微外勤人员管理平台-平台管理
+                    </small>
+                </a>
+                <!-- /.brand -->
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-header pull-right" role="navigation">
+                <ul class="nav-user-info">
+                    <li>
+                        欢迎, @if (Request.Cookies.AllKeys.Contains("BackUserName"))
+                        {
+
+                            <strong> @System.Web.HttpUtility.UrlDecode(Request.Cookies["BackUserName"].Value)</strong>
+                        }
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">设置</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="javascript:void(0)">修改密码</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="@Url.Action("Logout", "BackAuthorize", new { area="Back"})" onclick="Logout();return false;">注销</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- /.navbar-header -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            @Html.Partial("Menu")
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <script type="text/javascript">
+                        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+                    </script>
+
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i><a href='@Url.Action("Index", "Home")'>主页</a>
+                            @*<span class="divider"><i class="icon-angle-right arrow-icon"></i></span>*@
+                        </li>
+                        @RenderSection("breadcrumb", false)
+                    </ul>
+
+                    <!-- #nav-search -->
+                </div>
+
+                <div class="page-content">
+                    @*   <div class="page-header">
+                            <h1>Dashboard
+                                    <small>
+                                        <i class="icon-double-angle-right"></i>
+                                        overview &amp; stats
+                                    </small>
+                            </h1>
+                        </div>
+                    *@
+                    <!-- /.page-header -->
+                    @RenderBody()
+                    <!-- /.row -->
+                </div>
+                <!-- /.page-content -->
+            </div>
+            <!-- /.main-content -->
+
+        </div>
+        <!-- /.main-container-inner -->
+
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+    </div>
+    <!-- /.main-container -->
+    <!--版权声明 -->
+    <div class="footer" id="botton_toolbar">
+        &nbsp;版本：演示版  &nbsp;
+        &nbsp;<a title="点击查看公司官网" href="http://www.huaweisoft.com/" target="_blank">技术支持：华微软件</a>
+    </div>
+    <!-- /.版权声明 -->
+    <!--后台系统模块定义 -->
+    <script src="~/Scripts/Modules.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='~/BackAssets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+
+    <script src='@Url.Content("~/BackAssets/js/bootstrap.min.js")'></script>
+
+    <!--specific plugin scripts -->
+    <!--[if lte IE 8]>
+    <script src='@Url.Content("~/BackAssets/js/excanvas.min.js")'></script>
+    <![endif]-->
+
+    <script src="~/Scripts/Jquery-mask-1.0.0/jquery.mask.src.js"></script>
+
+    <script src='@Url.Content("~/BackAssets/js/jquery-ui-1.10.3.custom.min.js")'></script>
+    <script src='@Url.Content("~/BackAssets/js/jquery.ui.touch-punch.min.js")'></script>
+
+    <!-- ace scripts -->
+    <script src='@Url.Content("~/BackAssets/js/ace.min.js")'></script>
+
+    <!-- inline scripts related to this page -->
+    <script src="~/BackAssets/messenger/js/messenger.js"></script>
+    <script src="~/BackAssets/messenger/js/messenger-theme-future.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+
+    <!-- 注销功能 -->
+    @*<script src="~/Areas/Back/JS/Authentication.js"></script>
+        <script src="~/assets/plugins/jquery.cookie.js"></script>*@
+
+    <script type="text/javascript">
+        //注销功能
+        function Logout() {
+            $.cookie("UserName", "", { path: '/' });
+            $.cookie("UserId", "", { path: '/' });
+            $.cookie("CorpCode", "", { path: '/' });
+            $.cookie("CorpName", "", { path: '/' });
+            return false;
+        }
+
+        jQuery(function ($) {
+            //页面上方按钮处理
+
+            //Android's default browser somehow is confused when tapping on label which will lead to dragging the task
+            //so disable dragging when clicking on label
+            var agent = navigator.userAgent.toLowerCase();
+            if ("ontouchstart" in document && /applewebkit/.test(agent) && /android/.test(agent))
+                $('#tasks').on('touchstart', function (e) {
+                    var li = $(e.target).closest('#tasks li');
+                    if (li.length == 0) return;
+                    var label = li.find('label.inline').get(0);
+                    if (label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation();
+                });
+        })
+
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
