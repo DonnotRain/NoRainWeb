@@ -1,0 +1,66 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "系统分类项管理";
+}
+
+@section Header{
+    <link href="~/BackAssets/select2-3.5.1/select2.css" rel="stylesheet" />
+    <link href="~/BackAssets/select2-3.5.1/select2-bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+        .dg-panel {
+            /*margin:20px 24px;*/
+        }
+
+        /*验证*/
+        .invalid {
+            border-color: #D00;
+        }
+    </style>
+
+}
+@section breadcrumb{
+    <li class="active">系统分类项管理</li>}
+
+<div class="dg-panel">
+    <div id="cc" class="easyui_layout" style="display: none">
+        <div data-options="region:'west',title:'分类类型',split:true" style="width: 500px;">
+            <table id="dgBigClass"></table>
+        </div>
+        <div data-options="region:'center',iconCls:'icon-reload',title:'分类项'">
+            <table id="dgSmallClass"></table>
+        </div>
+    </div>
+</div>
+
+<div id="dlgsContainer" style="display: none;">
+    @Html.Partial("CreateCategory")
+    @Html.Partial("CreateCategoryItem")
+    <div class="page-header position-relative" id="bigClassTool" style="padding:5px 15px;margin: 0px;">
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryType.Add(); return false;"><i class="icon-plus"></i>添加</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryType.Edit(); return false;"><i class="icon-pencil"></i>修改</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryType.Delete(); return false;"><i class="icon-minus"></i>删除</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryType.reload(); return false;"><i class="icon-refresh"></i>刷新</button>
+    </div>
+
+    <div class="page-header position-relative" id="smallClassTool" style="padding:5px 15px;margin: 0px;">
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryItem.Add(); return false;"><i class="icon-plus"></i>添加</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryItem.Edit(); return false;"><i class="icon-pencil"></i>修改</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryItem.Delete(); return false;"><i class="icon-minus"></i>删除</button>
+        <button class="btn btn-xs btn-blue" onclick="PlugFunctions.System.Category.categoryItem.reload(); return false;"><i class="icon-refresh"></i>刷新</button>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/BackAssets/select2-3.5.1/select2.min.js"></script>
+    <script src="~/BackAssets/jquery-easyui-1.3.5/easyloader.js"></script>
+
+    <script src="~/Scripts/jQuery.validVal/js/jquery.validVal.js"></script>
+
+    <script src="~/BackAssets/js/jquery.gritter.min.js"></script>
+    <script src="~/Areas/Back/JS/Category.js"></script>
+    <script type="text/javascript">
+        $(".select2").select2();
+        PlugFunctions.System.Category.init();
+    </script>
+}

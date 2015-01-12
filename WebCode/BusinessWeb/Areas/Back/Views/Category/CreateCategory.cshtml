@@ -1,0 +1,35 @@
+﻿<div id="dlgBigClass" style="width: 445px; height: 220px; display: none; padding-top: 25px">
+    <form id="fmBigClass" method="post" class="form-horizontal" role="form" action="~/API/Category">
+
+        @{
+            var width = 270 + "px";
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+            <tr>
+                <th style="width: 100px;">
+                    <label for="Code">编号：</label>
+                </th>
+                <td>
+                    <input type="text" id="CategoryCode" name="Code" class="required" placeholder="编号" style="width:@width" />
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 100px;">
+                    <label for="Name">名称：</label>
+                </th>
+                <td>
+                    <input type="text" id="Name" name="Name" class="required" placeholder="分类类型名称" style="width:@width" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="Sort">排序：</label>
+                </th>
+                <td>
+                    <input type="text" id="CategorySort" class="easyui-numberbox required" name="Sort" placeholder="排序" style="width:@width" />
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="Id" id="CategoryId" />
+    </form>
+</div>

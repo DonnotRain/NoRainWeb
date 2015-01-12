@@ -1,0 +1,1447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93E9008E-9F85-46D8-AA66-7FD3D6B16635}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessWeb</RootNamespace>
+    <AssemblyName>BusinessWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="BackAssets\js\markdown\URL\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Back\BackAreaRegistration.cs" />
+    <Compile Include="Areas\Back\Controllers\AuthorizeController.cs" />
+    <Compile Include="Areas\Back\Controllers\BackHomeController.cs" />
+    <Compile Include="Areas\Back\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Back\Controllers\OperatorController.cs" />
+    <Compile Include="Areas\Back\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Back\Controllers\PlugController.cs" />
+    <Compile Include="Areas\Back\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Back\Controllers\ProductUnitController.cs" />
+    <Compile Include="Areas\Back\Models\PlugDisplay.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\API\AdminController.cs" />
+    <Compile Include="Controllers\API\CategoryItemController.cs" />
+    <Compile Include="Controllers\API\NewsController.cs" />
+    <Compile Include="Controllers\API\OperatorController.cs" />
+    <Compile Include="Controllers\API\CategoryController.cs" />
+    <Compile Include="Controllers\API\FunctionController.cs" />
+    <Compile Include="Controllers\API\ProductController.cs" />
+    <Compile Include="Controllers\API\ProductUnitController.cs" />
+    <Compile Include="Controllers\API\RoleController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Filters\AdminAuthorize.cs" />
+    <Compile Include="Filters\ServiceValidateFilter.cs" />
+    <Compile Include="Filters\WebApiExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Back\JS\Authentication.js" />
+    <Content Include="Areas\Back\JS\Operator.js" />
+    <Content Include="Areas\Back\JS\Plug.js" />
+    <Content Include="Areas\Back\JS\Category.js" />
+    <Content Include="Areas\Back\JS\Product\Product.js" />
+    <Content Include="Areas\Back\JS\Product\ProductUnit.js" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="assets\css\effects.css" />
+    <Content Include="assets\css\headers\header1.css" />
+    <Content Include="assets\css\headers\header2.css" />
+    <Content Include="assets\css\img-hover-effect.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style_responsive.css" />
+    <Content Include="assets\css\themes\default.css" />
+    <Content Include="assets\easydropdown-master\.gitignore" />
+    <Content Include="assets\easydropdown-master\demo.css" />
+    <Content Include="assets\easydropdown-master\index.html" />
+    <Content Include="assets\easydropdown-master\jquery.easydropdown.min.js" />
+    <Content Include="assets\easydropdown-master\src\jquery.easydropdown.js" />
+    <Content Include="assets\easydropdown-master\themes\easydropdown.css" />
+    <Content Include="assets\easydropdown-master\themes\easydropdown.flat.css" />
+    <Content Include="assets\easydropdown-master\themes\easydropdown.metro.css" />
+    <Content Include="assets\favicon.ico" />
+    <Content Include="assets\img\bg-black.png" />
+    <Content Include="assets\img\bg\1.png" />
+    <Content Include="assets\img\bg\2.png" />
+    <Content Include="assets\img\bg\3.png" />
+    <Content Include="assets\img\breadcrumbs.png" />
+    <Content Include="assets\img\carousel\1.jpg" />
+    <Content Include="assets\img\carousel\10.jpg" />
+    <Content Include="assets\img\carousel\2.jpg" />
+    <Content Include="assets\img\carousel\3.jpg" />
+    <Content Include="assets\img\carousel\4.jpg" />
+    <Content Include="assets\img\carousel\5.jpg" />
+    <Content Include="assets\img\carousel\6.jpg" />
+    <Content Include="assets\img\carousel\7.jpg" />
+    <Content Include="assets\img\carousel\8.jpg" />
+    <Content Include="assets\img\carousel\9.jpg" />
+    <Content Include="assets\img\clients\aztec.png" />
+    <Content Include="assets\img\clients\aztec_grey.png" />
+    <Content Include="assets\img\clients\cisco.png" />
+    <Content Include="assets\img\clients\cisco_grey.png" />
+    <Content Include="assets\img\clients\cocacola.png" />
+    <Content Include="assets\img\clients\cocacola_grey.png" />
+    <Content Include="assets\img\clients\everyday.png" />
+    <Content Include="assets\img\clients\everyday_grey.png" />
+    <Content Include="assets\img\clients\gamescast.png" />
+    <Content Include="assets\img\clients\gamescast_grey.png" />
+    <Content Include="assets\img\clients\hp.png" />
+    <Content Include="assets\img\clients\hp_grey.png" />
+    <Content Include="assets\img\clients\igneus.png" />
+    <Content Include="assets\img\clients\igneus_grey.png" />
+    <Content Include="assets\img\clients\natural.png" />
+    <Content Include="assets\img\clients\natural_grey.png" />
+    <Content Include="assets\img\clients\shell.png" />
+    <Content Include="assets\img\clients\shell_grey.png" />
+    <Content Include="assets\img\clients\spinworkx.png" />
+    <Content Include="assets\img\clients\spinworkx_grey.png" />
+    <Content Include="assets\img\clients\vadafone.png" />
+    <Content Include="assets\img\clients\vadafone_grey.png" />
+    <Content Include="assets\img\clients\walmart.png" />
+    <Content Include="assets\img\clients\walmart_grey.png" />
+    <Content Include="assets\img\icons\social\amazon.png" />
+    <Content Include="assets\img\icons\social\behance.png" />
+    <Content Include="assets\img\icons\social\blogger.png" />
+    <Content Include="assets\img\icons\social\deviantart.png" />
+    <Content Include="assets\img\icons\social\dribbble.png" />
+    <Content Include="assets\img\icons\social\dropbox.png" />
+    <Content Include="assets\img\icons\social\evernote.png" />
+    <Content Include="assets\img\icons\social\facebook.png" />
+    <Content Include="assets\img\icons\social\forrst.png" />
+    <Content Include="assets\img\icons\social\github.png" />
+    <Content Include="assets\img\icons\social\googleplus.png" />
+    <Content Include="assets\img\icons\social\jolicloud.png" />
+    <Content Include="assets\img\icons\social\last-fm.png" />
+    <Content Include="assets\img\icons\social\linkedin.png" />
+    <Content Include="assets\img\icons\social\picasa.png" />
+    <Content Include="assets\img\icons\social\pintrest.png" />
+    <Content Include="assets\img\icons\social\rss.png" />
+    <Content Include="assets\img\icons\social\skype.png" />
+    <Content Include="assets\img\icons\social\spotify.png" />
+    <Content Include="assets\img\icons\social\stumbleupon.png" />
+    <Content Include="assets\img\icons\social\tumblr.png" />
+    <Content Include="assets\img\icons\social\twitter.png" />
+    <Content Include="assets\img\icons\social\vimeo.png" />
+    <Content Include="assets\img\icons\social\wordpress.png" />
+    <Content Include="assets\img\icons\social\xing.png" />
+    <Content Include="assets\img\icons\social\yahoo.png" />
+    <Content Include="assets\img\icons\social\youtube.png" />
+    <Content Include="assets\img\logo1-default.png" />
+    <Content Include="assets\img\logo2-default.png" />
+    <Content Include="assets\img\new\img1.jpg" />
+    <Content Include="assets\img\new\img10.jpg" />
+    <Content Include="assets\img\new\img2.jpg" />
+    <Content Include="assets\img\new\img3.jpg" />
+    <Content Include="assets\img\new\img4.jpg" />
+    <Content Include="assets\img\new\img5.jpg" />
+    <Content Include="assets\img\new\img6.jpg" />
+    <Content Include="assets\img\new\img7.jpg" />
+    <Content Include="assets\img\new\img8.jpg" />
+    <Content Include="assets\img\new\img9.jpg" />
+    <Content Include="assets\img\others\2.jpg" />
+    <Content Include="assets\img\others\3.jpg" />
+    <Content Include="assets\img\others\6.jpg" />
+    <Content Include="assets\img\others\7.jpg" />
+    <Content Include="assets\img\overlay-icon.png" />
+    <Content Include="assets\img\posts\1.jpg" />
+    <Content Include="assets\img\posts\2.jpg" />
+    <Content Include="assets\img\posts\3.jpg" />
+    <Content Include="assets\img\sliders\elastislide\1.jpg" />
+    <Content Include="assets\img\sliders\elastislide\10.jpg" />
+    <Content Include="assets\img\sliders\elastislide\11.jpg" />
+    <Content Include="assets\img\sliders\elastislide\2.jpg" />
+    <Content Include="assets\img\sliders\elastislide\5.jpg" />
+    <Content Include="assets\img\sliders\elastislide\6.jpg" />
+    <Content Include="assets\img\sliders\elastislide\7.jpg" />
+    <Content Include="assets\img\sliders\elastislide\8.jpg" />
+    <Content Include="assets\img\sliders\elastislide\9.jpg" />
+    <Content Include="assets\img\sliders\revolution\bg-text.png" />
+    <Content Include="assets\img\sliders\revolution\bg1.jpg" />
+    <Content Include="assets\img\sliders\revolution\bg2.jpg" />
+    <Content Include="assets\img\sliders\revolution\bg3.jpg" />
+    <Content Include="assets\img\sliders\revolution\bg4.jpg" />
+    <Content Include="assets\img\sliders\revolution\drink1.jpg" />
+    <Content Include="assets\img\sliders\revolution\drink2.jpg" />
+    <Content Include="assets\img\sliders\revolution\drink3.jpg" />
+    <Content Include="assets\img\sliders\revolution\html5andcss3.png" />
+    <Content Include="assets\img\sliders\revolution\imac.png" />
+    <Content Include="assets\img\sliders\revolution\ipad.png" />
+    <Content Include="assets\img\sliders\revolution\iphone.png" />
+    <Content Include="assets\img\sliders\revolution\p1.jpg" />
+    <Content Include="assets\img\sliders\revolution\p10.jpg" />
+    <Content Include="assets\img\sliders\revolution\p2.jpg" />
+    <Content Include="assets\img\sliders\revolution\p3.jpg" />
+    <Content Include="assets\img\sliders\revolution\p4.jpg" />
+    <Content Include="assets\img\sliders\revolution\p5.jpg" />
+    <Content Include="assets\img\sliders\revolution\p6.jpg" />
+    <Content Include="assets\img\sliders\revolution\p7.jpg" />
+    <Content Include="assets\img\sliders\revolution\p8.jpg" />
+    <Content Include="assets\img\sliders\revolution\p9.jpg" />
+    <Content Include="assets\img\up.png" />
+    <Content Include="assets\img\work\work1.jpg" />
+    <Content Include="assets\img\work\work2.jpg" />
+    <Content Include="assets\img\work\work3.jpg" />
+    <Content Include="assets\img\work\work4.jpg" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\jquery-1.8.2.min.js" />
+    <Content Include="assets\js\modernizr.custom.js" />
+    <Content Include="assets\js\pages\contact.js" />
+    <Content Include="assets\js\pages\index.js" />
+    <Content Include="assets\js\pages\map.js" />
+    <Content Include="assets\js\respond.js" />
+    <Content Include="assets\plugins\apple-style\css\apple-style.css" />
+    <Content Include="assets\plugins\apple-style\images\bt-next.png" />
+    <Content Include="assets\plugins\apple-style\images\bt-pause.png" />
+    <Content Include="assets\plugins\apple-style\images\bt-play.png" />
+    <Content Include="assets\plugins\apple-style\images\bt-prev.png" />
+    <Content Include="assets\plugins\apple-style\images\ipad-shadow.png" />
+    <Content Include="assets\plugins\apple-style\images\ipad.png" />
+    <Content Include="assets\plugins\apple-style\images\iphone-shadow.png" />
+    <Content Include="assets\plugins\apple-style\images\iphone.png" />
+    <Content Include="assets\plugins\apple-style\images\status-bar.png" />
+    <Content Include="assets\plugins\apple-style\js\apple-style.js" />
+    <Content Include="assets\plugins\apple-style\js\sequence.jquery-min.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\css\ui-dialog.css" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\doc\css\doc.css" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\doc\index.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\doc\js\doc.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\doc\js\sh_languages.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\lib\jquery-1.10.2.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\lib\require.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\lib\sea.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\src\dialog-config.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\src\dialog-plus.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\src\dialog.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\src\drag.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\src\popup.js" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\align-overflow.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\align.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\button.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\close.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\content.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\dialog-drag.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\fixed.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\focus.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\follow.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\iframe.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\iframe\dialog-content.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\iframe\dialog-input.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\iframe\index.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\iframe\main.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\loading.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\show-element.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\show-event.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\show.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\showModal.html" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\test\title.html" />
+    <Content Include="assets\plugins\back-to-top.js" />
+    <Content Include="assets\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\plugins\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="assets\plugins\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\plugins\bxslider\images\bx_loader.gif" />
+    <Content Include="assets\plugins\bxslider\images\controls.png" />
+    <Content Include="assets\plugins\bxslider\jquery.bxslider.css" />
+    <Content Include="assets\plugins\bxslider\jquery.bxslider.js" />
+    <Content Include="assets\plugins\countdown\css\countdown.css" />
+    <Content Include="assets\plugins\countdown\jquery.countdown.js" />
+    <Content Include="assets\plugins\fancybox\source\blank.gif" />
+    <Content Include="assets\plugins\fancybox\source\fancybox_loading.gif" />
+    <Content Include="assets\plugins\fancybox\source\fancybox_overlay.png" />
+    <Content Include="assets\plugins\fancybox\source\fancybox_sprite.png" />
+    <Content Include="assets\plugins\fancybox\source\jquery.fancybox.css" />
+    <Content Include="assets\plugins\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="assets\plugins\flexslider\flexslider.css" />
+    <Content Include="assets\plugins\flexslider\images\bg_direction_nav.png" />
+    <Content Include="assets\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="assets\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\plugins\glyphicons\css\glyphicons.css" />
+    <Content Include="assets\plugins\glyphicons\fonts\glyphicons-regular.svg" />
+    <Content Include="assets\plugins\glyphicons\images\glyphicons-white.png" />
+    <Content Include="assets\plugins\glyphicons\images\glyphicons-white.svg" />
+    <Content Include="assets\plugins\glyphicons\images\glyphicons.png" />
+    <Content Include="assets\plugins\gmap\gmap.js" />
+    <Content Include="assets\plugins\horizontal-parallax\css\horizontal-parallax.css" />
+    <Content Include="assets\plugins\horizontal-parallax\images\aeroplane.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\balloon.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\bg-sky.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\bg-text.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\bt-next1.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\bt-prev1.png" />
+    <Content Include="assets\plugins\horizontal-parallax\images\kite.png" />
+    <Content Include="assets\plugins\horizontal-parallax\js\horizontal-parallax.js" />
+    <Content Include="assets\plugins\horizontal-parallax\js\sequence.jquery-min.js" />
+    <Content Include="assets\plugins\jquery.cookie.js" />
+    <Content Include="assets\plugins\parallax-slider\css\parallax-slider.css" />
+    <Content Include="assets\plugins\parallax-slider\img\1.png" />
+    <Content Include="assets\plugins\parallax-slider\img\arrows.png" />
+    <Content Include="assets\plugins\parallax-slider\img\bg.jpg" />
+    <Content Include="assets\plugins\parallax-slider\img\bg-heading.png" />
+    <Content Include="assets\plugins\parallax-slider\img\bg-text.png" />
+    <Content Include="assets\plugins\parallax-slider\img\beijing.jpg" />
+    <Content Include="assets\plugins\parallax-slider\img\html5andcss3.png" />
+    <Content Include="assets\plugins\parallax-slider\js\jquery.cslider.js" />
+    <Content Include="assets\plugins\parallax-slider\js\modernizr.js" />
+    <Content Include="assets\plugins\portfolioSorting\css\sorting.css" />
+    <Content Include="assets\plugins\portfolioSorting\img\10.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\2.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\3.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\4.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\5.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\6.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\7.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\8.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\img\9.jpg" />
+    <Content Include="assets\plugins\portfolioSorting\js\jquery.quicksand.js" />
+    <Content Include="assets\plugins\portfolioSorting\js\sorting.js" />
+    <Content Include="assets\plugins\revolution_slider\css\rs-style.css" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrowleft.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrowright.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrow_left.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrow_right.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\bullet.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\bullets.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\bullets2.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\coloredbg.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\large_left.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\large_right.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\loader.gif" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\navigdots.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\shadow1.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\shadow2.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\shadow3.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\small_left.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\small_right.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\assets\timer.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\css\settings.css" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\images\gradient\g30.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\images\gradient\g40.png" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="assets\plugins\revolution_slider\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="BackAssets\avatars\avatar.png" />
+    <Content Include="BackAssets\avatars\avatar1.png" />
+    <Content Include="BackAssets\avatars\avatar2.png" />
+    <Content Include="BackAssets\avatars\avatar3.png" />
+    <Content Include="BackAssets\avatars\avatar4.png" />
+    <Content Include="BackAssets\avatars\avatar5.png" />
+    <Content Include="BackAssets\avatars\profile-pic.jpg" />
+    <Content Include="BackAssets\avatars\user.jpg" />
+    <Content Include="BackAssets\css\ace-ie.min.css" />
+    <Content Include="BackAssets\css\ace-responsive.min.css" />
+    <Content Include="BackAssets\css\ace-rtl.min.css" />
+    <Content Include="BackAssets\css\ace-skins.min.css" />
+    <Content Include="BackAssets\css\ace.min.css" />
+    <Content Include="BackAssets\css\bootstrap-editable.css" />
+    <Content Include="BackAssets\css\bootstrap-responsive.min.css" />
+    <Content Include="BackAssets\css\bootstrap-timepicker.css" />
+    <Content Include="BackAssets\css\bootstrap.min.css" />
+    <Content Include="BackAssets\css\chosen-sprite%402x.png" />
+    <Content Include="BackAssets\css\chosen-sprite.png" />
+    <Content Include="BackAssets\css\chosen.css" />
+    <Content Include="BackAssets\css\colorbox.css" />
+    <Content Include="BackAssets\css\colorpicker.css" />
+    <Content Include="BackAssets\css\datepicker.css" />
+    <Content Include="BackAssets\css\daterangepicker.css" />
+    <Content Include="BackAssets\css\dropzone.css" />
+    <Content Include="BackAssets\css\font-awesome-ie7.min.css" />
+    <Content Include="BackAssets\css\font-awesome.min.css" />
+    <Content Include="BackAssets\css\fullcalendar.css" />
+    <Content Include="BackAssets\css\images\border.png" />
+    <Content Include="BackAssets\css\images\controls.png" />
+    <Content Include="BackAssets\css\images\loading.gif" />
+    <Content Include="BackAssets\css\images\loading_background.png" />
+    <Content Include="BackAssets\css\images\overlay.png" />
+    <Content Include="BackAssets\css\img\alpha.png" />
+    <Content Include="BackAssets\css\img\hue.png" />
+    <Content Include="BackAssets\css\img\saturation.png" />
+    <Content Include="BackAssets\css\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="BackAssets\css\jquery-ui-1.10.3.full.min.css" />
+    <Content Include="BackAssets\css\jquery.gritter.css" />
+    <Content Include="BackAssets\css\prettify.css" />
+    <Content Include="BackAssets\css\select2-spinner.gif" />
+    <Content Include="BackAssets\css\select2.css" />
+    <Content Include="BackAssets\css\select2.png" />
+    <Content Include="BackAssets\css\select2x2.png" />
+    <Content Include="BackAssets\css\ui.jqgrid.css" />
+    <Content Include="BackAssets\font\fontawesome-webfont.svg" />
+    <Content Include="BackAssets\images\gallery\image-1.jpg" />
+    <Content Include="BackAssets\images\gallery\image-2.jpg" />
+    <Content Include="BackAssets\images\gallery\image-3.jpg" />
+    <Content Include="BackAssets\images\gallery\image-4.jpg" />
+    <Content Include="BackAssets\images\gallery\image-5.jpg" />
+    <Content Include="BackAssets\images\gallery\image-6.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-1.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-2.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-3.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-4.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-5.jpg" />
+    <Content Include="BackAssets\images\gallery\thumb-6.jpg" />
+    <Content Include="BackAssets\images\gritter-light.png.html" />
+    <Content Include="BackAssets\images\gritter.png.html" />
+    <Content Include="BackAssets\images\ie-spacer.gif.html" />
+    <Content Include="BackAssets\img\clear.png.html" />
+    <Content Include="BackAssets\img\glyphicons-halflings-white.png" />
+    <Content Include="BackAssets\img\glyphicons-halflings.png" />
+    <Content Include="BackAssets\img\loading.gif.html" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\changelog.txt" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\easyloader.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\jquery.easyui.min.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\jquery.min.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\licence_gpl.txt" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\license_commercial.txt" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-af.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-ar.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-bg.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-ca.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-cs.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-cz.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-da.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-de.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-el.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-en.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-es.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-fr.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-it.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-jp.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-nl.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-pl.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-pt_BR.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-ru.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-sv_SE.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-tr.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-zh_CN.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\locale\easyui-lang-zh_TW.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.accordion.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.calendar.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.combo.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.combobox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.combogrid.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.combotree.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.datagrid.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.datebox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.datetimebox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.dialog.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.draggable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.droppable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.form.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.layout.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.linkbutton.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.menu.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.menubutton.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.messager.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.numberbox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.numberspinner.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.pagination.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.panel.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.parser.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.progressbar.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.propertygrid.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.resizable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.searchbox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.slider.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.spinner.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.splitbutton.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.tabs.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.timespinner.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.tooltip.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.tree.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.treegrid.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.validatebox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\plugins\jquery.window.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\readme.txt" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\easyloader.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.accordion.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.calendar.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.combobox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.datebox.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.draggable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.droppable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.form.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.linkbutton.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.menu.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.parser.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.progressbar.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.propertygrid.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.resizable.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.slider.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.tabs.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\src\jquery.window.js" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\accordion.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\calendar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\combo.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\combobox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\datagrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\datebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\dialog.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\easyui.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\accordion_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\calendar_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\combo_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\datagrid_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\datebox_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\layout_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\linkbutton_bg.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\loading.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\menu_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\messager_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\pagination_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\panel_tools.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\searchbox_button.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\slider_handle.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\spinner_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\tabs_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\tree_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\images\validatebox_warning.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\layout.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\linkbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\menu.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\menubutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\messager.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\pagination.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\panel.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\progressbar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\propertygrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\searchbox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\slider.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\spinner.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\splitbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\tabs.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\tooltip.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\tree.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\validatebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\black\window.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\accordion.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\calendar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\combo.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\combobox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\datagrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\datebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\dialog.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\easyui.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\loading.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\layout.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\linkbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\menu.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\menubutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\messager.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\pagination.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\panel.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\progressbar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\propertygrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\searchbox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\slider.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\spinner.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\splitbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\tabs.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\tooltip.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\tree.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\validatebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\bootstrap\window.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\accordion.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\calendar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\combo.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\combobox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\datagrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\datebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\dialog.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\easyui.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\accordion_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\calendar_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\combo_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\datagrid_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\datebox_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\layout_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\linkbutton_bg.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\loading.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\menu_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\messager_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\pagination_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\panel_tools.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\searchbox_button.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\slider_handle.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\spinner_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\tabs_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\tree_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\images\validatebox_warning.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\layout.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\linkbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\menu.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\menubutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\messager.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\pagination.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\panel.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\progressbar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\propertygrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\searchbox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\slider.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\spinner.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\splitbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\tabs.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\tooltip.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\tree.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\validatebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\default\window.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\accordion.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\calendar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\combo.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\combobox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\datagrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\datebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\dialog.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\easyui.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\accordion_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\calendar_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\combo_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\datagrid_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\datebox_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\layout_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\loading.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\menu_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\messager_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\pagination_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\panel_tools.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\searchbox_button.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\slider_handle.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\spinner_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\tabs_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\tree_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\images\validatebox_warning.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\layout.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\linkbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\menu.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\menubutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\messager.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\pagination.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\panel.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\progressbar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\propertygrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\searchbox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\slider.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\spinner.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\splitbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\tabs.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\tooltip.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\tree.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\validatebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\gray\window.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icon.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\back.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\cancel.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\cut.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\edit_add.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\edit_remove.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\filesave.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\filter.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\help.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\mini_add.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\mini_edit.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\mini_refresh.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\no.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\ok.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\pencil.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\print.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\redo.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\reload.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\search.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\sum.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\tip.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\icons\undo.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\accordion.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\calendar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\combo.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\combobox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\datagrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\datebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\dialog.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\easyui.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\accordion_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\blank.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\calendar_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\combo_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\datagrid_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\datebox_arrow.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\layout_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\loading.gif" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\menu_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\messager_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\pagination_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\panel_tools.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\searchbox_button.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\slider_handle.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\spinner_arrows.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\tabs_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\tree_icons.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\images\validatebox_warning.png" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\layout.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\linkbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\menu.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\menubutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\messager.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\pagination.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\panel.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\progressbar.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\propertygrid.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\searchbox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\slider.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\spinner.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\splitbutton.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\tabs.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\tooltip.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\tree.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\validatebox.css" />
+    <Content Include="BackAssets\jquery-easyui-1.3.5\themes\metro\window.css" />
+    <Content Include="BackAssets\js\ace-elements.min.js" />
+    <Content Include="BackAssets\js\ace-extra.min.js" />
+    <Content Include="BackAssets\js\ace.min.js" />
+    <Content Include="BackAssets\js\additional-methods.min.js" />
+    <Content Include="BackAssets\js\bootbox.min.js" />
+    <Content Include="BackAssets\js\bootstrap-colorpicker.min.js" />
+    <Content Include="BackAssets\js\bootstrap-tag.min.js" />
+    <Content Include="BackAssets\js\bootstrap-wysiwyg.min.js" />
+    <Content Include="BackAssets\js\bootstrap.min.js" />
+    <Content Include="BackAssets\js\chosen.jquery.min.js" />
+    <Content Include="BackAssets\js\date-time\bootstrap-datepicker.min.js" />
+    <Content Include="BackAssets\js\date-time\bootstrap-timepicker.min.js" />
+    <Content Include="BackAssets\js\date-time\daterangepicker.min.js" />
+    <Content Include="BackAssets\js\date-time\mm\dd\yyyy.html" />
+    <Content Include="BackAssets\js\date-time\moment.min.js" />
+    <Content Include="BackAssets\js\dropzone.min.js" />
+    <Content Include="BackAssets\js\excanvas.min.js" />
+    <Content Include="BackAssets\js\flot\0.8.1.html" />
+    <Content Include="BackAssets\js\flot\jquery.flot.min.js" />
+    <Content Include="BackAssets\js\flot\jquery.flot.pie.min.js" />
+    <Content Include="BackAssets\js\flot\jquery.flot.resize.min.js" />
+    <Content Include="BackAssets\js\fuelux\data\fuelux.tree-sampledata.js" />
+    <Content Include="BackAssets\js\fuelux\fuelux.spinner.min.js" />
+    <Content Include="BackAssets\js\fuelux\fuelux.tree.min.js" />
+    <Content Include="BackAssets\js\fuelux\fuelux.wizard.min.js" />
+    <Content Include="BackAssets\js\fullcalendar.min.js" />
+    <Content Include="BackAssets\js\grid.locale-en.js" />
+    <Content Include="BackAssets\js\html5shiv.js" />
+    <Content Include="BackAssets\js\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="BackAssets\js\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="BackAssets\js\jquery-1.10.2.min.js" />
+    <Content Include="BackAssets\js\jquery-2.0.3.min.js" />
+    <Content Include="BackAssets\js\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="BackAssets\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="BackAssets\js\jquery-ui-1.10.3.full.min.js" />
+    <Content Include="BackAssets\js\jquery.autosize-min.js" />
+    <Content Include="BackAssets\js\jquery.autosize.min.js" />
+    <Content Include="BackAssets\js\jquery.colorbox-min.js" />
+    <Content Include="BackAssets\js\jquery.dataTables.bootstrap.js" />
+    <Content Include="BackAssets\js\jquery.dataTables.min.js" />
+    <Content Include="BackAssets\js\jquery.easy-pie-chart.min.js" />
+    <Content Include="BackAssets\js\jquery.gritter.css" />
+    <Content Include="BackAssets\js\jquery.gritter.min.js" />
+    <Content Include="BackAssets\js\jquery.hotkeys.min.js" />
+    <Content Include="BackAssets\js\jquery.inputlimiter.1.3.1.min.js" />
+    <Content Include="BackAssets\js\jquery.jqGrid.min.js" />
+    <Content Include="BackAssets\js\jquery.knob.min.js" />
+    <Content Include="BackAssets\js\jquery.maskedinput.min.js" />
+    <Content Include="BackAssets\js\jquery.mobile.custom.min.js" />
+    <Content Include="BackAssets\js\jquery.nestable.min.js" />
+    <Content Include="BackAssets\js\jquery.slimscroll.min.js" />
+    <Content Include="BackAssets\js\jquery.sparkline.min.js" />
+    <Content Include="BackAssets\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="BackAssets\js\jquery.validate.min.js" />
+    <Content Include="BackAssets\js\markdown\bootstrap-markdown.min.js" />
+    <Content Include="BackAssets\js\markdown\click.markdown.data-api.html" />
+    <Content Include="BackAssets\js\markdown\markdown.min.js" />
+    <Content Include="BackAssets\js\prettify.js" />
+    <Content Include="BackAssets\js\respond.min.js" />
+    <Content Include="BackAssets\js\spin.min.js" />
+    <Content Include="BackAssets\js\typeahead-bs2.min.js" />
+    <Content Include="BackAssets\js\x-editable\ace-editable.min.js" />
+    <Content Include="BackAssets\js\x-editable\bootstrap-editable.min.js" />
+    <Content Include="BackAssets\js\x-editable\mm\dd\yyyy.html" />
+    <Content Include="BackAssets\messenger\css\messenger-spinner.css" />
+    <Content Include="BackAssets\messenger\css\messenger-theme-air.css" />
+    <Content Include="BackAssets\messenger\css\messenger-theme-block.css" />
+    <Content Include="BackAssets\messenger\css\messenger-theme-flat.css" />
+    <Content Include="BackAssets\messenger\css\messenger-theme-future.css" />
+    <Content Include="BackAssets\messenger\css\messenger-theme-ice.css" />
+    <Content Include="BackAssets\messenger\css\messenger.css" />
+    <Content Include="BackAssets\messenger\js\messenger-theme-flat.js" />
+    <Content Include="BackAssets\messenger\js\messenger-theme-future.js" />
+    <Content Include="BackAssets\messenger\js\messenger.js" />
+    <Content Include="BackAssets\messenger\js\messenger.min.js" />
+    <Content Include="BackAssets\select2-3.5.1\select2-bootstrap.css" />
+    <Content Include="BackAssets\select2-3.5.1\select2-spinner.gif" />
+    <Content Include="BackAssets\select2-3.5.1\select2.css" />
+    <Content Include="BackAssets\select2-3.5.1\select2.js" />
+    <Content Include="BackAssets\select2-3.5.1\select2.min.js" />
+    <Content Include="BackAssets\select2-3.5.1\select2.png" />
+    <Content Include="BackAssets\select2-3.5.1\select2x2.png" />
+    <Content Include="BackAssets\select2-3.5.1\select2_locale_zh-CN.js" />
+    <Content Include="backfavicon.ico" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Common.css" />
+    <Content Include="Content\Images\loging.gif" />
+    <Content Include="Content\jquery.validate.bootstrap.css" />
+    <Content Include="Content\Plug\Plug.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="assets\plugins\aui-artDialog-4851d36\doc\index.md" />
+    <Content Include="assets\plugins\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="assets\plugins\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="assets\plugins\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="assets\plugins\font-awesome\font\fontawesome-webfont_2d2816fe.eot" />
+    <Content Include="assets\plugins\glyphicons\fonts\glyphicons-regular.eot" />
+    <Content Include="assets\plugins\glyphicons\fonts\glyphicons-regular.ttf" />
+    <Content Include="assets\plugins\glyphicons\fonts\glyphicons-regular.woff" />
+    <Content Include="assets\plugins\glyphicons\fonts\glyphicons-regular_2d2816fe.eot" />
+    <Content Include="BackAssets\font\fontawesome-webfont.woff" />
+    <Content Include="BackAssets\font\fontawesome-webfont_2d2816fe.eot" />
+    <Content Include="BackAssets\font\fontawesome-webfont_aea8981c.eot" />
+    <Content Include="BackAssets\font\fontawesome-webfont_aea8981c.ttf" />
+    <Content Include="BackAssets\font\fontawesome-webfont_aea8981c.woff" />
+    <Content Include="Areas\Back\Views\web.config" />
+    <Content Include="Areas\Back\Views\Authorize\Login.cshtml" />
+    <Content Include="Areas\Back\Views\BackHome\Index.cshtml" />
+    <Content Include="Areas\Back\Views\Plug\Create.cshtml" />
+    <Content Include="Areas\Back\Views\Plug\Index.cshtml" />
+    <Content Include="Areas\Back\Views\ProductUnit\Index.cshtml" />
+    <Content Include="Areas\Back\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Back\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Back\Views\Shared\CommonTable.cshtml" />
+    <Content Include="Areas\Back\Views\Shared\Menu.cshtml" />
+    <Content Include="Areas\Back\Views\Shared\_BackLayout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Back\Views\Operator\Index.cshtml">
+      <SubType>
+      </SubType>
+    </Content>
+    <Content Include="Areas\Back\Views\Operator\Create.cshtml" />
+    <Content Include="Areas\Back\Views\BackHome\Blank.cshtml" />
+    <Content Include="assets\easydropdown-master\bower.json" />
+    <Content Include="assets\easydropdown-master\component.json" />
+    <Content Include="assets\easydropdown-master\easydropdown.jquery.json" />
+    <Content Include="assets\easydropdown-master\README.md" />
+    <Content Include="Areas\Back\Views\_ViewStart.cshtml" />
+    <Content Include="BackAssets\select2-3.5.1\select2.jquery.json" />
+    <Content Include="BackAssets\select2-3.5.1\select2_locale_en.js.template" />
+    <Content Include="Areas\Back\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Back\Views\Category\CreateCategory.cshtml" />
+    <Content Include="Areas\Back\Views\Category\CreateCategoryItem.cshtml" />
+    <None Include="Properties\PublishProfiles\ftp.pubxml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\images\2008228102611_13_mb5u_com.gif" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\images\2008228102611_21_mb5u_com.gif" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\images\2008228102611_44_mb5u_com.gif" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\images\mask-bg_40x100.png" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\jquery.mask.css" />
+    <Content Include="Scripts\Jquery-mask-1.0.0\jquery.mask.src.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jQuery.validVal\index.html" />
+    <Content Include="Scripts\jQuery.validVal\js\jquery.validVal-customValidations.js" />
+    <Content Include="Scripts\jQuery.validVal\js\jquery.validVal-debugger.js" />
+    <Content Include="Scripts\jQuery.validVal\js\jquery.validVal.js" />
+    <Content Include="Scripts\jQuery.validVal\js\jquery.validVal.min.js" />
+    <Content Include="Scripts\jQuery.validVal\serverside-validations\index.html" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Modules.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="static\assets\css\effects.css" />
+    <Content Include="static\assets\css\headers\header1.css" />
+    <Content Include="static\assets\css\headers\header2.css" />
+    <Content Include="static\assets\css\img-hover-effect.css" />
+    <Content Include="static\assets\css\style.css" />
+    <Content Include="static\assets\css\style_responsive.css" />
+    <Content Include="static\assets\css\themes\default.css" />
+    <Content Include="static\assets\img\bg-black.png" />
+    <Content Include="static\assets\img\bg\1.png" />
+    <Content Include="static\assets\img\bg\2.png" />
+    <Content Include="static\assets\img\bg\3.png" />
+    <Content Include="static\assets\img\breadcrumbs.png" />
+    <Content Include="static\assets\img\carousel\1.jpg" />
+    <Content Include="static\assets\img\carousel\10.jpg" />
+    <Content Include="static\assets\img\carousel\2.jpg" />
+    <Content Include="static\assets\img\carousel\3.jpg" />
+    <Content Include="static\assets\img\carousel\4.jpg" />
+    <Content Include="static\assets\img\carousel\5.jpg" />
+    <Content Include="static\assets\img\carousel\6.jpg" />
+    <Content Include="static\assets\img\carousel\7.jpg" />
+    <Content Include="static\assets\img\carousel\8.jpg" />
+    <Content Include="static\assets\img\carousel\9.jpg" />
+    <Content Include="static\assets\img\clients\aztec.png" />
+    <Content Include="static\assets\img\clients\aztec_grey.png" />
+    <Content Include="static\assets\img\clients\cisco.png" />
+    <Content Include="static\assets\img\clients\cisco_grey.png" />
+    <Content Include="static\assets\img\clients\cocacola.png" />
+    <Content Include="static\assets\img\clients\cocacola_grey.png" />
+    <Content Include="static\assets\img\clients\everyday.png" />
+    <Content Include="static\assets\img\clients\everyday_grey.png" />
+    <Content Include="static\assets\img\clients\gamescast.png" />
+    <Content Include="static\assets\img\clients\gamescast_grey.png" />
+    <Content Include="static\assets\img\clients\hp.png" />
+    <Content Include="static\assets\img\clients\hp_grey.png" />
+    <Content Include="static\assets\img\clients\igneus.png" />
+    <Content Include="static\assets\img\clients\igneus_grey.png" />
+    <Content Include="static\assets\img\clients\natural.png" />
+    <Content Include="static\assets\img\clients\natural_grey.png" />
+    <Content Include="static\assets\img\clients\shell.png" />
+    <Content Include="static\assets\img\clients\shell_grey.png" />
+    <Content Include="static\assets\img\clients\spinworkx.png" />
+    <Content Include="static\assets\img\clients\spinworkx_grey.png" />
+    <Content Include="static\assets\img\clients\vadafone.png" />
+    <Content Include="static\assets\img\clients\vadafone_grey.png" />
+    <Content Include="static\assets\img\clients\walmart.png" />
+    <Content Include="static\assets\img\clients\walmart_grey.png" />
+    <Content Include="static\assets\img\icons\social\amazon.png" />
+    <Content Include="static\assets\img\icons\social\behance.png" />
+    <Content Include="static\assets\img\icons\social\blogger.png" />
+    <Content Include="static\assets\img\icons\social\deviantart.png" />
+    <Content Include="static\assets\img\icons\social\dribbble.png" />
+    <Content Include="static\assets\img\icons\social\dropbox.png" />
+    <Content Include="static\assets\img\icons\social\evernote.png" />
+    <Content Include="static\assets\img\icons\social\facebook.png" />
+    <Content Include="static\assets\img\icons\social\forrst.png" />
+    <Content Include="static\assets\img\icons\social\github.png" />
+    <Content Include="static\assets\img\icons\social\googleplus.png" />
+    <Content Include="static\assets\img\icons\social\jolicloud.png" />
+    <Content Include="static\assets\img\icons\social\last-fm.png" />
+    <Content Include="static\assets\img\icons\social\linkedin.png" />
+    <Content Include="static\assets\img\icons\social\picasa.png" />
+    <Content Include="static\assets\img\icons\social\pintrest.png" />
+    <Content Include="static\assets\img\icons\social\rss.png" />
+    <Content Include="static\assets\img\icons\social\skype.png" />
+    <Content Include="static\assets\img\icons\social\spotify.png" />
+    <Content Include="static\assets\img\icons\social\stumbleupon.png" />
+    <Content Include="static\assets\img\icons\social\tumblr.png" />
+    <Content Include="static\assets\img\icons\social\twitter.png" />
+    <Content Include="static\assets\img\icons\social\vimeo.png" />
+    <Content Include="static\assets\img\icons\social\wordpress.png" />
+    <Content Include="static\assets\img\icons\social\xing.png" />
+    <Content Include="static\assets\img\icons\social\yahoo.png" />
+    <Content Include="static\assets\img\icons\social\youtube.png" />
+    <Content Include="static\assets\img\logo1-default.png" />
+    <Content Include="static\assets\img\logo2-default.png" />
+    <Content Include="static\assets\img\new\img1.jpg" />
+    <Content Include="static\assets\img\new\img10.jpg" />
+    <Content Include="static\assets\img\new\img2.jpg" />
+    <Content Include="static\assets\img\new\img3.jpg" />
+    <Content Include="static\assets\img\new\img4.jpg" />
+    <Content Include="static\assets\img\new\img5.jpg" />
+    <Content Include="static\assets\img\new\img6.jpg" />
+    <Content Include="static\assets\img\new\img7.jpg" />
+    <Content Include="static\assets\img\new\img8.jpg" />
+    <Content Include="static\assets\img\new\img9.jpg" />
+    <Content Include="static\assets\img\others\2.jpg" />
+    <Content Include="static\assets\img\others\3.jpg" />
+    <Content Include="static\assets\img\others\6.jpg" />
+    <Content Include="static\assets\img\others\7.jpg" />
+    <Content Include="static\assets\img\overlay-icon.png" />
+    <Content Include="static\assets\img\posts\1.jpg" />
+    <Content Include="static\assets\img\posts\2.jpg" />
+    <Content Include="static\assets\img\posts\3.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\1.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\10.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\11.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\2.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\5.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\6.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\7.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\8.jpg" />
+    <Content Include="static\assets\img\sliders\elastislide\9.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\bg-text.png" />
+    <Content Include="static\assets\img\sliders\revolution\bg1.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\bg2.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\bg3.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\bg4.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\drink1.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\drink2.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\drink3.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\html5andcss3.png" />
+    <Content Include="static\assets\img\sliders\revolution\imac.png" />
+    <Content Include="static\assets\img\sliders\revolution\ipad.png" />
+    <Content Include="static\assets\img\sliders\revolution\iphone.png" />
+    <Content Include="static\assets\img\sliders\revolution\p1.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p10.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p2.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p3.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p4.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p5.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p6.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p7.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p8.jpg" />
+    <Content Include="static\assets\img\sliders\revolution\p9.jpg" />
+    <Content Include="static\assets\img\up.png" />
+    <Content Include="static\assets\img\work\work1.jpg" />
+    <Content Include="static\assets\img\work\work2.jpg" />
+    <Content Include="static\assets\img\work\work3.jpg" />
+    <Content Include="static\assets\img\work\work4.jpg" />
+    <Content Include="static\assets\js\app.js" />
+    <Content Include="static\assets\js\jquery-1.8.2.min.js" />
+    <Content Include="static\assets\js\modernizr.custom.js" />
+    <Content Include="static\assets\js\pages\contact.js" />
+    <Content Include="static\assets\js\pages\index.js" />
+    <Content Include="static\assets\js\respond.js" />
+    <Content Include="static\assets\plugins\apple-style\css\apple-style.css" />
+    <Content Include="static\assets\plugins\apple-style\images\bt-next.png" />
+    <Content Include="static\assets\plugins\apple-style\images\bt-pause.png" />
+    <Content Include="static\assets\plugins\apple-style\images\bt-play.png" />
+    <Content Include="static\assets\plugins\apple-style\images\bt-prev.png" />
+    <Content Include="static\assets\plugins\apple-style\images\ipad-shadow.png" />
+    <Content Include="static\assets\plugins\apple-style\images\ipad.png" />
+    <Content Include="static\assets\plugins\apple-style\images\iphone-shadow.png" />
+    <Content Include="static\assets\plugins\apple-style\images\iphone.png" />
+    <Content Include="static\assets\plugins\apple-style\images\status-bar.png" />
+    <Content Include="static\assets\plugins\apple-style\js\apple-style.js" />
+    <Content Include="static\assets\plugins\apple-style\js\sequence.jquery-min.js" />
+    <Content Include="static\assets\plugins\back-to-top.js" />
+    <Content Include="static\assets\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="static\assets\plugins\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="static\assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="static\assets\plugins\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="static\assets\plugins\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="static\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="static\assets\plugins\bxslider\images\bx_loader.gif" />
+    <Content Include="static\assets\plugins\bxslider\images\controls.png" />
+    <Content Include="static\assets\plugins\bxslider\jquery.bxslider.css" />
+    <Content Include="static\assets\plugins\bxslider\jquery.bxslider.js" />
+    <Content Include="static\assets\plugins\countdown\css\countdown.css" />
+    <Content Include="static\assets\plugins\countdown\jquery.countdown.js" />
+    <Content Include="static\assets\plugins\fancybox\source\blank.gif" />
+    <Content Include="static\assets\plugins\fancybox\source\fancybox_loading.gif" />
+    <Content Include="static\assets\plugins\fancybox\source\fancybox_overlay.png" />
+    <Content Include="static\assets\plugins\fancybox\source\fancybox_sprite.png" />
+    <Content Include="static\assets\plugins\fancybox\source\jquery.fancybox.css" />
+    <Content Include="static\assets\plugins\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="static\assets\plugins\flexslider\flexslider.css" />
+    <Content Include="static\assets\plugins\flexslider\images\bg_direction_nav.png" />
+    <Content Include="static\assets\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="static\assets\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="static\assets\plugins\glyphicons\css\glyphicons.css" />
+    <Content Include="static\assets\plugins\glyphicons\fonts\glyphicons-regular.svg" />
+    <Content Include="static\assets\plugins\glyphicons\images\glyphicons-white.png" />
+    <Content Include="static\assets\plugins\glyphicons\images\glyphicons-white.svg" />
+    <Content Include="static\assets\plugins\glyphicons\images\glyphicons.png" />
+    <Content Include="static\assets\plugins\gmap\gmap.js" />
+    <Content Include="static\assets\plugins\horizontal-parallax\css\horizontal-parallax.css" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\aeroplane.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\balloon.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\bg-sky.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\bg-text.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\bt-next1.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\bt-prev1.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\images\kite.png" />
+    <Content Include="static\assets\plugins\horizontal-parallax\js\horizontal-parallax.js" />
+    <Content Include="static\assets\plugins\horizontal-parallax\js\sequence.jquery-min.js" />
+    <Content Include="static\assets\plugins\parallax-slider\css\parallax-slider.css" />
+    <Content Include="static\assets\plugins\parallax-slider\img\1.png" />
+    <Content Include="static\assets\plugins\parallax-slider\img\arrows.png" />
+    <Content Include="static\assets\plugins\parallax-slider\img\bg-heading.png" />
+    <Content Include="static\assets\plugins\parallax-slider\img\bg-text.png" />
+    <Content Include="static\assets\plugins\parallax-slider\img\bg.jpg" />
+    <Content Include="static\assets\plugins\parallax-slider\img\html5andcss3.png" />
+    <Content Include="static\assets\plugins\parallax-slider\js\jquery.cslider.js" />
+    <Content Include="static\assets\plugins\parallax-slider\js\modernizr.js" />
+    <Content Include="static\assets\plugins\portfolioSorting\css\sorting.css" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\10.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\2.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\3.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\4.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\5.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\6.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\7.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\8.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\img\9.jpg" />
+    <Content Include="static\assets\plugins\portfolioSorting\js\jquery.quicksand.js" />
+    <Content Include="static\assets\plugins\portfolioSorting\js\sorting.js" />
+    <Content Include="static\assets\plugins\revolution_slider\css\rs-style.css" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrowleft.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrowright.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrow_left.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrow_right.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\bullet.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\bullets.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\bullets2.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\coloredbg.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\large_left.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\large_right.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\loader.gif" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\navigdots.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\shadow1.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\shadow2.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\shadow3.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\small_left.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\small_right.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\assets\timer.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\css\settings.css" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\images\gradient\g30.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\images\gradient\g40.png" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="static\assets\plugins\revolution_slider\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="static\blog.html" />
+    <Content Include="static\blog_item.html" />
+    <Content Include="static\blog_item_left_sidebar.html" />
+    <Content Include="static\blog_left_sidebar.html" />
+    <Content Include="static\favicon.ico" />
+    <Content Include="static\feature_button.html" />
+    <Content Include="static\feature_component.html" />
+    <Content Include="static\feature_form.html" />
+    <Content Include="static\feature_grid.html" />
+    <Content Include="static\feature_icons.html" />
+    <Content Include="static\feature_navigation.html" />
+    <Content Include="static\feature_table.html" />
+    <Content Include="static\feature_thumbnail.html" />
+    <Content Include="static\feature_typography.html" />
+    <Content Include="static\index.html" />
+    <Content Include="static\page_404.html" />
+    <Content Include="static\page_about.html" />
+    <Content Include="static\page_clients.html" />
+    <Content Include="static\page_column_left.html" />
+    <Content Include="static\page_column_right.html" />
+    <Content Include="static\page_coming_soon.html" />
+    <Content Include="static\page_contact.html" />
+    <Content Include="static\page_contact1.html" />
+    <Content Include="static\page_faq.html" />
+    <Content Include="static\page_gallery.html" />
+    <Content Include="static\page_home.html" />
+    <Content Include="static\page_home1.html" />
+    <Content Include="static\page_home2.html" />
+    <Content Include="static\page_home3.html" />
+    <Content Include="static\page_home4.html" />
+    <Content Include="static\page_home5.html" />
+    <Content Include="static\page_home_all.html" />
+    <Content Include="static\page_login.html" />
+    <Content Include="static\page_pricing.html" />
+    <Content Include="static\page_privacy.html" />
+    <Content Include="static\page_registration.html" />
+    <Content Include="static\page_search.html" />
+    <Content Include="static\page_services.html" />
+    <Content Include="static\page_terms.html" />
+    <Content Include="static\portfolio.html" />
+    <Content Include="static\portfolio_2columns.html" />
+    <Content Include="static\portfolio_3columns.html" />
+    <Content Include="static\portfolio_4columns.html" />
+    <Content Include="static\portfolio_item.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="static\assets\plugins\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="static\assets\plugins\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="static\assets\plugins\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="static\assets\plugins\font-awesome\font\fontawesome-webfont_2d2816fe.eot" />
+    <Content Include="static\assets\plugins\glyphicons\fonts\glyphicons-regular.eot" />
+    <Content Include="static\assets\plugins\glyphicons\fonts\glyphicons-regular.ttf" />
+    <Content Include="static\assets\plugins\glyphicons\fonts\glyphicons-regular.woff" />
+    <Content Include="static\assets\plugins\glyphicons\fonts\glyphicons-regular_2d2816fe.eot" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\Help.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\About\Contact.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Products\Category.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Scripts\jQuery.validVal\serverside-validations\validations.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bll\Bll.csproj">
+      <Project>{1a822090-e850-48ab-a12b-da44fd80c53f}</Project>
+      <Name>Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonToolkit\CommonToolkit.csproj">
+      <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
+      <Name>CommonToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dal\Dal.csproj">
+      <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>
+      <Name>Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{e5af736e-ba28-4b20-87fd-732853fdc5cf}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBll\IBll.csproj">
+      <Project>{af9461d6-9341-4ea0-b300-9a3b344fe886}</Project>
+      <Name>IBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDal\IDal.csproj">
+      <Project>{549e5503-b2a2-4cc6-9423-5eb2c4d17084}</Project>
+      <Name>IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{956b2b0a-5437-4e55-b67d-bc36d362d81f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagedList\PagedList.csproj">
+      <Project>{da52d7c3-b871-48ec-b009-ac782ad50266}</Project>
+      <Name>PagedList</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebBase\WebBase.csproj">
+      <Project>{e4d6c466-5b94-4c73-af51-a3d67dc23bc6}</Project>
+      <Name>WebBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52150</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52150/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,71 @@
+﻿<div id="dlgMain" style="width: 700px; height:350px; display: none; padding-top: 5px">
+    <form id="fm" style="margin: 0px auto;">
+        @{
+            var width = 220;
+            var easyWidth = 222;
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+
+            <tr>
+                <th>
+                    商品分类[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <select name="DutyId" id="DutyId" class="select2 required" style="width: @(easyWidth)px">
+                        <option value="">==请选择==</option>
+                        <option value="1">工程师</option>
+                        <option value="2">助理工程师</option>
+                        <option value="3">技术员</option>
+                        <option value="4">总经理</option>
+                        <option value="5">主管</option>
+                        <option value="6">副主管</option>
+                        <option value="7">董事长</option>
+                        <option value="8">副董事长</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th style="width:100px;">
+                    编号[<span class="label-necessary">*</span>]：
+                </th>
+                <td colspan="3">
+                    <input name="Code" type="text" id="Code" maxlength="50" class="required" datacol="yes" err="编号" checkexpession="NotNull" style="width: @(width*2+120)px" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    名称[<span class="label-necessary">*</span>]：
+                </th>
+                <td colspan="3">
+                    <input name="RealName" type="text" id="RealName" maxlength="50" class="required" datacol="yes" err="姓名" checkexpession="NotNull" style="width: @(width*2+120)px" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    单位[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <select name="Gender" id="Gender" class="select2 required" style="width: @(easyWidth)px">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </td>
+                <th style="width:97px">价格[<span class="label-necessary">*</span>]：</th>
+                <td>
+                    <input name="Mobile" type="text" id="Mobile" maxlength="11" class="txt required"  style="width: @(width)px" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    说明：
+                </th>
+                <td colspan="3">
+                    <textarea name="Description" id="Description" maxlength="200" rows="7" style="width: 562px"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <input type="hidden" id="Id" name="Id" value="0" />
+    </form>
+</div>

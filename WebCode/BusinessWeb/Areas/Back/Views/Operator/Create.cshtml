@@ -1,0 +1,134 @@
+﻿<div id="dlgMain" style="width:700px; height: 480px; display: none; padding-top: 5px">
+    <form id="fm" style="margin: 0px auto;">
+        @{
+            var width = 220;
+            var easyWidth = 221;
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+            <tr>
+                <th>
+                    姓名[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <input name="RealName" type="text" id="RealName" maxlength="50" style="width: @(width)px" />
+                </td>
+                <th>
+                    登录账户名[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <input name="Account" type="text" id="Account" maxlength="50" style="width: @(width)px" />
+                </td>
+            </tr>
+            <tr>
+              
+                <th>
+                    登录密码[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <input name="Password" type="password" id="Password" maxlength="50" class="txt" style="width: @(width)px" />
+                </td>
+                <th>
+                    确认密码[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <input  type="password" id="ConfirmPassword" maxlength="50" class="txt" style="width: @(width)px"    />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    性别[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <select class="easyui-combobox" data-options="editable:false" name="Gender" id="Gender" class="select" style="width: @(easyWidth)px">
+                        <option value="男">男</option>
+                        <option selected="selected" value="女">女</option>
+                    </select>
+                </td>
+                <th>手机：</th>
+                <td>
+                    <input name="Mobile" type="text" id="Mobile" maxlength="11" class="txt" datacol="yes"  style="width: @(width)px" value="18638540657" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    出生日期：
+                </th>
+                <td>
+                    <input name="Birthday" type="text" id="Birthday" maxlength="23" onfocus="WdatePicker()" class="txt" style="width: @(width)px" />
+                </td>
+                <th>
+                    电话：
+                </th>
+                <td>
+                    <input name="Telephone" type="text" id="Telephone" maxlength="50" class="txt" datacol="yes"  style="width: @(width)px" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    职位：
+                </th>
+                <td>
+                    <select class="easyui-combobox" data-options="editable:false" name="DutyId" id="DutyId" class="select" style="width: @(easyWidth)px">
+                        <option value="">==请选择==</option>
+                        <option selected="selected" value="1">工程师</option>
+                        <option value="2">助理工程师</option>
+                        <option value="3">技术员</option>
+                        <option value="4">总经理</option>
+                        <option value="5">主管</option>
+                        <option value="6">副主管</option>
+                        <option value="7">董事长</option>
+                        <option value="8">副董事长</option>
+                    </select>
+                </td>
+                <th>
+                    QQ号码：
+                </th>
+                <td>
+                    <input name="OICQ" type="text" id="OICQ" maxlength="50" class="txt" style="width: @(width)px" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    默认角色[<span class="label-necessary">*</span>]：
+                </th>
+                <td>
+                    <select class="easyui-combobox" data-options="editable:false" name="RoleId" id="RoleId" class="select" datacol="yes" err="默认角色"  style="width: @(easyWidth)px"></select>
+                </td>
+                <th>
+                    电子邮件：
+                </th>
+                <td>
+                    <input name="Email" type="text" id="Email" maxlength="50" class="txt" style="width: @(width)px" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    有效性：
+                </th>
+                <td colspan="3">
+
+                    <input type="checkbox" id="IsEnabledCheck" checked="checked" style="vertical-align: middle; margin: auto" />
+                    <label for="IsEnabledCheck" style="vertical-align: middle;">有效</label>
+
+                    <input type="checkbox" id="IsSuperAdmin" checked="checked" style="vertical-align: middle; margin: auto" />
+                    <label for="IsSuperAdmin" style="vertical-align: middle;">是超级管理员</label>
+
+                    <label style="vertical-align: middle; color: red;">注意：禁用该用户后，将不能登录。</label>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    说明：
+                </th>
+                <td colspan="3">
+                    <textarea name="Remark" id="Remark" maxlength="200" class="txtArea" type="text" rows="7" style="width: 595px"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <input type="hidden" id="Id" name="Id" value="" />
+        <input type="hidden" id="IsEnabled" name="IsEnabled" value="" />
+        <input type="hidden" id="IsCanEdit" name="IsCanEdit" value="" />
+        <input type="hidden" id="IsCanDelete" name="IsCanDelete" value="" />
+    </form>
+</div>

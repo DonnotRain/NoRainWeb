@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "商品管理";
+    Layout = "~/Areas/Back/Views/Shared/_BackLayout.cshtml";
+}
+
+@section Header{
+    <link href="~/BackAssets/select2-3.5.1/select2.css" rel="stylesheet" />
+    <link href="~/BackAssets/select2-3.5.1/select2-bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+        .dg-panel {
+            /*margin:20px 24px;*/
+        }
+
+        /*验证*/
+        .invalid {
+            border-color: #D00;
+        }
+    </style>
+
+}
+@section breadcrumb{
+    <li class="active">商品管理</li>}
+<div>
+    <div id="div-searchctr-wrap">
+        <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="PlugFunctions.Product.Index.Add();"><i class="icon-plus bigger-130"></i>添加</a>
+        <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="PlugFunctions.Product.Index.Edit();"><i class="icon-pencil bigger-130"></i>修改</a>
+        <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="PlugFunctions.Product.Index.Delete();"><i class="icon-minus bigger-130"></i>删除</a>
+    </div>
+
+    <div class="dg-panel">
+        <div id="dgMain">
+        </div>
+    </div>
+
+</div>
+
+<div id="dlgsContainer" style="display: none;">
+    @Html.Partial("Create")
+</div>
+@section Scripts{
+    <script src="~/BackAssets/select2-3.5.1/select2.min.js"></script>
+    <script src="~/BackAssets/jquery-easyui-1.3.5/easyloader.js"></script>
+
+    <script src="~/Scripts/jQuery.validVal/js/jquery.validVal.js"></script>
+
+    <script src="~/BackAssets/js/jquery.gritter.min.js"></script>
+    <script src="~/Areas/Back/JS/Product/Product.js"></script>
+    <script type="text/javascript">
+        $(".select2").select2();
+        PlugFunctions.Product.Index.init();
+    </script>
+}

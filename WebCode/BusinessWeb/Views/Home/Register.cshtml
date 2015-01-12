@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumbs margin-bottom-50">
+    <div class="container">
+        <h1 class="color-green pull-left">注册</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="@Url.Action("Index","Home")">>主页</a> <span class="divider">/</span></li>
+            <li class="active">注册</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+
+<div class="container">
+    <div class="row-fluid margin-bottom-10">
+        <form class="reg-page">
+            <h3>注册</h3>
+            <div class="controls">
+                <label>账号名：</label>
+                <input type="text" class="span12" />
+                <label>
+                    <label>姓名：</label>
+                </label>
+                <input type="text" class="span12" />
+                <label>电子邮件:<span class="color-red">*</span></label>
+                <input type="text" class="span12" />
+            </div>
+            <div class="controls">
+                <div class="span6">
+                    <label>密码 <span class="color-red">*</span></label>
+                    <input type="text" class="span12" />
+                </div>
+                <div class="span6">
+                    <label>确认密码 <span class="color-red">*</span></label>
+                    <input type="text" class="span12" />
+                </div>
+            </div>
+            <div class="controls form-inline">
+                <label class="checkbox"><input type="checkbox" />&nbsp; 已阅读并同意 <a href="">服务条款</a></label>
+                <button class="btn-u pull-right" type="submit">注册</button>
+            </div>
+            <hr />
+            <p>已经有账号了? 点击 <a href="@Url.Action("Login", "Home")" class="color-green">登录</a> 直接登录到已有账号</p>
+        </form>
+    </div><!--/row-fluid-->
+</div><!--/container-->
+<!--=== End Content Part ===-->

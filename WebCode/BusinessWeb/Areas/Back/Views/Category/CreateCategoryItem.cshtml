@@ -1,0 +1,55 @@
+﻿<div id="dlgSmallClass" style="width: 450px; height:300px; display: none; padding-top: 25px">
+    <form id="fmSmallClass" method="post" class="form-horizontal" role="form" action="@Url.Action("Edit", "Product", new { Area = "BaseSystem" })">
+
+        @{
+            var width = 270 + "px";
+        }
+        <table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+            <tr>
+                <th style="width: 120px;">
+                    <label for="BigName">所属分类：</label>
+                </th>
+                <td>
+                    <span id="BigNameInfo"></span>
+                    <input type="hidden" id="CategoryTypeId" class="required" name="CategoryTypeId" style="width:@width" />
+                    <input type="hidden" id="BelongBigName" class="required" name="BigName" style="width:@width" />
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 100px;">
+                    <label for="BigName">父分类项：</label>
+                </th>
+                <td>
+                    <input type="text" id="ParentId" class="required" name="ParentId" style="width:@width" />
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 100px;">
+                    <label for="Code">编号：</label>
+                </th>
+                <td>
+                    <input type="text" id="ItemCode" class="required" name="Code" placeholder="编号" style="width:@width" />
+                </td>
+            </tr>
+
+            <tr>
+                <th style="width: 100px;">
+                    <label for="Content">值：</label>
+                </th>
+                <td>
+                    <input type="text" id="Content" class="required" name="Content" placeholder="分类项名称" style="width:@width" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="ItemSort">排序：</label>
+                </th>
+                <td>
+                    <input type="text" id="ItemSort" class="easyui-numberbox required" name="Sort" placeholder="分类类型排序" style="width:@width" />
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="Id" id="ItemId" />
+    </form>
+</div>
