@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WQTWeb</RootNamespace>
     <AssemblyName>HuaweiSoftware.WQT.WQTWeb</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,14 +56,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -116,6 +117,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -247,41 +249,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\App\android.png" />
-    <Content Include="Assets\App\award-1.png" />
-    <Content Include="Assets\App\award-2.png" />
-    <Content Include="Assets\App\award-4.png" />
-    <Content Include="Assets\App\colorbox.css" />
-    <Content Include="Assets\App\discuz.jpg" />
-    <Content Include="Assets\App\flowplayer-3.2.6.min.js" />
-    <Content Include="Assets\App\hd1.jpg" />
-    <Content Include="Assets\App\hd_bg.png" />
-    <Content Include="Assets\App\icon-1.png" />
-    <Content Include="Assets\App\icon-2.png" />
-    <Content Include="Assets\App\icon-3.png" />
-    <Content Include="Assets\App\invite.js" />
-    <Content Include="Assets\App\IOS.png" />
-    <Content Include="Assets\App\jquery-1.7.2.js" />
-    <Content Include="Assets\App\jquery.colorbox.js" />
-    <Content Include="Assets\App\judgeBrowser.js" />
-    <Content Include="Assets\App\logClipper.js" />
-    <Content Include="Assets\App\login.css" />
-    <Content Include="Assets\App\login.js" />
-    <Content Include="Assets\App\logo-login.png" />
-    <Content Include="Assets\App\notIeFileLoad.js" />
-    <Content Include="Assets\App\passport.js" />
-    <Content Include="Assets\App\QR-code.png" />
-    <Content Include="Assets\App\QR\qr-Android.png" />
-    <Content Include="Assets\App\QR\qr-iOS.png" />
-    <Content Include="Assets\App\style.css" />
-    <Content Include="Assets\App\ui.js" />
-    <Content Include="Assets\App\vip-logo.png" />
-    <Content Include="Assets\App\weekly.jpg" />
-    <Content Include="Assets\App\widget-slide-4.jpg" />
-    <Content Include="Assets\App\widget-slide-8.jpg" />
-    <Content Include="Assets\App\yKit.js" />
-    <Content Include="Assets\App\ylogin.js" />
-    <Content Include="Assets\Corp.css" />
     <Content Include="BackAssets\Highcharts-4.0.3\gfx\vml-radial-gradient.png" />
     <Content Include="BackAssets\Highcharts-4.0.3\graphics\meteogram-symbols-30px.png" />
     <Content Include="BackAssets\Highcharts-4.0.3\graphics\skies.jpg" />
@@ -345,19 +312,6 @@
     <Content Include="BackAssets\lightbox\js\lightbox.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Assets\gfx\foot_bg.jpg" />
-    <Content Include="Assets\gfx\foot_logo.png" />
-    <Content Include="Assets\gfx\headerbg.jpg" />
-    <Content Include="Assets\gfx\logo.png" />
-    <Content Include="Assets\RegisterCorp.css" />
-    <Content Include="Assets\Register\21.gif" />
-    <Content Include="Assets\Register\execute.js" />
-    <Content Include="Assets\gfx\free_reg.jpg" />
-    <Content Include="Assets\gfx\lightbox1.png" />
-    <Content Include="Assets\Register\jquery-1.3.2.min.js" />
-    <Content Include="Assets\Register\jquery.easing.1.3.js" />
-    <Content Include="Assets\Register\jquery.lavalamp.min.js" />
-    <Content Include="Assets\Register\style_text.css" />
     <Content Include="BackAssets\avatars\avatar.png" />
     <Content Include="BackAssets\avatars\avatar1.png" />
     <Content Include="BackAssets\avatars\avatar2.png" />
@@ -950,123 +904,6 @@
     <Content Include="Content\Plug\Plug.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Pages\backbutton.js" />
-    <Content Include="Pages\Board\BoardDetail.htm" />
-    <Content Include="Pages\Board\BoardList.htm" />
-    <Content Include="Pages\cordova.js" />
-    <Content Include="Pages\cordova_plugins.js" />
-    <Content Include="Pages\css\index.css" />
-    <Content Include="Pages\Images\Add.png" />
-    <Content Include="Pages\Images\AttendanceManager.png" />
-    <Content Include="Pages\Images\AttendList.png" />
-    <Content Include="Pages\Images\Back.png" />
-    <Content Include="Pages\Images\Board.png" />
-    <Content Include="Pages\Images\DeepLoginButton.png" />
-    <Content Include="Pages\Images\ExamManager.png" />
-    <Content Include="Pages\Images\HeaderBackground.png" />
-    <Content Include="Pages\Images\Infomation.png" />
-    <Content Include="Pages\Images\KeyWord.png" />
-    <Content Include="Pages\Images\LearningManeger.png" />
-    <Content Include="Pages\Images\LeaveList.png" />
-    <Content Include="Pages\Images\LightLoginButton.png" />
-    <Content Include="Pages\Images\Logo.png" />
-    <Content Include="Pages\Images\MarketManager.png" />
-    <Content Include="Pages\Images\num1.png" />
-    <Content Include="Pages\Images\num2.png" />
-    <Content Include="Pages\Images\num3.png" />
-    <Content Include="Pages\Images\num4.png" />
-    <Content Include="Pages\Images\num5.png" />
-    <Content Include="Pages\Images\num6.png" />
-    <Content Include="Pages\Images\num7.png" />
-    <Content Include="Pages\Images\ReportSales.png" />
-    <Content Include="Pages\Images\Request.png" />
-    <Content Include="Pages\Images\Return.png" />
-    <Content Include="Pages\Images\Sell.png" />
-    <Content Include="Pages\Images\SignIn.png" />
-    <Content Include="Pages\Images\TakePhoto.png" />
-    <Content Include="Pages\Images\TrainningManager.png" />
-    <Content Include="Pages\Images\Upload.png" />
-    <Content Include="Pages\Images\UserName.png" />
-    <Content Include="Pages\Images\Word.png" />
-    <Content Include="Pages\img\logo.png" />
-    <Content Include="Pages\index.html" />
-    <Content Include="Pages\jquery.js" />
-    <Content Include="Pages\jquery.mobile-1.3.2.js" />
-    <Content Include="Pages\js\index.js" />
-    <Content Include="Pages\Login.htm" />
-    <Content Include="Pages\MainMenu.htm" />
-    <Content Include="Pages\Market\AddCompetive.htm" />
-    <Content Include="Pages\Market\AddRequest.htm" />
-    <Content Include="Pages\Market\AddReturn.htm" />
-    <Content Include="Pages\Market\AddSell.htm" />
-    <Content Include="Pages\Market\CompetiveList.htm" />
-    <Content Include="Pages\Market\MarketManager.htm" />
-    <Content Include="Pages\Market\RequestList.htm" />
-    <Content Include="Pages\Market\Return.htm" />
-    <Content Include="Pages\Market\Sell.htm" />
-    <Content Include="Pages\plugins\mylocation.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.camera\www\Camera.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.camera\www\CameraConstants.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.camera\www\CameraPopoverHandle.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.camera\www\CameraPopoverOptions.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.device\www\device.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.dialogs\www\android\notification.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.dialogs\www\notification.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.inappbrowser\www\inappbrowser.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.network-information\www\Connection.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.network-information\www\network.js" />
-    <Content Include="Pages\plugins\org.apache.cordova.vibration\www\vibration.js" />
-    <Content Include="Pages\Scripts\AddCompetive.js" />
-    <Content Include="Pages\Scripts\AddLeave.js" />
-    <Content Include="Pages\Scripts\AddRequest.js" />
-    <Content Include="Pages\Scripts\AddReturn.js" />
-    <Content Include="Pages\Scripts\AddSell.js" />
-    <Content Include="Pages\Scripts\AttendenceList.js" />
-    <Content Include="Pages\Scripts\barcodescanner.js" />
-    <Content Include="Pages\Scripts\BoardDetail.js" />
-    <Content Include="Pages\Scripts\BoardList.js" />
-    <Content Include="Pages\Scripts\ChoiceForm.js" />
-    <Content Include="Pages\Scripts\Common.js" />
-    <Content Include="Pages\Scripts\CompetiveList.js" />
-    <Content Include="Pages\Scripts\Cookie.js" />
-    <Content Include="Pages\Scripts\ExamDetail.js" />
-    <Content Include="Pages\Scripts\ExamList.js" />
-    <Content Include="Pages\Scripts\geolocation.js" />
-    <Content Include="Pages\Scripts\JudgementForm.js" />
-    <Content Include="Pages\Scripts\LearningDetail.js" />
-    <Content Include="Pages\Scripts\LearningDetailContent.js" />
-    <Content Include="Pages\Scripts\LearningList.js" />
-    <Content Include="Pages\Scripts\LeaveList.js" />
-    <Content Include="Pages\Scripts\location.js" />
-    <Content Include="Pages\Scripts\Login.js" />
-    <Content Include="Pages\Scripts\PicCapture.js" />
-    <Content Include="Pages\Scripts\plugin.js" />
-    <Content Include="Pages\Scripts\RequestList.js" />
-    <Content Include="Pages\Scripts\ReturnList.js" />
-    <Content Include="Pages\Scripts\ScanCode.js" />
-    <Content Include="Pages\Scripts\SellList.js" />
-    <Content Include="Pages\Scripts\UpLoad.js" />
-    <Content Include="Pages\Security\AddAttendence.htm" />
-    <Content Include="Pages\Security\AddLeave.htm" />
-    <Content Include="Pages\Security\AttendenceList.htm" />
-    <Content Include="Pages\Security\AttendManager.htm" />
-    <Content Include="Pages\Security\Capture.htm" />
-    <Content Include="Pages\Security\LeaveList.htm" />
-    <Content Include="Pages\Styles\Capture.css" />
-    <Content Include="Pages\Styles\Detail.css" />
-    <Content Include="Pages\Styles\Exam.css" />
-    <Content Include="Pages\Styles\Form.css" />
-    <Content Include="Pages\Styles\List.css" />
-    <Content Include="Pages\Styles\Login.css" />
-    <Content Include="Pages\Styles\Menu.css" />
-    <Content Include="Pages\Trainning\ChoiceForm.htm" />
-    <Content Include="Pages\Trainning\ExamDetail.htm" />
-    <Content Include="Pages\Trainning\ExamList.htm" />
-    <Content Include="Pages\Trainning\JudgementForm.htm" />
-    <Content Include="Pages\Trainning\LearningContentDetail.htm" />
-    <Content Include="Pages\Trainning\LearningDetail.htm" />
-    <Content Include="Pages\Trainning\LearningList.htm" />
-    <Content Include="Pages\Trainning\TrainingManager.htm" />
     <Content Include="Scripts\ajaxfileupload.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

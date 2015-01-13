@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Net.Http;
-using System.Web.Http;
-
 namespace HuaweiSoftware.WQT.WebBase
 {
     public class ApiException : Exception
