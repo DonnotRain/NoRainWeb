@@ -8,7 +8,7 @@ using log4net;
 using System.Net;
 using System.Text;
 using System.Web.Http;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.WebBase;
 
 namespace WQTWeb.Filters
 {

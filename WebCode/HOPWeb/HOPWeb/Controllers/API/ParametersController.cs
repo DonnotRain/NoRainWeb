@@ -1,6 +1,6 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,7 +25,7 @@ namespace WQTWeb.Controllers.API
         }
         public object GetAll()
         {
-            var result = m_ParameterBll.FindAll<Parameter>("WHERE CorpCode=@0", SysContext.CorpCode);
+            var result = m_ParameterBll.FindAll<SysParameter>("");
 
             return result;
         }
@@ -45,13 +45,13 @@ namespace WQTWeb.Controllers.API
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
 
-        public object Post(Parameter Parameter)
+        public object Post(SysParameter Parameter)
         {
             Parameter = m_ParameterBll.Add(Parameter);
             return Parameter;
         }
 
-        public object Put(Parameter Parameter)
+        public object Put(SysParameter Parameter)
         {
             Parameter = m_ParameterBll.Edit(Parameter);
             return Parameter;
@@ -62,10 +62,10 @@ namespace WQTWeb.Controllers.API
             if (!string.IsNullOrEmpty(ids))
             {
                 var itemsStr = ids.Split(',').ToList();
-                var items = new List<Parameter>();
+                var items = new List<SysParameter>();
                 itemsStr.ForEach(m =>
                 {
-                    var item = m_ParameterBll.Find<Parameter>("WHERE ID=@0", int.Parse(m));
+                    var item = m_ParameterBll.Find<SysParameter>("WHERE ID=@0", int.Parse(m));
                     if (item != null) items.Add(item);
                 });
                 m_ParameterBll.Delete(items);

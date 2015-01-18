@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API
@@ -53,7 +53,6 @@ namespace WQTWeb.Controllers.API
             }
 
             categoryType.Id = Guid.NewGuid();
-            categoryType.CorpCode = SysContext.CorpCode;
             _mBaseBll.Insert(categoryType);
         }
 
@@ -61,7 +60,6 @@ namespace WQTWeb.Controllers.API
         public void Put(CategoryType categoryType)
         {
             var oldCategoryType = _mBaseBll.Find<CategoryType>("Where ID=@0", categoryType.Id);
-            categoryType.CorpCode = oldCategoryType.CorpCode;
          
             _mBaseBll.Update(categoryType);
         }

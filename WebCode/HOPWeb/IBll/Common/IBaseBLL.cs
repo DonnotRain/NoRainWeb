@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface IBaseBLL
     {

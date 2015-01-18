@@ -1,5 +1,5 @@
 ﻿using DefaultConnection;
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface IFileItemBll : ICommonBLL
     {

@@ -8,9 +8,9 @@ using System.Web.Mvc;
 namespace WQTWeb.Controllers
 {
     [AdminAuthorize]
-    public class RoleOperatorController : Controller
+    public class RoleSysUserController : Controller
     {
-        // GET: RoleOperator
+        // GET: RoleSysUser
         public ActionResult Index()
         {
             return View();

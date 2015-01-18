@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using HuaweiSoftware.WQT.WebBase;
-using WQTRights;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.HOP.Models.Request;
+using NoRain.Business.WebBase;
+using NoRainRights;
+using NoRain.Business.IBll;
+using NoRain.Business.Models.Request;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API
@@ -19,7 +19,7 @@ namespace WQTWeb.Controllers.API
 
         public IEnumerable<Role> Get()
         {
-            return m_roleBll.FindAll<Role>("WHERE CorpCode=@0", SysContext.CorpCode);
+            return m_roleBll.FindAll<Role>("");
         }
 
         public object GetPager(int page, int rows, string name)

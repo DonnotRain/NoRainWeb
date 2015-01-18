@@ -9,10 +9,10 @@ using System.Configuration;
 using System.Web;
 using System.Threading.Tasks;
 using System.Drawing;
-using HuaweiSoftware.WQT.IBll;
+using NoRain.Business.IBll;
 using DefaultConnection;
 using Newtonsoft.Json;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.WebBase;
 using WQTWeb.Filters;
 
 

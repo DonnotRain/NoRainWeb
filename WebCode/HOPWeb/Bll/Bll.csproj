@@ -7,8 +7,8 @@
     <ProjectGuid>{1A822090-E850-48AB-A12B-DA44FD80C53F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.WQT.Bll</RootNamespace>
-    <AssemblyName>HuaweiSoftware.WQT.Bll</AssemblyName>
+    <RootNamespace>NoRain.Business.Bll</RootNamespace>
+    <AssemblyName>NoRain.Business.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,33 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrangeBll.cs" />
     <Compile Include="Authority\OperatorBll.cs" />
-    <Compile Include="AppDownloadBll.cs" />
-    <Compile Include="Statistics\StatisticsAttendenceBll.cs" />
-    <Compile Include="Statistics\StatisticsLeaveBll.cs" />
-    <Compile Include="Statistics\StatisticsSaleBll.cs" />
-    <Compile Include="Statistics\StatisticsBll.cs" />
-    <Compile Include="CorpBll.cs" />
-    <Compile Include="ExamBll.cs" />
     <Compile Include="FileItemBLL.cs" />
-    <Compile Include="ItemBll.cs" />
     <Compile Include="ParameterBll.cs" />
-    <Compile Include="ScoreBll.cs" />
-    <Compile Include="Statistics\StatisticsTrainingBll.cs" />
-    <Compile Include="StoreBll.cs" />
-    <Compile Include="StudyBll.cs" />
     <Compile Include="Sys\CategoryBLL.cs" />
-    <Compile Include="UserBll.cs" />
-    <Compile Include="InfomationBll.cs" />
-    <Compile Include="ReturnBll.cs" />
-    <Compile Include="RequestBll.cs" />
-    <Compile Include="SaleBll.cs" />
-    <Compile Include="BoardBll.cs" />
     <Compile Include="Authority\FunctionBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />
-    <Compile Include="AttendenceBll.cs" />
-    <Compile Include="LeaveBll.cs" />
     <Compile Include="Common\BaseBll.cs" />
     <Compile Include="Common\CommonAuthorityBLL.cs" />
     <Compile Include="Common\CommonBLL.cs" />

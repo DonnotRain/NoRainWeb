@@ -7,8 +7,8 @@
     <ProjectGuid>{CF7BB01C-289D-4E03-BE6D-F2385C5138E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.WQT.Dal</RootNamespace>
-    <AssemblyName>HuaweiSoftware.WQT.Dal</AssemblyName>
+    <RootNamespace>NoRain.Business.Dal</RootNamespace>
+    <AssemblyName>NoRain.Business.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,12 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InfomationDal.cs" />
-    <Compile Include="RequestDal.cs" />
-    <Compile Include="ReturnDal.cs" />
     <Compile Include="RoleDal.cs" />
-    <Compile Include="SaleDal.cs" />
-    <Compile Include="StoreDal.cs" />
     <Compile Include="Common\CommonDAL.cs" />
     <Compile Include="Common\CommonSecurityDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

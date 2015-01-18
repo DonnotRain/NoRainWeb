@@ -1,5 +1,5 @@
-﻿using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,37 +10,37 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using WQTRights;
+using NoRainRights;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API
 {
     [ServiceValidate()]
-    public class OperatorController : ApiController
+    public class SysUserController : ApiController
     {
-        private IOperatorBll m_OperatorBll;
-        public OperatorController()
+        private ISysUserBll m_SysUserBll;
+        public SysUserController()
         {
-            m_OperatorBll = DPResolver.Resolver<IOperatorBll>();
+            m_SysUserBll = DPResolver.Resolver<ISysUserBll>();
         }
 
         public object GetPager(int page, int rows, string name,int? roleId)
         {
-            var pageResult = m_OperatorBll.GetOperatorPager(page, rows, name, roleId);
+            var pageResult = m_SysUserBll.GetSysUserPager(page, rows, name, roleId);
 
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
 
-        public object Post(User entity)
+        public object Post(SysUser entity)
         {
-            entity = m_OperatorBll.Add(entity);
+            entity = m_SysUserBll.Add(entity);
             return entity;
         }
 
 
-        public object Put(User entity)
+        public object Put(SysUser entity)
         {
-            entity = m_OperatorBll.Edit(entity);
+            entity = m_SysUserBll.Edit(entity);
             return entity;
         }
 
@@ -49,13 +49,13 @@ namespace WQTWeb.Controllers.API
             if (!string.IsNullOrEmpty(ids))
             {
                 var itemsStr = ids.Split(',').ToList();
-                var items = new List<User>();
+                var items = new List<SysUser>();
                 itemsStr.ForEach(m =>
                 {
-                    var item = m_OperatorBll.Find<User>("WHERE ID=@0", int.Parse(m));
+                    var item = m_SysUserBll.Find<SysUser>("WHERE ID=@0", int.Parse(m));
                     if (item != null) items.Add(item);
                 });
-                m_OperatorBll.Delete(items);
+                m_SysUserBll.Delete(items);
             }
             else
             {

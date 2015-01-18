@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Autofac;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public static class DPResolver
     {

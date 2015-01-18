@@ -1,6 +1,6 @@
 ﻿using BusinessWeb.Filters;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +31,10 @@ namespace WQTWeb.Controllers
         public ActionResult Settings()
         {
             //获取系统名称参数
-            var sysName = m_parameterBll.GetSysName("系统名称").Value;
-            var upTime = m_parameterBll.GetSysName("上班时间").Value;
-            var downTime = m_parameterBll.GetSysName("下班时间").Value;
-            var distance = m_parameterBll.GetSysName("允许的签到误差距离").Value;
+            var sysName = m_parameterBll.GetSysName("系统名称").ValueContent;
+            var upTime = m_parameterBll.GetSysName("上班时间").ValueContent;
+            var downTime = m_parameterBll.GetSysName("下班时间").ValueContent;
+            var distance = m_parameterBll.GetSysName("允许的签到误差距离").ValueContent;
 
             ViewBag.AttendDistance = distance;
 
@@ -52,10 +52,10 @@ namespace WQTWeb.Controllers
             try
             {
                 //获取系统名称参数
-                var systemName = m_parameterBll.SetSysName(sysName, "系统名称").Value;
-                var upTimeParam = m_parameterBll.SetSysName(upTime, "上班时间").Value;
-                var downTimeParam = m_parameterBll.SetSysName(downTime, "下班时间").Value;
-                var distance = m_parameterBll.SetSysName(attendDistance, "允许的签到误差距离").Value;
+                var systemName = m_parameterBll.SetSysName(sysName, "系统名称").ValueContent;
+                var upTimeParam = m_parameterBll.SetSysName(upTime, "上班时间").ValueContent;
+                var downTimeParam = m_parameterBll.SetSysName(downTime, "下班时间").ValueContent;
+                var distance = m_parameterBll.SetSysName(attendDistance, "允许的签到误差距离").ValueContent;
                 ViewBag.SysName = systemName;
                 ViewBag.UpTime = upTimeParam;
                 ViewBag.DownTime = downTimeParam;

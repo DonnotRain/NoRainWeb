@@ -1,6 +1,6 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public class CategoryBLL : CommonBLL, ICategoryBLL
     {
@@ -30,7 +30,7 @@ namespace HuaweiSoftware.WQT.Bll
             return allCategoryItems.Where(m => m.ParentId == pId).Select(m => new EasyuiTreeNode()
             {
                 id = m.Id.ToString(),
-                text = m.Content,
+                text = m.ItemContent,
                 state = "open",
                 @checked = false,
                 children = ConvertCategoryItemsToTree(allCategoryItems, m.Id)
@@ -40,7 +40,7 @@ namespace HuaweiSoftware.WQT.Bll
 
         public PetaPoco.Page<CategoryItem> GetItemsPager(int rows, int page, string name, Guid? categoryId, Guid? parentId)
         {
-            var sql = Sql.Builder.Append("Where CorpCode=@0 ", SysContext.CorpCode);
+            var sql = Sql.Builder.Append("Where 1=1 ");
 
             //开始时间条件
             if (parentId.HasValue)
@@ -76,7 +76,7 @@ namespace HuaweiSoftware.WQT.Bll
 
         public Page<CategoryType> GetCategoryPager(int rows, int page, string name)
         {
-            var sql = Sql.Builder.Append("Where CorpCode=@0 ", SysContext.CorpCode);
+            var sql = Sql.Builder.Append("Where 1=1 ");
 
             if (!string.IsNullOrEmpty(name))
             {
@@ -94,7 +94,7 @@ namespace HuaweiSoftware.WQT.Bll
         {
             var catogory = Find<CategoryType>("Where Code=@0", categoryCode);
 
-            var sql = Sql.Builder.Append(" Where CorpCode=@0 ", SysContext.CorpCode);
+            var sql = Sql.Builder.Append(" Where 1=1 ");
 
             //开始时间条件
             if (parentId.HasValue)

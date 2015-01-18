@@ -150,12 +150,12 @@
   border-bottom: 1px solid black;
   margin-bottom: 1px;
 }
-.mathquill-rendered-math .binary-operator {
+.mathquill-rendered-math .binary-SysUser {
   padding: 0 0.2em;
   display: -moz-inline-box;
   display: inline-block;
 }
-.mathquill-rendered-math .unary-operator {
+.mathquill-rendered-math .unary-SysUser {
   padding-left: 0.2em;
 }
 .mathquill-rendered-math sup,
@@ -163,12 +163,12 @@
   position: relative;
   font-size: 90%;
 }
-.mathquill-rendered-math sup .binary-operator,
-.mathquill-rendered-math sub .binary-operator {
+.mathquill-rendered-math sup .binary-SysUser,
+.mathquill-rendered-math sub .binary-SysUser {
   padding: 0 .1em;
 }
-.mathquill-rendered-math sup .unary-operator,
-.mathquill-rendered-math sub .unary-operator {
+.mathquill-rendered-math sup .unary-SysUser,
+.mathquill-rendered-math sub .unary-SysUser {
   padding-left: .1em;
 }
 .mathquill-rendered-math sup.limit,

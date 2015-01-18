@@ -1,12 +1,12 @@
-﻿using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WQTRights;
+using NoRainRights;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API
@@ -23,8 +23,8 @@ namespace WQTWeb.Controllers.API
 
         public object Get(string userName, string pwd)
         {
-            pwd=HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetMD5Password(pwd);
-            var user = m_bll.Find<User>("WHERE Name=@0 AND Password=@1", userName, pwd);
+            pwd=NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(pwd);
+            var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", userName, pwd);
             if (user != null)
             {
                

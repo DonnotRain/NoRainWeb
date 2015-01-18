@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Reflection;
 using System.Web;
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class RequestBase
     {

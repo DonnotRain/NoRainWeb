@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
-using HuaweiSoftware.WQT.IDal;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
+using NoRain.Business.IDal;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public class CommonBLL : BaseBll, ICommonBLL
     {

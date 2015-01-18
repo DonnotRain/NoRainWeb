@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WQTRights
+namespace NoRainRights
 {
-    public partial class User
+    public partial class SysUser
     {
         public IEnumerable<Role> Roles { get; set; }
 

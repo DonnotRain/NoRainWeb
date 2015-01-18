@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class DBManage
     {
@@ -30,7 +30,7 @@ namespace HuaweiSoftware.WQT.WebBase
             {
                 if (HttpContext.Current.Items["CurrentSecurityDB"] == null)
                 {
-                    var retval = new WQTRights.WQTRightsDB();
+                    var retval = new NoRainRights.NoRainRightsDB();
                     HttpContext.Current.Items["CurrentSecurityDB"] = retval;
                     return retval;
                 }

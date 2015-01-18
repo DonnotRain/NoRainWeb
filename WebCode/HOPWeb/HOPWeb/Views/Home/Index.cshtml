@@ -11,444 +11,837 @@
     </style>
 }
 <div class="row">
-    <div class="col-xs-12">
-        <!-- PAGE CONTENT BEGINS -->
-        <div class="row">
-            <div class="space-6"></div>
-
-            <div class="col-sm-6 infobox-container">
-                <div class="widget-box">
-                    <div class="widget-header widget-header-flat widget-header-small">
-                        <h5>
-                            <i class="icon-signal"></i>
-                            统计信息
-                        </h5>
-
-                        <div class="widget-toolbar no-border">
-                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-                                本周
-                                <i class="icon-angle-down icon-on-right bigger-110"></i>
-                            </button>
-
-                            <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="BaseStatic">
-                                <li class="active">
-                                    <a href="#week" class="blue">
-                                        <i class="icon-caret-right bigger-110">&nbsp;</i>
-                                        本周
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#lastweek">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        上周
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#month">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        本月
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#lastmonth">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        上月
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="widget-body">
-                        <div class="widget-main no-padding">
-                            <div class="infobox infobox-green  ">
-                                <div class="infobox-icon">
-                                    <i class="icon-comments"></i>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-data-number" id="StaRequest">32</span>
-                                    <div class="infobox-content">店面需求</div>
-                                </div>
-                                <div class="stat" id="StaRequestRate">未获取</div>
-                            </div>
-
-                            <div class="infobox infobox-blue  ">
-                                <div class="infobox-icon">
-                                    <i class="icon-circle-arrow-left"></i>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-data-number" id="StaReturn">11</span>
-                                    <div class="infobox-content">退货次数</div>
-                                </div>
-
-                                <div class="badge badge-success">
-                                    <span id="StaReturnRate">未获取</span>
-                                    <i class="icon-arrow-up"></i>
-                                </div>
-                            </div>
-
-                            <div class="infobox infobox-pink  ">
-                                <div class="infobox-icon">
-                                    <i class="icon-shopping-cart"></i>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-data-number" id="StaSaleTime">8</span>
-                                    <div class="infobox-content">销售笔数</div>
-                                </div>
-                                <div class="stat stat-important" id="StaSaleTimeRate">未获取</div>
-                            </div>
-
-                            <div class="infobox infobox-red  ">
-                                <div class="infobox-icon">
-                                    <i class="icon-beaker"></i>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-data-number" id="StaTraining">7</span>
-                                    <div class="infobox-content">培训考试次数</div>
-                                </div>
-                            </div>
-
-                            <div class="infobox infobox-orange2  ">
-                                <div class="infobox-chart">
-                                    <span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-data-number" id="StaSaleAmount">未获取</span>
-                                    <div class="infobox-content">销售额</div>
-                                </div>
-
-                                <div class="badge badge-success">
-                                    <span id="StaSaleRate"> 未获取</span>
-                                    <i class="icon-arrow-up"></i>
-                                </div>
-                            </div>
-
-                            <div class="infobox infobox-blue2  ">
-                                <div class="infobox-progress">
-                                    <div class="easy-pie-chart percentage" data-percent="100" data-size="46">
-                                        <span class="percent"><i class="icon-envelope-alt"></i></span>
-                                    </div>
-                                </div>
-
-                                <div class="infobox-data">
-                                    <span class="infobox-text">请假人次</span>
-
-                                    <div class="infobox-content">
-                                        <span id="StaLeave">未获取</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- /widget-main -->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+        <div class="dashboard-stat blue-madison">
+            <div class="visual">
+                <i class="fa fa-briefcase fa-icon-medium"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    $168,492.54
+                </div>
+                <div class="desc">
+                    Lifetime Sales
                 </div>
             </div>
-
-            <div class="vspace-sm"></div>
-
-            <div class="col-sm-6">
-                <div class="widget-box">
-                    <div class="widget-header widget-header-flat widget-header-small">
-                        <h5>
-                            <i class="icon-signal"></i>
-                            各种类销售额比例
-                        </h5>
-
-                        <div class="widget-toolbar no-border">
-                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-                                本周
-                                <i class="icon-angle-down icon-on-right bigger-110"></i>
-                            </button>
-
-                            <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="TypeRate">
-                                <li class="active">
-                                    <a href="#" class="blue">
-                                        <i class="icon-caret-right bigger-110">&nbsp;</i>
-                                        本周
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        上周
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        本月
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                        上月
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="widget-body">
-                        <div class="widget-main">
-                            <div id="piechart-placeholder"></div>
-
-                            <div class="hr hr8 hr-double"></div>
-                        </div><!-- /widget-main -->
-                    </div><!-- /widget-body -->
-                </div><!-- /widget-box -->
-            </div><!-- /span -->
-        </div><!-- /row -->
-
-        <div class="hr hr14 hr-dotted"></div>
-
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="widget-box transparent" id="recent-box">
-                    <div class="widget-header">
-                        <h4 class="lighter smaller">
-                            <i class="icon-rss orange"></i>
-                            其他消息
-                        </h4>
-
-                        <div class="widget-toolbar no-border">
-                            <ul class="nav nav-tabs" id="recent-tab">
-                                <li class="active">
-                                    <a data-toggle="tab" href="#task-tab">竞争信息</a>
-                                </li>
-
-                                <li>
-                                    <a data-toggle="tab" href="#member-tab">退货情况</a>
-                                </li>
-
-                                <li>
-                                    <a data-toggle="tab" href="#comment-tab">培训安排</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#attendance-tab">考勤情况</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="widget-body">
-                        <div class="widget-main padding-4">
-                            <div class="tab-content padding-8 overflow-visible">
-                                <div id="task-tab" class="tab-pane active">
-                                    <h4 class="smaller lighter green">
-                                        <i class="icon-list"></i>
-                                        最新竞争信息 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
-                                    </h4>
-                                    <table id="tblInformation" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                        <thead>
-                                            <tr>
-                                                <th>标题</th>
-                                                <th>详细信息</th>
-                                                <th>提交人</th>
-
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    提交时间
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="4">
-                                                    暂无数据
-                                                </td>
-
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div id="member-tab" class="tab-pane">
-                                    <h4 class="smaller lighter green">
-                                        <i class="icon-list"></i>
-                                        退货情况 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
-                                    </h4>
-                                    <table id="tblReturn" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                        <thead>
-                                            <tr>
-                                                <th>商品名称</th>
-                                                <th>退货数量</th>
-                                                <th>退货原因</th>
-                                                <th>提交人</th>
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    提交时间
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="0">
-                                                    暂无数据
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div><!-- member-tab -->
-
-                                <div id="comment-tab" class="tab-pane">
-                                    <h4 class="smaller lighter green">
-                                        <i class="icon-list"></i>
-                                        培训考试安排 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
-                                    </h4>
-                                    <table id="tblTrain" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                        <thead>
-                                            <tr>
-
-                                                <th>培训/考试</th>
-                                                <th>标题</th>
-                                                <th>详情</th>
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    考试时间
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="0">
-                                                    暂无数据
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div id="attendance-tab" class="tab-pane">
-                                    <h4 class="smaller lighter green">
-                                        <i class="icon-list"></i>
-                                        最新请假信息 <a href="#" style="font-size:12px"> 查看全部 &nbsp; <i class="icon-arrow-right"></i></a>
-                                    </h4>
-                                    <table id="tblLeave" class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                                        <thead>
-                                            <tr>
-                                                <th>提交人</th>
-                                                <th>原因</th>
-
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    开始时间
-                                                </th>
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    结束时间
-                                                </th>
-                                                <th>
-                                                    <i class="icon-time bigger-110"></i>
-                                                    请假时长
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="4">
-                                                    暂无数据
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div><!-- atd-tab -->
-
-                            </div>
-                        </div><!-- /widget-main -->
-                    </div><!-- /widget-body -->
-                </div><!-- /widget-box -->
-            </div>
-            <div class="col-sm-6">
-                <div class="widget-header widget-header-flat">
-                    <h4 class="lighter">
-                        <i class="icon-signal"></i>
-                        销售情况
-                    </h4>
-                    <div class="widget-toolbar no-border">
-                        <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-                            本周
-                            <i class="icon-angle-down icon-on-right bigger-110"></i>
-                        </button>
-
-                        <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret" data-target="ItemsAmount">
-                            <li class="active">
-                                <a href="#" class="blue">
-                                    <i class="icon-caret-right bigger-110">&nbsp;</i>
-                                    本周
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                    上周
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                    本月
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
-                                    上月
-                                </a>
-                            </li>
-                        </ul>
-                        <a href="#" data-action="collapse">
-                            <i class="icon-chevron-up"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="widget-body">
-                    <div class="widget-main padding-4">
-                        <div id="sales-charts"></div>
-                    </div><!-- /widget-main -->
-                </div><!-- /widget-body -->
-            </div><!-- /widget-box -->
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
         </div>
-
-
     </div>
-
-    <div class="hr hr14 hr-dotted"></div>
-</div><!-- /.col -->
-</div><!-- /.row -->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="dashboard-stat red-intense">
+            <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    1,127,390
+                </div>
+                <div class="desc">
+                    Total Orders
+                </div>
+            </div>
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="dashboard-stat green-haze">
+            <div class="visual">
+                <i class="fa fa-group fa-icon-medium"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    $670.54
+                </div>
+                <div class="desc">
+                    Average Orders
+                </div>
+            </div>
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <!-- Begin: life time stats -->
+        <div class="portlet box blue-steel">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-thumb-tack"></i>Overview
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#overview_1" data-toggle="tab">
+                                Top Selling
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#overview_2" data-toggle="tab">
+                                Most Viewed
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#overview_3" data-toggle="tab">
+                                New Customers
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Orders <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#overview_4" tabindex="-1" data-toggle="tab">
+                                        Latest 10 Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#overview_4" tabindex="-1" data-toggle="tab">
+                                        Pending Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#overview_4" tabindex="-1" data-toggle="tab">
+                                        Completed Orders
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#overview_4" tabindex="-1" data-toggle="tab">
+                                        Rejected Orders
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="overview_1">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Product Name
+                                            </th>
+                                            <th>
+                                                Price
+                                            </th>
+                                            <th>
+                                                Sold
+                                            </th>
+                                            <th>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Apple iPhone 4s - 16GB - Black
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $625.50
+                                            </td>
+                                            <td>
+                                                809
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Samsung Galaxy S III SGH-I747 - 16GB
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $915.50
+                                            </td>
+                                            <td>
+                                                6709
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Motorola Droid 4 XT894 - 16GB - Black
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $878.50
+                                            </td>
+                                            <td>
+                                                784
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Regatta Luca 3 in 1 Jacket
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $25.50
+                                            </td>
+                                            <td>
+                                                1245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Samsung Galaxy Note 3
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $925.50
+                                            </td>
+                                            <td>
+                                                21245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Inoval Digital Pen
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $125.50
+                                            </td>
+                                            <td>
+                                                1245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Metronic - Responsive Admin + Frontend Theme
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $20.00
+                                            </td>
+                                            <td>
+                                                11190
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="overview_2">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Product Name
+                                            </th>
+                                            <th>
+                                                Price
+                                            </th>
+                                            <th>
+                                                Views
+                                            </th>
+                                            <th>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Metronic - Responsive Admin + Frontend Theme
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $20.00
+                                            </td>
+                                            <td>
+                                                11190
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Regatta Luca 3 in 1 Jacket
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $25.50
+                                            </td>
+                                            <td>
+                                                1245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Apple iPhone 4s - 16GB - Black
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $625.50
+                                            </td>
+                                            <td>
+                                                809
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Samsung Galaxy S III SGH-I747 - 16GB
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $915.50
+                                            </td>
+                                            <td>
+                                                6709
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Motorola Droid 4 XT894 - 16GB - Black
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $878.50
+                                            </td>
+                                            <td>
+                                                784
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Samsung Galaxy Note 3
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $925.50
+                                            </td>
+                                            <td>
+                                                21245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Inoval Digital Pen
+                                                </a>
+                                            </td>
+                                            <td>
+                                                $125.50
+                                            </td>
+                                            <td>
+                                                1245
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="overview_3">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Customer Name
+                                            </th>
+                                            <th>
+                                                Total Orders
+                                            </th>
+                                            <th>
+                                                Total Amount
+                                            </th>
+                                            <th>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    David Wilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                $625.50
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Amanda Nilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                $12625.50
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Jhon Doe
+                                                </a>
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                $125.00
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Bill Chang
+                                                </a>
+                                            </td>
+                                            <td>
+                                                45
+                                            </td>
+                                            <td>
+                                                $12,125.70
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Paul Strong
+                                                </a>
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                $890.85
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Jane Hilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                5
+                                            </td>
+                                            <td>
+                                                $239.85
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Patrick Walker
+                                                </a>
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                $1239.85
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="overview_4">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Customer Name
+                                            </th>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th>
+                                                Amount
+                                            </th>
+                                            <th>
+                                                Status
+                                            </th>
+                                            <th>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    David Wilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                3 Jan, 2013
+                                            </td>
+                                            <td>
+                                                $625.50
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-warning">
+                                                    Pending
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Amanda Nilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                13 Feb, 2013
+                                            </td>
+                                            <td>
+                                                $12625.50
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-warning">
+                                                    Pending
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Jhon Doe
+                                                </a>
+                                            </td>
+                                            <td>
+                                                20 Mar, 2013
+                                            </td>
+                                            <td>
+                                                $125.00
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-success">
+                                                    Success
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Bill Chang
+                                                </a>
+                                            </td>
+                                            <td>
+                                                29 May, 2013
+                                            </td>
+                                            <td>
+                                                $12,125.70
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-info">
+                                                    In Process
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Paul Strong
+                                                </a>
+                                            </td>
+                                            <td>
+                                                1 Jun, 2013
+                                            </td>
+                                            <td>
+                                                $890.85
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-success">
+                                                    Success
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Jane Hilson
+                                                </a>
+                                            </td>
+                                            <td>
+                                                5 Aug, 2013
+                                            </td>
+                                            <td>
+                                                $239.85
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-danger">
+                                                    Canceled
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    Patrick Walker
+                                                </a>
+                                            </td>
+                                            <td>
+                                                6 Aug, 2013
+                                            </td>
+                                            <td>
+                                                $1239.85
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-success">
+                                                    Success
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn default btn-xs green-stripe">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+    <div class="col-md-6">
+        <!-- Begin: life time stats -->
+        <div class="portlet box red-sunglo">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-bar-chart-o"></i>Revenue
+                </div>
+                <div class="tools">
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" style="margin-right: 10px">
+                    <li>
+                        <a href="#portlet_tab2" data-toggle="tab" id="statistics_amounts_tab">
+                            Amounts
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#portlet_tab1" data-toggle="tab">
+                            Orders
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="portlet_tab1">
+                        <div id="statistics_1" class="chart">
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="portlet_tab2">
+                        <div id="statistics_2" class="chart">
+                        </div>
+                    </div>
+                </div>
+                <div class="well no-margin no-border">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                            <span class="label label-success">
+                                Revenue:
+                            </span>
+                            <h3>$1,234,112.20</h3>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                            <span class="label label-info">
+                                Tax:
+                            </span>
+                            <h3>$134,90.10</h3>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                            <span class="label label-danger">
+                                Shipment:
+                            </span>
+                            <h3>$1,134,90.10</h3>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                            <span class="label label-warning">
+                                Orders:
+                            </span>
+                            <h3>235090</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+</div>
 @section scripts
 {
-    <script src='@Url.Content("~/BackAssets/js/jquery.slimscroll.min.js")'></script>
-    <script src='@Url.Content("~/BackAssets/js/jquery.easy-pie-chart.min.js")'></script>
-    <script src='@Url.Content("~/BackAssets/js/jquery.sparkline.min.js")'></script>
-    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.min.js")'></script>
-    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.pie.min.js")'></script>
-    <script src='@Url.Content("~/BackAssets/js/flot/jquery.flot.resize.min.js")'></script>
-    <script src="~/BackAssets/Highcharts-4.0.3/js/highcharts.js"></script>
-    <script src="~/BackAssets/Highcharts-4.0.3/js/modules/exporting.js"></script>
-    @*<script src="~/BackAssets/Highcharts-4.0.3/js/themes/gray.js"></script>*@
-    <script src="~/Scripts/JS/DashboardStatic.js"></script>
 }

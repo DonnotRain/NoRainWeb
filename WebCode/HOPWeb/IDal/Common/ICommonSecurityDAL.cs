@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HuaweiSoftware.WQT.IDal
+namespace NoRain.Business.IDal
 {
     public interface ICommonSecurityDAL : IBaseDAL
     {

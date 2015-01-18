@@ -75,7 +75,7 @@
                         var adminName = "";
                         if (ViewData["Result"] != null)
                         {
-                            var result = (ViewData["Result"] as HuaweiSoftware.WQT.WebBase.Models.AjaxResult);
+                            var result = (ViewData["Result"] as NoRain.Business.WebBase.Models.AjaxResult);
                             adminName = result.Data != null ? result.Data.ToString() : "";
                         }
                     }
@@ -88,7 +88,7 @@
                     </div>
                     @if (ViewData["Result"] != null)
                     {
-                        var result = (ViewData["Result"] as HuaweiSoftware.WQT.WebBase.Models.AjaxResult);
+                        var result = (ViewData["Result"] as NoRain.Business.WebBase.Models.AjaxResult);
                         <h6 class="error"><span style="color:red">@result.Message</span></h6>
                     }
                     <input type="submit" class="btn-glow primary login" value="登录" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class EasyuiTreeNode
     {

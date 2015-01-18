@@ -1,7 +1,7 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
-using HuaweiSoftware.WQT.WebBase.Models;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
+using NoRain.Business.WebBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,18 +9,17 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WQTRights;
+using NoRainRights;
 
 namespace WQTWeb.Areas.Back.Controllers
 {
     public class BackAuthorizeController : Controller
     {
         ICommonSecurityBLL m_bll;
-        ICorpBll m_CorpBll;
+
         public BackAuthorizeController()
         {
             m_bll = DPResolver.Resolver<ICommonSecurityBLL>();
-            m_CorpBll = DPResolver.Resolver<ICorpBll>();
         }
 
         public ActionResult Login(bool? logout)
@@ -53,15 +52,15 @@ namespace WQTWeb.Areas.Back.Controllers
                     break;
                 }
 
-                var isNameExist = m_bll.Find<SysOperator>("WHERE Name=@0 ", userName) != null;
+                var isNameExist = m_bll.Find<SysUser>("WHERE Name=@0 ", userName) != null;
                 if (!isNameExist)
                 {
                     result.OnError("用户名不存在!");
                     break;
                 }
 
-                pwd = HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetMD5Password(pwd);
-                var user = m_bll.Find<SysOperator>("WHERE Name=@0 AND Password=@1", userName, pwd);
+                pwd = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(pwd);
+                var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", userName, pwd);
                 var userPasswordExist = user != null;
                 if (!userPasswordExist)
                 {

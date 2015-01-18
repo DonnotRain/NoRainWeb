@@ -1,12 +1,12 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.IDal;
+using NoRain.Business.IDal;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.Dal
+namespace NoRain.Business.Dal
 {
     public class RoleDal :CommonSecurityDAL, IRoleDal
     {

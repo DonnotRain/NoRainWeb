@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class SysContext
     {
 
-        public static int UserId
+        public static string UserId
         {
             get
             {
-                return (int)HttpContext.Current.Items["UserId"];
+                return (string)HttpContext.Current.Items["UserId"];
             }
             set
             {
@@ -30,18 +30,6 @@ namespace HuaweiSoftware.WQT.WebBase
             set
             {
                 HttpContext.Current.Items["UserName"] = value;
-            }
-        }
-
-        public static string CorpCode
-        {
-            get
-            {
-                return (string)HttpContext.Current.Items["CorpCode"];
-            }
-            set
-            {
-                HttpContext.Current.Items["CorpCode"] = value;
             }
         }
 

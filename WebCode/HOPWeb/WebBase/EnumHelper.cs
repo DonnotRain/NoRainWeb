@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class EnumHelper
     {

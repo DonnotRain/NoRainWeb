@@ -16,7 +16,7 @@ PlugFunctions.Login = {
     , init: function () {
         //解决iframe首页嵌套登录页的问题
         if (window.parent != window) {
-            window.parent.location.href = "/Login/Index";
+            window.parent.location.href = window.location.href;
         }
         //上下居中
         currentPlug.autoInCenter();

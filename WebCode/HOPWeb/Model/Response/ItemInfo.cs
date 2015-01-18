@@ -1,4 +1,4 @@
-﻿namespace HuaweiSoftware.HOP.Model
+﻿namespace NoRain.Business.Model
 {
     public class ItemInfo
     {

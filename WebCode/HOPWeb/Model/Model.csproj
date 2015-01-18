@@ -7,8 +7,8 @@
     <ProjectGuid>{956B2B0A-5437-4E55-B67D-BC36D362D81F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.HOP.Model</RootNamespace>
-    <AssemblyName>HuaweiSoftware.HOP.Model</AssemblyName>
+    <RootNamespace>NoRain.Business.Model</RootNamespace>
+    <AssemblyName>NoRain.Business.Model</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,12 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\ReturnContract.cs" />
-    <Compile Include="Request\RequestContract.cs" />
-    <Compile Include="Request\InformationContract.cs" />
-    <Compile Include="Request\SellContract.cs" />
-    <Compile Include="Request\LeaveContract.cs" />
-    <Compile Include="Request\AttendenceContract.cs" />
+    <Compile Include="Request\LoginModel.cs" />
     <Compile Include="Request\SetRoleFunction.cs" />
     <Compile Include="Response\AttendenceInfo.cs" />
     <Compile Include="Response\BoardInfo.cs" />
@@ -57,13 +52,6 @@
     <Compile Include="Response\JudgementInfo.cs" />
     <Compile Include="Response\LearningInfo.cs" />
     <Compile Include="Response\LeaveInfo.cs" />
-    <Compile Include="Response\Statistics\SaleStatistics.cs" />
-    <Compile Include="Response\Statistics\StatisticsChange.cs" />
-    <Compile Include="Response\Statistics\StatisticsLeave.cs" />
-    <Compile Include="Response\Statistics\StatisticsTraining.cs" />
-    <Compile Include="Response\Statistics\StatisticsSale.cs" />
-    <Compile Include="Response\Statistics\StatisticsReturn.cs" />
-    <Compile Include="Response\Statistics\StatisticsRequest.cs" />
     <Compile Include="Response\ReturnInfo.cs" />
     <Compile Include="Response\SellInfo.cs" />
     <Compile Include="Response\UserInfo.cs" />

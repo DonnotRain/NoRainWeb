@@ -1,11 +1,11 @@
-﻿using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WQTRights;
+using NoRainRights;
 
 
 namespace BusinessWeb.Filters
@@ -28,7 +28,7 @@ namespace BusinessWeb.Filters
                 //var identity = HuaweiSoftware.Common.CGYLoginControl.SecurityHelper.Identity;
                 //var userName = SecurityHelper.SecurityInst.VerifyUserByIdentity(identity);
                 SysContext.UserName = request.Cookies["BackUserName"].Value;
-                SysContext.UserId = int.Parse(request.Cookies["BackUserId"].Value);
+                SysContext.UserId =request.Cookies["BackUserId"].Value;
                 //保存登录信息
 
                 //   var user = m_securityBll.Find<User>(m => m.Name == userName);

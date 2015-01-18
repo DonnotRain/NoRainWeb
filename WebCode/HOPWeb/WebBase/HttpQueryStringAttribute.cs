@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
 
     /// <summary>

@@ -7,8 +7,8 @@
     <ProjectGuid>{549E5503-B2A2-4CC6-9423-5EB2C4D17084}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.WQT.IDal</RootNamespace>
-    <AssemblyName>HuaweiSoftware.WQT.IDal</AssemblyName>
+    <RootNamespace>NoRain.Business.IDal</RootNamespace>
+    <AssemblyName>NoRain.Business.IDal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,12 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IInfomationDal.cs" />
-    <Compile Include="IRequestDal.cs" />
-    <Compile Include="IReturnDal.cs" />
-    <Compile Include="ISaleDal.cs" />
     <Compile Include="IRoleDal.cs" />
-    <Compile Include="IStoreDal.cs" />
     <Compile Include="Common\IBaseDAL.cs" />
     <Compile Include="Common\ICommonDAL.cs" />
     <Compile Include="Common\ICommonSecurityDAL.cs" />

@@ -1,11 +1,11 @@
-﻿PlugFunctions.System.OperatorRole = function () {
+﻿PlugFunctions.System.SysUserRole = function () {
     var rootPath = getRootPath();
     var components = ['parser', 'validatebox', 'datagrid', 'combobox', 'form', 'dialog', 'messager', 'layout', "datagrid", "combotree", "treegrid"];
     //初始化
     function initialFunc() {
         initLayout();
         role.init();
-        operator.init();
+        SysUser.init();
         auth.init();
     }
 
@@ -52,7 +52,7 @@
                     ]
                 ],
                 onSelect: function (rowData) {
-                    $('#dgOperator').datagrid("load");
+                    $('#dgSysUser').datagrid("load");
                     $('#dgAuth').treegrid("load");
                 }
                 , onBeforeLoad: function (para) {
@@ -202,11 +202,11 @@
         };
     }();
 
-    var operator = function () {
-        var currentUrl = rootPath + "/API/operator/";
+    var SysUser = function () {
+        var currentUrl = rootPath + "/API/SysUser/";
 
         function initMainDg() {
-            $('#dgOperator').datagrid({
+            $('#dgSysUser').datagrid({
                 method: "get",
                 url: currentUrl + "GetPager",
                 pageList: [10, 20, 30],
@@ -214,7 +214,7 @@
                 pagination: true,
                 striped: true,
                 fit: true,
-                toolbar: "#OperatorTool",
+                toolbar: "#SysUserTool",
                 fitColumns: true,
                 idField: 'Id',
                 treeField: 'Content',
@@ -286,7 +286,7 @@
                 }
             });
 
-            //var p = $('#dgOperator').datagrid('getPager');
+            //var p = $('#dgSysUser').datagrid('getPager');
             //$(p).pagination({
             //    showPageList: false,
             //    showRefresh: false,
@@ -307,8 +307,8 @@
         }
 
         function initialDialog() {
-            $('#dlgOperator').show();
-            $("#dlgOperator").dialog({
+            $('#dlgSysUser').show();
+            $("#dlgSysUser").dialog({
                 title: "新增操作员",
                 modal: true,
                 closed: true,
@@ -320,37 +320,37 @@
                 }, {
                     text: '取消',
                     handler: function () {
-                        $('#dlgOperator').dialog('close');
+                        $('#dlgSysUser').dialog('close');
                     }
                 }]
             });
         };
 
         function initParentCombo(selectedIds) {
-            $("#OperatorRoleIDs").combobox({
+            $("#SysUserRoleIDs").combobox({
                 url: rootPath + "/API/Role/",
                 valueField: 'ID',
                 textField: 'Name',
                 method: "get",
                 editable: false,
-                width: $("#OperatorRoleIDs").width(),
+                width: $("#SysUserRoleIDs").width(),
                 multiple: true,
                 onLoadSuccess: function () {
                     if (selectedIds && selectedIds.length) {
-                        $("#OperatorRoleIDs").combobox("setValues", selectedIds);
+                        $("#SysUserRoleIDs").combobox("setValues", selectedIds);
                     }
                 }
             });
         }
 
         function initialValidate() {
-            $("#fmOperator").validVal({ language: "cn" });
+            $("#fmSysUser").validVal({ language: "cn" });
         }
 
         function save() {
 
             //验证输入合法性
-            var isValid = $("#fmOperator").triggerHandler("submitForm");
+            var isValid = $("#fmSysUser").triggerHandler("submitForm");
             if (!isValid) {
                 //  $.messager.alert("输入信息错误", "信息输入不完整", 'info');
                 return;
@@ -360,10 +360,10 @@
             $("#IsSuperAdmin").val($("#SuperAdmin").prop("checked"))
 
             var method = "post";
-            if ($("#OperatorID").val()) {
+            if ($("#SysUserID").val()) {
                 method = "put";
             }
-            var data = $("#fmOperator").serializeArray();
+            var data = $("#fmSysUser").serializeArray();
 
             $.jMask("save", "保存中，请稍后").show();
             $.CommonAjax({
@@ -373,7 +373,7 @@
                 success: function (data, textStatus) {
                     $.jMask("save").hide();
 
-                    $('#dlgOperator').dialog('close');
+                    $('#dlgSysUser').dialog('close');
                     $.gritter.add({
                         // (string | mandatory) the heading of the notification
                         title: '成功!',
@@ -382,7 +382,7 @@
                         class_name: 'gritter-success',
                         time: 3000
                     });
-                    $("#dgOperator").datagrid("reload");
+                    $("#dgSysUser").datagrid("reload");
 
                 }
             });
@@ -398,7 +398,7 @@
                 // $(window).resize(resize);
             },
             Add: function () {
-                $('#fmOperator').form('clear');
+                $('#fmSysUser').form('clear');
 
                 var item = $("#dgRole").datagrid("getSelected");
                 if (item) {
@@ -410,34 +410,34 @@
                     initParentCombo([]);
                 }
 
-                $('#dlgOperator').dialog('open').dialog('setTitle', '添加操作员');
+                $('#dlgSysUser').dialog('open').dialog('setTitle', '添加操作员');
             },
             Edit: function () {
 
-                var item = $("#dgOperator").datagrid("getSelected");
+                var item = $("#dgSysUser").datagrid("getSelected");
                 if (item) {
-                    var rowIndex = $("#dgOperator").datagrid("getRowIndex", item);
-                    $("#dgOperator").datagrid("clearSelections").datagrid("selectRow", rowIndex);
+                    var rowIndex = $("#dgSysUser").datagrid("getRowIndex", item);
+                    $("#dgSysUser").datagrid("clearSelections").datagrid("selectRow", rowIndex);
                 }
                 else {
                     $.messager.alert("错误", "未选中任何记录", "error");
                     return;
                 }
-                $('#fmOperator').form('clear');
+                $('#fmSysUser').form('clear');
 
                 initParentCombo(item.RoleIds);
-                $('#fmOperator').form('load', item);
+                $('#fmSysUser').form('load', item);
                 for (var filed in item) {
                     $("#" + filed).val(item[filed]);
                 }
 
-                $('#dlgOperator').dialog('open').dialog('setTitle', '编辑操作员');
+                $('#dlgSysUser').dialog('open').dialog('setTitle', '编辑操作员');
             },
             Delete: function () {
 
             },
             reload: function () {
-                $("#dgOperator").datagrid("load");
+                $("#dgSysUser").datagrid("load");
             }
         };
 
@@ -506,8 +506,8 @@
         };
 
         function initialDialog() {
-            //$('#dlgOperator').show();
-            //$("#dlgOperator").dialog({
+            //$('#dlgSysUser').show();
+            //$("#dlgSysUser").dialog({
 
             //});
         };
@@ -581,7 +581,7 @@
             easyloader.load(components, initialFunc);
         },
         role: role,
-        operator: operator,
+        SysUser: SysUser,
         auth: auth
     };
 }();

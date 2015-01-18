@@ -1099,7 +1099,7 @@ var i,
 	// Proper syntax: http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
 	identifier = characterEncoding.replace( "w", "w#" ),
 
-	// Acceptable operators http://www.w3.org/TR/selectors/#attribute-selectors
+	// Acceptable SysUsers http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + characterEncoding + ")" + whitespace +
 		"*(?:([*^$|!~]?=)" + whitespace + "*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|(" + identifier + ")|)|)" + whitespace + "*\\]",
 
@@ -2044,26 +2044,26 @@ Expr = Sizzle.selectors = {
 				});
 		},
 
-		"ATTR": function( name, operator, check ) {
+		"ATTR": function( name, SysUser, check ) {
 			return function( elem ) {
 				var result = Sizzle.attr( elem, name );
 
 				if ( result == null ) {
-					return operator === "!=";
+					return SysUser === "!=";
 				}
-				if ( !operator ) {
+				if ( !SysUser ) {
 					return true;
 				}
 
 				result += "";
 
-				return operator === "=" ? result === check :
-					operator === "!=" ? result !== check :
-					operator === "^=" ? check && result.indexOf( check ) === 0 :
-					operator === "*=" ? check && result.indexOf( check ) > -1 :
-					operator === "$=" ? check && result.slice( -check.length ) === check :
-					operator === "~=" ? ( " " + result + " " ).indexOf( check ) > -1 :
-					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
+				return SysUser === "=" ? result === check :
+					SysUser === "!=" ? result !== check :
+					SysUser === "^=" ? check && result.indexOf( check ) === 0 :
+					SysUser === "*=" ? check && result.indexOf( check ) > -1 :
+					SysUser === "$=" ? check && result.slice( -check.length ) === check :
+					SysUser === "~=" ? ( " " + result + " " ).indexOf( check ) > -1 :
+					SysUser === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
 					false;
 			};
 		},
@@ -2693,7 +2693,7 @@ function matcherFromTokens( tokens ) {
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
-				// Find the next relative operator (if any) for proper handling
+				// Find the next relative SysUser (if any) for proper handling
 				j = ++i;
 				for ( ; j < len; j++ ) {
 					if ( Expr.relative[ tokens[j].type ] ) {

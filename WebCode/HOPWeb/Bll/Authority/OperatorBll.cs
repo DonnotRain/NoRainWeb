@@ -1,27 +1,27 @@
-﻿using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WQTRights;
+using NoRainRights;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
-    public class OperatorBll : CommonSecurityBLL, IOperatorBll
+    public class SysUserBll : CommonSecurityBLL, ISysUserBll
     {
         private IRoleBLL m_roleBll;
 
-        public OperatorBll(IRoleBLL roleBll)
+        public SysUserBll(IRoleBLL roleBll)
         {
             m_roleBll = roleBll;
         }
-        public PetaPoco.Page<User> GetOperatorPager(int pageIndex, int pageSize, string name, int? roleId)
+        public PetaPoco.Page<SysUser> GetSysUserPager(int pageIndex, int pageSize, string name, int? roleId)
         {
 
             var sql = PetaPoco.Sql.Builder.Append("SELECT s.* FROM Users s")
-                .Append(" Where s.CorpCode=@0 ", SysContext.CorpCode);
+                .Append(" Where 1=1 ");
 
 
             if (!string.IsNullOrEmpty(name))
@@ -36,7 +36,7 @@ namespace HuaweiSoftware.WQT.Bll
             }
 
 
-            var page = FindAllByPage<User>(sql.SQL, pageSize, pageIndex, sql.Arguments);
+            var page = FindAllByPage<SysUser>(sql.SQL, pageSize, pageIndex, sql.Arguments);
 
 
             page.Items.ForEach(m =>
@@ -49,15 +49,14 @@ namespace HuaweiSoftware.WQT.Bll
             return page;
         }
 
-        public User Add(User entity)
+        public SysUser Add(SysUser entity)
         {
             entity.Password = CommonToolkit.CommonToolkit.GetMD5Password(entity.Password);
-            entity.ModifyTime = DateTime.Now;
-            entity.IsDeleted = false;
 
-            entity.CorpCode = SysContext.CorpCode;
+            entity.IsExpire = false;
+
             //判断编号是否重复
-            var repeatItems = FindAll<User>("Name=@0 And CorpCode=@1", entity.Name, SysContext.CorpCode);
+            var repeatItems = FindAll<SysUser>("Name=@0" , entity.Name);
             if (repeatItems.Count() != 0) throw new ApiException(ResponseCode.SYSTEM_Request_Interval);
 
             using (PetaPoco.Transaction transac = new Transaction(DBManage.SecurityDB))
@@ -73,7 +72,7 @@ namespace HuaweiSoftware.WQT.Bll
                     userRoleList.Add(new User_Role()
                     {
                         Role_ID = int.Parse(roleId),
-                        User_ID = entity.ID
+                        User_ID = entity.ID.ToString()
                     });
                 }
 
@@ -82,14 +81,12 @@ namespace HuaweiSoftware.WQT.Bll
             return entity;
         }
 
-        public User Edit(User entity)
+        public SysUser Edit(SysUser entity)
         {
-            var oldEntity = User.First("Where ID=@0", entity.ID);
+            var oldEntity = SysUser.First("Where ID=@0", entity.ID);
             //不需要修改的一些属性
-            entity.ModifyTime = DateTime.Now;
-            entity.CorpCode = oldEntity.CorpCode;
-            entity.CreateTime = oldEntity.CreateTime;
-            entity.IsDeleted = false;
+            entity.IsExpire = false;
+
             //特殊处理的属性
             entity.Password = string.IsNullOrEmpty(entity.Password) ? oldEntity.Password : CommonToolkit.CommonToolkit.GetMD5Password(entity.Password);
 
@@ -98,18 +95,17 @@ namespace HuaweiSoftware.WQT.Bll
         }
 
 
-        public User ChangePwd(string password, string newPassword, string confrimPassword)
+        public SysUser ChangePwd(string password, string newPassword, string confrimPassword)
         {
             if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(newPassword) || newPassword != confrimPassword)
             {
                 throw new Exception("输入信息不正确，请检查后重试");
             }
 
-            var oldEntity = User.First("Where ID=@0", SysContext.UserId);
+            var oldEntity = SysUser.First("Where ID=@0", SysContext.UserId);
 
 
             //不需要修改的一些属性
-            oldEntity.ModifyTime = DateTime.Now;
 
             //特殊处理的属性
             oldEntity.Password = string.IsNullOrEmpty(confrimPassword) ? oldEntity.Password : CommonToolkit.CommonToolkit.GetMD5Password(confrimPassword);

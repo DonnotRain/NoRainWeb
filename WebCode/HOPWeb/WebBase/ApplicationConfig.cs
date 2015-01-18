@@ -6,7 +6,7 @@ using System.IO;
 using Autofac;
 using System.Reflection;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class ApplicationConfig
     {

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using PetaPoco;
 
-namespace HuaweiSoftware.WQT.IDal
+namespace NoRain.Business.IDal
 {
     public interface IBaseDAL
     {

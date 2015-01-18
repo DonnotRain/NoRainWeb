@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.IDal
+namespace NoRain.Business.IDal
 {
     public interface IRoleDal : ICommonSecurityDAL
     {

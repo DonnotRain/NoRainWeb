@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.WebBase.Models
+namespace NoRain.Business.WebBase.Models
 {
     public class AjaxResult
     {

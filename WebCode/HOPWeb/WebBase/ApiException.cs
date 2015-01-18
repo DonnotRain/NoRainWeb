@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class ApiException : Exception
     {

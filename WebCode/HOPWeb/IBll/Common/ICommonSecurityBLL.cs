@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface ICommonSecurityBLL : IBaseBLL
     {

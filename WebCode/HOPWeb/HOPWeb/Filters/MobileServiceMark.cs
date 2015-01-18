@@ -1,5 +1,5 @@
-﻿using HuaweiSoftware.WQT.CommonToolkit;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.CommonToolkit;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Linq.Expressions;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public static class ExtensionHelper
     {

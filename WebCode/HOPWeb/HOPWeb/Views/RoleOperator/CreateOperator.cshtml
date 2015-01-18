@@ -1,5 +1,5 @@
-﻿<div id="dlgOperator" style="width:600px; height:515px; display: none; padding-top: 25px">
-    <form id="fmOperator" method="post" class="form-horizontal" role="form" action="@Url.Action("Edit", "Product", new { Area = "BaseSystem" })">
+﻿<div id="dlgSysUser" style="width:600px; height:515px; display: none; padding-top: 25px">
+    <form id="fmSysUser" method="post" class="form-horizontal" role="form" action="@Url.Action("Edit", "Product", new { Area = "BaseSystem" })">
         @{
             var width = 180 + "px";
             var easyWidth = 190 + "px"; ;
@@ -38,7 +38,7 @@
                     <label for="RoleNameId">所属角色：</label>
                 </th>
                 <td colspan="3">
-                    <input type="text" id="OperatorRoleIDs" name="RoleIDs" style="width:470px" />
+                    <input type="text" id="SysUserRoleIDs" name="RoleIDs" style="width:470px" />
                 </td>
             </tr>
             <tr>
@@ -105,7 +105,7 @@
                 </td>
             </tr>
         </table>
-        <input type="hidden" id="OperatorID" name="ID" value="" />
+        <input type="hidden" id="SysUserID" name="ID" value="" />
         <input type="hidden" id="IsExpire" name="IsExpire" value="" />
         <input type="hidden" id="IsSuperAdmin" name="IsSuperAdmin" value="" />
     </form>

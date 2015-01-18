@@ -1,22 +1,21 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.IDal;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.IBll;
+using NoRain.Business.IDal;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public class ParameterBll : CommonBLL, IParameterBll
     {
-        public PetaPoco.Page<DefaultConnection.Parameter> GetParameterPager(int pageIndex, int pageSize, string name, string value)
+        public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value)
         {
 
             var sql = PetaPoco.Sql.Builder.Append(" select * FROM Parameters s")
-                .Append("Where s.CorpCode=@0 ", SysContext.CorpCode);
-
+                .Append("Where 1=1 ");
 
             if (!string.IsNullOrEmpty(name))
             {
@@ -28,7 +27,7 @@ namespace HuaweiSoftware.WQT.Bll
                 value = "%" + value + "%";
                 sql.Append(" And s.Value like @0", value);
             }
-            var page = FindAllByPage<Parameter>(sql.SQL, pageSize, pageIndex, sql.Arguments);
+            var page = FindAllByPage<SysParameter>(sql.SQL, pageSize, pageIndex, sql.Arguments);
 
             //page.Items.ForEach(m =>
             //{
@@ -37,38 +36,34 @@ namespace HuaweiSoftware.WQT.Bll
             return page;
         }
 
-        public Parameter Add(Parameter entity)
+        public SysParameter Add(SysParameter entity)
         {
-            entity.CorpCode = SysContext.CorpCode;
             entity.Insert();
             return entity;
         }
 
-        public Parameter GetByName(string paramName)
+        public SysParameter GetByName(string paramName)
         {
             var sql = PetaPoco.Sql.Builder.Append(" select * FROM Parameters s")
-             .Append("Where s.CorpCode=@0 and s.Name=@1", SysContext.CorpCode, paramName);
+             .Append("Where  s.Name=@0", paramName);
 
-            return Find<Parameter>(sql.SQL, sql.Arguments);
+            return Find<SysParameter>(sql.SQL, sql.Arguments);
         }
 
         /// <summary>
         /// 获取参数，如果没有，设置默认值
         /// </summary>
         /// <returns></returns>
-        public Parameter GetSysName(string paramName)
+        public SysParameter GetSysName(string paramName)
         {
             //   var paramName = "系统名称";
             var sql = PetaPoco.Sql.Builder.Append(" select * FROM Parameters s")
-            .Append("Where s.CorpCode=@0 and s.Name=@1", SysContext.CorpCode, paramName);
+            .Append("Where  s.Name=@0", paramName);
 
-            var item = Find<Parameter>(sql.SQL, sql.Arguments);
+            var item = Find<SysParameter>(sql.SQL, sql.Arguments);
             if (item == null)
             {
-                var corp = Find<Corporation>("WHERE Code=@0", SysContext.CorpCode);
-
                 var valueDict = new Dictionary<string, string>();
-                valueDict.Add("系统名称", corp.Name);
                 valueDict.Add("上班时间", "08:00");
                 valueDict.Add("下班时间", "17:00");
 
@@ -78,12 +73,11 @@ namespace HuaweiSoftware.WQT.Bll
                 {
                     value = valueDict[paramName];
                 }
-                item = new Parameter()
+                item = new SysParameter()
                 {
-                    CorpCode = SysContext.CorpCode,
-                    IsDeleted = false,
+                    IsEnabled = 1,
                     Name = paramName,
-                    Value = value
+                    ValueContent = value
                 };
 
                 //插入
@@ -92,24 +86,23 @@ namespace HuaweiSoftware.WQT.Bll
             return item;
         }
 
-        public Parameter Edit(Parameter entity)
+        public SysParameter Edit(SysParameter entity)
         {
-            var oldEntity = Parameter.First("Where ID=@0", entity.ID);
-            entity.CorpCode = oldEntity.CorpCode;
-            entity.IsDeleted = oldEntity.IsDeleted;
+            var oldEntity = SysParameter.First("Where ID=@0", entity.Id);
+            entity.IsEnabled = oldEntity.IsEnabled;
             entity.Update();
             return entity;
         }
 
 
-        public Parameter SetSysName(string value, string paramName)
+        public SysParameter SetSysName(string value, string paramName)
         {
             var sql = PetaPoco.Sql.Builder.Append(" select * FROM Parameters s")
-            .Append("Where s.CorpCode=@0 and s.Name=@1", SysContext.CorpCode, paramName);
+            .Append("Where  s.Name=@0", paramName);
 
-            var item = Find<Parameter>(sql.SQL, sql.Arguments);
+            var item = Find<SysParameter>(sql.SQL, sql.Arguments);
 
-            item.Value = value;
+            item.ValueContent = value;
 
             //更新
             Update(item);

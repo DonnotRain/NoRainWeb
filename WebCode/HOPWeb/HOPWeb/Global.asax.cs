@@ -1,4 +1,4 @@
-﻿using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +25,10 @@ namespace WQTWeb
             ApplicationConfig.Intance.Init(o => { },
                                new Assembly[]
                                                {
-                                                   Assembly.Load("HuaweiSoftware.WQT.Bll"),
-                                                   Assembly.Load("HuaweiSoftware.WQT.IBll"), 
-                                                   Assembly.Load("HuaweiSoftware.WQT.Dal"),
-                                                   Assembly.Load("HuaweiSoftware.WQT.IDal")
+                                                   Assembly.Load("NoRain.Business.Bll"),
+                                                   Assembly.Load("NoRain.Business.IBll"), 
+                                                   Assembly.Load("NoRain.Business.Dal"),
+                                                   Assembly.Load("NoRain.Business.IDal")
                                                });
         }
     }

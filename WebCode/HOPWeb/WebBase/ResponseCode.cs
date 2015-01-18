@@ -2,7 +2,7 @@
 using System;
 using System.Net;
 
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public enum ResponseCode
     {

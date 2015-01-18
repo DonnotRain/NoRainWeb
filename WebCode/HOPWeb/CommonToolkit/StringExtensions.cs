@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.CommonToolkit
+namespace NoRain.Business.CommonToolkit
 {
     /// <summary>
     /// 提供String类型的一些扩展方法

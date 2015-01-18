@@ -1,11 +1,11 @@
-﻿using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using WQTRights;
+using NoRainRights;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API

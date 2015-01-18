@@ -1,5 +1,5 @@
-﻿using HuaweiSoftware.WQT.CommonToolkit;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.CommonToolkit;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,32 +41,7 @@ namespace WQTWeb.Filters
             }
             try
             {
-                //获取公司编号
-                if (context.Request.QueryString.AllKeys.Contains("corpcode"))
-                {
-                    SysContext.CorpCode = context.Request.QueryString["corpcode"];
-                }
-                else if (context.Request.Form.AllKeys.Contains("corpcode"))
-                {
-                    SysContext.CorpCode = context.Request.Form["corpcode"];
-                }
-                else if (context.Request.Cookies.AllKeys.Contains("corpcode"))
-                {
-                    SysContext.CorpCode = context.Request.Cookies["corpcode"].Value;
-                }
-                else if (context.Request.QueryString.AllKeys.Contains("corpCode"))
-                {
-                    SysContext.CorpCode = context.Request.QueryString["corpCode"];
-                }
-                else if (context.Request.Form.AllKeys.Contains("corpCode"))
-                {
-                    SysContext.CorpCode = context.Request.Form["corpCode"];
-                }
-                else if (context.Request.Cookies["corpCode"] != null)
-                {
-                    SysContext.CorpCode = context.Request.Cookies["corpCode"].Value;
-                }
-
+               
                 //获取人员名称，兼容userName和username
                 if (context.Request.QueryString.AllKeys.Contains("userName"))
                 {
@@ -120,7 +95,7 @@ namespace WQTWeb.Filters
             //RequestBase requestBase = new RequestBase(request.QueryString);
             //var b = string.Format("{0}{1}{2}", requestBase.Timestamp,
             //                 requestBase.Token, ApiConfig.SecretKey);
-            //string mySig = HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetMD5(b);
+            //string mySig = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5(b);
             //if (ApiConfig.VerificationOpen && !mySig.Equals(requestBase.Sig))
             //    return false;
             //return true;

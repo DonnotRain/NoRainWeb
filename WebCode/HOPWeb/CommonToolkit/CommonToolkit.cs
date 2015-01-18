@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.CommonToolkit
+namespace NoRain.Business.CommonToolkit
 {
     public class CommonToolkit
     {

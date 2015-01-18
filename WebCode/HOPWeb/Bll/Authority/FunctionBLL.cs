@@ -1,13 +1,13 @@
-﻿using HuaweiSoftware.WQT.Bll;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+﻿
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WQTRights;
+using NoRainRights;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public class FunctionBLL : CommonSecurityBLL, IFunctionBLL, IBaseBLL
     {
@@ -67,7 +67,7 @@ namespace HuaweiSoftware.WQT.Bll
 
         private List<Role> GetFunctionRoles(int functionId)
         {
-            var functionRoles = FindAll<Role_Function>("where Function_ID =@0 And CorpCode=@1", functionId, SysContext.CorpCode).Select(funcRole => funcRole.Role_ID);
+            var functionRoles = FindAll<Role_Function>("where Function_ID =@0 ", functionId).Select(funcRole => funcRole.Role_ID);
 
             return FindAll<Role>(string.Empty).Where(model => functionRoles.Contains(model.ID)).ToList();
         }
@@ -78,7 +78,7 @@ namespace HuaweiSoftware.WQT.Bll
             var items = FindAll<Function>(string.Empty).Where(m => functionRoles.Select(func => func.Function_ID).Contains(m.ID)).OrderBy(m => m.ID);
             items.ToList().ForEach(m =>
             {
-                var subfunctionRoles = FindAll<Role_Function>("where Function_ID =@0 And CorpCode=@1", m.ID, SysContext.CorpCode);
+                var subfunctionRoles = FindAll<Role_Function>("where Function_ID =@0 ", m.ID);
                 m.Roles = FindAll<Role>().Where(model => subfunctionRoles.Select(funcRole => funcRole.Role_ID).Contains(model.ID));
             });
             return items;
@@ -115,8 +115,7 @@ namespace HuaweiSoftware.WQT.Bll
                     sysFunction.RoleIds.ToList().ForEach(m => roleFuncItems.Add(new Role_Function()
                     {
                         Role_ID = int.Parse(m),
-                        Function_ID = sysFunction.ID,
-                        CorpCode = SysContext.CorpCode
+                        Function_ID = sysFunction.ID
                     }));
                 }
                 Insert(roleFuncItems);
@@ -141,7 +140,7 @@ namespace HuaweiSoftware.WQT.Bll
                 Update(sysFunction);
 
                 //再删除原来的对应关系
-                Role_Function.repo.Execute("DELETE FROM Role_Function where Function_ID =@0 And CorpCode=@1", sysFunction.ID, SysContext.CorpCode);
+                Role_Function.repo.Execute("DELETE FROM Role_Function where Function_ID =@0 ", sysFunction.ID);
 
                 List<Role_Function> roleFuncItems = new List<Role_Function>();
                 if (sysFunction.RoleIds != null)
@@ -153,8 +152,6 @@ namespace HuaweiSoftware.WQT.Bll
                             {
                                 Role_ID = int.Parse(m),
                                 Function_ID = sysFunction.ID
-                                ,
-                                CorpCode = SysContext.CorpCode
                             });
                     });
 

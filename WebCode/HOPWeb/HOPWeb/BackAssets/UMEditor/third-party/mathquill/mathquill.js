@@ -910,7 +910,7 @@ var MathElement = P(Node, function(_, _super) {
 });
 
 /**
- * Commands and operators, like subscripts, exponents, or fractions.
+ * Commands and SysUsers, like subscripts, exponents, or fractions.
  * Descendant commands are organized into blocks.
  */
 var MathCommand = P(MathElement, function(_, _super) {
@@ -1148,8 +1148,8 @@ var Symbol = P(MathCommand, function(_, _super) {
 
 /**
  * Children and parent of MathCommand's. Basically partitions all the
- * symbols and operators that descend (in the Math DOM tree) from
- * ancestor operators.
+ * symbols and SysUsers that descend (in the Math DOM tree) from
+ * ancestor SysUsers.
  */
 var MathBlock = P(MathElement, function(_) {
   _.join = function(methodName) {
@@ -1699,7 +1699,7 @@ var RootTextBlock = P(MathBlock, function(_) {
   };
 });
 /***************************
- * Commands and Operators.
+ * Commands and SysUsers.
  **************************/
 
 var CharCmds = {}, LatexCmds = {}; //single character commands, LaTeX commands
@@ -1920,11 +1920,11 @@ CharCmds['/'] = P(Fraction, function(_, _super) {
       var leftward = cursor[L];
       while (leftward &&
         !(
-          leftward instanceof BinaryOperator ||
+          leftward instanceof BinarySysUser ||
           leftward instanceof TextBlock ||
           leftward instanceof BigSymbol ||
           ',;:'.split('').indexOf(leftward.ctrlSeq) > -1
-        ) //lookbehind for operator
+        ) //lookbehind for SysUser
       )
         leftward = leftward[L];
 
@@ -2574,9 +2574,9 @@ var Variable = P(Symbol, function(_, _super) {
   _.text = function() {
     var text = this.ctrlSeq;
     if (this[L] && !(this[L] instanceof Variable)
-        && !(this[L] instanceof BinaryOperator))
+        && !(this[L] instanceof BinarySysUser))
       text = '*' + text;
-    if (this[R] && !(this[R] instanceof BinaryOperator)
+    if (this[R] && !(this[R] instanceof BinarySysUser)
         && !(this[R].ctrlSeq === '^'))
       text += '*';
     return text;
@@ -2747,15 +2747,15 @@ LatexCmds['¼'] = bind(LatexFragment, '\\frac14');
 LatexCmds['½'] = bind(LatexFragment, '\\frac12');
 LatexCmds['¾'] = bind(LatexFragment, '\\frac34');
 
-var BinaryOperator = P(Symbol, function(_, _super) {
+var BinarySysUser = P(Symbol, function(_, _super) {
   _.init = function(ctrlSeq, html, text) {
     _super.init.call(this,
-      ctrlSeq, '<span class="binary-operator">'+html+'</span>', text
+      ctrlSeq, '<span class="binary-SysUser">'+html+'</span>', text
     );
   };
 });
 
-var PlusMinus = P(BinaryOperator, function(_) {
+var PlusMinus = P(BinarySysUser, function(_) {
   _.init = VanillaSymbol.prototype.init;
 
   _.respace = function() {
@@ -2763,13 +2763,13 @@ var PlusMinus = P(BinaryOperator, function(_) {
       this.jQ[0].className = '';
     }
     else if (
-      this[L] instanceof BinaryOperator &&
-      this[R] && !(this[R] instanceof BinaryOperator)
+      this[L] instanceof BinarySysUser &&
+      this[R] && !(this[R] instanceof BinarySysUser)
     ) {
-      this.jQ[0].className = 'unary-operator';
+      this.jQ[0].className = 'unary-SysUser';
     }
     else {
-      this.jQ[0].className = 'binary-operator';
+      this.jQ[0].className = 'binary-SysUser';
     }
     return this;
   };
@@ -2784,86 +2784,86 @@ LatexCmds.mp = LatexCmds.mnplus = LatexCmds.minusplus =
   bind(PlusMinus,'\\mp ','&#8723;');
 
 CharCmds['*'] = LatexCmds.sdot = LatexCmds.cdot =
-  bind(BinaryOperator, '\\cdot ', '&middot;');
+  bind(BinarySysUser, '\\cdot ', '&middot;');
 //semantically should be &sdot;, but &middot; looks better
 
-LatexCmds['='] = bind(BinaryOperator, '=', '=');
-LatexCmds['<'] = bind(BinaryOperator, '<', '&lt;');
-LatexCmds['>'] = bind(BinaryOperator, '>', '&gt;');
+LatexCmds['='] = bind(BinarySysUser, '=', '=');
+LatexCmds['<'] = bind(BinarySysUser, '<', '&lt;');
+LatexCmds['>'] = bind(BinarySysUser, '>', '&gt;');
 
 LatexCmds.notin =
 LatexCmds.sim =
 LatexCmds.cong =
 LatexCmds.equiv =
 LatexCmds.oplus =
-LatexCmds.otimes = P(BinaryOperator, function(_, _super) {
+LatexCmds.otimes = P(BinarySysUser, function(_, _super) {
   _.init = function(latex) {
     _super.init.call(this, '\\'+latex+' ', '&'+latex+';');
   };
 });
 
-LatexCmds.times = bind(BinaryOperator, '\\times ', '&times;', '[x]');
+LatexCmds.times = bind(BinarySysUser, '\\times ', '&times;', '[x]');
 
 LatexCmds['÷'] = LatexCmds.div = LatexCmds.divide = LatexCmds.divides =
-  bind(BinaryOperator,'\\div ','&divide;', '[/]');
+  bind(BinarySysUser,'\\div ','&divide;', '[/]');
 
-LatexCmds['≠'] = LatexCmds.ne = LatexCmds.neq = bind(BinaryOperator,'\\ne ','&ne;');
+LatexCmds['≠'] = LatexCmds.ne = LatexCmds.neq = bind(BinarySysUser,'\\ne ','&ne;');
 
 LatexCmds.ast = LatexCmds.star = LatexCmds.loast = LatexCmds.lowast =
-  bind(BinaryOperator,'\\ast ','&lowast;');
+  bind(BinarySysUser,'\\ast ','&lowast;');
   //case 'there4 = // a special exception for this one, perhaps?
 LatexCmds.therefor = LatexCmds.therefore =
-  bind(BinaryOperator,'\\therefore ','&there4;');
+  bind(BinarySysUser,'\\therefore ','&there4;');
 
 LatexCmds.cuz = // l33t
-LatexCmds.because = bind(BinaryOperator,'\\because ','&#8757;');
+LatexCmds.because = bind(BinarySysUser,'\\because ','&#8757;');
 
-LatexCmds.prop = LatexCmds.propto = bind(BinaryOperator,'\\propto ','&prop;');
+LatexCmds.prop = LatexCmds.propto = bind(BinarySysUser,'\\propto ','&prop;');
 
-LatexCmds['≈'] = LatexCmds.asymp = LatexCmds.approx = bind(BinaryOperator,'\\approx ','&asymp;');
+LatexCmds['≈'] = LatexCmds.asymp = LatexCmds.approx = bind(BinarySysUser,'\\approx ','&asymp;');
 
-LatexCmds.lt = bind(BinaryOperator,'<','&lt;');
+LatexCmds.lt = bind(BinarySysUser,'<','&lt;');
 
-LatexCmds.gt = bind(BinaryOperator,'>','&gt;');
+LatexCmds.gt = bind(BinarySysUser,'>','&gt;');
 
-LatexCmds['≤'] = LatexCmds.le = LatexCmds.leq = bind(BinaryOperator,'\\le ','&le;');
+LatexCmds['≤'] = LatexCmds.le = LatexCmds.leq = bind(BinarySysUser,'\\le ','&le;');
 
-LatexCmds['≥'] = LatexCmds.ge = LatexCmds.geq = bind(BinaryOperator,'\\ge ','&ge;');
+LatexCmds['≥'] = LatexCmds.ge = LatexCmds.geq = bind(BinarySysUser,'\\ge ','&ge;');
 
-LatexCmds.isin = LatexCmds['in'] = bind(BinaryOperator,'\\in ','&isin;');
+LatexCmds.isin = LatexCmds['in'] = bind(BinarySysUser,'\\in ','&isin;');
 
-LatexCmds.ni = LatexCmds.contains = bind(BinaryOperator,'\\ni ','&ni;');
+LatexCmds.ni = LatexCmds.contains = bind(BinarySysUser,'\\ni ','&ni;');
 
 LatexCmds.notni = LatexCmds.niton = LatexCmds.notcontains = LatexCmds.doesnotcontain =
-  bind(BinaryOperator,'\\not\\ni ','&#8716;');
+  bind(BinarySysUser,'\\not\\ni ','&#8716;');
 
-LatexCmds.sub = LatexCmds.subset = bind(BinaryOperator,'\\subset ','&sub;');
+LatexCmds.sub = LatexCmds.subset = bind(BinarySysUser,'\\subset ','&sub;');
 
 LatexCmds.sup = LatexCmds.supset = LatexCmds.superset =
-  bind(BinaryOperator,'\\supset ','&sup;');
+  bind(BinarySysUser,'\\supset ','&sup;');
 
 LatexCmds.nsub = LatexCmds.notsub =
 LatexCmds.nsubset = LatexCmds.notsubset =
-  bind(BinaryOperator,'\\not\\subset ','&#8836;');
+  bind(BinarySysUser,'\\not\\subset ','&#8836;');
 
 LatexCmds.nsup = LatexCmds.notsup =
 LatexCmds.nsupset = LatexCmds.notsupset =
 LatexCmds.nsuperset = LatexCmds.notsuperset =
-  bind(BinaryOperator,'\\not\\supset ','&#8837;');
+  bind(BinarySysUser,'\\not\\supset ','&#8837;');
 
 LatexCmds.sube = LatexCmds.subeq = LatexCmds.subsete = LatexCmds.subseteq =
-  bind(BinaryOperator,'\\subseteq ','&sube;');
+  bind(BinarySysUser,'\\subseteq ','&sube;');
 
 LatexCmds.supe = LatexCmds.supeq =
 LatexCmds.supsete = LatexCmds.supseteq =
 LatexCmds.supersete = LatexCmds.superseteq =
-  bind(BinaryOperator,'\\supseteq ','&supe;');
+  bind(BinarySysUser,'\\supseteq ','&supe;');
 
 LatexCmds.nsube = LatexCmds.nsubeq =
 LatexCmds.notsube = LatexCmds.notsubeq =
 LatexCmds.nsubsete = LatexCmds.nsubseteq =
 LatexCmds.notsubsete = LatexCmds.notsubseteq =
-  bind(BinaryOperator,'\\not\\subseteq ','&#8840;');
+  bind(BinarySysUser,'\\not\\subseteq ','&#8840;');
 
 LatexCmds.nsupe = LatexCmds.nsupeq =
 LatexCmds.notsupe = LatexCmds.notsupeq =
@@ -2871,7 +2871,7 @@ LatexCmds.nsupsete = LatexCmds.nsupseteq =
 LatexCmds.notsupsete = LatexCmds.notsupseteq =
 LatexCmds.nsupersete = LatexCmds.nsuperseteq =
 LatexCmds.notsupersete = LatexCmds.notsuperseteq =
-  bind(BinaryOperator,'\\not\\supseteq ','&#8841;');
+  bind(BinarySysUser,'\\not\\supseteq ','&#8841;');
 
 
 //sum, product, coproduct, integral
@@ -2930,7 +2930,7 @@ case '!':
   return Symbol('\\! ','<span style="margin-right:-.2em"></span>');
 */
 
-//binary operators
+//binary SysUsers
 LatexCmds.diamond = bind(VanillaSymbol, '\\diamond ', '&#9671;');
 LatexCmds.bigtriangleup = bind(VanillaSymbol, '\\bigtriangleup ', '&#9651;');
 LatexCmds.ominus = bind(VanillaSymbol, '\\ominus ', '&#8854;');
@@ -3070,26 +3070,26 @@ LatexCmds.diverges = LatexCmds.uarr = LatexCmds.uparrow =
 
 LatexCmds.uArr = LatexCmds.Uparrow = bind(VanillaSymbol,'\\Uparrow ','&uArr;');
 
-LatexCmds.to = bind(BinaryOperator,'\\to ','&rarr;');
+LatexCmds.to = bind(BinarySysUser,'\\to ','&rarr;');
 
 LatexCmds.rarr = LatexCmds.rightarrow = bind(VanillaSymbol,'\\rightarrow ','&rarr;');
 
-LatexCmds.implies = bind(BinaryOperator,'\\Rightarrow ','&rArr;');
+LatexCmds.implies = bind(BinarySysUser,'\\Rightarrow ','&rArr;');
 
 LatexCmds.rArr = LatexCmds.Rightarrow = bind(VanillaSymbol,'\\Rightarrow ','&rArr;');
 
-LatexCmds.gets = bind(BinaryOperator,'\\gets ','&larr;');
+LatexCmds.gets = bind(BinarySysUser,'\\gets ','&larr;');
 
 LatexCmds.larr = LatexCmds.leftarrow = bind(VanillaSymbol,'\\leftarrow ','&larr;');
 
-LatexCmds.impliedby = bind(BinaryOperator,'\\Leftarrow ','&lArr;');
+LatexCmds.impliedby = bind(BinarySysUser,'\\Leftarrow ','&lArr;');
 
 LatexCmds.lArr = LatexCmds.Leftarrow = bind(VanillaSymbol,'\\Leftarrow ','&lArr;');
 
 LatexCmds.harr = LatexCmds.lrarr = LatexCmds.leftrightarrow =
   bind(VanillaSymbol,'\\leftrightarrow ','&harr;');
 
-LatexCmds.iff = bind(BinaryOperator,'\\Leftrightarrow ','&hArr;');
+LatexCmds.iff = bind(BinarySysUser,'\\Leftrightarrow ','&hArr;');
 
 LatexCmds.hArr = LatexCmds.lrArr = LatexCmds.Leftrightarrow =
   bind(VanillaSymbol,'\\Leftrightarrow ','&hArr;');
@@ -3121,12 +3121,12 @@ LatexCmds.o = LatexCmds.O =
 LatexCmds.empty = LatexCmds.emptyset =
 LatexCmds.oslash = LatexCmds.Oslash =
 LatexCmds.nothing = LatexCmds.varnothing =
-  bind(BinaryOperator,'\\varnothing ','&empty;');
+  bind(BinarySysUser,'\\varnothing ','&empty;');
 
-LatexCmds.cup = LatexCmds.union = bind(BinaryOperator,'\\cup ','&cup;');
+LatexCmds.cup = LatexCmds.union = bind(BinarySysUser,'\\cup ','&cup;');
 
 LatexCmds.cap = LatexCmds.intersect = LatexCmds.intersection =
-  bind(BinaryOperator,'\\cap ','&cap;');
+  bind(BinarySysUser,'\\cap ','&cap;');
 
 LatexCmds.deg = LatexCmds.degree = bind(VanillaSymbol,'^\\circ ','&deg;');
 

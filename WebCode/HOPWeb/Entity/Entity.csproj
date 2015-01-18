@@ -7,8 +7,8 @@
     <ProjectGuid>{E5AF736E-BA28-4B20-87FD-732853FDC5CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.WQT.Entity</RootNamespace>
-    <AssemblyName>HuaweiSoftware.WQT.Entity</AssemblyName>
+    <RootNamespace>NoRain.Business.Entity</RootNamespace>
+    <AssemblyName>NoRain.Business.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,56 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Models\Generated\RightsDatabase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RightsDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Generated\Database.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PetaPoco.cs" />
-    <Compile Include="Partial\MKT_Item.cs" />
+    <Compile Include="Models\Database.cs" />
+    <Compile Include="PetaPoco.cs" />
     <Compile Include="Partial\Security\User.cs" />
-    <Compile Include="Partial\SEC_Store.cs" />
-    <Compile Include="Partial\SEC_User.cs" />
-    <Compile Include="Partial\MKT_Infomation.cs" />
-    <Compile Include="Partial\MKT_Return.cs" />
-    <Compile Include="Partial\MKT_Request.cs" />
-    <Compile Include="Partial\MKT_Sell.cs" />
-    <Compile Include="Partial\BRD_Board.cs" />
-    <Compile Include="Partial\ATD_Attendence.cs" />
-    <Compile Include="Partial\ATD_Leave.cs" />
     <Compile Include="Partial\Security\Function.cs" />
     <Compile Include="Partial\Sys\CategoryItem.cs" />
-    <Compile Include="Partial\TRN_Choice.cs" />
-    <Compile Include="Partial\TRN_Exam.cs" />
-    <Compile Include="Partial\TRN_ExamScore.cs" />
-    <Compile Include="Partial\TRN_Judge.cs" />
-    <Compile Include="Partial\TRN_Study.cs" />
-    <Compile Include="Partial\TRN_StudyExamArrange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\RightsDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
-    <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
-    <None Include="Models\Generated\RightsDatabase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RightsDatabase.cs</LastGenOutput>
-    </None>
-    <None Include="Models\Generated\Database.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,8 +7,8 @@
     <ProjectGuid>{E4D6C466-5B94-4C73-AF51-A3D67DC23BC6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuaweiSoftware.WQT.WebBase</RootNamespace>
-    <AssemblyName>HuaweiSoftware.WQT.WebBase</AssemblyName>
+    <RootNamespace>NoRain.WebBase</RootNamespace>
+    <AssemblyName>NoRain.WebBase</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

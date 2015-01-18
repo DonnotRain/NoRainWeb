@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using log4net;
 using System.Reflection;
-namespace HuaweiSoftware.WQT.WebBase
+namespace NoRain.Business.WebBase
 {
     public class LoggerHelper
     {
-        private static readonly ILog logger = LogManager.GetLogger(Assembly.Load(new AssemblyName("HuaweiSoftware.WQT.WQTWeb")), "LogFileAppender");
+        private static readonly ILog logger = LogManager.GetLogger(Assembly.Load(new AssemblyName("NoRain.MainWeb")), "LogFileAppender");
         public static ILog Logger { get { return logger; } }
     }
 }

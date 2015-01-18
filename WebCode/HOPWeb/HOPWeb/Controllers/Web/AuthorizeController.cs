@@ -1,8 +1,8 @@
 ﻿using BusinessWeb.Filters;
 using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
-using HuaweiSoftware.WQT.WebBase.Models;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
+using NoRain.Business.WebBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,20 +10,20 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WQTRights;
+using NoRainRights;
+using NoRain.Business.Model.Request;
 
 namespace WQTWeb.Controllers
 {
     public class AuthorizeController : Controller
     {
         ICommonSecurityBLL m_bll;
-        ICorpBll m_CorpBll;
         public AuthorizeController()
         {
             m_bll = DPResolver.Resolver<ICommonSecurityBLL>();
-            m_CorpBll = DPResolver.Resolver<ICorpBll>();
         }
-        public ActionResult Index(bool? logout, string url)
+
+        public ActionResult Login(bool? logout, string url)
         {
             ViewBag.Title = "登录";
             if (logout.HasValue && logout.Value)
@@ -33,19 +33,58 @@ namespace WQTWeb.Controllers
             ViewBag.Url = url;
             return View();
         }
+        [HttpPost]
+        public ActionResult Login(LoginModel login)
+        {
+            AjaxResult result = new AjaxResult();
+            result.Data = login;
+            //先判断有没有相关用户名
+            while (true)
+            {
+
+                var isNameExist = m_bll.Find<SysUser>("WHERE Name=@0 ", login.username) != null;
+                if (!isNameExist)
+                {
+                    result.OnError("用户名不存在!");
+                    break;
+                }
+
+                login.password = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(login.password);
+
+                var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", login.username, login.password);
+
+                if (user == null)
+                {
+                    result.OnError("用户名或密码错误，重新输入");
+                    break;
+                }
+                else
+                {
+                    Response.AppendCookie(new HttpCookie("UserName", user.FullName.ToString()));
+                    Response.AppendCookie(new HttpCookie("UserId", user.ID.ToString()));
+                    if (string.IsNullOrEmpty(login.url)) return RedirectToAction("Index", "Home");
+                    else Redirect(login.url);
+
+                    break;
+                }
+            }
+
+            return View(result);
+        }
+
 
         [AdminAuthorize]
         public ActionResult ChangePassword()
         {
             return View();
         }
- 
+
 
         [AdminAuthorize]
         [HttpPost]
         public ActionResult ChangePassword(string password, string newPassword, string confirmPassword, string validateCode)
         {
-            var bll = DPResolver.Resolver<IOperatorBll>();
+            var bll = DPResolver.Resolver<ISysUserBll>();
 
             ViewBag.Success = false;
             if (validateCode != Session["__VCode"].ToString())
@@ -72,57 +111,7 @@ namespace WQTWeb.Controllers
         {
             return RedirectToAction("Index", new { logout = true });
         }
-        [HttpPost]
-        public JsonResult Login(string userName, string pwd, string corpCode, string validateCode, string url)
-        {
-            AjaxResult result = new AjaxResult();
 
-            //先判断有没有相关用户名
-            while (true)
-            {
-                if (validateCode != Session["__VCode"].ToString())
-                {
-                    result.OnError("验证码输入错误!");
-                    break;
-                }
-                var corp = m_CorpBll.Find<Corporation>("WHERE Code=@0", corpCode);
-                if (corp == null)
-                {
-                    result.OnError("无此企业码，请检查输入!");
-                    break;
-                }
-
-                var isNameExist = m_bll.Find<User>("WHERE Name=@0 ", userName) != null;
-                if (!isNameExist)
-                {
-                    result.OnError("用户名不存在!");
-                    break;
-                }
-
-                pwd = HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetMD5Password(pwd);
-                var userPasswordExist = m_bll.Find<User>("WHERE Name=@0 AND Password=@1", userName, pwd) != null;
-                if (!userPasswordExist)
-                {
-                    result.OnError("密码错误，重新输入");
-                    break;
-
-                }
-                var user = m_bll.Find<User>("WHERE Name=@0 AND Password=@1 AND CorpCode=@2", userName, pwd, corp.Code);
-
-                if (user == null)
-                {
-                    result.OnError("该公司下无此员工，请检查输入！");
-                    break;
-                }
-                else
-                {
-                    result.Data = new { Name = user.FullName, Id = user.ID, CorpCode = corp.Code, CorpName = corp.Name, ReturnUrl = url };
-                    break;
-                }
-            }
-
-            return Json(result);
-        }
 
         public void ValidateCode()
         {

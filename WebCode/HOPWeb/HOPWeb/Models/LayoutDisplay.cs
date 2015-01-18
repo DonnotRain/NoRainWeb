@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.Ajax.Utilities;
-using HuaweiSoftware.WQT.WebBase;
-using HuaweiSoftware.WQT.IBll;
-using WQTRights;
+using NoRain.Business.WebBase;
+using NoRain.Business.IBll;
+using NoRainRights;
 
 namespace BusinessWeb.Areas.Back.Models
 {
@@ -30,12 +30,14 @@ namespace BusinessWeb.Areas.Back.Models
         private static IParameterBll m_parametebll = DPResolver.Resolver<IParameterBll>();
         public static List<PlugDisplay> Parser()
         {
+            if (string.IsNullOrEmpty(SysContext.UserId)) return new List<PlugDisplay>();
+                
             var funcList = m_bll.FindAll<Function>(string.Empty).ToList();  //不进行权限控制时
            // var funcList = new List<Function>();
 
             var roleBLL = DPResolver.Resolver<IRoleBLL>();
             //获取当前用户全部角色的权限
-            var roleInfos = roleBLL.GetUserRoles(SysContext.UserId);
+            var roleInfos = roleBLL.GetUserRoles(new Guid(SysContext.UserId));
 
             var functionBLL = DPResolver.Resolver<IFunctionBLL>();
 
@@ -47,7 +49,7 @@ namespace BusinessWeb.Areas.Back.Models
                     if (!funcList.Select(model => model.ID).Contains(func.ID))
                     {
                         funcList.Add(func);
-                    }
+                    } 
                 });
             });
 
@@ -105,7 +107,7 @@ namespace BusinessWeb.Areas.Back.Models
             var sysName = "";
             try
             {
-                sysName = m_parametebll.GetSysName("系统名称").Value;
+                sysName = m_parametebll.GetSysName("系统名称").ValueContent;
             }
             catch
             {

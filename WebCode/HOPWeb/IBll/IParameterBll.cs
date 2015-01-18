@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface IParameterBll : ICommonBLL
     {
-        Page<Parameter> GetParameterPager(int pageIndex, int pageSize, string name, string value);
-        Parameter Add(Parameter Parameter);
-        Parameter Edit(Parameter Parameter);
+        Page<SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value);
+        SysParameter Add(SysParameter Parameter);
+        SysParameter Edit(SysParameter Parameter);
 
-        Parameter GetByName(string paramName);
-        Parameter GetSysName(string paramName);
+        SysParameter GetByName(string paramName);
+        SysParameter GetSysName(string paramName);
 
-        Parameter SetSysName(string sysName, string paramName);
+        SysParameter SetSysName(string sysName, string paramName);
     }
 }

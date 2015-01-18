@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WQTRights;
+using NoRainRights;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
-    public interface IOperatorBll : ICommonSecurityBLL
+    public interface ISysUserBll : ICommonSecurityBLL
     {
-        Page<User> GetOperatorPager(int page, int rows, string name,int? roleId);
-        User Add(User entity);
-        User Edit(User entity);
+        Page<SysUser> GetSysUserPager(int page, int rows, string name,int? roleId);
+        SysUser Add(SysUser entity);
+        SysUser Edit(SysUser entity);
 
-        User ChangePwd(string password, string newPassword, string confrimPassword);
+        SysUser ChangePwd(string password, string newPassword, string confrimPassword);
     }
 }

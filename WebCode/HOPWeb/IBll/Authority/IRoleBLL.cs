@@ -1,19 +1,19 @@
-﻿using HuaweiSoftware.HOP.Models.Request;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.Models.Request;
+using NoRain.Business.WebBase;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WQTRights;
+using NoRainRights;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface IRoleBLL : IBaseBLL
     {
         IEnumerable<EasyuiTreeNode> GetRoleFunctions(int roleId);
 
-        IEnumerable<Role> GetUserRoles(int userId);
+        IEnumerable<Role> GetUserRoles(Guid userId);
 
         Page<Role> GetRolePager(int page, int rows, string name);
 

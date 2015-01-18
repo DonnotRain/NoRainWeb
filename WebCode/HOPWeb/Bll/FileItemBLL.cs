@@ -1,7 +1,6 @@
 ﻿using DefaultConnection;
-using HuaweiSoftware.WQT.Bll;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.CommonToolkit;
+using NoRain.Business.IBll;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace HuaweiSoftware.WMS.BLL
+namespace NoRain.Business.Bll
 {
     public class FileItemBLL : CommonBLL, IFileItemBll
     {
         private ICommonSecurityBLL m_securityBLL;
-        private readonly string uploadPath = HuaweiSoftware.WQT.CommonToolkit.ApiConfig.UploadPath;
+        private readonly string uploadPath =SysConfigs.UploadPath;
         public FileItemBLL(ICommonSecurityBLL securityBLL)
         {
             m_securityBLL = securityBLL;
@@ -64,8 +63,6 @@ namespace HuaweiSoftware.WMS.BLL
             //    var item = this.Find<FileItem>("");
             //    this.Delete(item);
             //}
-            fileItem.ModifyTime = DateTime.Now;
-            fileItem.CorpCode = SysContext.CorpCode;
 
             this.Insert<FileItem>(fileItem);
 
@@ -157,7 +154,7 @@ namespace HuaweiSoftware.WMS.BLL
             // HttpContext.Current.Response.AddHeader("Content-Length", bytes.Length.ToString());
             HttpContext.Current.Response.Charset = "UTF-8";
             HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Default;
-            HttpContext.Current.Response.ContentType = HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetContentType(fileInfo.Extension.Remove(0, 1));
+            HttpContext.Current.Response.ContentType = CommonToolkit.CommonToolkit.GetContentType(fileInfo.Extension.Remove(0, 1));
             HttpContext.Current.Response.BinaryWrite(bytes);
             HttpContext.Current.Response.Flush();
             HttpContext.Current.Response.End();

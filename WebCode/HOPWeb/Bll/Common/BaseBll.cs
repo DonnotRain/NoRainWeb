@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.IDal;
+using NoRain.Business.IBll;
+using NoRain.Business.IDal;
 using PetaPoco;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public abstract class BaseBll : IBaseBLL
     {

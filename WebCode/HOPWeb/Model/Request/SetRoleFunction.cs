@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaweiSoftware.HOP.Models.Request
+namespace NoRain.Business.Models.Request
 {
     public class RoleFunctionSetting
     {

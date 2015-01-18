@@ -1,14 +1,15 @@
-﻿using HuaweiSoftware.HOP.Models.Request;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.IDal;
-using HuaweiSoftware.WQT.WebBase;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WQTRights;
+using NoRainRights;
+using NoRain.Business.IBll;
+using NoRain.Business.IDal;
+using NoRain.Business.WebBase;
+using NoRain.Business.Models.Request;
 
-namespace HuaweiSoftware.WQT.Bll
+namespace NoRain.Business.Bll
 {
     public class RoleBLL : CommonSecurityBLL, IRoleBLL
     {
@@ -37,7 +38,7 @@ namespace HuaweiSoftware.WQT.Bll
             });
         }
 
-        public IEnumerable<Role> GetUserRoles(int userId)
+        public IEnumerable<Role> GetUserRoles(Guid userId)
         {
             var roleIds = FindAll<User_Role>("where User_ID=@0", userId);
 
@@ -50,7 +51,7 @@ namespace HuaweiSoftware.WQT.Bll
         public PetaPoco.Page<Role> GetRolePager(int page, int rows, string name)
         {
             var sql = PetaPoco.Sql.Builder.Append("SELECT s.* FROM Role s")
-                .Append("Where s.CorpCode=@0 ", SysContext.CorpCode);
+                .Append("Where 1=1");
 
             if (!string.IsNullOrEmpty(name))
             {
@@ -72,7 +73,6 @@ namespace HuaweiSoftware.WQT.Bll
         public Role Edit(Role entity)
         {
             var oldEntity = Role.First("Where ID=@0", entity.ID);
-            entity.CorpCode = oldEntity.CorpCode;
 
             entity.Update();
             return entity;
@@ -80,7 +80,6 @@ namespace HuaweiSoftware.WQT.Bll
 
         public Role Add(Role entity)
         {
-            entity.CorpCode = SysContext.CorpCode;
             entity.Insert();
             return entity;
         }
@@ -102,8 +101,7 @@ namespace HuaweiSoftware.WQT.Bll
                         roleFuncItems.Add(new Role_Function()
                         {
                             Role_ID = roleFunction.RoleId,
-                            Function_ID = m,
-                            CorpCode = SysContext.CorpCode
+                            Function_ID = m
                         });
                     });
 

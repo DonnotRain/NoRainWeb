@@ -5,9 +5,9 @@ using System.Net;
 using System.Web.Http;
 using Antlr.Runtime;
 using DefaultConnection;
-using HuaweiSoftware.WQT.IBll;
-using HuaweiSoftware.WQT.WebBase;
-using HuaweiSoftware.WQT.Bll;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
+using NoRain.Business.Bll;
 using WQTWeb.Filters;
 
 namespace WQTWeb.Controllers.API
@@ -64,13 +64,12 @@ namespace WQTWeb.Controllers.API
         // POST api/CategoryItem
         public void Post(CategoryItem categoryItem)
         {
-            if (string.IsNullOrEmpty(categoryItem.Content))
+            if (string.IsNullOrEmpty(categoryItem.ItemContent))
             {
                 throw new ApiException(ResponseCode.必须参数缺少, "缺少参数");
             }
 
             categoryItem.Id = Guid.NewGuid();
-            categoryItem.CorpCode = SysContext.CorpCode;
             m_Bll.Insert(categoryItem);
         }
 
@@ -78,7 +77,6 @@ namespace WQTWeb.Controllers.API
         public void Put(CategoryItem categoryItem)
         {
             var oldCategoryItem = m_Bll.Find<CategoryItem>("Where ID=@0", categoryItem.Id);
-            categoryItem.CorpCode = oldCategoryItem.CorpCode;
        
             m_Bll.Update(categoryItem);
         }

@@ -1,5 +1,5 @@
-﻿using HuaweiSoftware.WQT.CommonToolkit;
-using HuaweiSoftware.WQT.WebBase;
+﻿using NoRain.Business.CommonToolkit;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,23 +39,13 @@ namespace WQTWeb.Filters
             {
                 HandleUnauthorizedRequest(actionContext);
             }
-
-            //获取公司编号
-            if (context.Request.QueryString.AllKeys.Contains("CorpCode"))
-                SysContext.CorpCode = context.Request.QueryString["CorpCode"];
-            else if (context.Request.QueryString.AllKeys.Contains("corpCode"))
-                SysContext.CorpCode = context.Request.QueryString["corpCode"];
-            else if (context.Request.Cookies.AllKeys.Contains("CorpCode"))
-                SysContext.CorpCode = context.Request.Cookies["CorpCode"].Value;
-            else if (context.Request.Cookies.AllKeys.Contains("corpCode"))
-                SysContext.CorpCode = context.Request.Cookies["corpCode"].Value;
-
+                  
             if (context.Request.QueryString.AllKeys.Contains("UserId"))
             {
-                SysContext.UserId = int.Parse(context.Request.QueryString["UserId"]);
+                SysContext.UserId =context.Request.QueryString["UserId"];
             }
             else if (context.Request.Cookies.AllKeys.Contains("UserId"))
-                SysContext.UserId = int.Parse(context.Request.Cookies["UserId"].Value);
+                SysContext.UserId = context.Request.Cookies["UserId"].Value;
 
             //  LoggerHelper.Logger.Debug(actionContext.ActionDescriptor.ControllerDescriptor);
         }
@@ -78,7 +68,7 @@ namespace WQTWeb.Filters
             //RequestBase requestBase = new RequestBase(request.QueryString);
             //var b = string.Format("{0}{1}{2}", requestBase.Timestamp,
             //                 requestBase.Token, ApiConfig.SecretKey);
-            //string mySig = HuaweiSoftware.WQT.CommonToolkit.CommonToolkit.GetMD5(b);
+            //string mySig = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5(b);
             //if (ApiConfig.VerificationOpen && !mySig.Equals(requestBase.Sig))
             //    return false;
             //return true;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HuaweiSoftware.WQT.WebBase;
+using NoRain.Business.WebBase;
 using PetaPoco;
 using DefaultConnection;
 
-namespace HuaweiSoftware.WQT.IBll
+namespace NoRain.Business.IBll
 {
     public interface ICategoryBLL : ICommonBLL
     {
