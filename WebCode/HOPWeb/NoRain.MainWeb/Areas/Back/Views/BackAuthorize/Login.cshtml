@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title> 登录 - 华微外勤人员管理平台-后台管理</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/BackSignin/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/BackSignin/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+    <!-- global styles -->
+    @* <link rel="stylesheet" type="text/css" href="~/Content/BackSignin/layout.css" />
+        <link rel="stylesheet" type="text/css" href="~/Content/BackSignin/icons.css" />
+    *@
+    <link rel="stylesheet" type="text/css" href="~/Content/BackSignin/elements.css" />
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="~/Content/BackSignin/signin.css" type="text/css" media="screen" />
+    <!--[if lt IE 9]>
+        <script src='@Url.Content("~/BackAssets/js/html5shiv.js")'></script>
+        <script src='@Url.Content("~/BackAssets/js/respond.min.js")'></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+    <!-- background switcher -->
+    <div class="bg-switch visible-desktop">
+        <div class="bgs">
+            @{
+                var width = "15px";
+            }
+            <a href="#" data-img="landscape.jpg" class="bg active">
+                <img src="~/Content/img/bgs/landscape.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="blueish.jpg" class="bg">
+                <img src="~/Content/img/bgs/blueish.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="7.jpg" class="bg">
+                <img src="~/Content/img/bgs/7.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="8.jpg" class="bg">
+                <img src="~/Content/img/bgs/8.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="9.jpg" class="bg">
+                <img src="~/Content/img/bgs/9.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="10.jpg" class="bg">
+                <img src="~/Content/img/bgs/10.jpg" style="width:@width;height:@width" />
+            </a>
+            <a href="#" data-img="11.jpg" class="bg">
+                <img src="~/Content/img/bgs/11.jpg" style="width:@width;height:@width" />
+            </a>
+        </div>
+    </div>
+
+    <div class="row-fluid login-wrapper">
+        <div style="font-size: 30px;padding-bottom: 20px;display: inline-block;color:white;font-family: 微软雅黑 'Microsoft YaHei UI' KaiTi;">
+            <small class="white">
+                @*  <i class="icon-leaf"></i>*@
+                <img src="~/Content/images/icon.PNG" />
+                华微外勤人员管理平台-后台管理
+            </small>
+        </div>
+        <div class="span4 box">
+            <form method="post">
+                <div class="content-wrap">
+                    <h6>登录后台管理系统</h6>
+                    @{
+                        var adminName = "";
+                        if (ViewData["Result"] != null)
+                        {
+                            var result = (ViewData["Result"] as NoRain.Business.WebBase.Models.AjaxResult);
+                            adminName = result.Data != null ? result.Data.ToString() : "";
+                        }
+                    }
+                    <input class="span12" name="UserName" type="text" value="@adminName" placeholder="登录账号" />
+                    <input class="span12" name="pwd" type="password" placeholder="输入密码" />
+                    <div class="remember span12" style="min-height:20px">
+                        <input id="remember-me" type="checkbox" />
+                        <label for="remember-me">记住我</label>
+                        <a href="#" class="forgot">忘记密码?</a>
+                    </div>
+                    @if (ViewData["Result"] != null)
+                    {
+                        var result = (ViewData["Result"] as NoRain.Business.WebBase.Models.AjaxResult);
+                        <h6 class="error"><span style="color:red">@result.Message</span></h6>
+                    }
+                    <input type="submit" class="btn-glow primary login" value="登录" />
+                </div>
+            </form>
+        </div>
+        @*<div class="span4 no-account">
+                <p>没有账号?</p>
+                <a href="signup.html">注册</a>
+            </div>*@
+    </div>
+    <!-- scripts -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- pre load bg imgs -->
+    <script type="text/javascript">
+        $(function () {
+            // bg switcher
+            var $btns = $(".bg-switch .bg");
+            $btns.click(function (e) {
+                e.preventDefault();
+                $btns.removeClass("active");
+                $(this).addClass("active");
+                var bg = $(this).data("img");
+
+                $("html").css("background-image", "url('/Content/img/bgs/" + bg + "')");
+            });
+
+        });
+    </script>
+</body>
+</html>
