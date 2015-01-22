@@ -5,44 +5,190 @@
 
 @section Header{
     <link href="~/Content/Plug/Plug.css" rel="stylesheet" />
+    @*<link href="~/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />*@
+
     <style type="text/css">
         .dg-panel {
-           padding-bottom: 40px;
+            padding-bottom: 40px;
         }
     </style>
 }
 @section breadcrumb{
     <li>系统模块</li>}
-<div >
-    <div id="div-searchctr-wrap">
-            <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="Add();"><i class="icon-plus bigger-130"></i>添加</a>
-            <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="Edit();"><i class="icon-pencil bigger-130"></i>修改</a>
-            <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="Delete();"><i class="icon-minus bigger-130"></i>删除</a>
-            <a href='javascript:;' class="btn  btn-yellow btn-xs radius-4" onclick="reloadDataGrid();"><i class="icon-refresh bigger-130"></i>刷新</a>
+<div>
+    <div id="div-searchctr-wrap" style="padding-bottom: 10px;">
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Add();">
+            <i class="fa fa-plus"></i>
+            <span class="hidden-480">添加
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.ModalAdd();">
+            <i class="fa fa-plus"></i>
+            <span class="hidden-480">boot模态添加
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Edit();">
+            <i class="fa fa-pencil"></i>
+            <span class="hidden-480">修改
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Delete();">
+            <i class="fa fa-minus"></i>
+            <span class="hidden-480">删除
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.reloadDataGrid();">
+            <i class="fa fa-refresh"></i>
+            <span class="hidden-480">刷新
+            </span>
+        </a>
     </div>
-
     <div class="dg-panel">
         <div id="dgMain">
         </div>
     </div>
-
 </div>
 
-<div id="dlgsContainer" style="display: none;">
-    <div id="mm" class="easyui-menu" style="width:120px;">
-        <div onclick="Add()" data-options="iconCls:'icon-plus bigger-130'">新增</div>
-        <div onclick="Edit()" data-options="iconCls:'icon-pencil bigger-130'">编辑</div>
-        <div onclick="Delete()" data-options="iconCls:'icon-minus bigger-130'">删除</div>
-        <div class="menu-sep"></div>
-        <div onclick="reloadDataGrid()" data-options="iconCls:'icon-refresh bigger-130'">刷新</div>
+<div id="dlgsContainer">
+    <!-- responsive -->
+    <div id="responsive" class="modal fade" tabindex="-1" data-backdrop="static" data-width="760">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Responsive</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form class="form-horizontal" role="form" method="post">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label required">类目</label>
+                            <div class="col-md-4">
+                                <select name="categories[]" id="categories" multiple="multiple" class="select-3 form-control chosen">
+                                    <option value="2">/蝉知动态</option>
+                                    <option value="51">/asd</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">作者</label>
+                            <div class="col-md-4">
+                                <input type="text" name="author" id="author" value="demo" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">创建日期</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input type="text" name="date" id="date" value="2013-2-13" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">田</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">来源</label>
+                            <div class="col-md-4">
+                                <select name="original" id="original" class="form-control">
+                                    <option value="1" selected="selected">原创</option>
+                                    <option value="0">转贴</option>
+                                </select>
+                            </div>
+                            <div id="copyBox">
+                                <div class="col-md-2">
+                                    <input type="text" name="copySite" id="copySite" value="" class="form-control" placeholder="来源网站"></div>
+                                <div class="col-md-4">
+                                    <input type="text" name="copyURL" id="copyURL" value="" class="form-control" placeholder="来源URL"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">标题</label>
+                            <div class="col-md-10 has-error">
+                                <input type="text" name="title" id="title" value="" class="form-control" placeholder="">
+                                <div class="help-block alert alert-warning">标题不能为空</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">英文别名</label>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">http://demo.chanzhi.org/article/id</span>
+                                    <input type="text" name="alias" id="alias" value="" class="form-control">
+                                    <span class="input-group-addon">.html</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">关键字</label>
+                            <div class="col-md-10">
+                                <input type="text" name="keywords" id="keywords" value="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">摘要</label>
+                            <div class="col-md-10">
+                                <textarea name="summary" id="summary" rows="2" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">内容</label>
+                            <div class="col-md-10">
+                                <textarea name="content" id="content" rows="10" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">保存为</label>
+                            <div class="col-md-10">
+                                <label class="radio-inline">
+                                    <input type="radio" name="optionsRadios" value="option1" checked="">
+                                    草稿 </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optionsRadios" value="option2">
+                                    私人 </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optionsRadios" value="option2">
+                                    公开 </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" id="submit" class="btn btn-primary" value="保存" data-loading="稍候...">
+                                <input type="hidden" name="type" id="type" value="article">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                <button type="button" class="btn blue">Save changes</button>
+            </div>
+        </div>
     </div>
-    @Html.Partial("Create")
+    <!-- stackable -->
+
+    @*<div id="mm" class="easyui-menu" style="width:120px;">
+            <div onclick="Add()" data-options="iconCls:'icon-plus bigger-130'">新增</div>
+            <div onclick="Edit()" data-options="iconCls:'icon-pencil bigger-130'">编辑</div>
+            <div onclick="Delete()" data-options="iconCls:'icon-minus bigger-130'">删除</div>
+            <div class="menu-sep"></div>
+            <div onclick="reloadDataGrid()" data-options="iconCls:'icon-refresh bigger-130'">刷新</div>
+        </div>*@
+    @*    @Html.Partial("Create")*@
 </div>
 @section Scripts{
     <script src="~/BackAssets/jquery-easyui-1.4/easyloader.js"></script>
-
     <script src="~/Scripts/jQuery.validVal/js/jquery.validVal.js"></script>
-    <script src="~/BackAssets/js/jquery.gritter.min.js"></script>
 
     <script type="text/javascript">
         @{
@@ -51,5 +197,5 @@
         }
         var rootPath = '@rootPath';
     </script>
-<script src="~/Scripts/JS/Plug.js"></script>
+    <script src="~/Scripts/JS/Plug.js"></script>
 }
