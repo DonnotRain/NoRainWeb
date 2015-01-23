@@ -2330,6 +2330,33 @@
     <Content Include="assets\global\plugins\bootstrap-wysihtml5\locales\bootstrap-wysihtml5.zh-TW.js" />
     <Content Include="assets\global\plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
     <Content Include="assets\global\plugins\bootstrap-wysihtml5\wysiwyg-color.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\.gitignore" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\changelog.txt" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\dist\css\bootstrap-dialog.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\dist\css\bootstrap-dialog.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\dist\js\bootstrap-dialog.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\dist\js\bootstrap-dialog.min.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap-dialog\css\bootstrap-dialog.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap-dialog\css\bootstrap-dialog.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap-dialog\js\bootstrap-dialog.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap-dialog\js\bootstrap-dialog.min.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\js\npm.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\jquery\jquery-1.10.2.min.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\prettify\prettify.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\prettify\run_prettify.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\images\pig.ico" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\index.html" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\remote.html" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\gulpfile.js" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\src\css\bootstrap-dialog.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\src\js\bootstrap-dialog.js" />
     <Content Include="assets\global\plugins\bootstrap\css\bootstrap.css" />
     <Content Include="assets\global\plugins\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\global\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -5027,15 +5054,9 @@
     <Content Include="BackAssets\UMEditor\umeditor.config.js" />
     <Content Include="BackAssets\UMEditor\umeditor.js" />
     <Content Include="BackAssets\UMEditor\umeditor.min.js" />
-    <Content Include="Content\BackSignin\bootstrap-overrides.css" />
-    <Content Include="Content\BackSignin\bootstrap-responsive.css" />
-    <Content Include="Content\BackSignin\elements.css" />
     <Content Include="Content\BackSignin\icons.css" />
-    <Content Include="Content\BackSignin\layout.css" />
     <Content Include="Content\BackSignin\signin.css" />
     <Content Include="Content\BackSignin\theme.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Common.css" />
     <Content Include="Content\css\layout.css" />
     <Content Include="Content\css\Login.css" />
@@ -5410,6 +5431,20 @@
     <Content Include="assets\global\plugins\zui\lib\imgcutter\zui.imgcutter.css.map" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\kindeditor.css.map" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\themes\default\default.psd" />
+    <Content Include="Content\EasyUI.Custom.css" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\.eslintignore" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\.eslintrc" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\bower.json" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\dist\less\bootstrap-dialog.less" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap-dialog\less\bootstrap-dialog.less" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\examples\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\package.json" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\README.md" />
+    <Content Include="assets\global\plugins\bootstrap-dialog\src\less\bootstrap-dialog.less" />
     <None Include="Properties\PublishProfiles\Rain.Publish.pubxml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Properties\PublishProfiles\WQT.pubxml" />
@@ -5468,7 +5503,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -5503,6 +5537,7 @@
     <Content Include="Views\Shared\Menu1.cshtml" />
     <Content Include="Views\Plug\Index - 复制.cshtml" />
     <Content Include="Views\Plug\Create - 复制.cshtml" />
+    <Content Include="Scripts\bootstrap-modal.extend.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bll\Bll.csproj">

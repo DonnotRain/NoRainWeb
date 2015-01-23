@@ -64,3 +64,17 @@
         font-size: 24px;
         vertical-align: middle;
     }
+
+/*清除Easyui的树图标*/
+span.none {
+    background: none;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: central;
+}
+
+
+/*EasyUI 右键菜单下的图标样式*/
+.menu-icon [class^="icon-"] {
+    font-size: 16px;
+}

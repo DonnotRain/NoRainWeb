@@ -1,0 +1,12 @@
+﻿
+/*替换easyui表格选中样式和树选中样式*/
+
+.datagrid-row-selected {
+    background: #b8cfe6;
+    color: #000;
+}
+
+.tree-node-selected {
+    background: #b8cfe6;
+    color: #000;
+}

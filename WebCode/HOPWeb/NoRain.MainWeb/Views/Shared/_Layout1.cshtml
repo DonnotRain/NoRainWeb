@@ -43,7 +43,6 @@
     <link href="~/Content/Common.css" rel="stylesheet" />
     <link href="~/Content/css/layout.css" rel="stylesheet" />
     @RenderSection("Header", false)
-
     <style>
         .label-PlugName {
             vertical-align: middle;
@@ -72,12 +71,11 @@
 
             <div class="navbar-header pull-right" role="navigation">
                 <ul class="nav-user-info">
-                    <li>
-                        欢迎,    @if (Request.Cookies.AllKeys.Contains("UserName"))
-                        {
+                    <li>欢迎,    @if (Request.Cookies.AllKeys.Contains("UserName"))
+                               {
 
-                            <strong> @System.Web.HttpUtility.UrlDecode(Request.Cookies["UserName"].Value)</strong>
-                        }
+                        <strong>@System.Web.HttpUtility.UrlDecode(Request.Cookies["UserName"].Value)</strong>
+                               }
                     </li>
                     <li>|</li>
                     @*@if (Request.Cookies.AllKeys.Contains("UserName"))

@@ -7,14 +7,14 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8" />
-    <title>@NoRain.Business.CommonToolkit.SysConfigs.Instance["SysName"] | @RenderSection("title", false)</title>
+    <title>@RenderSection("title", false) @ViewBag.Title- @NoRain.Business.CommonToolkit.SysConfigs.Instance["SysName"] </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta content="" name="description" />
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+@*    <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />*@
     <link href="~/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
     @*<link href="~/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
@@ -30,6 +30,7 @@
     <link href="~/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css" />
     <link id="style_color" href="~/assets/admin/layout/css/themes/light2.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Common.css" rel="stylesheet" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
     @RenderSection("Header", false)
@@ -61,8 +62,7 @@
             </div>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-            </a>
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN TOP NAVIGATION MENU -->
             <div class="top-menu">
@@ -72,8 +72,7 @@
                     <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-bell"></i>
-                            <span class="badge badge-default">
-                                7
+                            <span class="badge badge-default">7
                             </span>
                         </a>
                         <ul class="dropdown-menu">
@@ -192,8 +191,7 @@
                     <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-envelope-open"></i>
-                            <span class="badge badge-default">
-                                4
+                            <span class="badge badge-default">4
                             </span>
                         </a>
                         <ul class="dropdown-menu">
@@ -209,13 +207,11 @@
                                                 <img src="~/assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from">
-                                                    Lisa Wong
+                                                <span class="from">Lisa Wong
                                                 </span>
                                                 <span class="time">Just Now </span>
                                             </span>
-                                            <span class="message">
-                                                Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh...
+                                            <span class="message">Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh...
                                             </span>
                                         </a>
                                     </li>
@@ -225,13 +221,11 @@
                                                 <img src="~/assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from">
-                                                    Richard Doe
+                                                <span class="from">Richard Doe
                                                 </span>
                                                 <span class="time">16 mins </span>
                                             </span>
-                                            <span class="message">
-                                                Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh...
+                                            <span class="message">Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh...
                                             </span>
                                         </a>
                                     </li>
@@ -241,13 +235,11 @@
                                                 <img src="~/assets/admin/layout3/img/avatar1.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from">
-                                                    Bob Nilson
+                                                <span class="from">Bob Nilson
                                                 </span>
                                                 <span class="time">2 hrs </span>
                                             </span>
-                                            <span class="message">
-                                                Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh...
+                                            <span class="message">Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh...
                                             </span>
                                         </a>
                                     </li>
@@ -257,13 +249,11 @@
                                                 <img src="~/assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from">
-                                                    Lisa Wong
+                                                <span class="from">Lisa Wong
                                                 </span>
                                                 <span class="time">40 mins </span>
                                             </span>
-                                            <span class="message">
-                                                Vivamus sed auctor 40% nibh congue nibh...
+                                            <span class="message">Vivamus sed auctor 40% nibh congue nibh...
                                             </span>
                                         </a>
                                     </li>
@@ -273,13 +263,11 @@
                                                 <img src="~/assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from">
-                                                    Richard Doe
+                                                <span class="from">Richard Doe
                                                 </span>
                                                 <span class="time">46 mins </span>
                                             </span>
-                                            <span class="message">
-                                                Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh...
+                                            <span class="message">Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh...
                                             </span>
                                         </a>
                                     </li>
@@ -293,8 +281,7 @@
                     <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-calendar"></i>
-                            <span class="badge badge-default">
-                                3
+                            <span class="badge badge-default">3
                             </span>
                         </a>
                         <ul class="dropdown-menu extended tasks">
@@ -395,7 +382,7 @@
                                 @if (Request.Cookies.AllKeys.Contains("UserName"))
                                 {
 
-                                    <strong> @System.Web.HttpUtility.UrlDecode(Request.Cookies["UserName"].Value)</strong>
+                                    <strong>@System.Web.HttpUtility.UrlDecode(Request.Cookies["UserName"].Value)</strong>
                                 }
                             </span>
                             <i class="fa fa-angle-down"></i>
@@ -403,38 +390,35 @@
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
                                 <a href="extra_profile.html">
-                                    <i class="icon-user"></i> 我的主页
+                                    <i class="icon-user"></i>我的主页
                                 </a>
                             </li>
                             <li>
                                 <a href="page_calendar.html">
-                                    <i class="icon-calendar"></i> 日程表
+                                    <i class="icon-calendar"></i>日程表
                                 </a>
                             </li>
                             <li>
                                 <a href="inbox.html">
-                                    <i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">
-                                        3
+                                    <i class="icon-envelope-open"></i>My Inbox <span class="badge badge-danger">3
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="page_todo.html">
-                                    <i class="icon-rocket"></i> My Tasks <span class="badge badge-success">
-                                        7
+                                    <i class="icon-rocket"></i>My Tasks <span class="badge badge-success">7
                                     </span>
                                 </a>
                             </li>
-                            <li class="divider">
-                            </li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="extra_lock.html">
-                                    <i class="icon-lock"></i> Lock Screen
+                                    <i class="icon-lock"></i>Lock Screen
                                 </a>
                             </li>
                             <li>
                                 <a href="login.html">
-                                    <i class="icon-key"></i> Log Out
+                                    <i class="icon-key"></i>Log Out
                                 </a>
                             </li>
                         </ul>
