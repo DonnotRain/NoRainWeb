@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Http;
 using NoRainRights;
 using WQTWeb.Filters;
+using NoRain.Business.Model;
 
 namespace WQTWeb.Controllers.API
 {
@@ -26,6 +27,24 @@ namespace WQTWeb.Controllers.API
         public IEnumerable<Function> GetByRole(int roleId)
         {
             return m_functionBll.GetRoleTreeFunctions(roleId);
+        }
+
+        [Route("API/Function/GetAllTree")]
+        public IEnumerable<ApiTreeNode> GetAll()
+        {
+            var ous = m_commonBll.FindAll<Function>("");
+
+            var result = ous.Select(m => new ApiTreeNode()
+            {
+                id = m.ID.ToString(),
+                name = m.Name,
+                nocheck = false,
+                open = true,
+                pId = m.PID.ToString(),
+                isOrg = ous.Select(node => node.PID).Contains(m.ID)
+            });
+
+            return result;
         }
 
         // GET api/Function/5

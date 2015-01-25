@@ -6,11 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NoRainRights;
+using NoRain.Business.IDal;
 
 namespace NoRain.Business.Bll
 {
     public class FunctionBLL : CommonSecurityBLL, IFunctionBLL, IBaseBLL
     {
+        private IBaseDAL _dal;
+        public FunctionBLL(ICommonSecurityDAL dal)
+        {
+            this._dal = dal;
+        }
 
         public IEnumerable<Function> GetFunctions()
         {
@@ -97,13 +103,13 @@ namespace NoRain.Business.Bll
             //获取最大的ID加1
             var maxId = Function.repo.ExecuteScalar<int>("select max(ID) AS ID from functions");
             sysFunction.ID = maxId + 1;
-        
+
             if (string.IsNullOrEmpty(sysFunction.Path))
             {
                 sysFunction.Path = string.Empty;
             }
 
-            PetaPoco.Transaction scope = new PetaPoco.Transaction(DBManage.SecurityDB);
+            PetaPoco.Transaction scope = new PetaPoco.Transaction(_dal.DB);
             //使用事务方式提交
             using (scope)
             {
@@ -134,7 +140,7 @@ namespace NoRain.Business.Bll
             }
 
             //使用事务方式提交
-            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(DBManage.SecurityDB))
+            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(_dal.DB))
             {
                 ///先更新实体
                 Update(sysFunction);

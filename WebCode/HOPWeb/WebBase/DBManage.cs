@@ -9,32 +9,27 @@ namespace NoRain.Business.WebBase
 {
     public class DBManage
     {
-        public static Database DB
+        private static DBManage _instance;
+        public static DBManage Instance
         {
-
             get
             {
-                if (HttpContext.Current.Items["CurrentDb"] == null)
-                {
-                    var retval = new DefaultConnection.DefaultConnectionDB();
-                    HttpContext.Current.Items["CurrentDb"] = retval;
-                    return retval;
-                }
-                return (Database)HttpContext.Current.Items["CurrentDb"];
+                if (_instance == null) _instance = new DBManage();
+                return _instance;
             }
         }
-      
-        public static Database SecurityDB
+
+        public Database this[string dbName]
         {
             get
             {
-                if (HttpContext.Current.Items["CurrentSecurityDB"] == null)
+                if (HttpContext.Current.Items[dbName] == null)
                 {
-                    var retval = new NoRainRights.NoRainRightsDB();
-                    HttpContext.Current.Items["CurrentSecurityDB"] = retval;
+                    var retval = new Database(dbName);
+                    HttpContext.Current.Items[dbName] = retval;
                     return retval;
                 }
-                return (Database)HttpContext.Current.Items["CurrentSecurityDB"];
+                return (Database)HttpContext.Current.Items[dbName];
             }
         }
     }
