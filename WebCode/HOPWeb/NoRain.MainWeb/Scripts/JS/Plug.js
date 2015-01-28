@@ -113,15 +113,15 @@
 
     //添加系统模块
     function Add() {
-        $('#fm').form('clear');
+        //  $('#fm').form('clear');
         $('#responsive').modal('show').find(".modal-title").html("新增功能插件");
 
         var items = $("#dgMain").treegrid('getChecked');
 
-        if (items && items.length > 0) {
-            var item = items[0];
-            $("#PID").combotree("setValue", item.ID);
-        }
+        //if (items && items.length > 0) {
+        //    var item = items[0];
+        //    $("#PID").combotree("setValue", item.ID);
+        //}
 
         $("#IsMenu").prop("checked", true);
         $("#IsModule").prop("checked", false);
@@ -280,6 +280,6 @@
         , Add: Add
         , Edit: Edit,
         Delete: Delete,
-        Save:Save
+        Save: Save
     };
 }();
