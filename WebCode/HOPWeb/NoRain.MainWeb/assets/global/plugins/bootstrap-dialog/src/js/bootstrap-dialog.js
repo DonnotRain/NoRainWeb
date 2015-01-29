@@ -181,7 +181,7 @@
         this.opened = false;
         this.initOptions(options);
         this.holdThisInstance();
-    };
+    } ;
 
     /**
      *  Some constants.

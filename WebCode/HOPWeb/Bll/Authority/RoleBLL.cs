@@ -20,7 +20,7 @@ namespace NoRain.Business.Bll
         }
         public IEnumerable<EasyuiTreeNode> GetRoleFunctions(int roleId)
         {
-            var functions = new FunctionBLL().GetRoleFunctions(roleId).ToList().Select(m => m.ID).ToArray();
+            var functions = DPResolver.Resolver<IFunctionBLL>().GetRoleFunctions(roleId).ToList().Select(m => m.ID).ToArray();
             var allFunction = FindAll<Function>();
             return ConvertFunctionsToTree(allFunction, functions, -1);
         }
@@ -88,7 +88,7 @@ namespace NoRain.Business.Bll
         {
 
             //使用事务方式提交
-            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(DBManage.SecurityDB))
+            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(m_dal.DB))
             {
                 Role_Function.repo.Execute("DELETE FROM Role_Function WHERE  Role_ID=@0", roleFunction.RoleId);
 
@@ -117,7 +117,7 @@ namespace NoRain.Business.Bll
             var items = new List<Role>();
 
             var roleFunctions = new List<Role_Function>();
-            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(DBManage.SecurityDB))
+            using (PetaPoco.Transaction scope = new PetaPoco.Transaction(m_dal.DB))
             {
 
                 itemsStr.ForEach(m =>

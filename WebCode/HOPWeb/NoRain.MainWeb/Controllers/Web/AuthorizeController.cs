@@ -39,34 +39,27 @@ namespace WQTWeb.Controllers
             AjaxResult result = new AjaxResult();
             result.Data = login;
             //先判断有没有相关用户名
-            while (true)
+
+            var isNameExist = m_bll.Find<SysUser>("WHERE Name=@0 ", login.username) != null;
+            if (!isNameExist)
             {
+                result.OnError("用户名不存在!");
+            }
 
-                var isNameExist = m_bll.Find<SysUser>("WHERE Name=@0 ", login.username) != null;
-                if (!isNameExist)
-                {
-                    result.OnError("用户名不存在!");
-                    break;
-                }
+            login.password = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(login.password);
 
-                login.password = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(login.password);
+            var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", login.username, login.password);
 
-                var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", login.username, login.password);
-
-                if (user == null)
-                {
-                    result.OnError("用户名或密码错误，重新输入");
-                    break;
-                }
-                else
-                {
-                    Response.AppendCookie(new HttpCookie("UserName", user.FullName.ToString()));
-                    Response.AppendCookie(new HttpCookie("UserId", user.ID.ToString()));
-                    if (string.IsNullOrEmpty(login.url)) return RedirectToAction("Index", "Home");
-                    else Redirect(login.url);
-
-                    break;
-                }
+            if (user == null)
+            {
+                result.OnError("用户名或密码错误，重新输入");
+            }
+            else
+            {
+                Response.AppendCookie(new HttpCookie("UserName", user.FullName.ToString()));
+                Response.AppendCookie(new HttpCookie("UserId", user.ID.ToString()));
+                if (string.IsNullOrEmpty(login.url)) return RedirectToAction("Index", "Home");
+                else return Redirect(login.url);
             }
 
             return View(result);

@@ -1,17 +1,20 @@
 ﻿var SysFunction = function () {
-    easyloader.locale = "zh_CN";
-    easyloader.theme = "metro";
-    easyloader.load(['parser', 'validatebox', 'treegrid', 'combobox', 'form', 'dialog', 'messager', 'combotree'], InitialFunc);
 
     //$('#responsive').modal('show', 'fit')
     var currentUrl = window.rootPath + "/API/Function/";
 
     //全局变量声明
     var vars = {
-        totalTimeout: 120 * 1000,
-        eventUrl: rootPath.concat("/ConfigurationItem/GetConfigurationItems?configurationCategoryCode=", "EmergencyEventStatus")
+        plugData: []
     };
     //初始化
+
+    function InitialFunc() {
+        Initialize.loadDataGrid();
+        Initialize.initCombos();
+        // Initialize.initialValidate();
+        Initialize.initialBtns();
+    }
 
     //初始化
     var Initialize = {
@@ -73,23 +76,6 @@
                                }
                            },
                 ]],
-                loadFilter: function (items) {
-                    // var srcItems = treegridFilter(items, "-1", "children", "ID", "PID");
-                    try {
-                        $("#PID").combotree({
-                            width: $("#PID").width(),
-                            data: combotreeFilter(items),
-                            editable: false,
-                            onSelect: function (record) {
-
-                            }
-                        });
-                    }
-                    catch (e) {
-                        alert(e.message);
-                    }
-                    return items;
-                },
                 onDblClickRow: function (rowData) {
                     $(this).treegrid("unselectAll");
                     $(this).treegrid("select", rowData.ID);
@@ -108,117 +94,18 @@
             $(window).resize(resize);
             resize();
         },
-        initialDialog: function () {
-            $('#dlgMain').show();
-            $("#dlgMain").dialog({
-                title: "新增系统模块",
-                modal: true,
-                closed: true,
-                buttons: [{
-                    iconCls: "icon-save",
-                    text: '保存',
-                    handler: function () {
-                        save();
-                    }
-                }, {
-                    iconCls: "icon-remove",
-                    text: '取消',
-                    handler: function () {
-                        $('#dlgMain').dialog('close');
-                    }
-                }]
-            });
-
-            $('#iconChoose').show();
-            $("#iconChoose").dialog({
-                title: "选择图标",
-                modal: true,
-                closed: true,
-                buttons: [{
-                    iconCls: "icon-save",
-                    text: '保存',
-                    handler: function () {
-                        saveIcon();
-                    }
-                }, {
-                    iconCls: "icon-remove",
-                    text: '取消',
-                    handler: function () {
-                        $('#iconChoose').dialog('close');
-                    }
-                }]
-            });
-
-        },
         initCombos: function () {
-            $("#CrisisHandleStatusName").combobox({
-                valueField: 'ConfigurationItemId',
-                textField: 'Name',
-                url: vars.eventUrl,
-                editable: false,
-                onSelect: function (record) {
-                    $("#CrisisHandleStatus").val(record.ConfigurationItemId);
-                }
+            $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
+                // alert("JSON Data: " + json.length);
+                vars.plugData = json;
+                $("#PID").zTreeCheck({}, json);
             });
-
-            $("#RoleIds").combobox({
-                valueField: 'ID',
-                textField: 'Name',
-                multiple: true,
-                method: "get",
-                url: window.rootPath + "/API/Role/",
-                editable: false,
-                onSelect: function (record) {
-                    //  $("#CrisisHandleStatus").val(record.ConfigurationItemId);
-                }
-            });
-
         },
         initialValidate: function () {
             $("#fm").validVal();
         }
     }
 
-    //初始化
-    function InitialFunc() {
-        Initialize.initialDialog();
-        Initialize.loadDataGrid();
-        Initialize.initCombos();
-        Initialize.initialValidate();
-        Initialize.initialBtns();
-    }
-
-    function combotreeFilter(source) {
-
-        var idField = "ID";
-        var textField = "Name";
-        var childrenField = "children";
-
-        var filterFunc = function (items) {
-            for (var i = 0; i < items.length; i++) {
-                items[i].text = items[i]["Name"];
-                items[i].id = items[i]["ID"];
-                if (items[i].children && items[i].children.length) {
-                    filterFunc(items[i].children);
-                }
-            }
-        }
-
-        filterFunc(source);
-
-        var rootItem = {};
-
-        rootItem = deepcopy(source[0]);
-
-        rootItem[childrenField] = source;
-        rootItem[idField] = "-1";
-        rootItem[textField] = "根节点";
-        rootItem.iconCls = "none icon-th-large   " + " icon-fixed-width";
-        rootItem.text = "根节点";
-        rootItem.id = "-1";
-
-        return [rootItem];
-    }
 
     function chooseIcon() {
         $('#iconChoose').dialog('open');
@@ -226,16 +113,15 @@
 
     //添加系统模块
     function Add() {
-        $('#fm').form('clear');
-        $('#dlgMain').dialog('open').dialog('setTitle', '添加系统模块');
-        $("#ProjectCrisisStepSetId").val(0);
+        //  $('#fm').form('clear');
+        $('#responsive').modal('show').find(".modal-title").html("新增功能插件");
 
         var items = $("#dgMain").treegrid('getChecked');
 
-        if (items && items.length > 0) {
-            var item = items[0];
-            $("#PID").combotree("setValue", item.ID);
-        }
+        //if (items && items.length > 0) {
+        //    var item = items[0];
+        //    $("#PID").combotree("setValue", item.ID);
+        //}
 
         $("#IsMenu").prop("checked", true);
         $("#IsModule").prop("checked", false);
@@ -326,7 +212,7 @@
         });
     }
 
-    function save() {
+    function Save() {
         var type = "post";
         if ($("#ID").val() && $("#ID").val() != 0) {
             type = "put";
@@ -384,21 +270,16 @@
         });
     }
 
-
     return {
         init: function () {
             easyloader.locale = "zh_CN";
             easyloader.theme = "metro";
-            easyloader.load(['parser', 'validatebox', 'datagrid', 'combobox', 'form', 'dialog', 'messager'], InitialFunc);
+            easyloader.load(['parser', 'treegrid', 'messager', "form"], InitialFunc);
         }
         , reloadDataGrid: reloadDataGrid
         , Add: Add
         , Edit: Edit,
         Delete: Delete,
-        ModalAdd: function () {
-            $('#responsive').modal('show')
-        }
+        Save: Save
     };
 }();
-
-

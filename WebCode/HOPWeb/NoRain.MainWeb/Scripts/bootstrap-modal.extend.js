@@ -1,52 +1,46 @@
 ﻿+function BootstrapModal() {
-	makeModalDraggable();
-	var draggableData = {
-		isMouseDown: false,
-		mouseOffset: {}
-	};
+    makeModalDraggable();
 
-	function makeModalDraggable() {
-		$(".modal-header").each(function (e, t) {
-			var parent = $(this).parent(".modal");
-			if ((Boolean)(parent.attr("data-draggable"))) {
-				$(this).on('mousedown', function (event) {
+    function makeModalDraggable() {
+        //$(".modal-header").on('mousedown', function (event) {
+        //    alert("鼠标放下了");
+        //});
 
-					var dialog = event.data.dialog;
-					dialog.draggableData.isMouseDown = true;
-					var dialogOffset = dialog.getModalDialog().offset();
-					dialog.draggableData.mouseOffset = {
-						top: event.clientY - dialogOffset.top,
-						left: event.clientX - dialogOffset.left
-					};
-				});
-			}
-		});
+        $(".modal-header").each(function (e, t) {
+            var draggableData = {
+                isMouseDown: false,
+                mouseOffset: {}
+            };
 
-		//if (this.options.draggable) {
-		//	this.getModalHeader().addClass(this.getNamespace('draggable')).on('mousedown', { dialog: this }, function (event) {
-		//		var dialog = event.data.dialog;
-		//		dialog.draggableData.isMouseDown = true;
-		//		var dialogOffset = dialog.getModalDialog().offset();
-		//		dialog.draggableData.mouseOffset = {
-		//			top: event.clientY - dialogOffset.top,
-		//			left: event.clientX - dialogOffset.left
-		//		};
-		//	});
-		//	this.getModal().on('mouseup mouseleave', { dialog: this }, function (event) {
-		//		event.data.dialog.draggableData.isMouseDown = false;
-		//	});
-		//	$('body').on('mousemove', { dialog: this }, function (event) {
-		//		var dialog = event.data.dialog;
-		//		if (!dialog.draggableData.isMouseDown) {
-		//			return;
-		//		}
-		//		dialog.getModalDialog().offset({
-		//			top: event.clientY - dialog.draggableData.mouseOffset.top,
-		//			left: event.clientX - dialog.draggableData.mouseOffset.left
-		//		});
-		//	});
-		//}
+            var parent = $(this).parent().parent(".modal");
+            parent.data("draggableData", draggableData);
+            if ((Boolean)(parent.attr("data-draggable"))) {
+                $(this).css("cursor", "move");
+                $(this).on('mousedown', { dialog: parent }, function (event) {
+                    var dialog = event.data.dialog;
+                    dialog.data("draggableData").isMouseDown = true;
+                    var dialogOffset = dialog.offset();
+                    dialog.data("draggableData").mouseOffset = {
+                        top: event.clientY - dialogOffset.top,
+                        left: event.clientX - dialogOffset.left
+                    };
+                });
+                $(this).on('mouseup mouseleave', { dialog: parent }, function (event) {
+                    event.data.dialog.data("draggableData").isMouseDown = false;
+                });
+                $('body').on('mousemove', { dialog: parent }, function (event) {
+                    var dialog = event.data.dialog;
+                    if (!dialog.data("draggableData").isMouseDown) {
+                        return;
+                    }
+                    dialog.offset({
+                        top: event.clientY - dialog.data("draggableData").mouseOffset.top,
+                        left: event.clientX - dialog.data("draggableData").mouseOffset.left
+                    });
+                });
+            }
+        });
 
-		return this;
-	}
+        return this;
+    }
 }()

@@ -9,6 +9,7 @@ namespace NoRain.Business.IDal
 {
     public interface IBaseDAL
     {
+        Database DB { get; }
         T Update<T>(T entity) where T : class;
         T Insert<T>(T entity) where T : class;
         List<T> Insert<T>(List<T> entitys) where T : class;

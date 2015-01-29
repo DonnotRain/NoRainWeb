@@ -43,17 +43,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\LoginModel.cs" />
     <Compile Include="Request\SetRoleFunction.cs" />
-    <Compile Include="Response\AttendenceInfo.cs" />
-    <Compile Include="Response\BoardInfo.cs" />
-    <Compile Include="Response\ChoiceInfo.cs" />
-    <Compile Include="Response\ExamInfo.cs" />
-    <Compile Include="Response\InfomationInfo.cs" />
+    <Compile Include="Response\ApiTreeNode.cs" />
     <Compile Include="Response\ItemInfo.cs" />
-    <Compile Include="Response\JudgementInfo.cs" />
-    <Compile Include="Response\LearningInfo.cs" />
-    <Compile Include="Response\LeaveInfo.cs" />
-    <Compile Include="Response\ReturnInfo.cs" />
-    <Compile Include="Response\SellInfo.cs" />
     <Compile Include="Response\UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>

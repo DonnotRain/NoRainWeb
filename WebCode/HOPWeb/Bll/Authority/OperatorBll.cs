@@ -6,16 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NoRainRights;
+using NoRain.Business.IDal;
 
 namespace NoRain.Business.Bll
 {
     public class SysUserBll : CommonSecurityBLL, ISysUserBll
     {
         private IRoleBLL m_roleBll;
+        private IBaseDAL _dal;
 
-        public SysUserBll(IRoleBLL roleBll)
+        public SysUserBll(IRoleBLL roleBll, ICommonSecurityDAL dal)
         {
-            m_roleBll = roleBll;
+            m_roleBll = roleBll; this._dal = dal;
         }
         public PetaPoco.Page<SysUser> GetSysUserPager(int pageIndex, int pageSize, string name, int? roleId)
         {
@@ -59,7 +61,7 @@ namespace NoRain.Business.Bll
             var repeatItems = FindAll<SysUser>("Name=@0" , entity.Name);
             if (repeatItems.Count() != 0) throw new ApiException(ResponseCode.SYSTEM_Request_Interval);
 
-            using (PetaPoco.Transaction transac = new Transaction(DBManage.SecurityDB))
+            using (PetaPoco.Transaction transac = new Transaction(_dal.DB))
             {
                 entity.Insert();
                 transac.Complete();
