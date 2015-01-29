@@ -5544,9 +5544,9 @@
       <Project>{1a822090-e850-48ab-a12b-da44fd80c53f}</Project>
       <Name>Bll</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommonToolkit\CommonToolkit.csproj">
+    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkit.csproj">
       <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
-      <Name>CommonToolkit</Name>
+      <Name>NoRain.Toolkit</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dal\Dal.csproj">
       <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>
