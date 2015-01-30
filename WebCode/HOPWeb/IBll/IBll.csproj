@@ -51,9 +51,9 @@
     <Compile Include="Sys\ICategoryBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkit.csproj">
+    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkits.csproj">
       <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
-      <Name>NoRain.Toolkit</Name>
+      <Name>NoRain.Toolkits</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{e5af736e-ba28-4b20-87fd-732853fdc5cf}</Project>

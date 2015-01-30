@@ -51,18 +51,31 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">菜单图标</label>
-                        <div class="col-md-10 has-error">
-                            <i id="iconSample" class="iconmoon-desktop" style="font-size: 20px; vertical-align: middle"></i>
-                            图标类名
-                            <input id="ImageIndex" name="ImageIndex" value="iconmoon-desktop" style="width: 30%" />
-                            <input value="选择图标" class="btn-primary" onclick="chooseIcon();" type="button" />
+                        <div class="col-md-10">
+                            @* <div class="input-group">
+                                <span class="input-group-addon"><i id="iconSample" class="iconmoon-desktop" style="font-size: 20px; vertical-align: middle"></i></span>
+                                <span class="input-group-addon">图标类名</span>
+                                <input id="ImageIndex" name="ImageIndex" class="form-control" value="iconmoon-desktop" />
+
+                                <button type="button" class="input-group-btn" onclick="chooseIcon();">选择图标</button>
+
+                            </div>*@
+                            <div class="input-group">
+                                <div class="input-icon">
+                                    <i class="fa fa-lock fa-fw"></i>
+                                    <input id="newpassword" class="form-control" type="text" name="password" placeholder="password">
+                                </div>
+                                <span class="input-group-btn">
+                                    <button id="genpassword" class="btn btn-success" type="button"><i class="fa fa-arrow-left fa-fw"></i>Random</button>
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">插件地址</label>
                         <div class="col-md-10">
-                            <input name="Path" type="text" id="Path" style="width: 90%" value="" />
+                            <input name="Path" class="form-control" type="text" id="Path" style="width: 90%" value="" />
                         </div>
                     </div>
 
@@ -85,18 +98,15 @@
                             <span class="form-group-item">
                                 <input type="checkbox" id="IsEnabledCheck" checked="checked" />
                                 <label for="IsEnabledCheck" style="vertical-align: middle;">有效</label>
-                                &nbsp;&nbsp;
                             </span>
                             <span class="form-group-item">
                                 <input type="checkbox" id="AllowEditCheck" checked="checked" />
 
                                 <label for="AllowEditCheck" style="vertical-align: middle;">允许编辑</label>
-                                &nbsp;&nbsp;
                             </span>
                             <span class="form-group-item">
                                 <input type="checkbox" id="AllowDeleteCheck" checked="checked" />
                                 <label for="AllowDeleteCheck" style="vertical-align: middle;">允许删除</label>
-                                &nbsp;&nbsp;
                             </span>
                         </div>
                     </div>

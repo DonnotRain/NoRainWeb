@@ -44,7 +44,7 @@
                     $this.click(showMenu);
                     //根据文本框和传入参数，构建zTree树的HTML元素 
 
-                    var divContainer = $('<div id="menuContent" class="menuContent" style="display:none;z-index:9999; position: absolute;"></div>').attr("id",
+                    var divContainer = $('<div id="menuContent" class="menuContent" style="display:none;z-index:99999; position: absolute;"></div>').attr("id",
                        containerId).attr("class", containerId);
 
                     var ulTree = $('<ul id="treeDemo" class="ztree" style="margin-top:0; width:auto; height:auto;"></ul>').attr("id",
@@ -52,7 +52,12 @@
 
                     //加入
                     divContainer.append(ulTree);
-                    divContainer.appendTo($("body"));
+                    if ($this.parents("form").length) {
+                        divContainer.appendTo($this.parents("form"));
+                    }
+                    else {
+                        divContainer.appendTo($("body"));
+                    }
                 } else {
                     settings = $.extend({}, settings, options);
                 }
@@ -83,7 +88,7 @@
                     if (v.length > 0) v = v.substring(0, v.length - 1);
                     if (checkedValue.length > 0) checkedValue = checkedValue.substring(0, checkedValue.length - 1);
                     var cityObj = $this;
-                    cityObj.val(v);
+                    cityObj.val(checkedValue);
                     cityObj.attr("selectedValue", checkedValue);
                     //执行自定义回调
                     if (defaults.callback && defaults.callback.onCheck) {
@@ -93,8 +98,9 @@
 
                 function showMenu() {
                     var cityObj = $this;
+                    var parentOffSet = divContainer.parent().offset();
                     var cityOffset = cityObj.offset();
-                    divContainer.css({ left: cityOffset.left + "px", top: cityOffset.top + cityObj.outerHeight() + "px" }).slideDown("fast");
+                    divContainer.css({ left: cityOffset.left - parentOffSet.left + "px", top: cityOffset.top - parentOffSet.top + 15 + cityObj.outerHeight() + "px" }).slideDown("fast");
 
                     $("body").bind("mousedown", onBodyDown);
                 }

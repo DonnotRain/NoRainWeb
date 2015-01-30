@@ -52,9 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkit.csproj">
+    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkits.csproj">
       <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
-      <Name>NoRain.Toolkit</Name>
+      <Name>NoRain.Toolkits</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dal\Dal.csproj">
       <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>

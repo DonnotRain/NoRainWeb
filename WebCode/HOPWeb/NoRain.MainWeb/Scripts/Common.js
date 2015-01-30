@@ -1,4 +1,13 @@
 ﻿var NoRainTools = (function ($) {
+    //jQuery扩展，清理表单
+
+    $.fn.extend({
+        clear: function () {
+            return this.each(function () {
+                $(this).find(':input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+            });
+        }
+    });
 
     function getsec(str) {
         var str1 = str.substring(1, str.length) * 1;
@@ -188,6 +197,7 @@
         , timeFormatter: timeFormatter
         , deepcopy: deepcopy
     }
+
 })(jQuery);
 
 

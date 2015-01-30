@@ -74,33 +74,3 @@
         }
     });
 })(jQuery)
-
-/*
-                jQuery.Mask.default = {
-        renderTo: $(document.body),
-    enable: true,
-    showCssClassName: 'mask-widget-overlay mask-front'
-};
-
-$.Mask.default = (typeof ps.renderTo == 'string' ?
-     $(ps.renderTo) : ps.renderTo);
-$.extend({}, $.Mask.default, setting);
-
-$.Mask.default.show = function (text) {
-    $("<div class=\"mask-widget-overlay mask-front\"></div>").appendTo($.Mask.default.renderTo);
-};
-
-$.Mask.default.hide = function () {
-    $.Mask.default.renderTo.remove($.Mask.default.showCssClassName);
-};
-return $.Mask.default;
-}
-
-
-
-
-
-
-
-
-*/

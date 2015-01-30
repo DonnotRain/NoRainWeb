@@ -5966,7 +5966,6 @@
     <Content Include="Scripts\JS\OperatorRole.js" />
     <Content Include="Scripts\JS\Category.js" />
     <Content Include="Scripts\JS\Login.js" />
-    <Content Include="Scripts\JS\Plug - 复制.js" />
     <Content Include="Scripts\JS\Plug.js" />
     <Content Include="Scripts\JS\SystemBase\Store.js" />
     <Content Include="Scripts\JS\SystemBase\Item.js" />
@@ -6033,8 +6032,6 @@
     <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Shared\Menu1.cshtml" />
-    <Content Include="Views\Plug\Index - 复制.cshtml" />
-    <Content Include="Views\Plug\Create - 复制.cshtml" />
     <Content Include="Scripts\bootstrap-modal.extend.js" />
   </ItemGroup>
   <ItemGroup>
@@ -6042,9 +6039,9 @@
       <Project>{1a822090-e850-48ab-a12b-da44fd80c53f}</Project>
       <Name>Bll</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkit.csproj">
+    <ProjectReference Include="..\CommonToolkit\NoRain.Toolkits.csproj">
       <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
-      <Name>NoRain.Toolkit</Name>
+      <Name>NoRain.Toolkits</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dal\Dal.csproj">
       <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>
