@@ -115,7 +115,7 @@ namespace NoRain.Business.Bll
         /// <returns>文件实体</returns>
         public FileItem DeleteFileItem(string fileItemId)
         {
-            FileItem fileItem = this.FindAll<FileItem>("").FirstOrDefault();
+            FileItem fileItem = this.FindAll<FileItem>().FirstOrDefault();
             string filePath = Path.Combine(uploadPath, fileItem.FilePath);
 
             this.Delete<FileItem>(fileItem);

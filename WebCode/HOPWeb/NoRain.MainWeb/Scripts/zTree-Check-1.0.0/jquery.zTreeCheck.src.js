@@ -88,7 +88,7 @@
                     if (v.length > 0) v = v.substring(0, v.length - 1);
                     if (checkedValue.length > 0) checkedValue = checkedValue.substring(0, checkedValue.length - 1);
                     var cityObj = $this;
-                    cityObj.val(checkedValue);
+                    cityObj.val(v);
                     cityObj.attr("selectedValue", checkedValue);
                     //执行自定义回调
                     if (defaults.callback && defaults.callback.onCheck) {

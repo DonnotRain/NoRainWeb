@@ -4759,6 +4759,7 @@
     <Content Include="assets\global\plugins\zui\lib\kindeditor\themes\default\default.css" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\themes\default\default.png" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\themes\default\gray.png" />
+    <Content Include="assets\global\plugins\zui\zui-alter.css" />
     <Content Include="assets\global\scripts\datatable.js" />
     <Content Include="assets\global\scripts\metronic.js" />
     <Content Include="favicon.ico" />

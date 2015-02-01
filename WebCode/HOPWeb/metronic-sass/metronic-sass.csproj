@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BB23C71-F553-4F72-BF05-5286CDBE1DC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>metronic_sass</RootNamespace>
+    <AssemblyName>metronic-sass</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sass\admin\layout2\layout.scss" />
+    <None Include="sass\admin\layout2\layout\_content.scss" />
+    <None Include="sass\admin\layout2\layout\_footer.scss" />
+    <None Include="sass\admin\layout2\layout\_header.scss" />
+    <None Include="sass\admin\layout2\layout\_page-container.scss" />
+    <None Include="sass\admin\layout2\layout\_print.scss" />
+    <None Include="sass\admin\layout2\layout\_sidebar.scss" />
+    <None Include="sass\admin\layout2\layout\_theme-panel.scss" />
+    <None Include="sass\admin\layout2\themes\blue.scss" />
+    <None Include="sass\admin\layout2\themes\dark.scss" />
+    <None Include="sass\admin\layout2\themes\default.scss" />
+    <None Include="sass\admin\layout2\themes\grey.scss" />
+    <None Include="sass\admin\layout2\themes\light.scss" />
+    <None Include="sass\admin\layout2\themes\_base.scss" />
+    <None Include="sass\admin\layout2\_variables.scss" />
+    <None Include="sass\admin\layout3\layout.scss" />
+    <None Include="sass\admin\layout3\layout\_content.scss" />
+    <None Include="sass\admin\layout3\layout\_footer.scss" />
+    <None Include="sass\admin\layout3\layout\_header.scss" />
+    <None Include="sass\admin\layout3\layout\_print.scss" />
+    <None Include="sass\admin\layout3\layout\_theme-panel.scss" />
+    <None Include="sass\admin\layout3\themes\blue-hoki.scss" />
+    <None Include="sass\admin\layout3\themes\blue-steel.scss" />
+    <None Include="sass\admin\layout3\themes\default.scss" />
+    <None Include="sass\admin\layout3\themes\green-haze.scss" />
+    <None Include="sass\admin\layout3\themes\purple-plum.scss" />
+    <None Include="sass\admin\layout3\themes\purple-studio.scss" />
+    <None Include="sass\admin\layout3\themes\red-intense.scss" />
+    <None Include="sass\admin\layout3\themes\red-sunglo.scss" />
+    <None Include="sass\admin\layout3\themes\yellow-crusta.scss" />
+    <None Include="sass\admin\layout3\themes\yellow-orange.scss" />
+    <None Include="sass\admin\layout3\themes\_base.scss" />
+    <None Include="sass\admin\layout3\_variables.scss" />
+    <None Include="sass\admin\layout4\layout.scss" />
+    <None Include="sass\admin\layout4\layout\_content.scss" />
+    <None Include="sass\admin\layout4\layout\_footer.scss" />
+    <None Include="sass\admin\layout4\layout\_header.scss" />
+    <None Include="sass\admin\layout4\layout\_page-container.scss" />
+    <None Include="sass\admin\layout4\layout\_print.scss" />
+    <None Include="sass\admin\layout4\layout\_sidebar.scss" />
+    <None Include="sass\admin\layout4\layout\_theme-panel.scss" />
+    <None Include="sass\admin\layout4\themes\default.scss" />
+    <None Include="sass\admin\layout4\themes\light.scss" />
+    <None Include="sass\admin\layout4\themes\_base.scss" />
+    <None Include="sass\admin\layout4\_variables.scss" />
+    <None Include="sass\admin\layout\layout.scss" />
+    <None Include="sass\admin\layout\layout\_content.scss" />
+    <None Include="sass\admin\layout\layout\_footer.scss" />
+    <None Include="sass\admin\layout\layout\_header.scss" />
+    <None Include="sass\admin\layout\layout\_page-container.scss" />
+    <None Include="sass\admin\layout\layout\_print.scss" />
+    <None Include="sass\admin\layout\layout\_quick-sidebar.scss" />
+    <None Include="sass\admin\layout\layout\_sidebar.scss" />
+    <None Include="sass\admin\layout\layout\_theme-panel.scss" />
+    <None Include="sass\admin\layout\themes\blue.scss" />
+    <None Include="sass\admin\layout\themes\darkblue.scss" />
+    <None Include="sass\admin\layout\themes\default.scss" />
+    <None Include="sass\admin\layout\themes\grey.scss" />
+    <None Include="sass\admin\layout\themes\light.scss" />
+    <None Include="sass\admin\layout\themes\light2.scss" />
+    <None Include="sass\admin\layout\themes\_base.scss" />
+    <None Include="sass\admin\layout\_variables.scss" />
+    <None Include="sass\admin\pages\about-us.scss" />
+    <None Include="sass\admin\pages\blog.scss" />
+    <None Include="sass\admin\pages\coming-soon.scss" />
+    <None Include="sass\admin\pages\error.scss" />
+    <None Include="sass\admin\pages\image-crop.scss" />
+    <None Include="sass\admin\pages\inbox.scss" />
+    <None Include="sass\admin\pages\invoice.scss" />
+    <None Include="sass\admin\pages\lock.scss" />
+    <None Include="sass\admin\pages\lock2.scss" />
+    <None Include="sass\admin\pages\login-soft.scss" />
+    <None Include="sass\admin\pages\login.scss" />
+    <None Include="sass\admin\pages\login2.scss" />
+    <None Include="sass\admin\pages\login3.scss" />
+    <None Include="sass\admin\pages\news.scss" />
+    <None Include="sass\admin\pages\portfolio.scss" />
+    <None Include="sass\admin\pages\pricing-tables.scss" />
+    <None Include="sass\admin\pages\profile-old.scss" />
+    <None Include="sass\admin\pages\profile.scss" />
+    <None Include="sass\admin\pages\search.scss" />
+    <None Include="sass\admin\pages\tasks.scss" />
+    <None Include="sass\admin\pages\timeline-old.scss" />
+    <None Include="sass\admin\pages\timeline.scss" />
+    <None Include="sass\admin\pages\todo.scss" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_alerts.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_animate.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_badges.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_buttons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_carousel.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_charts.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_chats.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_close.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_dropdowns.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_feeds.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_flatui-color-variants.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_font-icons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_form-layouts.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_forms.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_icon-buttons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_input-icons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_labels.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_list-groups.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_loaders.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_metro-icons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_mixins.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_modals.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_notes.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_pagination.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_panels.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_popovers.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_portlets.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_progress-bars.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_reset-general.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_reset-rounds.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_social-icons.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_statistic-blocks.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_tables.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_tabs.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_tiles.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_typography.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_utils.scssc" />
+    <None Include="sass\global\.sass-cache\1fdae9024a72609d73260521cd62b21d4d54901d\_wells.scssc" />
+    <None Include="sass\global\.sass-cache\7145a58ef0d297e2df5a1c985c34c2b19486e576\components.scssc" />
+    <None Include="sass\global\.sass-cache\7145a58ef0d297e2df5a1c985c34c2b19486e576\_variables.scssc" />
+    <None Include="sass\global\components-rounded.scss" />
+    <None Include="sass\global\components.css.map" />
+    <None Include="sass\global\components.scss" />
+    <None Include="sass\global\components\_alerts.scss" />
+    <None Include="sass\global\components\_animate.scss" />
+    <None Include="sass\global\components\_badges.scss" />
+    <None Include="sass\global\components\_buttons.scss" />
+    <None Include="sass\global\components\_carousel.scss" />
+    <None Include="sass\global\components\_charts.scss" />
+    <None Include="sass\global\components\_chats.scss" />
+    <None Include="sass\global\components\_close.scss" />
+    <None Include="sass\global\components\_dropdowns.scss" />
+    <None Include="sass\global\components\_feeds.scss" />
+    <None Include="sass\global\components\_flatui-color-variants.scss" />
+    <None Include="sass\global\components\_font-icons.scss" />
+    <None Include="sass\global\components\_form-layouts.scss" />
+    <None Include="sass\global\components\_forms.scss" />
+    <None Include="sass\global\components\_icon-buttons.scss" />
+    <None Include="sass\global\components\_input-icons.scss" />
+    <None Include="sass\global\components\_labels.scss" />
+    <None Include="sass\global\components\_list-groups.scss" />
+    <None Include="sass\global\components\_loaders.scss" />
+    <None Include="sass\global\components\_metro-icons.scss" />
+    <None Include="sass\global\components\_mixins.scss" />
+    <None Include="sass\global\components\_modals.scss" />
+    <None Include="sass\global\components\_notes.scss" />
+    <None Include="sass\global\components\_pagination.scss" />
+    <None Include="sass\global\components\_panels.scss" />
+    <None Include="sass\global\components\_popovers.scss" />
+    <None Include="sass\global\components\_portlets.scss" />
+    <None Include="sass\global\components\_progress-bars.scss" />
+    <None Include="sass\global\components\_reset-general.scss" />
+    <None Include="sass\global\components\_reset-rounds.scss" />
+    <None Include="sass\global\components\_social-icons.scss" />
+    <None Include="sass\global\components\_statistic-blocks.scss" />
+    <None Include="sass\global\components\_tables.scss" />
+    <None Include="sass\global\components\_tabs.scss" />
+    <None Include="sass\global\components\_tiles.scss" />
+    <None Include="sass\global\components\_typography.scss" />
+    <None Include="sass\global\components\_utils.scss" />
+    <None Include="sass\global\components\_wells.scss" />
+    <None Include="sass\global\plugins.scss" />
+    <None Include="sass\global\plugins\_bootbox.scss" />
+    <None Include="sass\global\plugins\_bootstrap-colorpicker.scss" />
+    <None Include="sass\global\plugins\_bootstrap-datepaginator.scss" />
+    <None Include="sass\global\plugins\_bootstrap-datepicker.scss" />
+    <None Include="sass\global\plugins\_bootstrap-daterangepicker.scss" />
+    <None Include="sass\global\plugins\_bootstrap-datetimepicker.scss" />
+    <None Include="sass\global\plugins\_bootstrap-editable.scss" />
+    <None Include="sass\global\plugins\_bootstrap-fileinput.scss" />
+    <None Include="sass\global\plugins\_bootstrap-markdown.scss" />
+    <None Include="sass\global\plugins\_bootstrap-modal.scss" />
+    <None Include="sass\global\plugins\_bootstrap-select.scss" />
+    <None Include="sass\global\plugins\_bootstrap-summercode.scss" />
+    <None Include="sass\global\plugins\_bootstrap-switch.scss" />
+    <None Include="sass\global\plugins\_bootstrap-timepicker.scss" />
+    <None Include="sass\global\plugins\_bootstrap-toastr.scss" />
+    <None Include="sass\global\plugins\_bootstrap-wizard.scss" />
+    <None Include="sass\global\plugins\_bootstrap-wysihtml5.scss" />
+    <None Include="sass\global\plugins\_ckeditor.scss" />
+    <None Include="sass\global\plugins\_clockface.scss" />
+    <None Include="sass\global\plugins\_datatables.scss" />
+    <None Include="sass\global\plugins\_dropzone.scss" />
+    <None Include="sass\global\plugins\_fancybox.scss" />
+    <None Include="sass\global\plugins\_fuelux.scss" />
+    <None Include="sass\global\plugins\_fullcalendar.scss" />
+    <None Include="sass\global\plugins\_gmaps.scss" />
+    <None Include="sass\global\plugins\_gritter.scss" />
+    <None Include="sass\global\plugins\_icheck.scss" />
+    <None Include="sass\global\plugins\_jquery-easy-pie-chart.scss" />
+    <None Include="sass\global\plugins\_jquery-file-upload.scss" />
+    <None Include="sass\global\plugins\_jquery-multi-select.scss" />
+    <None Include="sass\global\plugins\_jquery-notific8.scss" />
+    <None Include="sass\global\plugins\_jquery-pwstrength-bootstrap.scss" />
+    <None Include="sass\global\plugins\_jquery-slimscroll.scss" />
+    <None Include="sass\global\plugins\_jquery-sparkline.scss" />
+    <None Include="sass\global\plugins\_jquery-tags-input.scss" />
+    <None Include="sass\global\plugins\_jquery-ui.scss" />
+    <None Include="sass\global\plugins\_jqvmap.scss" />
+    <None Include="sass\global\plugins\_jstree.scss" />
+    <None Include="sass\global\plugins\_morris.scss" />
+    <None Include="sass\global\plugins\_nouislider.scss" />
+    <None Include="sass\global\plugins\_recaptcha.scss" />
+    <None Include="sass\global\plugins\_select2.scss" />
+    <None Include="sass\global\plugins\_ui-select.scss" />
+    <None Include="sass\global\plugins\_uniform.scss" />
+    <None Include="sass\global\_variables.scss" />
+    <None Include="sass\koala-config.json" />
+    <None Include="sass\sass.v14.suo" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sass\global\components.css" />
+    <Content Include="sass\sass.sln" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

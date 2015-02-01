@@ -11,62 +11,63 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label required">类型</label>
                         <div class="col-md-4">
-                            <span class="form-group-item">
-                                <input type="radio" id="IsMenu" name="FunctionType" value="1" style="vertical-align: middle; margin: auto" />
-                                <label for="IsMenu" style="vertical-align: middle;">菜单项</label>
-                                &nbsp;&nbsp;
-                            </span>
-                            <span class="form-group-item">
-                                <input type="radio" id="IsModule" name="FunctionType" value="2" style="vertical-align: middle; margin: auto" />
-                                <label for="IsModule" style="vertical-align: middle;">系统模块</label>
-                                &nbsp;&nbsp;
-                            </span>
-                            <span class="form-group-item">
-                                <input type="radio" id="IsFunction" name="FunctionType" value="3" style="vertical-align: middle; margin: auto;" />
-                                <label for="IsFunction" style="vertical-align: middle;">页面功能</label>
-                                &nbsp;&nbsp;
-                            </span>
+                            <div class="input-group">
+                                <div class="icheck-inline">
+                                    <label>
+                                        <input type="radio" id="IsMenu" name="FunctionType" value="1" />菜单项
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsModule" name="FunctionType" value="2" />系统模块
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsFunction" name="FunctionType" value="3" />页面功能
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label required">模块名称</label>
                         <div class="col-md-4">
-                            <input name="Name" class="form-control required" type="text" id="Name" style="width: 90%" value="" />
+                            <input name="Name" class="form-control required" type="text" id="Name"  value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label required">模块编号</label>
                         <div class="col-md-4">
-                            <input name="ControlID" class="form-control required" type="text" style="width: 90%" id="ControlID" value="" />
+                            <input name="ControlID" class="form-control required" type="text"  id="ControlID" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">上级模块</label>
                         <div class="col-md-4">
-                            <input name="PID" class="form-control required" type="text" id="PID" style="width: 344px;" value="" />
+                            <input name="PID" class="form-control required" type="text" id="PID" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">菜单图标</label>
-                        <div class="col-md-10">
+                        <div class="col-md-4">
                             @* <div class="input-group">
-                                <span class="input-group-addon"><i id="iconSample" class="iconmoon-desktop" style="font-size: 20px; vertical-align: middle"></i></span>
-                                <span class="input-group-addon">图标类名</span>
-                                <input id="ImageIndex" name="ImageIndex" class="form-control" value="iconmoon-desktop" />
+                                    <span class="input-group-addon"><i id="iconSample" class="iconmoon-desktop" style="font-size: 20px; vertical-align: middle"></i></span>
+                                    <span class="input-group-addon">图标类名</span>
+                                    <input id="ImageIndex" name="ImageIndex" class="form-control" value="iconmoon-desktop" />
 
-                                <button type="button" class="input-group-btn" onclick="chooseIcon();">选择图标</button>
+                                    <button type="button" class="input-group-btn" onclick="chooseIcon();">选择图标</button>
 
-                            </div>*@
+                                </div>*@
                             <div class="input-group">
-                                <div class="input-icon">
-                                    <i class="fa fa-lock fa-fw"></i>
-                                    <input id="newpassword" class="form-control" type="text" name="password" placeholder="password">
-                                </div>
+
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+
+                                <input id="newpassword" readonly class="form-control" type="text" name="fa fa-user" placeholder="图标类名">
+
                                 <span class="input-group-btn">
-                                    <button id="genpassword" class="btn btn-success" type="button"><i class="fa fa-arrow-left fa-fw"></i>Random</button>
+                                    <button id="genpassword" class="btn btn-success" type="button">选择</button>
                                 </span>
                             </div>
                         </div>
@@ -81,33 +82,33 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">显示顺序</label>
-                        <div class="col-md-10">
+                        <div class="col-md-4">
                             <input name="Sort" type="text" id="Sort" class="form-control required" style="width: 90%" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">授权角色</label>
-                        <div class="col-md-10">
-                            <input name="RoleIds" class="form-control" type="text" id="RoleIds" style="width: 344px" />
+                        <div class="col-md-4">
+                            <input name="RoleIds" class="form-control" type="text" id="RoleIds" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label required">选项</label>
-                        <div class="col-md-10">
-                            <span class="form-group-item">
-                                <input type="checkbox" id="IsEnabledCheck" checked="checked" />
-                                <label for="IsEnabledCheck" style="vertical-align: middle;">有效</label>
-                            </span>
-                            <span class="form-group-item">
-                                <input type="checkbox" id="AllowEditCheck" checked="checked" />
-
-                                <label for="AllowEditCheck" style="vertical-align: middle;">允许编辑</label>
-                            </span>
-                            <span class="form-group-item">
-                                <input type="checkbox" id="AllowDeleteCheck" checked="checked" />
-                                <label for="AllowDeleteCheck" style="vertical-align: middle;">允许删除</label>
-                            </span>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <div class="icheck-inline">
+                                    <label>
+                                        <input type="checkbox" id="IsEnabledCheck" checked="checked" class="icheck" />有效
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="AllowEditCheck" checked="checked" class="icheck" /> 允许编辑
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="AllowDeleteCheck" checked="checked" class="icheck" />允许删除
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <input type="hidden" id="ID" name="ID" value="" />
