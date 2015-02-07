@@ -918,14 +918,14 @@ the specific language governing permissions and limitations under the Apache Lic
                 this.select = select = opts.element;
             }
 
-            if (select) {
-                // these options are not allowed when attached to a select because they are picked up off the element itself
-                $.each(["id", "multiple", "ajax", "query", "createSearchChoice", "initSelection", "data", "tags"], function () {
-                    if (this in opts) {
-                        throw new Error("Option '" + this + "' is not allowed for Select2 when attached to a <select> element.");
-                    }
-                });
-            }
+            //if (select) {
+            //    // these options are not allowed when attached to a select because they are picked up off the element itself
+            //    $.each(["id", "multiple", "ajax", "query", "createSearchChoice", "initSelection", "data", "tags"], function () {
+            //        if (this in opts) {
+            //            throw new Error("Option '" + this + "' is not allowed for Select2 when attached to a <select> element.");
+            //        }
+            //    });
+            //}
 
             opts = $.extend({}, {
                 populateResults: function(container, results, query) {

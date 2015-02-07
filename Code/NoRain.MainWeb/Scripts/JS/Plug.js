@@ -12,7 +12,7 @@
     function InitialFunc() {
         Initialize.loadDataGrid();
         Initialize.initCombos();
-        // Initialize.initialValidate();
+        Initialize.initialValidate();
         Initialize.initialBtns();
     }
 
@@ -95,17 +95,34 @@
             resize();
         },
         initCombos: function () {
+
+            //加载父节点
             $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
                 // alert("JSON Data: " + json.length);
                 vars.plugData = json;
                 $("#PID").zTreeCheck({}, json);
             });
+
+            $.CommonAjax({
+                url: window.rootPath + "/API/Role/",
+                type: "get",
+                success: function (data) {
+
+                    //for (var i = 0; i < data.length; i++) {
+                    //    data[i] = {
+                    //        id: data[i].ID, text: data[i].Name
+                    //    };
+                    //}
+                    NoRainTools.LoadSelectOption($("#RoleIds"), data, "Name", "ID", false);
+                    $("#RoleIds").select2({})
+                }
+            });
+
         },
         initialValidate: function () {
             $("#fm").validVal();
         }
     }
-
 
     function chooseIcon() {
         $('#iconChoose').dialog('open');
@@ -113,20 +130,13 @@
 
     //添加系统模块
     function Add() {
-        //  $('#fm').form('clear');
+
+        $('#fm')[0].reset()
         $('#responsive').modal('show').find(".modal-title").html("新增功能插件");
 
         var items = $("#dgMain").treegrid('getChecked');
 
-        //if (items && items.length > 0) {
-        //    var item = items[0];
-        //    $("#PID").combotree("setValue", item.ID);
-        //}
-
-        $("#IsMenu").prop("checked", true);
-        $("#IsModule").prop("checked", false);
-        $("#IsFunction").prop("checked", false);
-
+        $("#IsMenu").iCheck('check');
         $("#ImageIndex").val("");
 
         //编号可编辑
@@ -136,7 +146,8 @@
     }
 
     function Edit() {
-        $('#fm').form('clear');
+        $('#fm')[0].reset()
+        $('#responsive').modal('show').find(".modal-title").html("编辑功能插件");
 
         var items = $("#dgMain").treegrid('getSelections');
 
@@ -148,7 +159,7 @@
             }
 
             //排序 
-            $("#Sort").numberbox("setValue", item.Sort);
+            $("#Sort").val(item.Sort);
 
             $("#iconSample").attr("class", item.ImageIndex);
 
@@ -157,8 +168,7 @@
             $("#IsModule").prop("checked", (item.FunctionType == 2));
             $("#IsFunction").prop("checked", (item.FunctionType == 3));
             //上级模块
-            $("#PID").combotree("setValue", item.PID);
-
+            $("#PID").zTreeCheck("setValue", item.PID);
             //角色
             var roleIds = [];
             for (var i = 0; i < item.Roles.length; i++) {
@@ -264,6 +274,7 @@
     // 重新布局
     function resize() {
         var width = $(".dg-panel").width();
+        if (width < 700) width = 700;
         var height = $(window).height() - 70;
         $("#dgMain").treegrid('resize', { // 重新布局DataGrid
             width: width

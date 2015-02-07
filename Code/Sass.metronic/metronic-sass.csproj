@@ -255,7 +255,6 @@
     <None Include="sass\global\plugins\_uniform.scss" />
     <None Include="sass\global\_variables.scss" />
     <None Include="sass\koala-config.json" />
-    <None Include="sass\sass.v14.suo" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sass\global\components.css" />

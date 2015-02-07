@@ -249,6 +249,17 @@ Color variants
 .modal-open .select2-search {
     z-index: $zindex-modal + 3;
 }
+.modal-open .select2-dropdown-mask {
+    z-index: $zindex-modal + 1;
+}
+
+.modal-open .select2-dropdown {
+    z-index: $zindex-modal + 2;
+}
+ 
+.modal-open .select2-search {
+    z-index: $zindex-modal + 3;
+}
 
 /***
 Bootstrap input sizes

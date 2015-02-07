@@ -16,7 +16,7 @@
 
                     var defaults = {
                         check: {
-                            enable: true,
+                            enable: false,
                             chkStyle: "radio",
                             radioType: "all"
                         },
@@ -65,15 +65,26 @@
                 $.fn.zTree.init(ulTree, settings, zNodes);
 
                 function onClick(e, treeId, treeNode) {
-                    var zTree = $.fn.zTree.getZTreeObj(treeId);
-                    zTree.checkNode(treeNode, !treeNode.checked, null, true);
-
-                    //执行自定义回调
-                    if (defaults.callback && defaults.callback.onClick) {
-                        defaults.callback.onClick(e, treeId, treeNode);
+                    var zTree = $.fn.zTree.getZTreeObj(treeId),
+                   nodes = zTree.getCheckedNodes(true);
+                    if (!nodes.length) nodes = [treeNode];
+                    v = "";
+                    checkedValue = "";
+                    for (var i = 0, l = nodes.length; i < l; i++) {
+                        v += nodes[i].name + ",";
+                        checkedValue += nodes[i].id + ",";
                     }
-
-                    return false;
+                    if (v.length > 0) v = v.substring(0, v.length - 1);
+                    if (checkedValue.length > 0) checkedValue = checkedValue.substring(0, checkedValue.length - 1);
+                    var cityObj = $this;
+                    cityObj.val(v);
+                    cityObj.attr("selectedValue", checkedValue);
+                    //执行自定义回调
+                    if (defaults.callback && defaults.callback.onCheck) {
+                        defaults.callback.onCheck(e, treeId, treeNode);
+                    }
+                    hideMenu();
+                    return true;
                 }
 
                 function onCheck(e, treeId, treeNode) {
@@ -100,7 +111,8 @@
                     var cityObj = $this;
                     var parentOffSet = divContainer.parent().offset();
                     var cityOffset = cityObj.offset();
-                    divContainer.css({ left: cityOffset.left - parentOffSet.left + "px", top: cityOffset.top - parentOffSet.top + 15 + cityObj.outerHeight() + "px" }).slideDown("fast");
+                    //计算出父元素的偏移值
+                    divContainer.css({ left: cityOffset.left - parentOffSet.left + 15 + "px", top: cityOffset.top - parentOffSet.top + cityObj.outerHeight() + 15 + "px" }).slideDown("fast");
 
                     $("body").bind("mousedown", onBodyDown);
                 }

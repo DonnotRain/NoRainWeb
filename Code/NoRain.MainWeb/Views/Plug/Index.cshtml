@@ -3,12 +3,17 @@
     ViewBag.Title = "系统模块";
 }
 
-@section Header{
-    <link href="~/Content/Plug/Plug.css" rel="stylesheet" />
+@section CommonHeader{    <!--开始 公用样式 -->
+    <link href="~/assets/global/plugins/icheck/skins/all.css" rel="stylesheet" />
+    <link href="~/assets/global/plugins/select2/select2.css" rel="stylesheet" />
     <link href="~/assets/global/plugins/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
     <link href="~/Scripts/zTree-Check-1.0.0/jquery.zTreeCheck.css" rel="stylesheet" />
+    <!--结束 公用样式 -->
+}
+@section Header{
+
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="~/assets/global/plugins/icheck/skins/all.css" rel="stylesheet" />
+    <link href="~/Content/Plug/Plug.css" rel="stylesheet" />
     <!-- END PAGE LEVEL SCRIPTS -->
     <style type="text/css">
         .dg-panel {
@@ -64,6 +69,8 @@
 </div>
 @section Scripts{
     <script src="~/BackAssets/jquery-easyui-1.4/easyloader.js"></script>
+    <script src="~/assets/global/plugins/select2/select2.js"></script>
+    <script src="~/assets/global/plugins/select2/select2_locale_zh-CN.js"></script>
     <script src="~/Scripts/bootstrap-modal.extend.js"></script>
     <script src="~/assets/global/plugins/zTree/js/jquery.ztree.core-3.5.min.js"></script>
     <script src="~/assets/global/plugins/zTree/js/jquery.ztree.excheck-3.5.min.js"></script>

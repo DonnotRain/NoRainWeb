@@ -150,6 +150,52 @@
         return this.replace(reTag, "");
     }
 
+    /// By：wxt Date：2015/02/08
+    ///加载下拉项
+    ///$ele 目标元素
+    ///data 数组
+    ///textfield, valueField分别为显示的字段和值字段
+    ///widthNullOption 是否需要请选择项
+    function LoadSelectOption($ele, data, textField, valueField, widthNullOption) {
+        $($ele).each(function (ele, index) {
+            var $this = $(this).html("");
+            if (widthNullOption) {
+                var option = $("<option></option>").html("请选择").attr("selected", "selected");
+                $this.append(option);
+            }
+            for (var i = 0; i < data.length; i++) {
+                var option = $("<option></option>").html(data[i][textField]).attr("value", data[i][valueField]);
+                $this.append(option);
+            }
+        });
+
+        return $ele;
+    }
+    /// By：wxt Date：2015/02/08
+    ///加载下拉项
+    ///$ele 目标元素
+    ///设置的值 数组或","分隔的字符串
+    ///textfield, valueField分别为显示的字段和值字段
+    ///widthNullOption 是否需要请选择项
+    function SetSelectValues($ele, values) {
+        $($ele).each(function (ele, index) {
+            var $this = $(this);
+            var options = $this.children("option")
+
+            if (widthNullOption) {
+                var option = $("<option></option>").html("请选择").attr("selected", "selected");
+                $this.append(option);
+            }
+            for (var i = 0; i < data.length; i++) {
+                var option = $("<option></option>").html(data[i][textField]).attr("value", data[i][valueField]);
+                $this.append(option);
+            }
+        });
+
+        return $ele;
+    }
+
+
     return {
         //获取网站根目录
         getRootPath: function () {
@@ -196,7 +242,10 @@
        , dateFormatter: dateFormatter
         , timeFormatter: timeFormatter
         , deepcopy: deepcopy
+
+        , LoadSelectOption: LoadSelectOption
     }
+
 
 })(jQuery);
 

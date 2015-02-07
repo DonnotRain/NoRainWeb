@@ -48,7 +48,7 @@
     <Compile Include="Response\UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entity\Entity.csproj">
+    <ProjectReference Include="..\NoRain.Entity\Entity.csproj">
       <Project>{e5af736e-ba28-4b20-87fd-732853fdc5cf}</Project>
       <Name>Entity</Name>
     </ProjectReference>

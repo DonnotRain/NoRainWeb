@@ -15,7 +15,7 @@
 }(function( $ ) {
 
 $.extend($.fn, {
-	// http://jqueryvalidation.org/validate/
+	//  http://jqueryvalidation.org/validate/
 	validate: function( options ) {
 
 		// if nothing is selected, return nothing; can't chain anyway

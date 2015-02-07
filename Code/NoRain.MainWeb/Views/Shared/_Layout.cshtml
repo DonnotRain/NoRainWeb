@@ -18,14 +18,16 @@
     <link href="~/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-   
-     <!-- BEGIN ZUI引入 替换bootstrap-->
-  @*  <link href="~/assets/global/plugins/zui/css/zui.min.css" rel="stylesheet" />
-    <link href="~/assets/global/plugins/zui/zui-alter.css" rel="stylesheet" />*@
+
+    <!-- BEGIN ZUI引入 替换bootstrap-->
+    @*  <link href="~/assets/global/plugins/zui/css/zui.min.css" rel="stylesheet" />
+        <link href="~/assets/global/plugins/zui/zui-alter.css" rel="stylesheet" />*@
     <!-- END ZUI引入  替换bootstrap-->
 
     <link href="~/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+
+    @RenderSection("CommonHeader", false)
 
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN THEME STYLES -->
@@ -535,9 +537,9 @@
     <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
     <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="~/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
     <!-- 用ZUI代替bootstrap  -->
-  @*  <script src="~/assets/global/plugins/zui/js/zui.js"></script>*@
+    @*  <script src="~/assets/global/plugins/zui/js/zui.js"></script>*@
     <script src="~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
@@ -554,7 +556,6 @@
     <script src="~/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
     <script src="~/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
     <script src="~/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-    <script src="~/assets/admin/pages/scripts/ecommerce-index.js"></script>
     <script src="~/Scripts/Common.js"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
