@@ -115,7 +115,6 @@ namespace NoRainRights
 		[Column] public int PID { get; set; }
 		[Column] public string Name { get; set; }
 		[Column] public string ControlID { get; set; }
-		[Column] public string SystemType_ID { get; set; }
 		[Column] public string Path { get; set; }
 		[Column] public int? FunctionType { get; set; }
 		[Column] public int? Sort { get; set; }

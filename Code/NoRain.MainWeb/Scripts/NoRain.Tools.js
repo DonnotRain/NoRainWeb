@@ -8,7 +8,11 @@
             });
         }
     });
-
+    //内部方法
+    var isArray = function (v) {
+        //  Object.prototype.toString.call(o) === ‘[object Array]‘;
+        return Object.prototype.toString.apply(v) === '[object Array]';
+    }
     function getsec(str) {
         var str1 = str.substring(1, str.length) * 1;
         var str2 = str.substring(0, 1);
@@ -122,10 +126,7 @@
 
     //对象深拷贝，基于jQuery
     function deepcopy(source) {
-        var isArray = function (v) {
-            //  Object.prototype.toString.call(o) === ‘[object Array]‘;
-            return Object.prototype.toString.apply(v) === '[object Array]';
-        }
+
         var destination = {};
 
         if (isArray(source)) {
@@ -178,17 +179,15 @@
     ///textfield, valueField分别为显示的字段和值字段
     ///widthNullOption 是否需要请选择项
     function SetSelectValues($ele, values) {
+        if (!isArray(values)) {
+            values = values.toString().split(',');
+        }
         $($ele).each(function (ele, index) {
             var $this = $(this);
-            var options = $this.children("option")
-
-            if (widthNullOption) {
-                var option = $("<option></option>").html("请选择").attr("selected", "selected");
-                $this.append(option);
-            }
-            for (var i = 0; i < data.length; i++) {
-                var option = $("<option></option>").html(data[i][textField]).attr("value", data[i][valueField]);
-                $this.append(option);
+            var options = $this.children("option");
+            $("option", $this).prop("selected", false);
+            for (var i = 0; i < values.length; i++) {
+                $("option[value='" + values[i] + "']", $this).prop("selected", true);
             }
         });
 
@@ -242,8 +241,8 @@
        , dateFormatter: dateFormatter
         , timeFormatter: timeFormatter
         , deepcopy: deepcopy
-
         , LoadSelectOption: LoadSelectOption
+        , SetSelectValues: SetSelectValues
     }
 
 

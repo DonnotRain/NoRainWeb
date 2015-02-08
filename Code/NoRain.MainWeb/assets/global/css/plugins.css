@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /******************************
  3RD PARTY PLUGIN CUSTOMIZATION 
 ******************************/
@@ -1929,5 +1930,16 @@ AngularJS UI-select
 .ui-select-match-close {
   margin-top: 5px !important;
   margin-left: 5px !important; }
+
+/***
+自定义的一些表单的扩展
+***/
+.form-group label.required:after {
+  position: absolute;
+  top: 5px;
+  display: inline-block;
+  font-size: 17px;
+  color: #d2322d;
+  content: '*'; }
 
 /*# sourceMappingURL=plugins.css.map */

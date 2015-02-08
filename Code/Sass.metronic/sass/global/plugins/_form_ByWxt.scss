@@ -1,0 +1,12 @@
+/***
+自定义的一些表单的扩展
+***/
+
+.form-group label.required:after {
+position: absolute;
+top: 5px;
+display: inline-block;
+font-size: 17px;
+color: #d2322d;
+content: '*';
+}

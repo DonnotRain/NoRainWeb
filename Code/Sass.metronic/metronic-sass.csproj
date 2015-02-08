@@ -230,6 +230,7 @@
     <None Include="sass\global\plugins\_clockface.scss" />
     <None Include="sass\global\plugins\_datatables.scss" />
     <None Include="sass\global\plugins\_dropzone.scss" />
+    <None Include="sass\global\plugins\_form_ByWxt.scss" />
     <None Include="sass\global\plugins\_fancybox.scss" />
     <None Include="sass\global\plugins\_fuelux.scss" />
     <None Include="sass\global\plugins\_fullcalendar.scss" />
@@ -257,7 +258,322 @@
     <None Include="sass\koala-config.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sass\admin\layout2\layout.css">
+      <DependentUpon>layout.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\blue.css">
+      <DependentUpon>blue.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\blue.min.css">
+      <DependentUpon>blue.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\dark.css">
+      <DependentUpon>dark.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\dark.min.css">
+      <DependentUpon>dark.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\default.css">
+      <DependentUpon>default.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\grey.css">
+      <DependentUpon>grey.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\grey.min.css">
+      <DependentUpon>grey.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\light.css">
+      <DependentUpon>light.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout2\themes\light.min.css">
+      <DependentUpon>light.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\layout.css">
+      <DependentUpon>layout.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\blue-hoki.css">
+      <DependentUpon>blue-hoki.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\blue-hoki.min.css">
+      <DependentUpon>blue-hoki.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\blue-steel.css">
+      <DependentUpon>blue-steel.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\blue-steel.min.css">
+      <DependentUpon>blue-steel.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\default.css">
+      <DependentUpon>default.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\green-haze.css">
+      <DependentUpon>green-haze.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\green-haze.min.css">
+      <DependentUpon>green-haze.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\purple-plum.css">
+      <DependentUpon>purple-plum.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\purple-plum.min.css">
+      <DependentUpon>purple-plum.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\purple-studio.css">
+      <DependentUpon>purple-studio.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\purple-studio.min.css">
+      <DependentUpon>purple-studio.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\red-intense.css">
+      <DependentUpon>red-intense.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\red-intense.min.css">
+      <DependentUpon>red-intense.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\red-sunglo.css">
+      <DependentUpon>red-sunglo.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\red-sunglo.min.css">
+      <DependentUpon>red-sunglo.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\yellow-crusta.css">
+      <DependentUpon>yellow-crusta.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\yellow-crusta.min.css">
+      <DependentUpon>yellow-crusta.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\yellow-orange.css">
+      <DependentUpon>yellow-orange.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout3\themes\yellow-orange.min.css">
+      <DependentUpon>yellow-orange.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\layout.css">
+      <DependentUpon>layout.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\themes\default.css">
+      <DependentUpon>default.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\themes\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\themes\light.css">
+      <DependentUpon>light.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout4\themes\light.min.css">
+      <DependentUpon>light.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\layout.css">
+      <DependentUpon>layout.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\blue.css">
+      <DependentUpon>blue.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\blue.min.css">
+      <DependentUpon>blue.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\darkblue.css">
+      <DependentUpon>darkblue.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\darkblue.min.css">
+      <DependentUpon>darkblue.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\default.css">
+      <DependentUpon>default.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\grey.css">
+      <DependentUpon>grey.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\grey.min.css">
+      <DependentUpon>grey.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\light.css">
+      <DependentUpon>light.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\light.min.css">
+      <DependentUpon>light.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\light2.css">
+      <DependentUpon>light2.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\layout\themes\light2.min.css">
+      <DependentUpon>light2.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\about-us.css">
+      <DependentUpon>about-us.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\about-us.min.css">
+      <DependentUpon>about-us.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\blog.css">
+      <DependentUpon>blog.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\blog.min.css">
+      <DependentUpon>blog.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\coming-soon.css">
+      <DependentUpon>coming-soon.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\coming-soon.min.css">
+      <DependentUpon>coming-soon.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\error.css">
+      <DependentUpon>error.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\error.min.css">
+      <DependentUpon>error.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\image-crop.css">
+      <DependentUpon>image-crop.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\image-crop.min.css">
+      <DependentUpon>image-crop.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\inbox.css">
+      <DependentUpon>inbox.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\inbox.min.css">
+      <DependentUpon>inbox.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\invoice.css">
+      <DependentUpon>invoice.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\invoice.min.css">
+      <DependentUpon>invoice.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\lock.css">
+      <DependentUpon>lock.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\lock.min.css">
+      <DependentUpon>lock.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\lock2.css">
+      <DependentUpon>lock2.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\lock2.min.css">
+      <DependentUpon>lock2.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login-soft.css">
+      <DependentUpon>login-soft.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login-soft.min.css">
+      <DependentUpon>login-soft.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login.css">
+      <DependentUpon>login.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login2.css">
+      <DependentUpon>login2.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login2.min.css">
+      <DependentUpon>login2.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login3.css">
+      <DependentUpon>login3.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\login3.min.css">
+      <DependentUpon>login3.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\news.css">
+      <DependentUpon>news.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\news.min.css">
+      <DependentUpon>news.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\portfolio.css">
+      <DependentUpon>portfolio.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\portfolio.min.css">
+      <DependentUpon>portfolio.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\pricing-tables.css">
+      <DependentUpon>pricing-tables.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\pricing-tables.min.css">
+      <DependentUpon>pricing-tables.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\profile-old.css">
+      <DependentUpon>profile-old.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\profile-old.min.css">
+      <DependentUpon>profile-old.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\profile.css">
+      <DependentUpon>profile.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\profile.min.css">
+      <DependentUpon>profile.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\search.css">
+      <DependentUpon>search.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\search.min.css">
+      <DependentUpon>search.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\tasks.css">
+      <DependentUpon>tasks.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\tasks.min.css">
+      <DependentUpon>tasks.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\timeline-old.css">
+      <DependentUpon>timeline-old.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\timeline-old.min.css">
+      <DependentUpon>timeline-old.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\timeline.css">
+      <DependentUpon>timeline.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\timeline.min.css">
+      <DependentUpon>timeline.css</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\todo.css">
+      <DependentUpon>todo.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\admin\pages\todo.min.css">
+      <DependentUpon>todo.css</DependentUpon>
+    </Content>
+    <Content Include="sass\global\components-rounded.css">
+      <DependentUpon>components-rounded.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\global\components-rounded.min.css">
+      <DependentUpon>components-rounded.css</DependentUpon>
+    </Content>
     <Content Include="sass\global\components.css" />
+    <Content Include="sass\global\components.min.css">
+      <DependentUpon>components.css</DependentUpon>
+    </Content>
+    <Content Include="sass\global\plugins.css">
+      <DependentUpon>plugins.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\global\plugins.min.css">
+      <DependentUpon>plugins.css</DependentUpon>
+    </Content>
     <Content Include="sass\sass.sln" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

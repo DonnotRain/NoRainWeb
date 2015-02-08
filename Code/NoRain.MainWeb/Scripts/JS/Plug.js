@@ -28,6 +28,9 @@
                 $("#ImageIndex").val(result.replace(" ", ""));
                 $('#iconChoose').dialog('close');
             });
+            $("#btnChooseIcon").click(function () {
+                $('#iconChoose').modal('show').find(".modal-title").html("选择菜单图标");
+            });
         },
         loadDataGrid: function () {
             $("#dgMain").treegrid({
@@ -120,7 +123,104 @@
 
         },
         initialValidate: function () {
-            $("#fm").validVal();
+            var mainForm = $("#fm")
+            var error3 = $('.alert-danger', mainForm);
+            var success3 = $('.alert-success', mainForm);
+
+            //IMPORTANT: update CKEDITOR textarea with actual content before submit
+            mainForm.on('submit', function () {
+                for (var instanceName in CKEDITOR.instances) {
+                    CKEDITOR.instances[instanceName].updateElement();
+                }
+            })
+
+            mainForm.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block help-block-error', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "", // validate all fields including form hidden input
+                rules: {
+
+                },
+                messages: { // custom messages for radio buttons and checkboxes
+                    //membership: {
+                    //    required: "Please select a Membership type"
+                    //},
+                    //service: {
+                    //    required: "Please select  at least 2 types of Service",
+                    //    minlength: jQuery.validator.format("Please select  at least {0} types of Service")
+                    //}
+                },
+
+                errorPlacement: function (error, element) { // render error placement for each input type
+                    if (element.parent(".input-group").size() > 0) {
+                        error.insertAfter(element.parent(".input-group"));
+                    } else if (element.attr("data-error-container")) {
+                        error.appendTo(element.attr("data-error-container"));
+                    } else if (element.parents('.radio-list').size() > 0) {
+                        error.appendTo(element.parents('.radio-list').attr("data-error-container"));
+                    } else if (element.parents('.radio-inline').size() > 0) {
+                        error.appendTo(element.parents('.radio-inline').attr("data-error-container"));
+                    } else if (element.parents('.checkbox-list').size() > 0) {
+                        error.appendTo(element.parents('.checkbox-list').attr("data-error-container"));
+                    } else if (element.parents('.checkbox-inline').size() > 0) {
+                        error.appendTo(element.parents('.checkbox-inline').attr("data-error-container"));
+                    } else {
+                        error.insertAfter(element); // for other inputs, just perform default behavior
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit   
+                    success3.hide();
+                    error3.show();
+                    Metronic.scrollTo(error3, -200);
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                         .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                },
+
+                submitHandler: function (form) {
+                    success3.show();
+                    error3.hide();
+                    form[0].submit(); // submit the form
+                }
+
+            });
+
+            //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
+            $('.mineSelect2', mainForm).change(function () {
+                mainForm.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+            });
+
+            // initialize select2 tags
+            $("#select2_tags").change(function () {
+                mainForm.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
+            }).select2({
+                tags: ["red", "green", "blue", "yellow", "pink"]
+            });
+
+            //initialize datepicker
+            $('.date-picker').datepicker({
+                rtl: Metronic.isRTL(),
+                autoclose: true
+            });
+
+            $('.date-picker .form-control').change(function () {
+                mainForm.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
+            });
+
         }
     }
 
@@ -164,9 +264,9 @@
             $("#iconSample").attr("class", item.ImageIndex);
 
             //几个按钮
-            $("#IsMenu").prop("checked", (item.FunctionType == 1));
-            $("#IsModule").prop("checked", (item.FunctionType == 2));
-            $("#IsFunction").prop("checked", (item.FunctionType == 3));
+            $("#IsMenu").iCheck((item.FunctionType == 1) ? 'check' : 'uncheck');
+            $("#IsModule").iCheck((item.FunctionType == 2) ? 'check' : 'uncheck');
+            $("#IsFunction").iCheck((item.FunctionType == 3) ? 'check' : 'uncheck');
             //上级模块
             $("#PID").zTreeCheck("setValue", item.PID);
             //角色
@@ -174,9 +274,7 @@
             for (var i = 0; i < item.Roles.length; i++) {
                 roleIds.push(item.Roles[i].ID);
             }
-            $("#RoleIds").combobox("setValues", roleIds);
-
-
+            $("#RoleIds").select2("val", roleIds);
             //编号不可编辑
             $("#ControlID").prop("readonly", true);
 
@@ -229,33 +327,20 @@
         }
 
         //验证输入合法性
-        var form_data = $("#fm").triggerHandler("submitForm");
-        if (!form_data) {
+        var result = $("#fm").valid();
+        if (!result) {
             return;
         }
-        if (!$("input[name='PID']").val()) {
-            $.messager.alert("未选择父节点", "请先选取父节点", 'info');
-            return;
-        }
+        success3.show();
+        error3.hide();
 
         var data = $("#fm").serializeArray();
-
-        $.jMask("save", "保存中，请稍后").show();
         $.CommonAjax({
             url: currentUrl,
             type: type,
             data: data,
             success: function (data, textStatus) {
                 $('#dlgMain').dialog('close');
-                $.jMask("save").hide();
-                $.gritter.add({
-                    // (string | mandatory) the heading of the notification
-                    title: '成功!',
-                    // (string | mandatory) the text inside the notification
-                    text: '保存成功。',
-                    class_name: 'gritter-success',
-                    time: 3000
-                });
                 reloadDataGrid();
             }
         });

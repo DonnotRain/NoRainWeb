@@ -9,6 +9,15 @@
             <div class="modal-body">
                 @* form-row-seperated*@
                 <form class="form-horizontal" role="form" method="post" id="fm">
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入信息有误，请检查后重试。
+                    </div>
+                    <div class="alert alert-success display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入验证成功!
+                    </div>
+
                     <div class="form-group">
                         <label class="col-md-2 control-label required">类型</label>
                         <div class="col-md-4">
@@ -36,14 +45,14 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label required">模块编号</label>
                         <div class="col-md-4">
-                            <input name="ControlID" class="form-control required" type="text" id="ControlID" value="" />
+                            <input name="ControlID" class="form-control required"type="text" id="ControlID" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">上级模块</label>
                         <div class="col-md-4">
-                            <input name="PID" class="form-control required" type="text" id="PID" value="" />
+                            <input name="PID" class="form-control" type="text" id="PID" value="" />
                         </div>
                     </div>
 
@@ -58,7 +67,7 @@
                                 <input id="ImageIndex" name="ImageIndex" readonly class="form-control" type="text" placeholder="图标类名">
 
                                 <span class="input-group-btn">
-                                    <button id="genpassword" class="btn btn-success" type="button" onclick="chooseIcon();">选择图标</button>
+                                    <button id="btnChooseIcon" class="btn btn-success" type="button" onclick="chooseIcon();">选择图标</button>
                                 </span>
                             </div>
                         </div>
@@ -74,14 +83,14 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">显示顺序</label>
                         <div class="col-md-4">
-                            <input name="Sort" type="text" id="Sort" class="form-control required" value="" />
+                            <input name="Sort" type="text" id="Sort"  class="form-control required" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">授权角色</label>
                         <div class="col-md-4">
-                            <select name="RoleIds" id="RoleIds" class="form-control " data-placeholder="授权的角色" multiple="multiple"></select>
+                            <select name="RoleIds" id="RoleIds" class="form-control mineSelect2" data-placeholder="授权的角色" multiple="multiple"></select>
                         </div>
                     </div>
                     <div class="form-group">

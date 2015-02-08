@@ -15,7 +15,7 @@
     <AssemblyName>NoRain.MainWeb</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -6097,7 +6097,7 @@
     <None Include="Properties\PublishProfiles\WQT.pubxml" />
     <None Include="Properties\PublishProfiles\xwq.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\NoRain.Tools.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\Jquery-mask-1.0.0\images\2008228102611_13_mb5u_com.gif" />
@@ -6117,7 +6117,6 @@
     <Content Include="Scripts\JS\DashboardStatic.js" />
     <Content Include="Scripts\JS\OperatorRole.js" />
     <Content Include="Scripts\JS\Category.js" />
-    <Content Include="Scripts\JS\Login.js" />
     <Content Include="Scripts\JS\Plug.js" />
     <Content Include="Scripts\JS\SystemBase\Store.js" />
     <Content Include="Scripts\JS\SystemBase\Item.js" />
@@ -6238,7 +6237,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>48332</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:40713/</IISUrl>
+          <IISUrl>http://localhost:8045</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

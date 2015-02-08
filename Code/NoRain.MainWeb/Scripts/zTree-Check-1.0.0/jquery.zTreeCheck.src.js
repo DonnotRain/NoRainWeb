@@ -3,7 +3,10 @@
     var privateFunction = function () {
         // 代码在这里运行
     }
-
+    var isArray = function (v) {
+        //  Object.prototype.toString.call(o) === ‘[object Array]‘;
+        return Object.prototype.toString.apply(v) === '[object Array]';
+    }
     var methods = {
         init: function (options, zNodes) {
             return this.each(function () {
@@ -214,12 +217,20 @@
                 if (!zTree) {
                     return;
                 }
+
+
                 if (!ids || ids == "" || ids.length < 1) {
                     clearComboTreeValue(treeId);
                     return;
                 }
                 if (typeof (ids) === "string") {
                     ids = ids.split(',');
+                }
+                else {
+                    if (!isArray(ids)) {
+                        ids = ids.toString().split(',');
+                    }
+
                 }
                 if (ids.length == 0) {
                     clearComboTreeValue(treeId);
