@@ -10,3 +10,10 @@ font-size: 17px;
 color: #d2322d;
 content: '*';
 }
+
+.fontawesome-demo .fa-item{
+text-overflow:ellipsis; 
+white-space:nowrap; 
+*white-space:nowrap; 
+overflow:hidden; 
+}
