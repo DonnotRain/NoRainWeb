@@ -1,7 +1,10 @@
 ﻿var SysFunction = function () {
 
-    //$('#responsive').modal('show', 'fit')
+    //当前功能中的变量
     var currentUrl = window.rootPath + "/API/Function/";
+    var mainForm = $("#fm")
+    var error3 = $('.alert-danger', mainForm);
+    var success3 = $('.alert-success', mainForm);
 
     //全局变量声明
     var vars = {
@@ -19,15 +22,42 @@
     //初始化
     var Initialize = {
         initialBtns: function () {
-            $(".span4").click(function (ele) {
-                var text = $(this).text();
-                var start = text.indexOf("icon");
-                var result = text.substring(start).replace(/(^\s+)|(\s+$)/g, "");
+            //$(".span4").click(function (ele) {
+            //    var text = $(this).text();
+            //    var start = text.indexOf("icon");
+            //    var result = text.substring(start).replace(/(^\s+)|(\s+$)/g, "");
+
+            //    $("#iconSample").attr("class", result);
+            //    $("#ImageIndex").val(result.replace(" ", ""));
+            //    $('#iconChoose').dialog('close');
+            //});
+
+            $(".fa-item").click(function (ele) {
+                var subEle = $(this).find("i");
+                var result = subEle.attr("class");
 
                 $("#iconSample").attr("class", result);
-                $("#ImageIndex").val(result.replace(" ", ""));
-                $('#iconChoose').dialog('close');
+                $("#ImageIndex").val(result);
+                $('#iconChoose').modal('hide');
             });
+
+            $(" .glyphicons-demo ul li").click(function (ele) {
+                var subEle = $(this).find("span.glyphicon");
+                var result = subEle.attr("class");
+
+                $("#iconSample").attr("class", result);
+                $("#ImageIndex").val(result);
+                $('#iconChoose').modal('hide');
+            });
+            $(" .simplelineicons-demo .item-box .item").click(function (ele) {
+                var subEle = $(this).find("span");
+                var result = subEle.attr("class");
+
+                $("#iconSample").attr("class", result);
+                $("#ImageIndex").val(result);
+                $('#iconChoose').modal('hide');
+            });
+
             $("#btnChooseIcon").click(function () {
                 $('#iconChoose').modal('show').find(".modal-title").html("选择菜单图标");
             });
@@ -110,12 +140,6 @@
                 url: window.rootPath + "/API/Role/",
                 type: "get",
                 success: function (data) {
-
-                    //for (var i = 0; i < data.length; i++) {
-                    //    data[i] = {
-                    //        id: data[i].ID, text: data[i].Name
-                    //    };
-                    //}
                     NoRainTools.LoadSelectOption($("#RoleIds"), data, "Name", "ID", false);
                     $("#RoleIds").select2({})
                 }
@@ -123,9 +147,6 @@
 
         },
         initialValidate: function () {
-            var mainForm = $("#fm")
-            var error3 = $('.alert-danger', mainForm);
-            var success3 = $('.alert-success', mainForm);
 
             //IMPORTANT: update CKEDITOR textarea with actual content before submit
             mainForm.on('submit', function () {
@@ -224,12 +245,10 @@
         }
     }
 
-    function chooseIcon() {
-        $('#iconChoose').dialog('open');
-    }
-
     //添加系统模块
     function Add() {
+        success3.hide();
+        error3.hide();
 
         $('#fm')[0].reset()
         $('#responsive').modal('show').find(".modal-title").html("新增功能插件");
@@ -246,6 +265,8 @@
     }
 
     function Edit() {
+        success3.hide();
+        error3.hide();
         $('#fm')[0].reset()
         $('#responsive').modal('show').find(".modal-title").html("编辑功能插件");
 
@@ -335,13 +356,23 @@
         error3.hide();
 
         var data = $("#fm").serializeArray();
+
+        //阻塞页面，防止再次提交
+        Metronic.blockUI({
+            target: '#responsive-content',
+            message: "提交中……"
+        });
+
         $.CommonAjax({
+            targetBlock:'#responsive-content',
             url: currentUrl,
             type: type,
             data: data,
             success: function (data, textStatus) {
-                $('#dlgMain').dialog('close');
                 reloadDataGrid();
+                toastr.success('提交成功!')
+                Metronic.unblockUI('#responsive-content');
+                $('#responsive').modal('hide');
             }
         });
     }

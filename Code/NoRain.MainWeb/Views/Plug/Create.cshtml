@@ -1,7 +1,7 @@
 ﻿<!-- responsive -->
 <div id="responsive" class="modal fade" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static" data-width="400" data-draggable="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" id="responsive-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">插件</h4>
@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label required">模块编号</label>
                         <div class="col-md-4">
-                            <input name="ControlID" class="form-control required"type="text" id="ControlID" value="" />
+                            <input name="ControlID" class="form-control required" type="text" id="ControlID" value="" />
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                                 <input id="ImageIndex" name="ImageIndex" readonly class="form-control" type="text" placeholder="图标类名">
 
                                 <span class="input-group-btn">
-                                    <button id="btnChooseIcon" class="btn btn-success" type="button" onclick="chooseIcon();">选择图标</button>
+                                    <button id="btnChooseIcon" class="btn btn-success" type="button">选择图标</button>
                                 </span>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">显示顺序</label>
                         <div class="col-md-4">
-                            <input name="Sort" type="text" id="Sort"  class="form-control required" value="" />
+                            <input name="Sort" type="text" id="Sort" class="form-control required" value="" />
                         </div>
                     </div>
 

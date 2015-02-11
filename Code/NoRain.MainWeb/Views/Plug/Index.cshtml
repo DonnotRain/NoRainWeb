@@ -13,9 +13,9 @@
 }
 @section Header{
 
-    <!-- BEGIN PAGE LEVEL STYLES -->
+    <!-- 自定义样式及脚本 -->
     <link href="~/Content/Plug/Plug.css" rel="stylesheet" />
-    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- END 自定义样式及脚本 -->
     <style type="text/css">
         .dg-panel {
             padding-bottom: 40px;
@@ -28,8 +28,13 @@
             overflow: hidden;
         }
 
-        @@media only screen and (min-width: 768px) .simplelineicons-demo .item-box {
-            width:33%;
+            .simplelineicons-demo .item-box .item:hover {
+                cursor: pointer;
+                background: #eee;
+            }
+
+        .glyphicons-demo ul li:hover {
+            cursor: pointer;
         }
     </style>
 }
@@ -39,22 +44,26 @@
     <div id="div-searchctr-wrap" style="padding-bottom: 10px;">
         <a href="#" class="btn blue btn-sm" onclick="SysFunction.Add();">
             <i class="fa fa-plus"></i>
-            <span class="hidden-480">添加
+            <span class="hidden-480">
+                添加
             </span>
         </a>
         <a href="#" class="btn blue btn-sm" onclick="SysFunction.Edit();">
             <i class="fa fa-pencil"></i>
-            <span class="hidden-480">修改
+            <span class="hidden-480">
+                修改
             </span>
         </a>
         <a href="#" class="btn blue btn-sm" onclick="ccccccc">
             <i class="fa fa-minus"></i>
-            <span class="hidden-480">删除
+            <span class="hidden-480">
+                删除
             </span>
         </a>
         <a href="#" class="btn blue btn-sm" onclick="SysFunction.reloadDataGrid();">
             <i class="fa fa-refresh"></i>
-            <span class="hidden-480">刷新
+            <span class="hidden-480">
+                刷新
             </span>
         </a>
     </div>
