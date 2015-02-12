@@ -7,6 +7,26 @@
         //  Object.prototype.toString.call(o) === ‘[object Array]‘;
         return Object.prototype.toString.apply(v) === '[object Array]';
     }
+    // 清空值
+    function clearComboTreeValue(ele) {
+        var $this = ele;
+        var settings = $this.data('zTreeCheck');
+        var treeId = settings.treeId
+        var zTree = $.fn.zTree.getZTreeObj(treeId);
+        if (!zTree) {
+            return;
+        }
+        $("#" + zTree.setting.targetId).val("");
+        if (zTree.setting.check.chkStyle == "checkbox") {
+            zTree.checkAllNodes(false);
+        } else {
+            var nodes = methods.getCheckedNodes.apply($this, zTree, false);
+            if (nodes && nodes.length > 0) {
+                zTree.checkNode(nodes[0], false, true);
+            }
+        }
+    }
+
     var methods = {
         init: function (options, zNodes) {
             return this.each(function () {
@@ -218,9 +238,8 @@
                     return;
                 }
 
-
                 if (!ids || ids == "" || ids.length < 1) {
-                    clearComboTreeValue(treeId);
+                    clearComboTreeValue($this);
                     return;
                 }
                 if (typeof (ids) === "string") {
@@ -233,7 +252,7 @@
 
                 }
                 if (ids.length == 0) {
-                    clearComboTreeValue(treeId);
+                    clearComboTreeValue($this);
                     return;
                 }
                 for (var i = 0; i < ids.length; i++) {

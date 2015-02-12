@@ -22,15 +22,6 @@
     //初始化
     var Initialize = {
         initialBtns: function () {
-            //$(".span4").click(function (ele) {
-            //    var text = $(this).text();
-            //    var start = text.indexOf("icon");
-            //    var result = text.substring(start).replace(/(^\s+)|(\s+$)/g, "");
-
-            //    $("#iconSample").attr("class", result);
-            //    $("#ImageIndex").val(result.replace(" ", ""));
-            //    $('#iconChoose').dialog('close');
-            //});
 
             $(".fa-item").click(function (ele) {
                 var subEle = $(this).find("i");
@@ -249,7 +240,7 @@
     function Add() {
         success3.hide();
         error3.hide();
-
+        $("#RoleIds").select2("val", []);
         $('#fm')[0].reset()
         $('#responsive').modal('show').find(".modal-title").html("新增功能插件");
 
@@ -265,14 +256,15 @@
     }
 
     function Edit() {
-        success3.hide();
-        error3.hide();
-        $('#fm')[0].reset()
-        $('#responsive').modal('show').find(".modal-title").html("编辑功能插件");
 
         var items = $("#dgMain").treegrid('getSelections');
 
         if (items && items.length > 0) {
+            success3.hide();
+            error3.hide();
+            $('#fm')[0].reset()
+            $('#responsive').modal('show').find(".modal-title").html("编辑功能插件");
+
             var item = items[0];
 
             for (var filed in item) {
@@ -283,6 +275,7 @@
             $("#Sort").val(item.Sort);
 
             $("#iconSample").attr("class", item.ImageIndex);
+            $("#ImageIndex").val(item.ImageIndex);
 
             //几个按钮
             $("#IsMenu").iCheck((item.FunctionType == 1) ? 'check' : 'uncheck');
@@ -295,6 +288,7 @@
             for (var i = 0; i < item.Roles.length; i++) {
                 roleIds.push(item.Roles[i].ID);
             }
+
             $("#RoleIds").select2("val", roleIds);
             //编号不可编辑
             $("#ControlID").prop("readonly", true);
@@ -320,20 +314,14 @@
                 $.each(rows, function (rowIndex, rowData) {
                     ids.push(rowData.ID);
                 });
-                $.jMask("delete", "删除中，请稍后").show();
+                Metronic.blockUI({ target: '#page-content', message: "删除中……" });
+
                 $.CommonAjax({
                     url: currentUrl + "DeleteSome/" + ids.join(","),
                     type: "delete",
                     success: function (data, textStatus) {
-                        $.jMask("delete").hide();
-                        $.gritter.add({
-                            // (string | mandatory) the heading of the notification
-                            title: '成功!',
-                            // (string | mandatory) the text inside the notification
-                            text: '删除成功。',
-                            class_name: 'gritter-success',
-                            time: 3000
-                        });
+                        Metronic.unblockUI('#page-content');
+                        toastr.success('删除成功!')
                         reloadDataGrid();
                     }
                 });
@@ -345,6 +333,11 @@
         var type = "post";
         if ($("#ID").val() && $("#ID").val() != 0) {
             type = "put";
+        }
+
+        //PID没有值就使用-1
+        if (!$("#PID").val()) {
+            $("#PID").val("-1");
         }
 
         //验证输入合法性
@@ -364,7 +357,7 @@
         });
 
         $.CommonAjax({
-            targetBlock:'#responsive-content',
+            targetBlock: '#responsive-content',
             url: currentUrl,
             type: type,
             data: data,
