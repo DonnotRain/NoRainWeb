@@ -39,14 +39,14 @@ General reset
 ***/
 /* Set default body */
 /* 避免与ZUI冲突*/
-/*body { 
-    color: $text-color; 
-    font-family: $font-family-primary;
-    padding: 0px !important;
-    margin: 0px !important;
-    font-size: $font-size-base; 
-    direction: $direction;
-}*/
+body {
+  color: #333333;
+  font: 12px/1.5 "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"\5B8B\4F53";
+  padding: 0px !important;
+  margin: 0px !important;
+  font-size: 13px;
+  direction: ltr; }
+
 /*
  Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't 
  properly apply the media queries in Bootstrap's CSS. To address this, 
@@ -108,7 +108,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
   font-weight: 300; }
 
 h1 {
@@ -233,7 +233,7 @@ a:hover {
   display: none !important; }
 
 .primary-font {
-  font-family: "Open Sans", sans-serif !important; }
+  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体" !important; }
 
 .bold {
   font-weight: 700 !important; }
@@ -1270,7 +1270,7 @@ Charts and statistics
   overflow: hidden;
   height: 300px;
   width: 100%;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体" !important;
   font-size: 14px; }
 
 /***
@@ -2268,7 +2268,7 @@ Customized Bootstrap Labels
   font-weight: 300;
   padding: 3px 6px 3px 6px;
   color: #fff;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体"; }
   .label.label-sm {
     font-size: 12px;
     padding: 0px 4px 1px 4px; }
@@ -3994,7 +3994,7 @@ Light Table
     font-weight: 600;
     font-size: 13px;
     color: #a7b3b9;
-    font-family: "Open Sans", sans-serif;
+    font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
     border: 0;
     border-bottom: 1px solid #F2F5F8; }
   .table.table-light > tbody > tr:last-child > td {
@@ -4533,6 +4533,12 @@ AngularJS Basic Animations
   40% {
     transform: scale(1);
     -webkit-transform: scale(1); } }
+/***
+自定义，用于覆盖或扩展
+***/
+span.lable {
+  margin: 0px 3px; }
+
 /* Button */
 .btn.default {
   color: #333333;

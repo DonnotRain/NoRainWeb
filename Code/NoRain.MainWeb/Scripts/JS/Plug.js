@@ -83,8 +83,10 @@
                        case 3:
                            return "页面功能";
                            break;
+                       case 4:
+                           return "子系统";
+                           break;
                    }
-
                }
            },
                        { field: 'Sort', title: '排序', width: 30, align: 'center' },
@@ -99,6 +101,21 @@
                                    return roles.join(",");
                                }
                            },
+                               {
+                                   field: 'Others', title: '其他属性', width: 120, align: 'center', formatter: function (value, row, index) {
+                                       var canDelete = '<span class="label label-success">可删除</span>';
+                                       var canNotDelete = '<span class="label label-warning">不可删除</span>';
+                                       var isEnabled = '<span class="label label-success">已启用</span>';
+                                       var isNotEnabled = '<span class="label label-danger">未启用</span>';
+                                       var result = "";
+                                       if (row.IsEnabled) result += isEnabled;
+                                       else result += isNotEnabled;
+                                       if (row.IsCanDelete) result += canDelete;
+                                       else result += canNotDelete;
+                                       return result;
+
+                                   }
+                               }
                 ]],
                 onDblClickRow: function (rowData) {
                     $(this).treegrid("unselectAll");
@@ -152,7 +169,6 @@
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "", // validate all fields including form hidden input
                 rules: {
-
                 },
                 messages: { // custom messages for radio buttons and checkboxes
                     //membership: {
@@ -232,7 +248,6 @@
             $('.date-picker .form-control').change(function () {
                 mainForm.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
             });
-
         }
     }
 
@@ -248,6 +263,8 @@
 
         $("#IsMenu").iCheck('check');
         $("#ImageIndex").val("");
+        $("#IsEnabledCheck").iCheck('check');
+        $("#AllowDeleteCheck").iCheck('check');
 
         //编号可编辑
         $("#ControlID").prop("readonly", false);
@@ -277,10 +294,15 @@
             $("#iconSample").attr("class", item.ImageIndex);
             $("#ImageIndex").val(item.ImageIndex);
 
-            //几个按钮
+            //几个选项
             $("#IsMenu").iCheck((item.FunctionType == 1) ? 'check' : 'uncheck');
-            $("#IsModule").iCheck((item.FunctionType == 2) ? 'check' : 'uncheck');
+            $("#IsModule").iCheck((item.FunctionType == 4) ? 'check' : 'uncheck');
+            $("#IsNotMenu").iCheck((item.FunctionType == 2) ? 'check' : 'uncheck');
             $("#IsFunction").iCheck((item.FunctionType == 3) ? 'check' : 'uncheck');
+
+            $("#IsEnabledCheck").iCheck(item.IsEnabled ? 'check' : 'uncheck');
+            $("#AllowDeleteCheck").iCheck(item.IsCanDelete ? 'check' : 'uncheck');
+
             //上级模块
             $("#PID").zTreeCheck("setValue", item.PID);
             //角色
@@ -307,13 +329,22 @@
             $.messager.alert("未选取数据行", "请先选取要删除的行", 'info');
             return;
         }
+        
         $.messager.confirm('确认', '确定要删除所选数据？', function (r) {
             if (r) {
                 var ids = new Array();
-
+                var isAllCanDelete = true;
                 $.each(rows, function (rowIndex, rowData) {
                     ids.push(rowData.ID);
+                    if (!rowData.IsCanDelete) {
+                        isAllCanDelete = false;
+                        return false;
+                    }
                 });
+                if (!isAllCanDelete) {
+                    toastr.error('有不可删除项，请检查后重试!')
+                }
+
                 Metronic.blockUI({ target: '#page-content', message: "删除中……" });
 
                 $.CommonAjax({
@@ -350,6 +381,8 @@
 
         var data = $("#fm").serializeArray();
 
+        NoRainTools.SetFormArrayValue(data, "IsEnabled", $("#IsEnabledCheck").prop("checked"));
+        NoRainTools.SetFormArrayValue(data, "IsCanDelete", $("#AllowDeleteCheck").prop("checked"));
         //阻塞页面，防止再次提交
         Metronic.blockUI({
             target: '#responsive-content',

@@ -208,6 +208,7 @@
     <None Include="sass\global\components\_typography.scss" />
     <None Include="sass\global\components\_utils.scss" />
     <None Include="sass\global\components\_wells.scss" />
+    <None Include="sass\global\components\_general_ByWxt.scss" />
     <None Include="sass\global\plugins.scss" />
     <None Include="sass\global\plugins\_bootbox.scss" />
     <None Include="sass\global\plugins\_bootstrap-colorpicker.scss" />

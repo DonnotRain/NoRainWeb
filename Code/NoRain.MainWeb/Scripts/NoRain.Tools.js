@@ -217,6 +217,24 @@
 
     }();
 
+    //设置表单数组中的一项值，没有则添加进来
+    //array 序列化后的表单数组
+    //filed 表单项的名称
+    //要设置的值
+    function SetFormArrayValue(array, filed, value) {
+        var isHasFiled = false;
+        for (var i = 0; i < array.length; i++) {
+            if (array[i]["name"] == filed) {
+                array[i]["value"] = value;
+                isHasFiled = true;
+                break;
+            }
+        }
+        if (!isHasFiled) {
+            array.push({ name: filed, value: value });
+        }
+    }
+
     return {
         //获取网站根目录
         getRootPath: function () {
@@ -265,6 +283,7 @@
         , deepcopy: deepcopy
         , LoadSelectOption: LoadSelectOption
         , SetSelectValues: SetSelectValues
+        , SetFormArrayValue: SetFormArrayValue
     }
 
 

@@ -880,6 +880,9 @@
     <Content Include="assets\frontend\pages\scripts\revo-slider-init.js" />
     <Content Include="assets\global\css\components-rounded.css" />
     <Content Include="assets\global\css\components.css" />
+    <Content Include="assets\global\css\components.min.css">
+      <DependentUpon>components.css</DependentUpon>
+    </Content>
     <Content Include="assets\global\css\plugins.css" />
     <Content Include="assets\global\img\accordion-plusminus.png" />
     <Content Include="assets\global\img\ajax-loading.gif" />
@@ -6091,6 +6094,8 @@
     <Content Include="assets\global\plugins\select2-4.0.0\src\scss\_dropdown.scss" />
     <Content Include="assets\global\plugins\select2-4.0.0\src\scss\_multiple.scss" />
     <Content Include="assets\global\plugins\select2-4.0.0\src\scss\_single.scss" />
+    <Content Include="assets\global\css\components.css.map" />
+    <Content Include="assets\global\css\plugins.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\NoRain.Tools.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -17,17 +17,19 @@
                         <button class="close" data-close="alert"></button>
                         输入验证成功!
                     </div>
-
                     <div class="form-group">
                         <label class="col-md-2 control-label required">类型</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <div class="input-group">
                                 <div class="icheck-inline">
                                     <label>
-                                        <input type="radio" id="IsMenu" name="FunctionType" value="1" class="icheck" />菜单项
+                                        <input type="radio" id="IsModule" name="FunctionType" value="4" class="icheck" />子模块
                                     </label>
                                     <label>
-                                        <input type="radio" id="IsModule" name="FunctionType" value="2" class="icheck" />系统模块
+                                        <input type="radio" id="IsMenu" name="FunctionType" value="1" class="icheck" />菜单页面项
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsNotMenu" name="FunctionType" value="2" class="icheck" />非菜单页面模块
                                     </label>
                                     <label>
                                         <input type="radio" id="IsFunction" name="FunctionType" value="3" class="icheck" />页面功能
@@ -99,14 +101,10 @@
                             <div class="input-group">
                                 <div class="icheck-inline">
                                     <label>
-                                        <input type="checkbox" id="IsEnabledCheck" checked="checked" class="icheck" />有效
+                                        <input type="checkbox" id="IsEnabledCheck" name="IsEnabled" checked="checked" class="icheck" />有效
                                     </label>
                                     <label>
-                                        <input type="checkbox" id="AllowEditCheck" checked="checked" class="icheck" />
-                                        允许编辑
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" id="AllowDeleteCheck" checked="checked" class="icheck" />允许删除
+                                        <input type="checkbox" id="AllowDeleteCheck" name="IsCanDelete"  checked="checked" class="icheck" />允许删除
                                     </label>
                                 </div>
                             </div>

@@ -120,7 +120,7 @@ namespace NoRainRights
 		[Column] public int? Sort { get; set; }
 		[Column] public string ImageIndex { get; set; }
 		[Column] public bool? IsEnabled { get; set; }
-		[Column] public bool? IsInMenu { get; set; }
+		[Column] public bool? IsCanDelete { get; set; }
 	}
     
 	[TableName("OU")]
