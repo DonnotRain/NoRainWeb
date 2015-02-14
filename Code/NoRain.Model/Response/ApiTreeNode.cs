@@ -16,5 +16,7 @@ namespace NoRain.Business.Model
         public int order { get; set; } // 同级下的序号
         public string remark { get; set; } // 其他信息
         public bool @checked { get; set; } // 是否勾选
+
+        public string iconSkin { get;set;}
     }
 }

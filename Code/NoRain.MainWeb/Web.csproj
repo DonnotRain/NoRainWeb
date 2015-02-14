@@ -6097,6 +6097,7 @@
     <Content Include="assets\global\css\components.css.map" />
     <Content Include="assets\global\css\plugins.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jsTree-Check-1.0.0\jsTree-Check-0.0.1.js" />
     <Content Include="Scripts\NoRain.Tools.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

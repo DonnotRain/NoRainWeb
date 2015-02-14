@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*********************************
  METRONIC SQUARE STYLE COMPONENTS 
 *********************************/
@@ -4536,8 +4536,9 @@ AngularJS Basic Animations
 /***
 自定义，用于覆盖或扩展
 ***/
-span.lable {
-  margin: 0px 3px; }
+.label {
+  margin: 0px 3px;
+  font-size: 12px; }
 
 /* Button */
 .btn.default {

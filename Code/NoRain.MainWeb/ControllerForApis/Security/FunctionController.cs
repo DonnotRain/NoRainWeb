@@ -16,7 +16,6 @@ namespace MainWeb.Controllers.API
     {
 
         private IFunctionBLL m_functionBll = DPResolver.Resolver<IFunctionBLL>();
-        private ICommonSecurityBLL m_commonBll = DPResolver.Resolver<ICommonSecurityBLL>();
 
         public IEnumerable<Function> Get()
         {
@@ -32,7 +31,7 @@ namespace MainWeb.Controllers.API
         [Route("API/Function/GetAllTree")]
         public IEnumerable<ApiTreeNode> GetAll()
         {
-            var ous = m_commonBll.FindAll<Function>("");
+            var ous = m_functionBll.FindAll<Function>("");
 
             var result = ous.Select(m => new ApiTreeNode()
             {
@@ -41,7 +40,8 @@ namespace MainWeb.Controllers.API
                 nocheck = false,
                 open = true,
                 pId = m.PID.ToString(),
-                isOrg = ous.Select(node => node.PID).Contains(m.ID)
+                isOrg = ous.Select(node => node.PID).Contains(m.ID),
+                iconSkin = " " + m.ImageIndex
             });
 
             return result;
@@ -55,7 +55,7 @@ namespace MainWeb.Controllers.API
         /// <returns></returns>
         public Function Get(int id)
         {
-            return m_commonBll.Find<Function>("where id=@0", id);
+            return m_functionBll.Find<Function>("where id=@0", id);
         }
 
         // POST api/Function
@@ -79,7 +79,7 @@ namespace MainWeb.Controllers.API
         // DELETE api/SysFunction/5
         public void Delete(int id)
         {
-            m_commonBll.Delete(Get(id));
+            m_functionBll.Delete(Get(id));
         }
 
         [Route("API/Function/DeleteSome/{ids}")]
@@ -90,7 +90,7 @@ namespace MainWeb.Controllers.API
                 var itemsStr = ids.Split(',').ToList();
                 var items = new List<Function>();
                 itemsStr.ForEach(m => items.Add(Get(int.Parse(m))));
-                m_commonBll.Delete(items);
+                m_functionBll.Delete(items);
             }
             else
             {

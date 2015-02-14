@@ -113,7 +113,6 @@
                                        if (row.IsCanDelete) result += canDelete;
                                        else result += canNotDelete;
                                        return result;
-
                                    }
                                }
                 ]],
@@ -131,6 +130,7 @@
                         top: e.pageY
                     });
                 }
+
             });
             $(window).resize(resize);
             resize();
@@ -139,9 +139,14 @@
 
             //加载父节点
             $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
-                // alert("JSON Data: " + json.length);
-                vars.plugData = json;
-                $("#PID").zTreeCheck({}, json);
+                var rootItem = NoRainTools.deepcopy(json[0]);
+                rootItem["id"] = "-1";
+                rootItem["name"] = "系统根目录";
+                rootItem.iconCls = "none icon-th-large   " + " icon-fixed-width";
+                rootItem.text = "系统根目录";
+                rootItem.pId = "0000";
+                json.push(rootItem);
+                $("#PID").jsTreeCheck({}, json);
             });
 
             $.CommonAjax({
@@ -304,7 +309,7 @@
             $("#AllowDeleteCheck").iCheck(item.IsCanDelete ? 'check' : 'uncheck');
 
             //上级模块
-            $("#PID").zTreeCheck("setValue", item.PID);
+            $("#PID").jsTreeCheck("setValue", item.PID);
             //角色
             var roleIds = [];
             for (var i = 0; i < item.Roles.length; i++) {
@@ -323,13 +328,28 @@
         }
     }
 
+    function rebuildFunctionCombo() {
+        $("#PID").jsTreeCheck("destroy");
+        //加载父节点
+        $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
+            var rootItem = NoRainTools.deepcopy(json[0]);
+            rootItem["id"] = "-1";
+            rootItem["name"] = "系统根目录";
+            rootItem.iconCls = "none icon-th-large   " + " icon-fixed-width";
+            rootItem.text = "系统根目录";
+            rootItem.pId = "0000";
+            json.push(rootItem);
+            $("#PID").jsTreeCheck({}, json);
+        });
+    }
+
     function Delete() {
         var rows = $("#dgMain").treegrid('getSelections');
         if (!rows.length) {
             $.messager.alert("未选取数据行", "请先选取要删除的行", 'info');
             return;
         }
-        
+
         $.messager.confirm('确认', '确定要删除所选数据？', function (r) {
             if (r) {
                 var ids = new Array();
@@ -342,7 +362,8 @@
                     }
                 });
                 if (!isAllCanDelete) {
-                    toastr.error('有不可删除项，请检查后重试!')
+                    toastr.error('有不可删除项，请检查后重试!');
+                    return;
                 }
 
                 Metronic.blockUI({ target: '#page-content', message: "删除中……" });
@@ -352,7 +373,8 @@
                     type: "delete",
                     success: function (data, textStatus) {
                         Metronic.unblockUI('#page-content');
-                        toastr.success('删除成功!')
+                        toastr.success('删除成功!');
+                        rebuildFunctionCombo();
                         reloadDataGrid();
                     }
                 });
@@ -366,10 +388,6 @@
             type = "put";
         }
 
-        //PID没有值就使用-1
-        if (!$("#PID").val()) {
-            $("#PID").val("-1");
-        }
 
         //验证输入合法性
         var result = $("#fm").valid();
@@ -383,6 +401,7 @@
 
         NoRainTools.SetFormArrayValue(data, "IsEnabled", $("#IsEnabledCheck").prop("checked"));
         NoRainTools.SetFormArrayValue(data, "IsCanDelete", $("#AllowDeleteCheck").prop("checked"));
+        NoRainTools.SetFormArrayValue(data, "PID", $("#PID").attr("selectedvalue"));
         //阻塞页面，防止再次提交
         Metronic.blockUI({
             target: '#responsive-content',
@@ -399,13 +418,11 @@
                 toastr.success('提交成功!')
                 Metronic.unblockUI('#responsive-content');
                 $('#responsive').modal('hide');
+                 rebuildFunctionCombo();
             }
         });
     }
 
-    function saveIcon() {
-
-    }
 
     //重新加载dataGrid
     function reloadDataGrid() {

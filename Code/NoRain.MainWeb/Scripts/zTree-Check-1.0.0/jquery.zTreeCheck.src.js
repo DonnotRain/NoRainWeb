@@ -16,13 +16,17 @@
         if (!zTree) {
             return;
         }
-        $("#" + zTree.setting.targetId).val("");
+        $("#" + treeId.replace("_ulTree", "")).val("");
         if (zTree.setting.check.chkStyle == "checkbox") {
             zTree.checkAllNodes(false);
         } else {
-            var nodes = methods.getCheckedNodes.apply($this, zTree, false);
+            var nodes = zTree.getCheckedNodes();
             if (nodes && nodes.length > 0) {
                 zTree.checkNode(nodes[0], false, true);
+            }
+            nodes = zTree.getSelectedNodes();
+            if (nodes && nodes.length > 0) {
+                zTree.cancelSelectedNode(nodes[0]);
             }
         }
     }
@@ -35,7 +39,7 @@
                 var treeId = $this.attr("id") + "_ulTree";
                 var containerId = $this.attr("id") + "_divContainer";
 
-                if (typeof (settings) == 'undefined') {
+                if (!settings) {
 
                     var defaults = {
                         check: {
@@ -72,7 +76,6 @@
 
                     var ulTree = $('<ul id="treeDemo" class="ztree" style="margin-top:0; width:auto; height:auto;"></ul>').attr("id",
                        treeId).attr("class", "ztree").css("max-height", $(window).height() / 2 + "px");
-
                     //加入
                     divContainer.append(ulTree);
                     if ($this.parents("form").length) {
@@ -132,12 +135,15 @@
 
                 function showMenu() {
                     var cityObj = $this;
+                    var containerId = $this.attr("id") + "_divContainer";
+                    divContainer = $("#" + containerId);
                     var parentOffSet = divContainer.parent().offset();
                     var cityOffset = cityObj.offset();
                     //计算出父元素的偏移值
                     divContainer.css({ left: cityOffset.left - parentOffSet.left + 15 + "px", top: cityOffset.top - parentOffSet.top + cityObj.outerHeight() + 15 + "px" }).slideDown("fast");
 
                     $("body").bind("mousedown", onBodyDown);
+
                 }
                 function hideMenu() {
                     divContainer.fadeOut("fast");
@@ -237,11 +243,9 @@
                 if (!zTree) {
                     return;
                 }
+                //清除选中值
+                clearComboTreeValue($this);
 
-                if (!ids || ids == "" || ids.length < 1) {
-                    clearComboTreeValue($this);
-                    return;
-                }
                 if (typeof (ids) === "string") {
                     ids = ids.split(',');
                 }
@@ -257,17 +261,18 @@
                 }
                 for (var i = 0; i < ids.length; i++) {
                     try {
+                        zTree.selectNode(zTree.getNodeByParam("id", ids[i], null), true, true);
                         zTree.checkNode(zTree.getNodeByParam("id", ids[i], null), true, true);
                     } catch (e) { }
                 }
 
-                var nodes = zTree.getCheckedNodes(true),
+                var nodes = zTree.getSelectedNodes(true),
                         v = "";
                 for (var i = 0, l = nodes.length; i < l; i++) {
                     v += nodes[i].name + ",";
                 }
                 if (v.length > 0) v = v.substring(0, v.length - 1);
-                $("#" + zTree.setting.targetId).val(v);
+                $("#" + treeId.replace("_ulTree", "")).val(v);
             });
         },
         // 清空值
@@ -281,7 +286,7 @@
                 if (!zTree) {
                     return;
                 }
-                $("#" + zTree.setting.targetId).val("");
+                $("#" + treeId.replace("_ulTree", "")).val("");
                 if (zTree.setting.check.chkStyle == "checkbox") {
                     zTree.checkAllNodes(false);
                 } else {
@@ -300,7 +305,9 @@
                 var treeId = settings.treeId
 
                 try {
-                    $.fn.zTree.destroy(treeId);
+                    var zTree = $.fn.zTree.getZTreeObj(treeId);
+                    zTree.destroy();
+                    $this.data('zTreeCheck', null);
                     $("#" + treeId).parent().remove();
                 } catch (ex) { }
             });
@@ -317,8 +324,8 @@
                         destroyComboTree(treeIds[i]);
                     }
                 }
-                treeIds = [];
 
+                treeIds = [];
             });
         }
     }

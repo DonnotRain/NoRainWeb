@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NoRain.Business.WebBase
+namespace NoRain.Business.Models
 {
     public class EasyuiTreeNode
     {
