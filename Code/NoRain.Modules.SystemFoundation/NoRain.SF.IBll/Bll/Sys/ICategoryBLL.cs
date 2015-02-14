@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NoRain.Business.WebBase;
 using PetaPoco;
 using DefaultConnection;
+using NoRain.Business.Models;
 
 namespace NoRain.Business.IBll
 {

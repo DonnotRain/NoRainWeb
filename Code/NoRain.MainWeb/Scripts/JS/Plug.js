@@ -129,6 +129,9 @@
                         left: e.pageX,
                         top: e.pageY
                     });
+                },
+                onLoadSuccess: function () {
+                    rebuildFunctionCombo();
                 }
 
             });
@@ -138,15 +141,14 @@
         initCombos: function () {
 
             //加载父节点
-            $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
+            $.getJSON(currentUrl + "AlljsTreeData", {}, function (json) {
                 var rootItem = NoRainTools.deepcopy(json[0]);
                 rootItem["id"] = "-1";
                 rootItem["name"] = "系统根目录";
-                rootItem.iconCls = "none icon-th-large   " + " icon-fixed-width";
+                rootItem.icon = "none icon-th-large   " + " icon-fixed-width";
                 rootItem.text = "系统根目录";
-                rootItem.pId = "0000";
-                json.push(rootItem);
-                $("#PID").jsTreeCheck({}, json);
+                rootItem.children = json;
+                $("#PID").jsTreeCheck({}, [rootItem]);
             });
 
             $.CommonAjax({
@@ -329,17 +331,15 @@
     }
 
     function rebuildFunctionCombo() {
-        $("#PID").jsTreeCheck("destroy");
         //加载父节点
-        $.getJSON(currentUrl + "GetAllTree", {}, function (json) {
+        $.getJSON(currentUrl + "AlljsTreeData", {}, function (json) {
             var rootItem = NoRainTools.deepcopy(json[0]);
             rootItem["id"] = "-1";
             rootItem["name"] = "系统根目录";
-            rootItem.iconCls = "none icon-th-large   " + " icon-fixed-width";
+            rootItem.icon = "none icon-th-large   " + " icon-fixed-width";
             rootItem.text = "系统根目录";
-            rootItem.pId = "0000";
-            json.push(rootItem);
-            $("#PID").jsTreeCheck({}, json);
+            rootItem.children = json;
+            $("#PID").jsTreeCheck({}, rootItem);
         });
     }
 
@@ -374,7 +374,7 @@
                     success: function (data, textStatus) {
                         Metronic.unblockUI('#page-content');
                         toastr.success('删除成功!');
-                        rebuildFunctionCombo();
+                     //   rebuildFunctionCombo();
                         reloadDataGrid();
                     }
                 });
@@ -418,7 +418,7 @@
                 toastr.success('提交成功!')
                 Metronic.unblockUI('#responsive-content');
                 $('#responsive').modal('hide');
-                 rebuildFunctionCombo();
+                // rebuildFunctionCombo();
             }
         });
     }

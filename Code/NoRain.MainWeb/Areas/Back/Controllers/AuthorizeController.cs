@@ -1,7 +1,6 @@
 ﻿using DefaultConnection;
 using NoRain.Business.IBll;
 using NoRain.Business.WebBase;
-using NoRain.Business.WebBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NoRainRights;
+using NoRain.Business.Models;
 
 namespace MainWeb.Areas.Back.Controllers
 {

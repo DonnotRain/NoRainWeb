@@ -1,5 +1,6 @@
 ﻿using DefaultConnection;
 using NoRain.Business.IBll;
+using NoRain.Business.Models;
 using NoRain.Business.WebBase;
 using PetaPoco;
 using System;

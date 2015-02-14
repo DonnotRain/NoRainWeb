@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using NoRainRights;
 using NoRain.Business.IDal;
+using NoRain.Business.Models;
 
 namespace NoRain.Business.Bll
 {
@@ -167,5 +168,49 @@ namespace NoRain.Business.Bll
                 scope.Complete();
             }
         }
+
+
+        public IEnumerable<Models.JsTreeNode> GetAllJsTreeData()
+        {
+            var items = FindAll<Function>(string.Empty).OrderBy(m => m.Sort);
+
+            //查找出父节点没有对应Function的记录
+            var functionIds = items.Select(m => m.ID);
+
+            var firstLevels = items.Where(m => !functionIds.Contains(m.PID));
+
+            firstLevels.ToList().ForEach(m =>
+            {
+                m.children = GetFunctionChildren(items.ToList(), m.ID);
+                m.Roles = GetFunctionRoles(m.ID);
+                m.iconCls = "none " + m.ImageIndex + " icon-fixed-width";
+            });
+
+            return firstLevels.Select(m => new JsTreeNode
+            {
+                id = m.ID.ToString(),
+                text = m.Name,
+                state = new { opened = items.Select(node => node.PID).Contains(m.ID), selected = false },
+                icon = " " + m.ImageIndex,
+                children = GetJsTreeFunctionChildren(items.ToList(), m.ID)
+            });
+        }
+
+        private List<JsTreeNode> GetJsTreeFunctionChildren(List<Function> srcItems, int pId)
+        {
+            var children = srcItems.Where(m => m.PID == pId).ToList();
+            children.ForEach(m => srcItems.Remove(m));
+
+
+            return children.Select(m => new JsTreeNode
+            {
+                id = m.ID.ToString(),
+                text = m.Name,
+                state = new { opened = srcItems.Select(node => node.PID).Contains(m.ID), selected = false },
+                icon = " " + m.ImageIndex,
+                children = GetJsTreeFunctionChildren(srcItems, m.ID)
+            }).ToList();
+        }
+
     }
 }

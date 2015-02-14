@@ -8,6 +8,7 @@ using NoRain.Business.IBll;
 using NoRain.Business.IDal;
 using NoRain.Business.WebBase;
 using NoRain.Business.Models.Request;
+using NoRain.Business.Models;
 
 namespace NoRain.Business.Bll
 {

@@ -2,10 +2,33 @@
     var methods = (function () {
         var nextUid = (function () { var counter = 1; return function () { return counter++; }; }());
 
+        function indexOf(value, array) {
+            var i = 0, l = array.length;
+            for (; i < l; i = i + 1) {
+                if (equal(value, array[i])) return i;
+            }
+            return -1;
+        }
+        /**
+        * Compares equality of a and b
+        * @param a
+        * @param b
+        */
+        function equal(a, b) {
+            if (a === b) return true;
+            if (a === undefined || b === undefined) return false;
+            if (a === null || b === null) return false;
+            // Check whether 'a' or 'b' is a string (primitive or object).
+            // The concatenation of an empty string (+'') converts its argument to a string's primitive.
+            if (a.constructor === String) return a + '' === b + ''; // a+'' - in case 'a' is a String object
+            if (b.constructor === String) return b + '' === a + ''; // b+'' - in case 'b' is a String object
+            return false;
+        }
+
         var createContainer = function () {
             var ele = $(document.createElement("div")).attr({
                 "class": "jsTreeCheck-container"
-            }).css({ "display": "none", "z-index": 99999, "position": " absolute", "background-color": "#dff0d8", "border": "1px solid #d6e9c6" });
+            }).css({ "display": "none", "z-index": 99999, "position": " absolute", "background-color": "#dff0d8", "border": "1px solid #d6e9c6", "padding-right": "10px" });
 
             return ele;
         }
@@ -16,6 +39,12 @@
             });  //.css({ "display": "none", "z-index": 99999, "position": absolute });
             return ele;
         }
+
+        function hideMenu() {
+            $(".jsTreeCheck-container").fadeOut("fast");
+            $("body").unbind("mousedown", onBodyDown);
+        }
+
         function showMenu() {
             var $this = $(this);
             var tree = $this.data('tree');
@@ -26,20 +55,8 @@
             //计算出父元素的偏移值
             container.css({ left: cityOffset.left - parentOffSet.left + 15 + "px", top: cityOffset.top - parentOffSet.top + $this.outerHeight() + 15 + "px" }).slideDown("fast");
 
-            $("body").bind("mousedown", onBodyDown);
+            $("body").bind("mousedown", hideMenu);
             $(window).resize(hideMenu);
-
-
-            function hideMenu() {
-                $(".jsTreeCheck-container").fadeOut("fast");
-                $("body").unbind("mousedown", onBodyDown);
-            }
-
-            function onBodyDown(event) {
-                if (!(event.target == container[0])) {
-                    hideMenu();
-                }
-            }
         }
 
         function onCheck(e, data) {
@@ -56,6 +73,9 @@
             $this.val(selectText.join(","));
 
             $this.attr("SelectedValue", data.selected.join(","));
+
+            //判断是否为多选，否则关闭选择框
+            if (indexOf("checkbox", data.instance.settings.plugins) < 0) hideMenu.apply($this);
         }
 
         return {
@@ -131,7 +151,7 @@
         },
         defaults: {
             'plugins'
-                : ['state', 'dnd', 'checkbox', 'unique'],
+                : ['state', 'dnd', 'unique'],
             'core': {
                 'check_callback': true,
                 "themes": {
@@ -158,8 +178,9 @@
             $.error('Method ' + method + ' does not exist on jQuery.jsTreeCheck');
             return this;
         }
+        var pArguments = arguments;
         this.each(function () {
-            method.apply(this, arguments);
+            method.apply(this, pArguments);
         });
         return this;
     }

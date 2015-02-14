@@ -7,7 +7,7 @@ using System.Net;
 using System.Web.Http;
 using NoRainRights;
 using MainWeb.Filters;
-using NoRain.Business.Model;
+using NoRain.Business.Models;
 
 namespace MainWeb.Controllers.API
 {
@@ -47,6 +47,13 @@ namespace MainWeb.Controllers.API
             return result;
         }
 
+        [Route("API/Function/AlljsTreeData")]
+        public IEnumerable<JsTreeNode> GetAllJsTreeData()
+        {
+            var result = m_functionBll.GetAllJsTreeData();
+
+            return result;
+        }
         // GET api/Function/5
         /// <summary>
         ///获取单个单位

@@ -8,6 +8,7 @@ using NoRainRights;
 using NoRain.Business.IBll;
 using NoRain.Business.Models.Request;
 using MainWeb.Filters;
+using NoRain.Business.Models;
 
 namespace MainWeb.Controllers.API
 {

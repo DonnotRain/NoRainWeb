@@ -9,6 +9,7 @@ using NoRain.Business.IBll;
 using NoRain.Business.WebBase;
 using NoRain.Business.Bll;
 using MainWeb.Filters;
+using NoRain.Business.Models;
 
 namespace MainWeb.Controllers.API
 {

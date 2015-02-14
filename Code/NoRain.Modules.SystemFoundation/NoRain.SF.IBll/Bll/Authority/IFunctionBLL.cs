@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NoRainRights;
+using NoRain.Business.Models;
 
 namespace NoRain.Business.IBll
 {
@@ -12,6 +13,9 @@ namespace NoRain.Business.IBll
         IEnumerable<Function> GetFunctions();
 
         IEnumerable<Function> GetRoleFunctions(int roleId);
+
+
+        IEnumerable<JsTreeNode> GetAllJsTreeData();
 
         void InsertFunction(Function func);
 
