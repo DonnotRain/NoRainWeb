@@ -5,40 +5,93 @@
 
 @section Header{
     <style type="text/css">
-        /*验证*/
-        .invalid {
-            border-color: #D00;
-        }
-
-        div.datagrid-header {
-            background-color: #FAEBD7;
-        }
-
-        .datagrid-header .datagrid-cell span {
-            font-size: 14px;
-            font-weight: 600;
-        }
     </style>
 
 }
-
-@section breadcrumb{
-    <li class="active">设置系统参数</li>}
-<div>
-
-    <div id="div-searchctr-wrap">
-        <span class="search-condition-box">名称 :<input id="conditionName" type="text" style="width: 120px;height: 22px;" /></span>
-        <span class="search-condition-box">值:<input id="conditionValue" type="text" style="width: 100px;height: 22px;" /></span>
-        <span style="float: right; margin-right: 0px;margin-top:5px; display: inline-block">
-            <button class="btn  btn-yellow btn-xs" onclick="PlugFunctions.System.Parameter.reloadDataGrid();"><i class="icon-search bigger-130"></i>查询</button>
-            <button class="btn  btn-yellow btn-xs" onclick="PlugFunctions.System.Parameter.add();"><i class="icon-plus"></i>添加</button>
-            <button class="btn  btn-yellow btn-xs" onclick="PlugFunctions.System.Parameter.edit();"><i class="icon-pencil"></i>编辑</button>
-            <button class="btn  btn-yellow btn-xs" onclick="PlugFunctions.System.Parameter.deleteItems();"><i class="icon-remove"></i>删除</button>
-        </span>
+<h3 class="page-title">系统参数管理 <small>维护系统中的部分配置信息及设置模块权限等</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="@Url.Action("Index", "Home")">主页</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">系统基础</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li class="active">设置系统参数</li>
+    </ul>
+</div>
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputName2">参数名称:</label>
+        <input type="text" class="form-control" id="conditionName" placeholder="参数名称">
     </div>
-    <div class="dg-panel" style="padding: 0px 5px;">
-        <div id="dgMain">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputEmail2">值:</label>
+        <input type="email" class="form-control" id="conditionValue" placeholder="参数值">
+    </div>
+    <a href="javascript:void(0)" class="btn  btn-sm green">查询 <i class="fa fa-search"></i></a>
+</form>
+<hr class="sm" />
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Add();">
+            <i class="fa fa-plus"></i>
+            <span class="hidden-480">添加
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Edit();">
+            <i class="fa fa-pencil"></i>
+            <span class="hidden-480">修改
+            </span>
+        </a>
+        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Delete();">
+            <i class="fa fa-minus"></i>
+            <span class="hidden-480">删除
+            </span>
+        </a>
+        <div class="btn-group">
+            <a class="btn btn-success btn-sm" href="#" data-toggle="dropdown">
+                <i class="fa fa-share"></i>
+                <span class="hidden-480">更多</span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a href="#">导出到Excel(当前页)</a>
+                </li>
+                <li>
+                    <a href="#">导出为CSV(当前页) </a>
+                </li>
+                <li>
+                    <a href="#">导出为XML(当前页) </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">导出到Excel(全部记录)</a>
+                </li>
+                <li>
+                    <a href="#">导出为CSV(全部记录) </a>
+                </li>
+                <li>
+                    <a href="#">导出为XML(全部记录) </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">打印</a>
+                </li>
+            </ul>
         </div>
+    </div>
+
+</div>
+
+
+<div class="dg-panel" style="padding: 5px 5px;">
+    <div id="dgMain">
     </div>
 </div>
 <div id="dlgs" style="display: none;">

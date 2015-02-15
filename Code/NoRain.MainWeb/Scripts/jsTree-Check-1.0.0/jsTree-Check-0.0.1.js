@@ -42,7 +42,7 @@
 
         function hideMenu() {
             $(".jsTreeCheck-container").fadeOut("fast");
-            $("body").unbind("mousedown", onBodyDown);
+            $("body").unbind("mousedown", hideMenu);
         }
 
         function showMenu() {
@@ -76,6 +76,12 @@
 
             //判断是否为多选，否则关闭选择框
             if (indexOf("checkbox", data.instance.settings.plugins) < 0) hideMenu.apply($this);
+        }
+
+        //判断是否为数组
+        var isArray = function (v) {
+            //  Object.prototype.toString.call(o) === ‘[object Array]‘;
+            return Object.prototype.toString.apply(v) === '[object Array]';
         }
 
         return {
@@ -134,24 +140,39 @@
                 $.jsTree.destroy();
                 $(".jsTreeCheck-container").remove();
             }
-            , setValue: function (values) {
+            , setValue: function (ids) {
+                var $this = $(this);
+                var tree = $this.data('tree');
+                var container = $this.data('container');
 
+                
+                if (typeof (ids) === "string") {
+                    ids = ids.split(',');
+                }
+                else {
+                    if (!isArray(ids)) {
+                        ids = ids.toString().split(',');
+                    }
+
+                }
+
+                tree.jstree("deselect_all");
+                tree.jstree("select_node", ids);
+                return $this;
             }
             , getValue: function () {
-
+                var $this = $(this);
+                var tree = $this.data('tree');
+                var container = $this.data('container');
             }
         };
-
     })();
 
     $.jsTreeCheck = {
         version: '0.0.1',
-        'select_node': function () {
-            alert("ashg");
-        },
         defaults: {
             'plugins'
-                : ['state', 'dnd', 'unique'],
+                : ["wholerow"],
             'core': {
                 'check_callback': true,
                 "themes": {
@@ -170,7 +191,7 @@
         var method = arguments[0];
         if (methods[method]) {
             method = methods[method];
-            arguments = Array.prototype.slice.apply(arguments, 1);
+            arguments = Array.prototype.slice.call(arguments, 1);
         }
         else if (typeof (method) == "object" && method) {
             method = methods.init;

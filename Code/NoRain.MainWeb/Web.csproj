@@ -6182,7 +6182,6 @@
     <Content Include="Views\Home\Settings.cshtml" />
     <Content Include="Views\Authorize\Login.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
-    <Content Include="Views\Shared\Menu1.cshtml" />
     <Content Include="Scripts\bootstrap-modal.extend.js" />
     <Content Include="Views\Plug\IconChoose.cshtml" />
   </ItemGroup>

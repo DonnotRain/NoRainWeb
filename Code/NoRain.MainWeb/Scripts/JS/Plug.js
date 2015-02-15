@@ -8,7 +8,8 @@
 
     //全局变量声明
     var vars = {
-        plugData: []
+        plugData: [],
+        minTableWidth: 740
     };
     //初始化
 
@@ -145,9 +146,10 @@
                 var rootItem = NoRainTools.deepcopy(json[0]);
                 rootItem["id"] = "-1";
                 rootItem["name"] = "系统根目录";
-                rootItem.icon = "none icon-th-large   " + " icon-fixed-width";
+                rootItem.icon = "icon-home";
                 rootItem.text = "系统根目录";
                 rootItem.children = json;
+                rootItem.state = { opened: true };
                 $("#PID").jsTreeCheck({}, [rootItem]);
             });
 
@@ -295,12 +297,10 @@
                 $("#" + filed).val(item[filed]);
             }
 
-            //排序 
-            $("#Sort").val(item.Sort);
-
             $("#iconSample").attr("class", item.ImageIndex);
-            $("#ImageIndex").val(item.ImageIndex);
 
+            //需要先更新状态再设置值
+            $(".icheck").iCheck('update');
             //几个选项
             $("#IsMenu").iCheck((item.FunctionType == 1) ? 'check' : 'uncheck');
             $("#IsModule").iCheck((item.FunctionType == 4) ? 'check' : 'uncheck');
@@ -312,6 +312,7 @@
 
             //上级模块
             $("#PID").jsTreeCheck("setValue", item.PID);
+
             //角色
             var roleIds = [];
             for (var i = 0; i < item.Roles.length; i++) {
@@ -336,9 +337,10 @@
             var rootItem = NoRainTools.deepcopy(json[0]);
             rootItem["id"] = "-1";
             rootItem["name"] = "系统根目录";
-            rootItem.icon = "none icon-th-large   " + " icon-fixed-width";
+            rootItem.icon = "icon-home";
             rootItem.text = "系统根目录";
             rootItem.children = json;
+            rootItem.state = { opened: true };
             $("#PID").jsTreeCheck({}, rootItem);
         });
     }
@@ -374,7 +376,7 @@
                     success: function (data, textStatus) {
                         Metronic.unblockUI('#page-content');
                         toastr.success('删除成功!');
-                     //   rebuildFunctionCombo();
+                        //   rebuildFunctionCombo();
                         reloadDataGrid();
                     }
                 });
@@ -433,7 +435,7 @@
     // 重新布局
     function resize() {
         var width = $(".dg-panel").width();
-        if (width < 700) width = 700;
+        if (width < vars.minTableWidth) width = vars.minTableWidth;
         var height = $(window).height() - 70;
         $("#dgMain").treegrid('resize', { // 重新布局DataGrid
             width: width

@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*********************************
  METRONIC SQUARE STYLE COMPONENTS 
 *********************************/
@@ -163,6 +163,9 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 0; }
+
+hr.sm {
+  margin: 10px 0; }
 
 /* Unstyled List */
 .list-unstyled li > .list-unstyled {
