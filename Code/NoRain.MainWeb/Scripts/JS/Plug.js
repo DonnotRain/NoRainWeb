@@ -9,7 +9,7 @@
     //全局变量声明
     var vars = {
         plugData: [],
-        minTableWidth: 740
+        minTableWidth: 720
     };
     //初始化
 
