@@ -103,8 +103,6 @@ namespace DefaultConnection
 			public static IEnumerable<T> Query(Sql sql) { return repo.Query<T>(sql); }
 		}
 	}
-	
-
     
 	[TableName("CategoryItems")]
 	[PrimaryKey("Id", autoIncrement=false)]

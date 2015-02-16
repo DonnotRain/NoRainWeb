@@ -17,5 +17,7 @@ namespace NoRain.Business.IBll
         SysParameter GetSysName(string paramName);
 
         SysParameter SetSysName(string sysName, string paramName);
+
+        Page<SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams);
     }
 }

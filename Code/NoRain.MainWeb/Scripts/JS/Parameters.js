@@ -1,203 +1,107 @@
-﻿PlugFunctions.System.Parameter = function () {
+﻿var TableAjax = function () {
 
-    var currentUrl = rootPath + "/API/Parameter/";
-    //全局变量声明
-    var vars = {
-        totalTimeout: 120 * 1000
-    };
-    //初始化
-    var Initialize = {
-        loadDataGrid: function () {
-            $("#dgMain").datagrid({
-                url: currentUrl,
-                method: "get",
-                pagination: true,
-                fitColumns: true,
-                nowrap: false,
-                checkOnSelect: false,
-                selectOnCheck: false,
-                singleSelect: true,
-                idField: "ID",
-                columns: [[
-                        { field: 'ck', checkbox: true },
-                {
-                    field: 'Name', title: '参数名称', width: 100, align: 'center'
+    var initPickers = function () {
+        //init date pickers
+        $('.date-picker').datepicker({
+            rtl: Metronic.isRTL(),
+            autoclose: true
+        });
+    }
+
+    var handleRecords = function () {
+
+        var grid = new Datatable();
+
+        grid.init({
+            src: $("#tableMain"),
+            onSuccess: function (grid) {
+                // execute some code after table records loaded
+            },
+            onError: function (grid) {
+                // execute some code on network or other general error  
+            },
+            onDataLoad: function (grid) {
+                // execute some code on ajax data load
+            },
+            loadingMessage: '加载中...',
+            dataTable: { // here you can define a typical datatable settings from http://datatables.net/usage/options 
+
+                // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
+                // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/scripts/datatable.js). 
+                // So when dropdowns used the scrollable div should be removed. 
+                //"dom": "<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r>t<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>>",
+                "bProcessing": true,
+                "serverSide": true,
+                "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+                "aoColumnDefs": [
+                       {
+                           "aTargets": [0], "mData": "Name", "mRender": function (data, type, full) {
+                               return data;
+                           }
+                       },
+                       {
+                           "aTargets": ["Name"], "mData": "Name", "mRender": function (data, type, full) {
+                               return data;
+                           }
+                       },
+                    { "aTargets": [2], "mData": "ValueContent" },
+                    {
+                        "aTargets": [3], "mData": "IsEnabled", "mRender": function (data, type, full) {
+                            return data;
+                        }
+                    }
+                ],
+                "lengthMenu": [
+                    [10, 20, 50, 100, 150, -1],
+                    [10, 20, 50, 100, 150, "全部"] // change per page values here
+                ],
+                "pageLength": 10, // default record count per page
+                "ajax": {
+                    "url": rootPath + "/API/Parameter/DataTablePager", // ajax source
+                    "type": "GET" // request type
                 },
-                 {
-                     field: 'Value', title: '参数值', width: 100, align: 'center'
-                 }
-                ]]
-                , onBeforeLoad: function (para) {
-                    para.Name = $("#conditionName").val() || "";
-                    para.Value = $("#conditionValue").val() || "";
-                }
-            });
-        },
-        initialDialog: function () {
-            $('#dlgMain').show();
-            $("#dlgMain").dialog({
-                title: "新增系统参数",
-                modal: true,
-                closed: true,
-                buttons: [{
-                    iconCls: "icon-save",
-                    text: '保存',
-                    handler: function () {
-                        save();
-                    }
-                }, {
-                    iconCls: "icon-remove",
-                    text: '取消',
-                    handler: function () {
-                        $('#dlgMain').dialog('close');
-                    }
-                }]
-            });
-        },
-        initialValidate: function () {
-            $("#fm").validVal({ language: "cn" });
-        },
-        initForm: function () {
-            $("#StoreId").combobox({
-                url: rootPath + "/API/Store",
-                valueField: 'Id',
-                textField: 'StoreName',
-                method: "get",
-                editable: false
-            });
-        }
-    }
-    //初始化
-    function InitialFunc() {
-        Initialize.initialDialog();
-        Initialize.loadDataGrid();
-        Initialize.initialValidate();
-        Initialize.initForm();
-
-        window.onresize = resize;
-        resize();
-    }
-
-    //重新加载dataGrid
-    function reloadDataGrid() {
-        $("#dgMain").datagrid('reload');
-    }
-
-    // 重新布局
-    function resize(event) {
-        if (event) {
-            event.preventDefault();
-        }
-        var width = $(".page-content").width() - 10;
-        var height = $(window).height() - 130;
-        $("#dgMain").datagrid('resize', { // 重新布局DataGrid
-            width: width
+                "order": [
+                    [1, "asc"]
+                ]// set first column as a default sort by asc
+            }
         });
 
+        // handle group actionsubmit button click
+        grid.getTableWrapper().on('click', '.table-group-action-submit', function (e) {
+            e.preventDefault();
+            var action = $(".table-group-action-input", grid.getTableWrapper());
+            if (action.val() != "" && grid.getSelectedRowsCount() > 0) {
+                grid.setAjaxParam("customActionType", "group_action");
+                grid.setAjaxParam("customActionName", action.val());
+                grid.setAjaxParam("id", grid.getSelectedRows());
+                grid.getDataTable().ajax.reload();
+                grid.clearAjaxParams();
+            } else if (action.val() == "") {
+                Metronic.alert({
+                    type: 'danger',
+                    icon: 'warning',
+                    message: 'Please select an action',
+                    container: grid.getTableWrapper(),
+                    place: 'prepend'
+                });
+            } else if (grid.getSelectedRowsCount() === 0) {
+                Metronic.alert({
+                    type: 'danger',
+                    icon: 'warning',
+                    message: 'No record selected',
+                    container: grid.getTableWrapper(),
+                    place: 'prepend'
+                });
+            }
+        });
     }
 
-    function save() {
-        var type = "post";
-        if ($("#ID").val() && $("#ID").val() != 0) {
-            type = "put";
-        }
-
-        //验证输入合法性
-        var form_data = $("#fm").triggerHandler("submitForm");
-        if (!form_data) {
-            return;
-        }
-
-        //上传文件
-        try {
-            form_data = $("#fm").serializeArray();
-
-            $.jMask("save", "保存中，请稍后").show();
-            $.CommonAjax({
-                url: currentUrl,
-                type: type,
-                data: form_data,
-                success: function (data, textStatus) {
-                    $('#dlgMain').dialog('close');
-                    $.jMask("save").hide();
-                    $.Show({
-                        message: "保存成功",
-                        type: "success",
-                        hideAfter: 3
-                    });
-                    reloadDataGrid();
-                }
-            });
-        }
-        catch (e) {
-            $.jMask("HideAll");
-            alert(e.message);
-        }
-    }
     return {
+        //main function to initiate the module
         init: function () {
-            easyloader.locale = "zh_CN";
-            easyloader.theme = "metro";
-            easyloader.load(['parser', 'validatebox', 'datagrid', 'combobox', 'form', 'dialog', 'messager'], InitialFunc);
-        }
-        , reloadDataGrid: reloadDataGrid
-        , add: function () {
-            $('#fm').form('clear');
-            $("#TargetZone").val("1");
-            $("#TargetType").val("1");
-            $('#dlgMain').dialog('open').dialog('setTitle', '添加系统参数');
-        }
-        , edit: function () {
-            $('#fm').form('clear');
-            var items = $("#dgMain").datagrid('getChecked');
-
-            if (items && items.length > 0) {
-                var item = items[0];
-
-                $("#dgMain").datagrid('unselectAll');
-                $("#dgMain").datagrid('selectRecord', item.ID);
-
-                $('#fm').form('load', item);
-                for (var filed in item) {
-                    $("#" + filed).val(item[filed]);
-                }
-
-                $('#dlgMain').dialog('open').dialog('setTitle', '修改系统参数');
-            }
-            else {
-                $.Show({ message: "未勾选数据行", type: "error" });
-                return;
-            }
-        },
-        deleteItems: function () {
-            var rows = $("#dgMain").datagrid('getChecked');
-            if (!rows.length) {
-                $.Show({ message: "未勾选数据行", type: "error" });
-                return;
-            }
-            $.messager.confirm('确认', '确定要删除所选数据？', function (r) {
-                if (r) {
-                    var ids = new Array();
-
-                    $.each(rows, function (rowIndex, rowData) {
-                        ids.push(rowData.ID);
-                    });
-                    $.jMask("delete", "删除中，请稍后").show();
-                    $.CommonAjax({
-                        url: currentUrl,
-                        type: "delete",
-                        data: { "": ids.join(",") },
-                        success: function (data, textStatus) {
-                            $.jMask("delete").hide();
-                            $.Show({ message: "删除成功", type: "success" });
-                            reloadDataGrid();
-                        }
-                    });
-                }
-            });
+            initPickers();
+            handleRecords();
         }
     };
+
 }();
-
-
-

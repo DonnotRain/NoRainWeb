@@ -12,10 +12,14 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using MainWeb.Filters;
+using NoRain.Business.Model.Request;
 
 namespace MainWeb.Controllers.API
 {
-    [ServiceValidate()]
+    /// <summary>
+    /// 系统参数相关操作
+    /// </summary>
+    [ServiceValidate]
     public class ParameterController : ApiController
     {
         private IParameterBll m_ParameterBll;
@@ -44,17 +48,34 @@ namespace MainWeb.Controllers.API
 
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
-
-        public object Post(SysParameter Parameter)
+        [Route("API/Parameter/DataTablePager")]
+        public object GetDataTablePager([FromUri]DataTablesRequest reqestParams)
         {
-            Parameter = m_ParameterBll.Add(Parameter);
-            return Parameter;
+
+            var pageResult = m_ParameterBll.GetParameterPager(reqestParams);
+
+            return new
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
         }
 
-        public object Put(SysParameter Parameter)
+
+        public object Post(SysParameter parameter)
         {
-            Parameter = m_ParameterBll.Edit(Parameter);
-            return Parameter;
+            parameter = m_ParameterBll.Add(parameter);
+
+            return parameter;
+        }
+
+        public object Put(SysParameter parameter)
+        {
+            parameter = m_ParameterBll.Edit(parameter);
+
+            return parameter;
         }
 
         public void Delete([FromBody]string ids)

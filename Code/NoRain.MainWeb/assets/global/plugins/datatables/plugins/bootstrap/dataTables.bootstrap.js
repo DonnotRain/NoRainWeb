@@ -284,7 +284,7 @@ $.extend($.fn.dataTableExt.oPagination, {
                 '<a href="#" class="btn btn-sm default prev disabled" title="' + oLang.previous + '"><i class="fa fa-angle-left"></i></a>' +
                 '<input type="text" class="pagination-panel-input form-control input-mini input-inline input-sm" maxlenght="5" style="text-align:center; margin: 0 5px;">' +
                 '<a href="#" class="btn btn-sm default next disabled" title="' + oLang.next + '"><i class="fa fa-angle-right"></i></a> ' +
-                oLang.pageOf + ' <span class="pagination-panel-total"></span>' +
+                oLang.pageOf + ' <span class="pagination-panel-total"></span>' + oLang.allPage +
                 '</div>'
             );
 

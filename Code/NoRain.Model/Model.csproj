@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="AjaxResult.cs" />
+    <Compile Include="Request\DataTablesRequest.cs" />
     <Compile Include="Response\jsTreeNode.cs" />
     <Compile Include="Response\EasyuiTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
