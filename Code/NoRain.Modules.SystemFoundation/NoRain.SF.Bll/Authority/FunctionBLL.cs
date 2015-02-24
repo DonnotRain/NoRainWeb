@@ -41,7 +41,7 @@ namespace NoRain.Business.Bll
         public IEnumerable<Function> GetRoleTreeFunctions(int roleId)
         {
             var functionRoles = FindAll<Role_Function>("where Role_ID =@0 ", roleId);
-            var items = FindAll<Function>(string.Empty).Where(m => functionRoles.Select(func => func.Function_ID).Contains(m.ID)).OrderBy(m => m.ID);
+            var items = FindAll<Function>("").Where(m => functionRoles.Select(func => func.Function_ID).Contains(m.ID)).OrderBy(m => m.ID);
 
             //查找出父节点没有对应Function的记录
             var functionIds = items.Select(m => m.ID);

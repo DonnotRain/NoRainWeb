@@ -13,7 +13,8 @@
     </style>
 
 }
-<h3 class="page-title">系统参数管理 <small>维护系统中的部分配置信息及设置模块权限等</small>
+<h3 class="page-title">
+    系统参数管理 <small>维护系统中的部分配置信息及设置模块权限等</small>
 </h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -38,24 +39,27 @@
         <label class="sr-only" for="exampleInputEmail2">值:</label>
         <input type="email" class="form-control" id="conditionValue" placeholder="参数值">
     </div>
-    <a href="javascript:void(0)" class="btn  btn-sm green">查询 <i class="fa fa-search"></i></a>
+    <a href="javascript:void(0)" class="btn  btn-sm green" id="btnSearch">查询 <i class="fa fa-search"></i></a>
 </form>
 <hr class="sm" />
 <div class="row">
     <div class="col-md-8 col-sm-12">
-        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Add();">
+        <a href="#" class="btn blue btn-sm" onclick="SysParameters.Add();">
             <i class="fa fa-plus"></i>
-            <span class="hidden-480">添加
+            <span class="hidden-480">
+                添加
             </span>
         </a>
-        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Edit();">
+        <a href="#" class="btn blue btn-sm" onclick="SysParameters.Edit();">
             <i class="fa fa-pencil"></i>
-            <span class="hidden-480">修改
+            <span class="hidden-480">
+                修改
             </span>
         </a>
-        <a href="#" class="btn blue btn-sm" onclick="SysFunction.Delete();">
+        <a href="#" class="btn blue btn-sm" onclick="SysParameters.Delete();">
             <i class="fa fa-minus"></i>
-            <span class="hidden-480">删除
+            <span class="hidden-480">
+                删除
             </span>
         </a>
         <div class="btn-group">
@@ -97,91 +101,40 @@
 
 <div class="dg-panel" style="padding-top: 5px">
     @*    <div id="dgMain">
-    </div>*@
+        </div>*@
     <table class="table table-striped table-bordered table-hover" id="tableMain">
         <thead>
             <tr role="row" class="heading">
-                <th width="2%">
+                <th width="2%" class="check" >
                     <input type="checkbox" class="group-checkable">
                 </th>
                 <th width="5%" class="Name">参数名称</th>
-                <th width="15%">参数值
+                <th width="15%">
+                    参数值
                 </th>
-                <th width="15%">是否启用
+                <th width="15%">
+                    是否启用
                 </th>
             </tr>
-            @*        <tr role="row" class="filter">
-                <td></td>
-                <td>
-                    <input type="text" class="form-control form-filter input-sm" name="order_id">
-                </td>
-                <td>
-                    <div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
-                        <input type="text" class="form-control form-filter input-sm" readonly name="order_date_from" placeholder="From">
-                        <span class="input-group-btn">
-                            <button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
-                        <input type="text" class="form-control form-filter input-sm" readonly name="order_date_to" placeholder="To">
-                        <span class="input-group-btn">
-                            <button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-                        </span>
-                    </div>
-                </td>
-                <td>
-                    <input type="text" class="form-control form-filter input-sm" name="order_customer_name">
-                </td>
-                <td>
-                    <input type="text" class="form-control form-filter input-sm" name="order_ship_to">
-                </td>
-                <td>
-                    <div class="margin-bottom-5">
-                        <input type="text" class="form-control form-filter input-sm" name="order_price_from" placeholder="From" />
-                    </div>
-                    <input type="text" class="form-control form-filter input-sm" name="order_price_to" placeholder="To" />
-                </td>
-                <td>
-                    <div class="margin-bottom-5">
-                        <input type="text" class="form-control form-filter input-sm margin-bottom-5 clearfix" name="order_quantity_from" placeholder="From" />
-                    </div>
-                    <input type="text" class="form-control form-filter input-sm" name="order_quantity_to" placeholder="To" />
-                </td>
-                <td>
-                    <select name="order_status" class="form-control form-filter input-sm">
-                        <option value="">Select...</option>
-                        <option value="pending">Pending</option>
-                        <option value="closed">Closed</option>
-                        <option value="hold">On Hold</option>
-                        <option value="fraud">Fraud</option>
-                    </select>
-                </td>
-                <td>
-                    <div class="margin-bottom-5">
-                        <button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i>Search</button>
-                    </div>
-                    <button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i>Reset</button>
-                </td>
-            </tr>*@
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
-<div id="dlgs" style="display: none;">
-    @Html.Partial("Create")
-</div>
+@Html.Partial("Create")
 @section Scripts{
 
     <script src="~/assets/global/plugins/datatables/media/js/jquery.dataTables.js"></script>
     <script src="~/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
     <script src="~/assets/global/scripts/datatable.js"></script>
 
+    <script src="~/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/assets/global/plugins/jquery-validation/js/localization/messages_zh.min.js"></script>
+    <script src="~/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+
     <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="~/assets/global/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
     <script src="~/Scripts/JS/Parameters.js"></script>
     <script type="text/javascript">
-        TableAjax.init();
-        // PlugFunctions.System.Parameter.init();
+        SysParameters.init();
     </script>
 }

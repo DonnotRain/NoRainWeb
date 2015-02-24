@@ -32,7 +32,7 @@ namespace BusinessWeb.Areas.Back.Models
         {
             if (string.IsNullOrEmpty(SysContext.UserId)) return new List<PlugDisplay>();
                 
-            var funcList = m_bll.FindAll<Function>(string.Empty).ToList();  //不进行权限控制时
+            var funcList = m_bll.FindAll<Function>("WHERE ISENABLED=1").ToList();  //不进行权限控制时
            // var funcList = new List<Function>();
 
             var roleBLL = DPResolver.Resolver<IRoleBLL>();

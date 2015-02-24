@@ -201,7 +201,7 @@ var Datatable = function () {
                 $.uniform.update(set);
                 countSelectedRecords();
             });
-
+              
             // handle row's checkbox click
             table.on('change', 'tbody > tr > td:nth-child(1) input[type="checkbox"]', function () {
                 countSelectedRecords();
