@@ -10,10 +10,10 @@
 }
 @section Header{
     <style type="text/css">
-
     </style>
 }
-<h3 class="page-title">系统参数管理 <small>维护系统中的部分配置信息及设置模块权限等</small>
+<h3 class="page-title">
+    系统参数管理 <small>维护系统中的部分配置信息及设置模块权限等</small>
 </h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -45,17 +45,20 @@
     <div class="col-md-8 col-sm-12">
         <a href="#" class="btn blue btn-sm" onclick="SysParameters.Add();">
             <i class="fa fa-plus"></i>
-            <span class="hidden-480">添加
+            <span class="hidden-480">
+                添加
             </span>
         </a>
         <a href="#" class="btn blue btn-sm" onclick="SysParameters.Edit();">
             <i class="fa fa-pencil"></i>
-            <span class="hidden-480">修改
+            <span class="hidden-480">
+                修改
             </span>
         </a>
         <a href="#" class="btn blue btn-sm" onclick="SysParameters.Delete();">
             <i class="fa fa-minus"></i>
-            <span class="hidden-480">删除
+            <span class="hidden-480">
+                删除
             </span>
         </a>
         <div class="btn-group">
@@ -66,27 +69,27 @@
             </a>
             <ul class="dropdown-menu pull-right">
                 <li>
-                    <a href="#">导出到Excel(当前页)</a>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出到Excel(当前页)</a>
                 </li>
                 <li>
-                    <a href="#">导出为CSV(当前页) </a>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出为CSV(当前页) </a>
                 </li>
                 <li>
-                    <a href="#">导出为XML(当前页) </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">导出到Excel(全部记录)</a>
-                </li>
-                <li>
-                    <a href="#">导出为CSV(全部记录) </a>
-                </li>
-                <li>
-                    <a href="#">导出为XML(全部记录) </a>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出为XML(当前页) </a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#">打印</a>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出到Excel(全部记录)</a>
+                </li>
+                <li>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出为CSV(全部记录) </a>
+                </li>
+                <li>
+                    <a href="#" onclick="SysParameters.Export('EXCEL','CURRENT')">导出为XML(全部记录) </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#" onclick="SysParameters.Print()">打印</a>
                 </li>
             </ul>
         </div>
@@ -103,11 +106,14 @@
                     <input type="checkbox" class="group-checkable">
                 </th>
                 <th width="5%" class="Name">参数名称</th>
-                <th width="15%">参数值
+                <th width="15%">
+                    参数值
                 </th>
-                   <th width="15%">描述
+                <th width="15%">
+                    描述
                 </th>
-                <th width="15%">是否启用
+                <th width="15%">
+                    是否启用
                 </th>
             </tr>
         </thead>

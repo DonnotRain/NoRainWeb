@@ -62,6 +62,19 @@ namespace MainWeb.Controllers.API
             };
         }
 
+        [Route("API/Parameter/ExportExcel")]
+        public object ExportPager([FromUri]DataTablesRequest reqestParams, [FromUri]ParameterPagerCondition condition)
+        {
+            var pageResult = m_ParameterBll.GetParameterPager(reqestParams, condition);
+
+            return new
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
+        }
 
         public object Post(SysParameter parameter)
         {

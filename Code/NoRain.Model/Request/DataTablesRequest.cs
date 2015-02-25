@@ -35,5 +35,7 @@ namespace NoRain.Business.Model.Request
         public dynamic[] order { get; set; }
 
         public dynamic search { get; set;  }
+
+        public bool needPager { get; set; }
     }
 }

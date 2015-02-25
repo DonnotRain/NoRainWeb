@@ -40,7 +40,7 @@
                     "bProcessing": true,
                     "serverSide": true,
                     "bStateSave": true,
-              
+
                     "columnDefs": [
                            {
                                "searchable": false,
@@ -55,9 +55,9 @@
                                }
                            },
                         { "aTargets": [2], "mData": "ValueContent" },
-                             { "aTargets": [4], "mData": "Description" },
+                             { "aTargets": [3], "mData": "Description" },
                         {
-                            "aTargets": [3], "mData": "IsEnabled", "mRender": function (data, type, full) {
+                            "aTargets": [4], "mData": "IsEnabled", "mRender": function (data, type, full) {
                                 return data ? '<span class="label label-sm label-success">已启用</span>' : '<span class="label label-sm label-danger">未启用</span>';
                             }
                         }
@@ -308,6 +308,16 @@
                     $('#mainDlg').modal('hide');
                 }
             });
+        }
+        , Export: function (type, page) {
+            var data = mainGrid.getDataTable().ajax.params();
+            if (page == "_ALL") {
+                data.needPager = false;
+            }
+            else data.needPager = true;
+        }
+        , Print: function () {
+
         }
     };
 
