@@ -1,4 +1,5 @@
 ﻿using DefaultConnection;
+using NoRain.Business.Model.Request;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,6 @@ namespace NoRain.Business.IBll
 
         SysParameter SetSysName(string sysName, string paramName);
 
-        Page<SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams);
+        Page<SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams,ParameterPagerCondition condition);
     }
 }

@@ -66,10 +66,7 @@ var Datatable = function () {
                     },
 
                     "orderCellsTop": true,
-                    "columnDefs": [{ // define columns sorting options(by default all columns are sortable extept the first checkbox column)
-                        'orderable': false,
-                        'targets': [0]
-                    }],
+                    "columnDefs": [],
 
                     "pagingType": "bootstrap_extended", // pagination type(bootstrap, bootstrap_full_number or bootstrap_extended)
                     "autoWidth": false, // disable fixed width and enable fluid table
@@ -93,11 +90,6 @@ var Datatable = function () {
                             });
                         },
                         "dataSrc": function (res) { // Manipulate the data returned from the server
-                            //res = {
-                            //    recordsFiltered: res.TotalItems,
-                            //    recordsTotal: res.TotalItems,
-                            //    data: res.Items
-                            //};
 
                             //处理服务器返回的分页数据
                             if (res.customActionMessage) {
@@ -195,9 +187,13 @@ var Datatable = function () {
             $('.group-checkable', table).change(function () {
                 var set = $('tbody > tr > td:nth-child(1) input[type="checkbox"]', table);
                 var checked = $(this).is(":checked");
+                if (checked) $('tbody > tr ', table).addClass('selected');
+                else $('tbody > tr ', table).removeClass('selected');
+
                 $(set).each(function () {
                     $(this).attr("checked", checked);
                 });
+
                 $.uniform.update(set);
                 countSelectedRecords();
             });
@@ -205,18 +201,6 @@ var Datatable = function () {
             // handle row's checkbox click
             table.on('change', 'tbody > tr > td:nth-child(1) input[type="checkbox"]', function () {
                 countSelectedRecords();
-            });
-
-            // handle filter submit button click
-            table.on('click', '.filter-submit', function (e) {
-                e.preventDefault();
-                the.submitFilter();
-            });
-
-            // handle filter cancel button click
-            table.on('click', '.filter-cancel', function (e) {
-                e.preventDefault();
-                the.resetFilter();
             });
         },
 
@@ -265,7 +249,15 @@ var Datatable = function () {
 
             return rows;
         },
+        getSelectedRecords: function () {
+            return dataTable.row(table).data();
+            var rows = [];
+            $('tbody > tr > td:nth-child(1) input[type="checkbox"]:checked', table).each(function () {
+                rows.push($(this).val());
+            });
 
+            return rows;
+        },
         setAjaxParam: function (name, value) {
             ajaxParams[name] = value;
         },

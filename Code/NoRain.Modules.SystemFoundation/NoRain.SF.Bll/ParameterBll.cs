@@ -1,6 +1,7 @@
 ﻿using DefaultConnection;
 using NoRain.Business.IBll;
 using NoRain.Business.IDal;
+using NoRain.Business.Model.Request;
 using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ namespace NoRain.Business.Bll
 
         public SysParameter Add(SysParameter entity)
         {
+            if (FindAll<SysParameter>("WHERE NAME=@0", entity.Name).Count() > 0) throw new ApiException(ResponseCode.参数值错误,"参数值重复","Name");
+            entity.Id = Guid.NewGuid();
             entity.Insert();
             return entity;
         }
@@ -111,9 +114,9 @@ namespace NoRain.Business.Bll
         }
 
 
-        public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams)
+        public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams,ParameterPagerCondition condition)
         {
-            return GetParameterPager(reqestParams.start + 1, reqestParams.length == -1 ? int.MaxValue : reqestParams.length, "", "");
+            return GetParameterPager(reqestParams.start + 1, reqestParams.length == -1 ? int.MaxValue : reqestParams.length, condition.Name, condition.Value);
         }
     }
 }

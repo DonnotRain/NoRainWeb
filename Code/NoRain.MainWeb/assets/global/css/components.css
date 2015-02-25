@@ -4543,6 +4543,12 @@ AngularJS Basic Animations
   margin: 0px 3px;
   font-size: 12px; }
 
+.table > tbody > tr.selected {
+  background: #CCE6FF; }
+
+.table > tbody > tr.selected:hover {
+  background: #CCE6FF; }
+
 /* Button */
 .btn.default {
   color: #333333;

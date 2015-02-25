@@ -49,10 +49,9 @@ namespace MainWeb.Controllers.API
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
         [Route("API/Parameter/DataTablePager")]
-        public object GetDataTablePager([FromUri]DataTablesRequest reqestParams)
+        public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]ParameterPagerCondition condition)
         {
-
-            var pageResult = m_ParameterBll.GetParameterPager(reqestParams);
+            var pageResult = m_ParameterBll.GetParameterPager(reqestParams, condition);
 
             return new
             {
@@ -86,7 +85,7 @@ namespace MainWeb.Controllers.API
                 var items = new List<SysParameter>();
                 itemsStr.ForEach(m =>
                 {
-                    var item = m_ParameterBll.Find<SysParameter>("WHERE ID=@0", int.Parse(m));
+                    var item = m_ParameterBll.Find<SysParameter>("WHERE ID=@0", Guid.Parse(m));
                     if (item != null) items.Add(item);
                 });
                 m_ParameterBll.Delete(items);

@@ -130,6 +130,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\HelpPage\Services\" />
+    <Folder Include="assets\admin\NoRain\css\" />
+    <Folder Include="assets\admin\NoRain\img\" />
+    <Folder Include="assets\admin\NoRain\media\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="assets\global\plugins\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />
@@ -6118,11 +6121,11 @@
     <Content Include="Scripts\JS\DashboardStatic.js" />
     <Content Include="Scripts\JS\OperatorRole.js" />
     <Content Include="Scripts\JS\Category.js" />
-    <Content Include="Scripts\JS\Plug.js" />
+    <Content Include="assets\admin\NoRain\scripts\Plug.js" />
     <Content Include="Scripts\JS\SystemBase\Store.js" />
     <Content Include="Scripts\JS\SystemBase\Item.js" />
     <Content Include="Scripts\JS\SystemBase\User.js" />
-    <Content Include="Scripts\JS\Parameters.js" />
+    <Content Include="assets\admin\NoRain\scripts\Parameters.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Modules.js" />
     <Content Include="BackAssets\My97\calendar.js" />
