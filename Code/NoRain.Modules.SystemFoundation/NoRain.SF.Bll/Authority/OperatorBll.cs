@@ -15,7 +15,7 @@ namespace NoRain.Business.Bll
         private IRoleBLL m_roleBll;
         private IBaseDAL _dal;
 
-        public SysUserBll(IRoleBLL roleBll, ICommonSecurityDAL dal)
+        public SysUserBll(IRoleBLL roleBll, ICommonSecurityDao dal)
         {
             m_roleBll = roleBll; this._dal = dal;
         }

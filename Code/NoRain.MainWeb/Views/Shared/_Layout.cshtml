@@ -132,11 +132,11 @@
                     <!-- END USER LOGIN DROPDOWN -->
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    @*                    <li class="dropdown dropdown-quick-sidebar-toggler">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <i class="icon-logout"></i>
+                    <li class="dropdown dropdown-quick-sidebar-toggler">
+                        <a href="javascript:;" class="dropdown-toggle"data-original-title="选择主题"  id="btnChooseTheme">
+                            <i class="icon-settings"></i>
                         </a>
-                    </li>*@
+                    </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>
             </div>
@@ -168,10 +168,81 @@
         <!-- END SIDEBAR -->
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
+            <!-- id用于提供页面删除功能时。遮罩整个content -->
             <div class="page-content" id="page-content">
+                <!-- BEGIN STYLE CUSTOMIZER -->
+                <div class="theme-panel hidden-xs hidden-sm">
+                    <div class="toggler-close">
+                    </div>
+                    <div class="theme-options">
+                        <div class="theme-option theme-colors clearfix">
+                            <span>主题颜色</span>
+                            <ul>
+                                <li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default"></li>
+                                <li class="color-darkblue tooltips" data-style="darkblue" data-container="body" data-original-title="Dark Blue"></li>
+                                <li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue"></li>
+                                <li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey"></li>
+                                <li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light"></li>
+                                <li class="color-light2 tooltips" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2"></li>
+                            </ul>
+                        </div>
+                        <div class="theme-option">
+                            <span>页面布局 </span>
+                            <select class="layout-option form-control input-sm">
+                                <option value="fluid" selected="selected">适应布局</option>
+                                <option value="boxed">固定宽度</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>Header </span>
+                            <select class="page-header-option form-control input-sm">
+                                <option value="fixed" selected="selected">自适应</option>
+                                <option value="default">默认</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>顶部下拉菜单</span>
+                            <select class="page-header-top-dropdown-style-option form-control input-sm">
+                                <option value="light" selected="selected">明亮</option>
+                                <option value="dark">暗色</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>侧边菜单</span>
+                            <select class="sidebar-option form-control input-sm">
+                                <option value="fixed">自适应</option>
+                                <option value="default" selected="selected">默认</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>侧边菜单模式 </span>
+                            <select class="sidebar-menu-option form-control input-sm">
+                                <option value="accordion" selected="selected">手风琴</option>
+                                <option value="hover">鼠标进入</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>侧边菜单样式</span>
+                            <select class="sidebar-style-option form-control input-sm">
+                                <option value="default" selected="selected">默认</option>
+                                <option value="light">明亮</option>
+                            </select>
+                        </div>
+                        <div class="theme-option">
+                            <span>底部</span>
+                            <select class="page-footer-option form-control input-sm">
+                                <option value="fixed">自适应</option>
+                                <option value="default" selected="selected">默认</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- END STYLE CUSTOMIZER -->
+
                 <!--[if lt IE 8]>
                     <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
                 <![endif]-->
+
                 <!-- BEGIN 渲染子页面内容-->
                 @RenderBody()
                 <!-- END 渲染子页面内容-->
@@ -206,7 +277,7 @@
     @*  <script src="~/assets/global/plugins/zui/js/zui.js"></script>*@
     <script src="~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/jquery.cookie.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
     <script src="~/assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
@@ -218,6 +289,7 @@
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="~/assets/global/scripts/metronic.js" type="text/javascript"></script>
     <script src="~/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="~/assets/admin/NoRain/scripts/ThemeSelect.js"></script>
     <script src="~/Scripts/NoRain.Tools.js"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
@@ -225,7 +297,7 @@
             Metronic.init(); // init metronic core components
             Layout.init(); // init current layout
             // QuickSidebar.init(); // init quick sidebar
-            //  Demo.init(); // init demo features
+            ThemeSelect.init(); // init ThemeSelect features
             //   EcommerceIndex.init();
         });
     </script>

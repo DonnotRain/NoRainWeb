@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoRain.Business.Dal
+namespace NoRain.Business.Dao
 {
-    public class BaseDAL : IBaseDAL
+    public class BaseDao : IBaseDAL
     {
 
         public Database DB { get { return DBManage.Instance[_dbName]; } }
         private string _dbName;
-        public BaseDAL(string dbConnectionName)
+        public BaseDao(string dbConnectionName)
         {
             this._dbName = dbConnectionName;
         }

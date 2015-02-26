@@ -13,7 +13,7 @@ namespace NoRain.Business.Bll
         private IBaseDAL m_baseDAL;
 
         public CommonSecurityBLL()
-            : base(DPResolver.Resolver<ICommonSecurityDAL>())
+            : base(DPResolver.Resolver<ICommonSecurityDao>())
         {
         }
     }

@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "NoRain.Entity\Ent
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{F418E471-69CB-4457-8A6E-EC572E965F86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll", "NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Bll.csproj", "{1A822090-E850-48AB-A12B-DA44FD80C53F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Service.csproj", "{1A822090-E850-48AB-A12B-DA44FD80C53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Dal.csproj", "{CF7BB01C-289D-4E03-BE6D-F2385C5138E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Data.csproj", "{CF7BB01C-289D-4E03-BE6D-F2385C5138E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entrance", "NoRain.Modules.SystemFoundation\NoRain.SF.IBll\Entrance.csproj", "{AF9461D6-9341-4EA0-B300-9A3B344FE886}"
 EndProject

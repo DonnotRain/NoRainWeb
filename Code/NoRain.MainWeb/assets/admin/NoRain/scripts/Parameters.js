@@ -310,11 +310,35 @@
             });
         }
         , Export: function (type, page) {
-            var data = mainGrid.getDataTable().ajax.params();
+            var data = vars.mainGrid.getDataTable().ajax.params();
+
+            var setAjaxParam = function (name, value) {
+                data[name] = value;
+            }
+
+            setAjaxParam("Name", $("#conditionName").val());
+            setAjaxParam("Value", $("#conditionValue").val());
+
             if (page == "_ALL") {
                 data.needPager = false;
             }
             else data.needPager = true;
+
+            //判断对象是否为字符串
+            //var isString = function (str) {
+            //    return (typeof str == 'string') && str.constructor == String;
+            //}
+            //var urlSetup = function (urlParams) {
+            //    var url = "?"
+            //    var paramArray = [];
+            //    for (var f in urlParams) {
+            //        //(typeof str=='string')&&str.constructor==String;
+            //        if (isString(urlParams[f])) paramArray.push("f=" + window.encodeURIComponent(urlParams[f]));
+            //    }
+            //    url += paramArray.join("&");
+            //    return url;
+            //};
+            window.open(currentUrl + "ExportExcel?" +  $.param(data), "_blank");
         }
         , Print: function () {
 

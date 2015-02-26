@@ -13,6 +13,7 @@ using System.Web;
 using System.Web.Http;
 using MainWeb.Filters;
 using NoRain.Business.Model.Request;
+using NoRain.Toolkits;
 
 namespace MainWeb.Controllers.API
 {
@@ -63,17 +64,11 @@ namespace MainWeb.Controllers.API
         }
 
         [Route("API/Parameter/ExportExcel")]
-        public object ExportPager([FromUri]DataTablesRequest reqestParams, [FromUri]ParameterPagerCondition condition)
+        public void GetExportPager([FromUri]DataTablesRequest reqestParams, [FromUri]ParameterPagerCondition condition)
         {
             var pageResult = m_ParameterBll.GetParameterPager(reqestParams, condition);
 
-            return new
-            {
-                draw = reqestParams.draw,
-                recordsTotal = pageResult.TotalItems,
-                recordsFiltered = pageResult.TotalItems,
-                data = pageResult.Items
-            };
+            ExcelOutputTool.HandleItems(pageResult.Items,"系统参数明细统计");
         }
 
         public object Post(SysParameter parameter)

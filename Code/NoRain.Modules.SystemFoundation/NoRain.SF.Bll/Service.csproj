@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CF7BB01C-289D-4E03-BE6D-F2385C5138E8}</ProjectGuid>
+    <ProjectGuid>{1A822090-E850-48AB-A12B-DA44FD80C53F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NoRain.SF.Dal</RootNamespace>
-    <AssemblyName>NoRain.SF.Dal</AssemblyName>
+    <RootNamespace>NoRain.SF.Service</RootNamespace>
+    <AssemblyName>NoRain.SF.Service</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,24 +40,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BaseDAL.cs" />
-    <Compile Include="RoleDal.cs" />
-    <Compile Include="Common\CommonDAL.cs" />
-    <Compile Include="Common\CommonSecurityDAL.cs" />
+    <Compile Include="Authority\OperatorBll.cs" />
+    <Compile Include="FileItemBLL.cs" />
+    <Compile Include="ParameterBll.cs" />
+    <Compile Include="Sys\CategoryBLL.cs" />
+    <Compile Include="Authority\FunctionBLL.cs" />
+    <Compile Include="Authority\RoleBLL.cs" />
+    <Compile Include="Common\BaseBll.cs" />
+    <Compile Include="Common\CommonAuthorityBLL.cs" />
+    <Compile Include="Common\CommonBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\NoRain.Toolkits\Toolkits.csproj">
+      <Project>{7435e6e1-8a7a-44f9-80c2-0bcd5e43c23e}</Project>
+      <Name>Toolkits</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoRain.SF.Dal\Data.csproj">
+      <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\NoRain.Entity\Entity.csproj">
       <Project>{e5af736e-ba28-4b20-87fd-732853fdc5cf}</Project>
       <Name>Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NoRain.WebBase\WebBase.csproj">
-      <Project>{e4d6c466-5b94-4c73-af51-a3d67dc23bc6}</Project>
-      <Name>WebBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NoRain.SF.IBll\Entrance.csproj">
       <Project>{af9461d6-9341-4ea0-b300-9a3b344fe886}</Project>
       <Name>Entrance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NoRain.Model\Model.csproj">
+      <Project>{956b2b0a-5437-4e55-b67d-bc36d362d81f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NoRain.WebBase\WebBase.csproj">
+      <Project>{e4d6c466-5b94-4c73-af51-a3d67dc23bc6}</Project>
+      <Name>WebBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

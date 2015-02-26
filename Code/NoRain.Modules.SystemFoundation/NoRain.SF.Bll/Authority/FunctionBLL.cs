@@ -14,7 +14,7 @@ namespace NoRain.Business.Bll
     public class FunctionBLL : CommonSecurityBLL, IFunctionBLL, IBaseBLL
     {
         private IBaseDAL _dal;
-        public FunctionBLL(ICommonSecurityDAL dal)
+        public FunctionBLL(ICommonSecurityDao dal)
         {
             this._dal = dal;
         }

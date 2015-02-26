@@ -425,6 +425,7 @@
     <Content Include="assets\admin\layout\scripts\demo.js" />
     <Content Include="assets\admin\layout\scripts\layout.js" />
     <Content Include="assets\admin\layout\scripts\quick-sidebar.js" />
+    <Content Include="assets\admin\NoRain\scripts\ThemeSelect.js" />
     <Content Include="assets\admin\pages\css\about-us.css" />
     <Content Include="assets\admin\pages\css\blog.css" />
     <Content Include="assets\admin\pages\css\coming-soon.css" />
@@ -3733,6 +3734,7 @@
     <Content Include="assets\global\plugins\jquery-validation\js\localization\methods_pt.min.js" />
     <Content Include="assets\global\plugins\jquery.blockui.min.js" />
     <Content Include="assets\global\plugins\jquery.cokie.min.js" />
+    <Content Include="assets\global\plugins\jquery.cookie.js" />
     <Content Include="assets\global\plugins\jquery.easing.js" />
     <Content Include="assets\global\plugins\jquery.input-ip-address-control-1.0.min.js" />
     <Content Include="assets\global\plugins\jquery.min.js" />
@@ -6201,13 +6203,13 @@
       <Project>{956b2b0a-5437-4e55-b67d-bc36d362d81f}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Bll.csproj">
+    <ProjectReference Include="..\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Service.csproj">
       <Project>{1a822090-e850-48ab-a12b-da44fd80c53f}</Project>
-      <Name>Bll</Name>
+      <Name>Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Dal.csproj">
+    <ProjectReference Include="..\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Data.csproj">
       <Project>{cf7bb01c-289d-4e03-be6d-f2385c5138e8}</Project>
-      <Name>Dal</Name>
+      <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\NoRain.Modules.SystemFoundation\NoRain.SF.IBll\Entrance.csproj">
       <Project>{af9461d6-9341-4ea0-b300-9a3b344fe886}</Project>

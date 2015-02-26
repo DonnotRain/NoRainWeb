@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoRain.Business.Dal
+namespace NoRain.Business.Dao
 {
-    public class RoleDal :CommonSecurityDAL, IRoleDal
+    public class RoleDao :CommonSecurityDao, IRoleDal
     {
 
         public void DeleteRoleUser(int roleId)

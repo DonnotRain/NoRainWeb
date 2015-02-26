@@ -25,8 +25,8 @@ namespace MainWeb
             ApplicationConfig.Intance.Init(o => { },
                                new Assembly[]
                                                {
-                                                   Assembly.Load("NoRain.SF.Bll"),
-                                                   Assembly.Load("NoRain.SF.Dal"),
+                                                   Assembly.Load("NoRain.SF.Service"),
+                                                   Assembly.Load("NoRain.SF.Data"),
                                                    Assembly.Load("NoRain.SF.Entrance")
                                                });
         }

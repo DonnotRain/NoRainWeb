@@ -26,7 +26,7 @@ namespace NoRain.Business.Bll
             if (!string.IsNullOrEmpty(value))
             {
                 value = "%" + value + "%";
-                sql.Append(" And s.Value like @0", value);
+                sql.Append(" And s.ContentValue like @0", value);
             }
             var page = FindAllByPage<SysParameter>(sql.SQL, pageSize, pageIndex, sql.Arguments);
 
@@ -39,7 +39,7 @@ namespace NoRain.Business.Bll
 
         public SysParameter Add(SysParameter entity)
         {
-            if (FindAll<SysParameter>("WHERE NAME=@0", entity.Name).Count() > 0) throw new ApiException(ResponseCode.参数值错误,"参数值重复","Name");
+            if (FindAll<SysParameter>("WHERE NAME=@0", entity.Name).Count() > 0) throw new ApiException(ResponseCode.参数值错误, "参数值重复", "Name");
             entity.Id = Guid.NewGuid();
             entity.Insert();
             return entity;
@@ -114,9 +114,11 @@ namespace NoRain.Business.Bll
         }
 
 
-        public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams,ParameterPagerCondition condition)
+        public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(Model.Request.DataTablesRequest reqestParams, ParameterPagerCondition condition)
         {
             return GetParameterPager(reqestParams.start + 1, reqestParams.length == -1 ? int.MaxValue : reqestParams.length, condition.Name, condition.Value);
+
         }
+
     }
 }

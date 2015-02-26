@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoRain.Business.Dal
+namespace NoRain.Business.Dao
 {
-    public class CommonSecurityDAL : BaseDAL, ICommonSecurityDAL
+    public class CommonSecurityDao : BaseDao, ICommonSecurityDao
     {
-        public CommonSecurityDAL() : base("NoRainRights")
+        public CommonSecurityDao() : base("NoRainRights")
         {
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NoRain.Business.IDal
 {
-    public interface IRoleDal : ICommonSecurityDAL
+    public interface IRoleDal : ICommonSecurityDao
     {
          void DeleteRoleUser(int roleId);
          void DeleteRoleFunction(int roleId);
