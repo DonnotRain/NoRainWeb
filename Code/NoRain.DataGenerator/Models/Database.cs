@@ -117,6 +117,8 @@ namespace DefaultConnection
 		[Column] public Guid CategoryTypeId { get; set; }
 		[Column] public Guid? ParentId { get; set; }
 		[Column] public int? Sort { get; set; }
+		[Column] public string Description { get; set; }
+		[Column] public short IsEnabled { get; set; }
 	}
     
 	[TableName("CategoryTypes")]
@@ -128,6 +130,8 @@ namespace DefaultConnection
 		[Column] public string Code { get; set; }
 		[Column] public string Name { get; set; }
 		[Column] public int? Sort { get; set; }
+		[Column] public string Description { get; set; }
+		[Column] public short IsEnabled { get; set; }
 	}
     
 	[TableName("SysParameters")]
@@ -138,6 +142,7 @@ namespace DefaultConnection
 		[Column] public string Name { get; set; }
 		[Column] public string ValueContent { get; set; }
 		[Column] public int IsEnabled { get; set; }
+		[Column] public string Description { get; set; }
 	}
     
 	[TableName("FileItems")]

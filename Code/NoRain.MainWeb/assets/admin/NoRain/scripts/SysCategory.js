@@ -54,10 +54,10 @@
                                    return data;
                                }
                            },
-                        { "aTargets": [2], "mData": "ValueContent" },
-                             { "aTargets": [3], "mData": "Description" },
+                        { "aTargets": ["Code"], "mData": "Code" },
+                             { "aTargets": ["Description"], "mData": "Description" },
                         {
-                            "aTargets": [4], "mData": "IsEnabled", "mRender": function (data, type, full) {
+                            "aTargets": ["IsEnabled"], "mData": "IsEnabled", "mRender": function (data, type, full) {
                                 return data ? '<span class="label label-sm label-success">已启用</span>' : '<span class="label label-sm label-danger">未启用</span>';
                             }
                         }
@@ -368,10 +368,11 @@ var SysCategoryItem = function () {
                                    return data;
                                }
                            },
-                        { "aTargets": [2], "mData": "ValueContent" },
-                             { "aTargets": [3], "mData": "Description" },
+                        { "aTargets": ["Code"], "mData": "Code" },
+                        //{ "aTargets": ["ItemContent"], "mData": "ItemContent" },
+                             { "aTargets": ["Description"], "mData": "Description" },
                         {
-                            "aTargets": [4], "mData": "IsEnabled", "mRender": function (data, type, full) {
+                            "aTargets": ["IsEnabled"], "mData": "IsEnabled", "mRender": function (data, type, full) {
                                 return data ? '<span class="label label-sm label-success">已启用</span>' : '<span class="label label-sm label-danger">未启用</span>';
                             }
                         }
@@ -390,7 +391,7 @@ var SysCategoryItem = function () {
                     ]
                 }
             });
-            $('#tableMain tbody').on('click', 'tr', function () {
+            $('#tableItem tbody').on('click', 'tr', function () {
                 $(this).toggleClass("selected");
                 var checked = false;
                 //先判断有没有被选中

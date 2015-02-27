@@ -38,7 +38,7 @@ namespace MainWeb.Controllers.API
         [Route("API/Category/DataTablePager")]
         public object GetCategoryItems([FromUri]DataTablesRequest reqestParams, [FromUri]CategoryItemPagerCondition condition)
         {
-            var pageResult = _categoryService.GetCategoryPager(reqestParams.length, reqestParams.start, condition.Name);
+            var pageResult = _categoryService.GetCategoryPager(reqestParams.length, reqestParams.start / reqestParams.length + 1, condition.Name);
 
             return new DataTablePager<CategoryType>()
             {
@@ -75,7 +75,7 @@ namespace MainWeb.Controllers.API
         public void Put(CategoryType categoryType)
         {
             var oldCategoryType = _categoryService.Find<CategoryType>("Where ID=@0", categoryType.Id);
-         
+
             _categoryService.Update(categoryType);
         }
 
