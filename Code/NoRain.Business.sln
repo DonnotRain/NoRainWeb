@@ -5,7 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{BDCA4580-E1C7-4018-9793-BA539CC548F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "NoRain.MainWeb\Web.csproj", "{8A6335D0-30F1-4372-8670-461346037FC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoRain.Web", "NoRain.MainWeb\NoRain.Web.csproj", "{8A6335D0-30F1-4372-8670-461346037FC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metronic-sass", "Sass.metronic\metronic-sass.csproj", "{1BB23C71-F553-4F72-BF05-5286CDBE1DC5}"
 EndProject

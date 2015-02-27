@@ -1,6 +1,4 @@
-﻿using DefaultConnection;
-using NoRain.Business.IBll;
-using NoRain.Business.WebBase;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,9 +9,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+
+using DefaultConnection;
+
 using MainWeb.Filters;
 using NoRain.Business.Model.Request;
 using NoRain.Toolkits;
+using NoRain.Business.Model.Response;
+using NoRain.Business.IBll;
+using NoRain.Business.WebBase;
 
 namespace MainWeb.Controllers.API
 {
@@ -54,7 +58,7 @@ namespace MainWeb.Controllers.API
         {
             var pageResult = m_ParameterBll.GetParameterPager(reqestParams, condition);
 
-            return new
+            return new DataTablePager<SysParameter>()
             {
                 draw = reqestParams.draw,
                 recordsTotal = pageResult.TotalItems,

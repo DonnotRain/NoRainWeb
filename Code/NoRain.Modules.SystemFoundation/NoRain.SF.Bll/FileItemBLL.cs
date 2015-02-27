@@ -11,7 +11,7 @@ using System.Web;
 
 namespace NoRain.Business.Bll
 {
-    public class FileItemBLL : CommonBLL, IFileItemBll
+    public class FileItemBLL : CommonService, IFileItemBll
     {
         private ICommonSecurityBLL m_securityBLL;
         private readonly string uploadPath =SysConfigs.UploadPath;

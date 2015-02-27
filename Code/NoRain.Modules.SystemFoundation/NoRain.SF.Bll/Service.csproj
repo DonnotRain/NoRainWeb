@@ -47,8 +47,8 @@
     <Compile Include="Authority\FunctionBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />
     <Compile Include="Common\BaseBll.cs" />
-    <Compile Include="Common\CommonAuthorityBLL.cs" />
-    <Compile Include="Common\CommonBLL.cs" />
+    <Compile Include="Common\CommonAuthorityService.cs" />
+    <Compile Include="Common\CommonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

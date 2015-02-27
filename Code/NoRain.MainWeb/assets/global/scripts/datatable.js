@@ -41,7 +41,7 @@ var Datatable = function () {
                 loadingMessage: 'Loading...',
                 dataTable: {
                     //<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r> 原来的
-                    "dom": "<'table-scrollable't><'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>>", // datatable layout
+                    "dom": "<'table-scrollable't><'row'<'col-md-12 col-sm-12'pli>>", // datatable layout
                     "pageLength": 10, // default records per page
                     "language": { // language settings
                         // metronic spesific

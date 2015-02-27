@@ -7,7 +7,7 @@ using PetaPoco;
 
 namespace NoRain.Business.IDal
 {
-    public interface IBaseDAL
+    public interface IBaseDao
     {
         Database DB { get; }
         T Update<T>(T entity) where T : class;

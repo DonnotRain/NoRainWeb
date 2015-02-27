@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoRain.Business.IBll
 {
-    public interface ICommonBLL : IBaseBLL
+    public interface ICommonService : IBaseBLL
     {
     }
 }

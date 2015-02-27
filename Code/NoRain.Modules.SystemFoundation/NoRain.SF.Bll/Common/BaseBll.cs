@@ -9,11 +9,11 @@ using PetaPoco;
 
 namespace NoRain.Business.Bll
 {
-    public abstract class BaseBll : IBaseBLL
+    public abstract class BaseService : IBaseBLL
     {
-        internal IBaseDAL m_baseDAL;
+        internal IBaseDao m_baseDAL;
 
-        public BaseBll(IBaseDAL baseDAL)
+        public BaseService(IBaseDao baseDAL)
         {
             m_baseDAL = baseDAL;
         }

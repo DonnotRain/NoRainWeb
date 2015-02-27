@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NoRain.Business.Bll
 {
-    public class CategoryBLL : CommonBLL, ICategoryBLL
+    public class CategoryBLL : CommonService, ICategoryService
     {
         public CategoryBLL()
         {

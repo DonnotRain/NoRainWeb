@@ -7,31 +7,46 @@ using DefaultConnection;
 using NoRain.Business.IBll;
 using NoRain.Business.WebBase;
 using MainWeb.Filters;
+using NoRain.Business.Model.Request;
+using NoRain.Business.Model.Response;
 
 namespace MainWeb.Controllers.API
 {
     [ServiceValidate()]
     public class CategoryController : ApiController
     {
-        private ICategoryBLL _mBaseBll;
+        private ICategoryService _categoryService;
 
 
         public CategoryController()
         {
-            _mBaseBll = DPResolver.Resolver<ICategoryBLL>();
+            _categoryService = DPResolver.Resolver<ICategoryService>();
         }
 
         // GET api/CategoryType
         public IEnumerable<CategoryType> Get()
         {
-            return _mBaseBll.FindAll<CategoryType>("");
+            return _categoryService.FindAll<CategoryType>("");
         }
 
         // GET api/CategoryType
         public object GetPager(int rows, int page, string name)
         {
-            var pager = _mBaseBll.GetCategoryPager(rows, page, name);
+            var pager = _categoryService.GetCategoryPager(rows, page, name);
             return new { total = pager.TotalItems, rows = pager.Items };
+        }
+        [Route("API/Category/DataTablePager")]
+        public object GetCategoryItems([FromUri]DataTablesRequest reqestParams, [FromUri]CategoryItemPagerCondition condition)
+        {
+            var pageResult = _categoryService.GetCategoryPager(reqestParams.length, reqestParams.start, condition.Name);
+
+            return new DataTablePager<CategoryType>()
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
         }
         // GET api/CategoryType/5
         /// <summary>
@@ -41,7 +56,7 @@ namespace MainWeb.Controllers.API
         /// <returns></returns>
         public CategoryType Get(Guid id)
         {
-            return _mBaseBll.Find<CategoryType>("Where ID=@0", id);
+            return _categoryService.Find<CategoryType>("Where ID=@0", id);
         }
 
         // POST api/CategoryType
@@ -53,21 +68,21 @@ namespace MainWeb.Controllers.API
             }
 
             categoryType.Id = Guid.NewGuid();
-            _mBaseBll.Insert(categoryType);
+            _categoryService.Insert(categoryType);
         }
 
         // PUT api/CategoryType/5
         public void Put(CategoryType categoryType)
         {
-            var oldCategoryType = _mBaseBll.Find<CategoryType>("Where ID=@0", categoryType.Id);
+            var oldCategoryType = _categoryService.Find<CategoryType>("Where ID=@0", categoryType.Id);
          
-            _mBaseBll.Update(categoryType);
+            _categoryService.Update(categoryType);
         }
 
         // DELETE api/CategoryType/5
         public void Delete(Guid id)
         {
-            _mBaseBll.Delete(Get(id));
+            _categoryService.Delete(Get(id));
         }
 
         [Route("API/CategoryType/DeleteSome/{ids}")]
@@ -77,8 +92,8 @@ namespace MainWeb.Controllers.API
             {
                 var itemsStr = ids.Split(',').ToList();
                 var items = new List<CategoryType>();
-                itemsStr.ForEach(m => items.Add(_mBaseBll.Find<CategoryType>("Where id=@0", new Guid(m))));
-                _mBaseBll.Delete(items);
+                itemsStr.ForEach(m => items.Add(_categoryService.Find<CategoryType>("Where id=@0", new Guid(m))));
+                _categoryService.Delete(items);
             }
             else
             {

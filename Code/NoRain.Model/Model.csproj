@@ -43,6 +43,9 @@
     <Compile Include="AjaxResult.cs" />
     <Compile Include="Request\DataTablesRequest.cs" />
     <Compile Include="Request\ParameterPagerCondition.cs" />
+    <Compile Include="Request\CategoryItemPagerCondition.cs" />
+    <Compile Include="Request\CategoryPagerCondition.cs" />
+    <Compile Include="Response\DataTablePager.cs" />
     <Compile Include="Response\jsTreeNode.cs" />
     <Compile Include="Response\EasyuiTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

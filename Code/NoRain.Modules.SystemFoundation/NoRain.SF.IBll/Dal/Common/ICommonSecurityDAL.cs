@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoRain.Business.IDal
 {
-    public interface ICommonSecurityDao : IBaseDAL
+    public interface ICommonSecurityDao : IBaseDao
     {
     }
 }

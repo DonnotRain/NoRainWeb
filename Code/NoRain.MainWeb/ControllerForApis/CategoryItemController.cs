@@ -10,13 +10,15 @@ using NoRain.Business.WebBase;
 using NoRain.Business.Bll;
 using MainWeb.Filters;
 using NoRain.Business.Models;
+using NoRain.Business.Model.Request;
+using NoRain.Business.Model.Response;
 
 namespace MainWeb.Controllers.API
 {
     [ServiceValidate()]
     public class CategoryItemController : ApiController
     {
-        private readonly ICategoryBLL m_Bll;
+        private readonly ICategoryService m_Bll;
 
 
         public CategoryItemController()
@@ -61,7 +63,19 @@ namespace MainWeb.Controllers.API
 
             return new { rows = pager.Items, total = pager.TotalItems };
         }
+        [Route("API/CategoryItem/DataTablePager")]
+        public object GetCategoryItems([FromUri]DataTablesRequest reqestParams, [FromUri]CategoryItemPagerCondition condition)
+        {
+            var pageResult = m_Bll.GetItemsPager(reqestParams.length, reqestParams.start, condition.Name, condition.CategoryId, condition.ParentId);
 
+            return new DataTablePager<CategoryItem>()
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
+        }
         // POST api/CategoryItem
         public void Post(CategoryItem categoryItem)
         {

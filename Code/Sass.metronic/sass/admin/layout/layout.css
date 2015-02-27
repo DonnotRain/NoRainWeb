@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media print {
   body {
     background-color: #fff !important; }
@@ -165,7 +166,7 @@ Page Header
             .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle > i.glyphicon {
               font-size: 16px; }
           .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle > .badge {
-            font-family: "Open Sans", sans-serif;
+            font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
             position: absolute;
             top: 10px;
             right: 20px;
@@ -409,7 +410,7 @@ Horizontal Menu
           left: auto;
           width: auto; }
           .page-header.navbar .hor-menu .navbar-nav > li.mega-menu-dropdown > .dropdown-menu .mega-menu-content {
-            font-family: "Open Sans", sans-serif;
+            font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
             padding: 15px;
             margin: 0; }
             .page-header.navbar .hor-menu .navbar-nav > li.mega-menu-dropdown > .dropdown-menu .mega-menu-content.mega-menu-responsive-content {
@@ -430,7 +431,7 @@ Horizontal Menu
                   font-weight: 400; }
                 .page-header.navbar .hor-menu .navbar-nav > li.mega-menu-dropdown > .dropdown-menu .mega-menu-content .mega-menu-submenu li > a {
                   white-space: normal;
-                  font-family: "Open Sans", sans-serif;
+                  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
                   padding: 7px;
                   margin: 0;
                   font-size: 14px;
@@ -474,7 +475,7 @@ Horizontal Menu
         margin-top: 0;
         border: none; }
         .page-header.navbar .hor-menu .navbar-nav > li .dropdown-menu li > a {
-          font-family: "Open Sans", sans-serif;
+          font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
           font-size: 14px;
           font-weight: 300;
           padding: 9px 10px;
@@ -1656,7 +1657,7 @@ Page content
   color: #666;
   margin: 0px 0px 15px 0px;
   font-weight: 300;
-  font-family: "Open Sans", sans-serif;
+  font-family: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "宋体";
   /* subtitle */ }
   .page-title small {
     font-size: 14px;

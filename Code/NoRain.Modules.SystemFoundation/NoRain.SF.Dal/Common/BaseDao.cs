@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NoRain.Business.Dao
 {
-    public class BaseDao : IBaseDAL
+    public class BaseDao : IBaseDao
     {
 
         public Database DB { get { return DBManage.Instance[_dbName]; } }

@@ -10,7 +10,7 @@ using NoRain.Business.Models;
 
 namespace NoRain.Business.IBll
 {
-    public interface ICategoryBLL : ICommonBLL
+    public interface ICategoryService : ICommonService
     {
         IEnumerable<EasyuiTreeNode> GetCategoryItems(Guid? categoryId);
 

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace NoRain.Business.IBll
 {
-    public interface IParameterBll : ICommonBLL
+    public interface IParameterBll : ICommonService
     {
         Page<SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value);
         SysParameter Add(SysParameter Parameter);

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace NoRain.Business.Bll
 {
-    public class ParameterBll : CommonBLL, IParameterBll
+    public class ParameterBll : CommonService, IParameterBll
     {
         public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value)
         {

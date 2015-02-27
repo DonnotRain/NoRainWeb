@@ -1,7 +1,7 @@
 ﻿using DefaultConnection;
 namespace NoRain.Business.IBll
 {
-    public interface IFileItemBll : ICommonBLL
+    public interface IFileItemBll : ICommonService
     {
         /// <summary>
         /// 上传
