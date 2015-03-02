@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authority\OperatorBll.cs" />
-    <Compile Include="FileItemBLL.cs" />
-    <Compile Include="ParameterBll.cs" />
+    <Compile Include="Sys\FileItemBLL.cs" />
+    <Compile Include="Sys\ParameterBll.cs" />
     <Compile Include="Sys\CategoryBLL.cs" />
     <Compile Include="Authority\FunctionBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />

@@ -81,7 +81,7 @@
 
     }
 
-    //扩展通用Ajax方法
+    //扩展Web框架之Ajax方法
     $.CommonAjax = function (params) {
         var defaultParams = {
             type: "post",
@@ -194,6 +194,7 @@
         return $ele;
     }
 
+
     //提示框用法示例
     var UIToastr = function () {
         return {
@@ -232,6 +233,20 @@
         }
         if (!isHasFiled) {
             array.push({ name: filed, value: value });
+        }
+    }
+
+    //由序列化的表单值（jqueryserializeArray方法）
+    //绑定到原纪录中
+    //用于纪录的部分字段编辑更新
+    function BindFormItem(serializeArray, srcItem) {
+        try {
+            for (var i = 0; i < serializeArray.length; i++) {
+                srcItem[serializeArray[i].name] = serializeArray[i].value;
+            }
+        }
+        catch (e) {
+            throw new Error("转换序列换表单出错");
         }
     }
 
@@ -284,8 +299,8 @@
         , LoadSelectOption: LoadSelectOption
         , SetSelectValues: SetSelectValues
         , SetFormArrayValue: SetFormArrayValue
+        , BindFormItem: BindFormItem
     }
-
 
 })(jQuery);
 

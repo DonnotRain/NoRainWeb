@@ -12015,3 +12015,443 @@ ERROR 2015-02-26 14:52:48,370 [LogFileAppender] Invalid column index (-1).  Allo
    在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:24,585 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetCategoryPager(Int32 rows, Int32 page, String name) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 89
+   在 MainWeb.Controllers.API.CategoryController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:24,585 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetItemsPager(Int32 rows, Int32 page, String name, Nullable`1 categoryId, Nullable`1 parentId) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 67
+   在 MainWeb.Controllers.API.CategoryItemController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryItemController.cs:行号 69
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:36,405 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetCategoryPager(Int32 rows, Int32 page, String name) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 89
+   在 MainWeb.Controllers.API.CategoryController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:36,701 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetItemsPager(Int32 rows, Int32 page, String name, Nullable`1 categoryId, Nullable`1 parentId) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 67
+   在 MainWeb.Controllers.API.CategoryItemController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryItemController.cs:行号 69
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:42,840 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetCategoryPager(Int32 rows, Int32 page, String name) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 89
+   在 MainWeb.Controllers.API.CategoryController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:42,852 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetItemsPager(Int32 rows, Int32 page, String name, Nullable`1 categoryId, Nullable`1 parentId) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 67
+   在 MainWeb.Controllers.API.CategoryItemController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryItemController.cs:行号 69
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:44,121 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetCategoryPager(Int32 rows, Int32 page, String name) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 89
+   在 MainWeb.Controllers.API.CategoryController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:44:44,144 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetItemsPager(Int32 rows, Int32 page, String name, Nullable`1 categoryId, Nullable`1 parentId) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 67
+   在 MainWeb.Controllers.API.CategoryItemController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryItemController.cs:行号 69
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:51:07,079 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetCategoryPager(Int32 rows, Int32 page, String name) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 89
+   在 MainWeb.Controllers.API.CategoryController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryController.cs:行号 41
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-03-02 10:51:07,103 [LogFileAppender] 列名 'IsEnabled' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   在 PetaPoco.Database.<Query>d__2`1.MoveNext() 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 873
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 PetaPoco.Database.Fetch[T](String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 615
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sqlCount, Object[] countArgs, String sqlPage, Object[] pageArgs) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 694
+   在 PetaPoco.Database.Page[T](Int64 page, Int64 itemsPerPage, String sql, Object[] args) 位置 f:\git\TeamWeb\Code\NoRain.Entity\PetaPoco.cs:行号 719
+   在 NoRain.Business.Dao.BaseDao.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Dal\Common\BaseDao.cs:行号 98
+   在 NoRain.Business.Bll.BaseService.FindAllByPage[T](String sql, Int32 pageSize, Int32 pageIndex, Object[] paramaters) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Common\BaseBll.cs:行号 66
+   在 NoRain.Business.Bll.CategoryBLL.GetItemsPager(Int32 rows, Int32 page, String name, Nullable`1 categoryId, Nullable`1 parentId) 位置 f:\git\TeamWeb\Code\NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Sys\CategoryBLL.cs:行号 67
+   在 MainWeb.Controllers.API.CategoryItemController.GetCategoryItems(DataTablesRequest reqestParams, CategoryItemPagerCondition condition) 位置 f:\git\TeamWeb\Code\NoRain.MainWeb\ControllerForApis\CategoryItemController.cs:行号 69
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

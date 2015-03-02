@@ -6,7 +6,7 @@ using System.Collections;
 
 
 /// <summary>
-/// UEditor编辑器通用上传类
+/// UEditor编辑器Web框架之上传类
 /// </summary>
 
 public class Uploader

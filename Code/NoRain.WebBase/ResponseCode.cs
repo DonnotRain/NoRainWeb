@@ -11,6 +11,9 @@ namespace NoRain.Business.WebBase
         [ResponseMessage("必须参数[{0}]缺少", HttpStatusCode.NotFound)]
         必须参数缺少 = 10001001,
 
+        [ResponseMessage("参数[{0}]值重复")]
+        参数值重复 = 10001010,
+
         [ResponseMessage("参数[{0}]值错误", HttpStatusCode.NotAcceptable)]
         参数值错误 = 10001002,
 

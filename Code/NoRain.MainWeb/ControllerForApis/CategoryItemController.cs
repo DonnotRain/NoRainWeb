@@ -66,7 +66,7 @@ namespace MainWeb.Controllers.API
         [Route("API/CategoryItem/DataTablePager")]
         public object GetCategoryItems([FromUri]DataTablesRequest reqestParams, [FromUri]CategoryItemPagerCondition condition)
         {
-            var pageResult = m_Bll.GetItemsPager(reqestParams.length, reqestParams.start, condition.Name, condition.CategoryId, condition.ParentId);
+            var pageResult = m_Bll.GetItemsPager(reqestParams.length, reqestParams.start / reqestParams.length + 1, condition.Name, condition.CategoryId, condition.ParentId);
 
             return new DataTablePager<CategoryItem>()
             {
@@ -81,7 +81,7 @@ namespace MainWeb.Controllers.API
         {
             if (string.IsNullOrEmpty(categoryItem.ItemContent))
             {
-                throw new ApiException(ResponseCode.必须参数缺少, "缺少参数");
+                throw new ApiException(ResponseCode.必须参数缺少, "缺少参数", "参数值(ItemContent)");
             }
 
             categoryItem.Id = Guid.NewGuid();
@@ -102,8 +102,7 @@ namespace MainWeb.Controllers.API
             m_Bll.Delete(Get(id));
         }
 
-        [Route("API/CategoryItem/DeleteSome/{ids}")]
-        public void DeleteSome(string ids)
+        public void DeleteSome([FromBody]string ids)
         {
             if (!string.IsNullOrEmpty(ids))
             {

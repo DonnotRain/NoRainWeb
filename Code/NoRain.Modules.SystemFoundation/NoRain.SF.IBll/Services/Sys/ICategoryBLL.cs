@@ -19,5 +19,6 @@ namespace NoRain.Business.IBll
         List<CategoryItem> GetItems(string categoryCode, Guid? parentId);
 
         Page<CategoryType> GetCategoryPager(int rows, int page, string name);
+        void AddCategory(CategoryType category);
     }
 }

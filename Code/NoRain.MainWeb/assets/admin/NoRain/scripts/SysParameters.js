@@ -292,19 +292,19 @@
 
             //阻塞页面，防止再次提交
             Metronic.blockUI({
-                target: '#mainDlg-content',
+                target: '#responsive-content',
                 message: "提交中……"
             });
 
             $.CommonAjax({
-                targetBlock: '#mainDlg-content',
+                targetBlock: '#responsive-content',
                 url: currentUrl,
                 type: type,
                 data: data,
                 success: function (data, textStatus) {
                     reloadDataGrid();
                     toastr.success('提交成功!')
-                    Metronic.unblockUI('#mainDlg-content');
+                    Metronic.unblockUI('#responsive-content');
                     $('#mainDlg').modal('hide');
                 }
             });
@@ -324,20 +324,6 @@
             }
             else data.needPager = true;
 
-            //判断对象是否为字符串
-            //var isString = function (str) {
-            //    return (typeof str == 'string') && str.constructor == String;
-            //}
-            //var urlSetup = function (urlParams) {
-            //    var url = "?"
-            //    var paramArray = [];
-            //    for (var f in urlParams) {
-            //        //(typeof str=='string')&&str.constructor==String;
-            //        if (isString(urlParams[f])) paramArray.push("f=" + window.encodeURIComponent(urlParams[f]));
-            //    }
-            //    url += paramArray.join("&");
-            //    return url;
-            //};
             window.open(currentUrl + "ExportExcel?" +  $.param(data), "_blank");
         }
         , Print: function () {

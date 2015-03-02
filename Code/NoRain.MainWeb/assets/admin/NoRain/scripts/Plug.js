@@ -15,7 +15,7 @@
 
     function InitialFunc() {
         Initialize.loadDataGrid();
-        Initialize.initCombos();
+        Initialize.initInputs();
         Initialize.initialValidate();
         Initialize.initialBtns();
     }
@@ -139,7 +139,7 @@
             $(window).resize(resize);
             resize();
         },
-        initCombos: function () {
+        initInputs: function () {
 
             //加载父节点
             $.getJSON(currentUrl + "AlljsTreeData", {}, function (json) {
@@ -160,6 +160,15 @@
                     NoRainTools.LoadSelectOption($("#RoleIds"), data, "Name", "ID", false);
                     $("#RoleIds").select2({})
                 }
+            });
+            $("#Sort").TouchSpin({
+                buttondown_class: 'btn green',
+                buttonup_class: 'btn green',
+                min: -1000000000,
+                max: 1000000000,
+                stepinterval: 50,
+                maxboostedstep: 10000000,
+                prefix: ''
             });
 
         },

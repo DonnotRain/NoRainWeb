@@ -62,13 +62,7 @@ namespace MainWeb.Controllers.API
         // POST api/CategoryType
         public void Post(CategoryType categoryType)
         {
-            if (string.IsNullOrEmpty(categoryType.Name))
-            {
-                throw new ApiException(ResponseCode.必须参数缺少, "缺少参数");
-            }
-
-            categoryType.Id = Guid.NewGuid();
-            _categoryService.Insert(categoryType);
+            _categoryService.AddCategory(categoryType);
         }
 
         // PUT api/CategoryType/5
@@ -85,8 +79,7 @@ namespace MainWeb.Controllers.API
             _categoryService.Delete(Get(id));
         }
 
-        [Route("API/CategoryType/DeleteSome/{ids}")]
-        public void DeleteSome(string ids)
+        public void DeleteSome([FromBody]string ids)
         {
             if (!string.IsNullOrEmpty(ids))
             {

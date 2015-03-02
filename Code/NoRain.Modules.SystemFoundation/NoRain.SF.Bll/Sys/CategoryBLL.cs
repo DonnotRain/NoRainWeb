@@ -16,7 +16,7 @@ namespace NoRain.Business.Bll
     {
         public CategoryBLL()
         {
-           
+
         }
 
         public IEnumerable<EasyuiTreeNode> GetCategoryItems(Guid? categoryId)
@@ -120,5 +120,29 @@ namespace NoRain.Business.Bll
             return items;
         }
 
+        public void AddCategory(CategoryType category)
+        {
+            //检查必要参数
+            if (string.IsNullOrEmpty(category.Name))
+            {
+                throw new ApiException(ResponseCode.必须参数缺少, "缺少参数", "名称（Name）");
+            }
+
+            if (string.IsNullOrEmpty(category.Code))
+            {
+                throw new ApiException(ResponseCode.必须参数缺少, "缺少参数", "编号（Code）");
+            }
+            //生成Id
+            category.Id = Guid.NewGuid();
+
+            //判断名称和编号是否有重复
+            var items = FindAll<CategoryType>("WHERE Name=@0 or Code=@1", category.Name, category.Code);
+
+            if (items.Count() != 0)
+            {
+                throw new ApiException(ResponseCode.参数值重复, "请检查编号和名称", "编号（Code）名称（Name）");
+            }
+            Insert(category);
+        }
     }
 }

@@ -22,7 +22,7 @@
 </h3>
 <!-- BEGIN PAGE CONTENT-->
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6" id="panel-type">
         <!-- BEGIN Portlet PORTLET-->
         <div class="portlet  gren">
             <div class="portlet-title">
@@ -82,14 +82,11 @@
                                     <input type="checkbox" class="group-checkable">
                                 </th>
                                 <th class="Name">分类名称</th>
-                                <th class="Code">
-                                    编号
+                                <th class="Code">编号
                                 </th>
-                                <th class="Description">
-                                    描述
+                                <th class="Description">描述
                                 </th>
-                                <th class="IsEnabled">
-                                    是否启用
+                                <th class="IsEnabled">是否启用
                                 </th>
                             </tr>
                         </thead>
@@ -101,7 +98,7 @@
         </div>
         <!-- END Portlet PORTLET-->
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6" id="panel-item">
         <!-- BEGIN Portlet PORTLET-->
         <div class="portlet gren">
             <div class="portlet-title">
@@ -165,18 +162,13 @@
                                 <th style="width: 1%">
                                     <input type="checkbox" class="group-checkable">
                                 </th>
-                                <th class="Name">分类项名称</th>
-                                <th class="Code">
-                                    分类项编号
+                                <th class="Code">分类项编号
                                 </th>
-                                <th class="ItemContent">
-                                    值
+                                <th class="ItemContent">值
                                 </th>
-                                <th class="Description">
-                                    说明
+                                <th class="Description">说明
                                 </th>
-                                <th class="IsEnabled">
-                                    是否启用
+                                <th class="IsEnabled">是否启用
                                 </th>
                             </tr>
                         </thead>
@@ -198,6 +190,7 @@
     <script src="~/assets/global/plugins/datatables/media/js/jquery.dataTables.js"></script>
     <script src="~/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
     <script src="~/assets/global/scripts/datatable.js"></script>
+    <script src="~/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js"></script>
 
     <script src="~/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
     <script src="~/assets/global/plugins/jquery-validation/js/localization/messages_zh.min.js"></script>
@@ -206,6 +199,7 @@
     <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="~/assets/global/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
     <script src="~/assets/admin/NoRain/scripts/SysCategory.js"></script>
+    <script src="~/assets/admin/NoRain/scripts/SysCategoryItem.js"></script>
     <script type="text/javascript">
         SysCategory.init();
         SysCategoryItem.init();
