@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FunctionController.cs" />
     <Compile Include="ControllerForApis\Security\OperatorController.cs" />
+    <Compile Include="Controllers\SysUsersController.cs" />
     <Compile Include="Filters\BackAdminAuthorize.cs" />
     <Compile Include="Filters\AdminAuthorize.cs" />
     <Compile Include="Filters\MobileServiceMark.cs" />
@@ -6169,21 +6170,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jQuery.validVal\serverside-validations\validations.php" />
     <Content Include="Views\Shared\Menu.cshtml" />
-    <Content Include="Views\Plug\Create.cshtml" />
-    <Content Include="Views\Plug\Index.cshtml" />
+    <Content Include="Views\Function\Create.cshtml" />
+    <Content Include="Views\Function\Index.cshtml" />
     <Content Include="Config\Settings.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Category\CreateCategory.cshtml" />
     <Content Include="Views\Category\CreateCategoryItem.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\RoleUser\Index.cshtml">
+    <Content Include="Views\RoleFunction\Index.cshtml">
       <SubType>
       </SubType>
     </Content>
-    <Content Include="Views\RoleUser\CreateSysUser.cshtml" />
-    <Content Include="Views\RoleUser\CreateRole.cshtml" />
-    <Content Include="Views\RoleUser\SelectRoleFunctions.cshtml" />
+    <Content Include="Views\RoleFunction\CreateSysUser.cshtml" />
+    <Content Include="Views\RoleFunction\CreateRole.cshtml" />
+    <Content Include="Views\RoleFunction\SelectRoleFunctions.cshtml" />
     <Content Include="Views\Parameters\Create.cshtml" />
     <Content Include="Views\Parameters\Index.cshtml" />
     <Content Include="Views\Authorize\ChangePassword.cshtml" />
@@ -6191,7 +6192,8 @@
     <Content Include="Views\Authorize\Login.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Scripts\bootstrap-modal.extend.js" />
-    <Content Include="Views\Plug\IconChoose.cshtml" />
+    <Content Include="Views\Function\IconChoose.cshtml" />
+    <Content Include="Views\SysUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

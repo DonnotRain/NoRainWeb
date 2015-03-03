@@ -8,7 +8,7 @@ using BusinessWeb.Filters;
 namespace BusinessWeb.Areas.Back.Controllers
 {
      [AdminAuthorize]
-    public class PlugController : Controller
+    public class FunctionController : Controller
     {
         //
         // GET: /Back/Plug/
