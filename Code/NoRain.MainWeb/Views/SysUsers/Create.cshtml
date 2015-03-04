@@ -1,0 +1,175 @@
+﻿<!--BEGIN 添加和编辑的表单 -->
+<div id="mainDlg" class="modal fade" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static" data-width="400" data-draggable="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="responsive-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">标题</h4>
+            </div>
+            <div class="modal-body">
+                @* form-row-seperated*@
+                <form class="form-horizontal" role="form" method="post" id="fm">
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入信息有误，请检查后重试。
+                    </div>
+                    <div class="alert alert-success display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入验证成功!
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">用户名称</label>
+                        <div class="col-md-4">
+                            <input name="Name" class="form-control required" type="text" id="Name" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">姓名</label>
+                        <div class="col-md-4">
+                            <input name="Name" class="form-control required" type="text" id="Name" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">登录密码</label>
+                        <div class="col-md-4">
+                            <input name="Password" class="form-control required" type="password" id="Password" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">密码确认</label>
+                        <div class="col-md-4">
+                            <input name="PasswordConfirm" class="form-control required" type="password" id="PasswordConfirm" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">所属角色</label>
+                        <div class="col-md-4">
+                            <select name="RoleIDs" class="form-control required" id="SysUserRoleIDs"></select>
+                        </div>
+                    </div><div class="form-group">
+                        <label class="col-md-2 control-label required">密码确认</label>
+                        <div class="col-md-4">
+                            <input name="PasswordConfirm" class="form-control required" type="password" id="PasswordConfirm" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">角色描述</label>
+                        <div class="col-md-8">
+                            <textarea name="Note" class="form-control required" rows="6" id="Note"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ID" id="RoleId" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" onclick="SysRoles.Save();">保存</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END 添加和编辑的表单e -->
+<table border="0" cellpadding="0" cellspacing="0" class="frm-table">
+    <tr>
+        <th>
+            用户名<span class="label-necessary">*</span>：
+        </th>
+        <td>
+            <input name="Name" id="Name" class="required" type="text" style="width:@width" value="" />
+        </td>
+        <th>
+            姓名<span class="label-necessary">*</span>：
+        </th>
+        <td>
+            <input name="FullName" id="FullName" class="required" type="text" style="width:@width" value="" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            登录密码<span class="label-necessary">*</span>：
+        </th>
+        <td>
+            <input name="Password" id="Password" class="" type="password" style="width:@width" value="" />
+        </td>
+        <th>
+            密码确认<span class="label-necessary">*</span>：
+        </th>
+        <td>
+            <input name="PasswordConfirm" id="PasswordConfirm" class="placeholder corresponding:Password" type="password" style="width:@width" value="" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="RoleNameId">所属角色：</label>
+        </th>
+        <td colspan="3">
+            <input type="text" id="SysUserRoleIDs" name="RoleIDs" style="width:470px" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            移动电话：
+        </th>
+        <td>
+            <input name="MobilePhone" id="MobilePhone" class="" type="text" style="width:@width" value="" />
+        </td>
+        <th>
+            办公电话：
+        </th>
+        <td>
+            <input name="OfficePhone" id="OfficePhone" type="text" style="width:@width" value="" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            家里电话：
+        </th>
+        <td>
+            <input name="HomePhone" id="HomePhone" type="text" style="width:@width" value="" />
+        </td>
+        <th>
+            电子邮箱：
+        </th>
+        <td>
+            <input name="Email" id="Email" class="email" type="text" style="width:@width" value="" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            身份证号：
+        </th>
+        <td>
+            <input name="IdentityCard" id="IdentityCard" class="" type="text" style="width:@width" value="" />
+        </td>
+        <th>
+            家庭住址：
+        </th>
+        <td>
+            <input name="Address" id="Address" class="" type="text" style="width:@width" value="" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            有效性：
+        </th>
+        <td colspan="3">
+            <input type="checkbox" id="IsEnabledCheck" checked="checked" style="vertical-align: middle; margin: auto" />
+            <label for="IsEnabledCheck" style="vertical-align: middle;">禁用</label>
+            <label style="vertical-align: middle; color: red;">注意：勾选后将不能登录系统。</label>
+            <input type="checkbox" id="SuperAdmin" checked="checked" style="vertical-align: middle; margin: auto" />
+            <label for="SuperAdmin" style="vertical-align: middle;">超级管理员</label>
+            <label style="vertical-align: middle; color: red;">拥有全部权限</label>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            说明：
+        </th>
+        <td colspan="3">
+            <textarea name="Remark" id="Remark" maxlength="200" class="txtArea" type="text" rows="7" style="width:465px;height:80px;"></textarea>
+        </td>
+    </tr>
+</table>
+<input type="hidden" id="SysUserID" name="ID" value="" />
+<input type="hidden" id="IsExpire" name="IsExpire" value="" />
+<input type="hidden" id="IsSuperAdmin" name="IsSuperAdmin" value="" />
