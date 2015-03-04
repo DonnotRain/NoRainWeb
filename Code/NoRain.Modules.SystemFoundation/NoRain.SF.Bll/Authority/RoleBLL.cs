@@ -57,7 +57,7 @@ namespace NoRain.Business.Bll
             if (!string.IsNullOrEmpty(name))
             {
                 name = "%" + name + "%";
-                sql.Append(" And (s.Name like @0 or s.FullName like @0)", name);
+                sql.Append(" And (s.Name like @0)", name);
             }
 
 

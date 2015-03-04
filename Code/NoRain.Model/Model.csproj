@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="AjaxResult.cs" />
+    <Compile Include="Request\RolePagerCondition.cs" />
     <Compile Include="Request\DataTablesRequest.cs" />
     <Compile Include="Request\ParameterPagerCondition.cs" />
     <Compile Include="Request\CategoryItemPagerCondition.cs" />

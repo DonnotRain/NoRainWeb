@@ -10,7 +10,6 @@ namespace MainWeb.Controllers
     [AdminAuthorize]
     public class SysUsersController : Controller
     {
-        // GET: Attendence
         public ActionResult Index()
         {
             return View();

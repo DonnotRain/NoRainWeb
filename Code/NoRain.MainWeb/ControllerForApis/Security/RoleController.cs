@@ -9,6 +9,7 @@ using NoRain.Business.IBll;
 using NoRain.Business.Models.Request;
 using MainWeb.Filters;
 using NoRain.Business.Models;
+using NoRain.Business.Model.Request;
 
 namespace MainWeb.Controllers.API
 {
@@ -26,6 +27,14 @@ namespace MainWeb.Controllers.API
         public object GetPager(int page, int rows, string name)
         {
             var pageResult = m_roleBll.GetRolePager(page, rows, name);
+
+            return new { total = pageResult.TotalItems, rows = pageResult.Items };
+        }
+
+        [Route("API/Role/DataTablePager")]
+        public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]RolePagerCondition condition)
+        {
+            var pageResult = m_roleBll.GetRolePager(reqestParams.length, reqestParams.start / reqestParams.length + 1, condition.Name);
 
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }

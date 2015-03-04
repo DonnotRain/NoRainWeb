@@ -427,6 +427,8 @@
     <Content Include="assets\admin\layout\scripts\layout.js" />
     <Content Include="assets\admin\layout\scripts\quick-sidebar.js" />
     <Content Include="assets\admin\NoRain\scripts\SysCategoryItem.js" />
+    <Content Include="assets\admin\NoRain\scripts\SysUser.js" />
+    <Content Include="assets\admin\NoRain\scripts\SysRole.js" />
     <Content Include="assets\admin\NoRain\scripts\ThemeSelect.js" />
     <Content Include="assets\admin\NoRain\scripts\SysCategory.js" />
     <Content Include="assets\admin\pages\css\about-us.css" />
@@ -6194,6 +6196,7 @@
     <Content Include="Scripts\bootstrap-modal.extend.js" />
     <Content Include="Views\Function\IconChoose.cshtml" />
     <Content Include="Views\SysUsers\Index.cshtml" />
+    <Content Include="Views\SysUsers\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

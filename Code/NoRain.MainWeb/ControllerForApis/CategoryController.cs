@@ -48,24 +48,18 @@ namespace MainWeb.Controllers.API
                 data = pageResult.Items
             };
         }
-        // GET api/CategoryType/5
-        /// <summary>
-        ///获取单个分类类型
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+
         public CategoryType Get(Guid id)
         {
             return _categoryService.Find<CategoryType>("Where ID=@0", id);
         }
 
-        // POST api/CategoryType
+      
         public void Post(CategoryType categoryType)
         {
             _categoryService.AddCategory(categoryType);
         }
 
-        // PUT api/CategoryType/5
         public void Put(CategoryType categoryType)
         {
             var oldCategoryType = _categoryService.Find<CategoryType>("Where ID=@0", categoryType.Id);
@@ -73,7 +67,6 @@ namespace MainWeb.Controllers.API
             _categoryService.Update(categoryType);
         }
 
-        // DELETE api/CategoryType/5
         public void Delete(Guid id)
         {
             _categoryService.Delete(Get(id));
