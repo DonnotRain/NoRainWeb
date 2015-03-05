@@ -3,7 +3,8 @@
     ViewBag.Title = "系统角色及授权管理";
 }
 @section CommonHeader{
-    <!--开始 公用样式 -->
+    <!--开始 公用样式 --> 
+    <link href="~/assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" />
     <link href="~/assets/global/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="~/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" rel="stylesheet" />
     <!--结束 公用样式 -->
@@ -12,8 +13,7 @@
     <style type="text/css">
     </style>
 }
-<h3 class="page-title">
-    系统角色及授权管理 <small>维护系统中的操作角色，分配角色权限，批量设置角色下用户</small>
+<h3 class="page-title">系统角色及授权管理 <small>维护系统中的操作角色，分配角色权限，批量设置角色下用户</small>
 </h3>
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -45,20 +45,22 @@
     <div class="col-md-8 col-sm-12">
         <a href="javascript:;" class="btn blue btn-sm" onclick="SysRoles.Add();">
             <i class="fa fa-plus"></i>
-            <span class="hidden-480">
-                添加
+            <span class="hidden-480">添加
             </span>
         </a>
         <a href="javascript:;" class="btn blue btn-sm" onclick="SysRoles.Edit();">
             <i class="fa fa-pencil"></i>
-            <span class="hidden-480">
-                修改
+            <span class="hidden-480">修改
             </span>
         </a>
         <a href="javascript:;" class="btn blue btn-sm" onclick="SysRoles.Delete();">
             <i class="fa fa-minus"></i>
-            <span class="hidden-480">
-                删除
+            <span class="hidden-480">删除
+            </span>
+        </a>
+        <a href="javascript:;" class="btn blue btn-sm" onclick="SysRoles.SetFunctions();">
+            <i class="fa fa-bank"></i>
+            <span class="hidden-480">分配权限
             </span>
         </a>
     </div>
@@ -73,12 +75,10 @@
                 <th style="width: 1%">
                     <input type="checkbox" class="group-checkable">
                 </th>
-                <th  class="Name">角色名称</th>
-                <th >
-                    描述
-                </th> 
-                <th >
-                    是否启用
+                <th class="Name">角色名称</th>
+                <th class="Note">描述
+                </th>
+                <th class="IsEnabled">是否启用
                 </th>
             </tr>
         </thead>
@@ -86,12 +86,13 @@
     </table>
 </div>
 @Html.Partial("CreateRole")
+@Html.Partial("SelectRoleFunctions")
 @section Scripts{
 
     <script src="~/assets/global/plugins/datatables/media/js/jquery.dataTables.js"></script>
     <script src="~/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
     <script src="~/assets/global/scripts/datatable.js"></script>
-
+    <script src="~/assets/global/plugins/jstree/dist/jstree.min.js"></script>
     <script src="~/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
     <script src="~/assets/global/plugins/jquery-validation/js/localization/messages_zh.min.js"></script>
     <script src="~/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>

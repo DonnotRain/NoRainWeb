@@ -169,6 +169,8 @@ namespace NoRainRights
         public string Name { get; set; }
         [Column]
         public string Note { get; set; }
+        [Column]
+        public bool IsEnabled { get; set; }
     }
 
     [TableName("Role_Function")]

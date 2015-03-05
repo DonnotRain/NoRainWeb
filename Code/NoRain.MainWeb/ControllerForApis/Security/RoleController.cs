@@ -35,7 +35,7 @@ namespace MainWeb.Controllers.API
         [Route("API/Role/DataTablePager")]
         public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]RolePagerCondition condition)
         {
-            var pageResult = m_roleBll.GetRolePager(reqestParams.length, reqestParams.start / reqestParams.length + 1, condition.Name);
+            var pageResult = m_roleBll.GetRolePager(reqestParams.start / reqestParams.length + 1, reqestParams.length, condition.Name);
 
 
             return new DataTablePager<Role>()
@@ -58,10 +58,10 @@ namespace MainWeb.Controllers.API
             return m_roleBll.Find<Role>("where id=@0", id);
         }
 
-        [Route("api/RoleFunctions")]
-        public IEnumerable<EasyuiTreeNode> GetRoles(int roleId)
+        [Route("api/Role/Functions")]
+        public IEnumerable<JsTreeNode> GetRoles(int id)
         {
-            return m_roleBll.GetRoleFunctions(roleId);
+            return m_roleBll.GetRoleFunctions(id);
         }
 
         public object Post(Role entity)

@@ -1,6 +1,6 @@
 ﻿var SysUsers = function () {
 
-    //角色编辑相关变量
+    //用户编辑相关变量
     var _roleCRUD = {
         url: window.rootPath + "/API/SysUser/",
         formMain: $("#fm"),
@@ -268,7 +268,7 @@
                 for (var filed in item) {
                     $("#" + filed).val(item[filed]);
                 }
-                //角色
+                //用户
                 var roleIds = [];
                 for (var i = 0; i < item.Roles.length; i++) {
                     roleIds.push(item.Roles[i].ID);

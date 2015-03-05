@@ -12,7 +12,7 @@ namespace NoRain.Business.IBll
 {
     public interface IRoleBLL : IBaseBLL
     {
-        IEnumerable<EasyuiTreeNode> GetRoleFunctions(int roleId);
+        IEnumerable<JsTreeNode> GetRoleFunctions(int roleId);
 
         IEnumerable<Role> GetUserRoles(Guid userId);
 

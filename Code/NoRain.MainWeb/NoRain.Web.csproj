@@ -6184,7 +6184,6 @@
       <SubType>
       </SubType>
     </Content>
-    <Content Include="Views\RoleFunction\CreateSysUser.cshtml" />
     <Content Include="Views\RoleFunction\CreateRole.cshtml" />
     <Content Include="Views\RoleFunction\SelectRoleFunctions.cshtml" />
     <Content Include="Views\Parameters\Create.cshtml" />

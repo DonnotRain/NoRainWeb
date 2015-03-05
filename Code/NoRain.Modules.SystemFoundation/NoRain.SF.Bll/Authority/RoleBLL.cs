@@ -19,22 +19,21 @@ namespace NoRain.Business.Bll
         {
             m_dal = dal;
         }
-        public IEnumerable<EasyuiTreeNode> GetRoleFunctions(int roleId)
+        public IEnumerable<JsTreeNode> GetRoleFunctions(int roleId)
         {
             var functions = DPResolver.Resolver<IFunctionBLL>().GetRoleFunctions(roleId).ToList().Select(m => m.ID).ToArray();
             var allFunction = FindAll<Function>();
             return ConvertFunctionsToTree(allFunction, functions, -1);
         }
 
-        private IEnumerable<EasyuiTreeNode> ConvertFunctionsToTree(IEnumerable<Function> allFunctions, int[] functions, int pId)
+        private IEnumerable<JsTreeNode> ConvertFunctionsToTree(IEnumerable<Function> allFunctions, int[] functions, int pId)
         {
-            return allFunctions.Where(m => m.PID == pId).Select(m => new EasyuiTreeNode()
+            return allFunctions.Where(m => m.PID == pId).Select(m => new JsTreeNode()
             {
                 id = m.ID.ToString(),
                 text = m.Name,
-                state = "open",
-                @checked = functions.Contains(m.ID),
-                iconCls = m.ImageIndex + " none",
+                state = new { opened = true, selected =  functions.Contains(m.ID) },
+                icon = m.ImageIndex,
                 children = ConvertFunctionsToTree(allFunctions, functions, m.ID)
             });
         }
