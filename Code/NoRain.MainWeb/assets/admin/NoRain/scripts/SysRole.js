@@ -170,8 +170,9 @@
                 data: { id: roleId },
                 success: function (items, textStatus) {
                     Metronic.unblockUI('#function-content');
+                    $('#treeFunction').jstree("destroy");
                     $('#treeFunction').jstree({
-                        'plugins': ["wholerow", "checkbox", "types"],
+                        'plugins': ["checkbox", "types"],
                         'core': {
                             "themes": {
                                 "responsive": false
@@ -189,12 +190,11 @@
                     });
                 }
             });
-
         }
 
     }
 
-    //重新加载dataGrid
+    //重新加载DataTable
     function reloadDataGrid() {
         vars.mainGrid.setAjaxParam("Name", $("#conditionName").val());
         vars.mainGrid.getDataTable().ajax.reload();
