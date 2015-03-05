@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using NoRainRights;
 using NoRain.Business.Model.Request;
 using NoRain.Business.Models;
+using NoRain.WebBase;
 
 namespace MainWeb.Controllers
 {
@@ -28,7 +29,8 @@ namespace MainWeb.Controllers
             ViewBag.Title = "登录";
             if (logout.HasValue && logout.Value)
             {
-                Response.Cookies.Clear();
+                CookieTool.DelCookie("UserName");
+                CookieTool.DelCookie("UserId");
             }
             ViewBag.Url = url;
             return View();
@@ -102,7 +104,7 @@ namespace MainWeb.Controllers
 
         public ActionResult Logout()
         {
-            return RedirectToAction("Index", new { logout = true });
+            return RedirectToAction("Login", new { logout = true });
         }
 
 

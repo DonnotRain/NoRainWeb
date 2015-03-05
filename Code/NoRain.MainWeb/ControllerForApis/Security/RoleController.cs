@@ -10,6 +10,7 @@ using NoRain.Business.Models.Request;
 using MainWeb.Filters;
 using NoRain.Business.Models;
 using NoRain.Business.Model.Request;
+using NoRain.Business.Model.Response;
 
 namespace MainWeb.Controllers.API
 {
@@ -36,8 +37,16 @@ namespace MainWeb.Controllers.API
         {
             var pageResult = m_roleBll.GetRolePager(reqestParams.length, reqestParams.start / reqestParams.length + 1, condition.Name);
 
-            return new { total = pageResult.TotalItems, rows = pageResult.Items };
+
+            return new DataTablePager<Role>()
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
         }
+
         // GET api/Role/5
         /// <summary>
         ///获取单个角色

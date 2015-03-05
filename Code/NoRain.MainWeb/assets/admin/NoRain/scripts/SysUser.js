@@ -2,7 +2,7 @@
 
     //角色编辑相关变量
     var _roleCRUD = {
-        url: window.rootPath + "/API/Role/",
+        url: window.rootPath + "/API/SysUser/",
         formMain: $("#fm"),
         formError: $('.alert-danger', $("#fm")),
         formSuccess: $('.alert-success', $("#fm")),
@@ -29,41 +29,51 @@
             var grid = new Datatable();
             grid.init({
                 src: $("#tableMain"),
-                onSuccess: function (grid) {
-                    // execute some code after table records loaded
-                },
-                onError: function (grid) {
-                    // execute some code on network or other general error  
-                },
-                onDataLoad: function (grid) {
-                    // execute some code on ajax data load
-                },
                 loadingMessage: '加载中...',
                 dataTable: {
                     "orderClasses": false,
                     "bProcessing": true,
                     "serverSide": true,
                     "bStateSave": true,
+                    "orderMulti": false,
+                    "sortMulti": false,
                     "columnDefs": [
                            {
-                               "searchable": false,
+                               
                                "orderable": false,
-                               "targets": [0], "mData": "Id", "mRender": function (data, type, full) {
+                               "targets": [0], "mData": "ID", "mRender": function (data, type, full) {
                                    return '<input type="checkbox" name="Id[]" value="' + data + '">';
                                }
                            },
+                           {  "aTargets": ["Name"], "mData": "Name" },
+                           {  "orderable": false, "aTargets": ["FullName"], "mData": "FullName" },
                            {
-                               "aTargets": ["Name"], "mData": "Name", "mRender": function (data, type, full) {
-                                   return data;
+                                "orderable": false, "aTargets": ["Phone"], "mData": "MobilePhone", "mRender": function (data, type, full) {
+
+                                   return (full.MobilePhone ? ('<span class="label label-sm label-success label-mini">移动电话</span>' + full.MobilePhone + "<br />") : "") +
+                                        (full.OfficePhone ? ('<span class="label label-sm label-info label-mini">办公电话</span>' + full.OfficePhone + "<br />") : "") +
+                                        (full.HomePhone ? ('<span class="label label-sm label-warning label-mini">家庭电话</span>' + full.HomePhone) : "");
+
                                }
                            },
-                        { "aTargets": [2], "mData": "ValueContent" },
-                             { "aTargets": [3], "mData": "Description" },
-                        {
-                            "aTargets": [4], "mData": "IsEnabled", "mRender": function (data, type, full) {
-                                return data ? '<span class="label label-sm label-success">已启用</span>' : '<span class="label label-sm label-danger">未启用</span>';
-                            }
-                        }
+                           {
+                                "orderable": false, "aTargets": ["Roles"], "mData": "RoleIds", "mRender": function (data, type, row) {
+                                   var roles = [];
+
+                                   for (var i = 0; i < row.Roles.length; i++) {
+                                       roles.push(row.Roles[i].Name + "<br />");
+                                   }
+                                   return roles.join(" ");
+                               }
+                           },
+                                  { "orderable": false, "aTargets": ["Address"], "mData": "Address" },
+                           {  "orderable": false, "aTargets": ["Email"], "mData": "Email" },
+                           {
+                                "orderable": false, "aTargets": ["Options"], "mData": "IsEnabled", "mRender": function (data, type, full) {
+                                   return (data ? '<span class="label label-sm label-success">已启用</span>' : '<span class="label label-sm label-danger">未启用</span>') +
+                                       (full.IsSuperAdmin ? '<span class="label label-sm label-success">超级管理员</span>' : '');
+                               }
+                           }
                     ],
                     "lengthMenu": [
                         [10, 20, 50, 100, 150, -1],
@@ -71,7 +81,7 @@
                     ],
                     "pageLength": 20, // default record count per page
                     "ajax": {
-                        "url": rootPath + "/API/Role/DataTablePager", // ajax source
+                        "url": rootPath + "/API/SysUser/DataTablePager", // ajax source
                         "type": "GET" // request type
                     },
                     "order": [
@@ -90,6 +100,11 @@
             });
 
             vars.mainGrid = grid;
+
+            $(".form-search").submit(function (e) {
+                reloadDataGrid();
+                return false;
+            });
         },
         initialValidate: function () {
             //IMPORTANT: update CKEDITOR textarea with actual content before submit
@@ -105,11 +120,20 @@
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "", // validate all fields including form hidden input
                 rules: {
+                    Password: {
+                        minlength: 6,
+                        required: true
+                    },
+                    PasswordConfirm: {
+                        minlength: 6,
+                        required: true,
+                        equalTo: "#Password"
+                    }
                 },
                 messages: { // custom messages for radio buttons and checkboxes
-                    //membership: {
-                    //    required: "Please select a Membership type"
-                    //},
+                    PasswordConfirm: {
+                        equalTo: "密码确认错误"
+                    }
                     //service: {
                     //    required: "Please select  at least 2 types of Service",
                     //    minlength: jQuery.validator.format("Please select  at least {0} types of Service")
@@ -139,7 +163,6 @@
                     _roleCRUD.formError.show();
                     Metronic.scrollTo(_roleCRUD.formError, -200);
                 },
-
                 highlight: function (element) { // hightlight error inputs
                     $(element)
                          .closest('.form-group').addClass('has-error'); // set error class to the control group
@@ -154,26 +177,24 @@
                     label
                         .closest('.form-group').removeClass('has-error'); // set success class to the control group
                 },
-
                 submitHandler: function (form) {
                     _roleCRUD.formSuccess.show();
                     _roleCRUD.formError.hide();
                     form[0].submit(); // submit the form
                 }
-
             });
 
-            ////apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
-            //$('.mineSelect2', _roleCRUD.formMain).change(function () {
-            //    _roleCRUD.formMain.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
-            //});
+            //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
+            $('.mineSelect2', _roleCRUD.formMain).change(function () {
+                _roleCRUD.formMain.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+            });
 
-            //// initialize select2 tags
-            //$("#select2_tags").change(function () {
-            //    _roleCRUD.formMain.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
-            //}).select2({
-            //    tags: ["red", "green", "blue", "yellow", "pink"]
-            //});
+            // initialize select2 tags
+            $("#select2_tags").change(function () {
+                _roleCRUD.formMain.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
+            }).select2({
+                tags: ["red", "green", "blue", "yellow", "pink"]
+            });
 
             //initialize datepicker
             $('.date-picker').datepicker({
@@ -191,14 +212,21 @@
                 rtl: Metronic.isRTL(),
                 autoclose: true
             });
+
+            $.CommonAjax({
+                url: window.rootPath + "/API/Role/",
+                type: "get",
+                success: function (data) {
+                    NoRainTools.LoadSelectOption($("#RoleIds"), data, "Name", "ID", false);
+                    $("#RoleIds").select2({})
+                }
+            });
         }
     }
 
     //重新加载dataGrid
     function reloadDataGrid() {
         vars.mainGrid.setAjaxParam("Name", $("#conditionName").val());
-        vars.mainGrid.setAjaxParam("Value", $("#conditionValue").val());
-
         vars.mainGrid.getDataTable().ajax.reload();
     }
 
@@ -214,8 +242,11 @@
             _roleCRUD.formSuccess.hide();
             _roleCRUD.formError.hide();
 
-            $('#fm')[0].reset()
-            $('#mainDlg').modal('show').find(".modal-title").html("新增系统参数");
+            //重置表单
+            $('#fm')[0].reset();
+            $("#RoleIds").select2("val", []);
+
+            $('#mainDlg').modal('show').find(".modal-title").html("新增系统用户");
 
             //编号可编辑
             $("#ValueContent").prop("readonly", false);
@@ -230,13 +261,22 @@
                 _roleCRUD.formSuccess.hide();
                 _roleCRUD.formError.hide();
                 $('#fm')[0].reset()
-                $('#mainDlg').modal('show').find(".modal-title").html("编辑系统参数");
+                $('#mainDlg').modal('show').find(".modal-title").html("编辑系统用户");
 
                 var item = items[0];
 
                 for (var filed in item) {
                     $("#" + filed).val(item[filed]);
                 }
+                //角色
+                var roleIds = [];
+                for (var i = 0; i < item.Roles.length; i++) {
+                    roleIds.push(item.Roles[i].ID);
+                }
+
+                $("#Password").val("");
+                $("#RoleIds").select2("val", roleIds);
+
             }
             else {
                 toastr.error('未选取数据行,请先选取要编辑的行');
@@ -258,13 +298,13 @@
                     rows = Array.prototype.slice.call(rows);
 
                     $.each(rows, function (rowIndex, rowData) {
-                        ids.push(rowData.Id);
+                        ids.push(rowData.ID);
                     });
 
                     Metronic.blockUI({ target: '#page-content', message: "删除中……" });
 
                     $.CommonAjax({
-                        url: _roleCRUD. url,
+                        url: _roleCRUD.url,
                         data: { "": ids.join(",") },
                         type: "delete",
                         success: function (data, textStatus) {
@@ -278,7 +318,7 @@
         }
         , Save: function () {
             var type = "post";
-            if ($("#Id").val() && $("#Id").val() != 0) {
+            if ($("#ID").val() && $("#ID").val() != 0) {
                 type = "put";
             }
 
@@ -301,7 +341,7 @@
 
             $.CommonAjax({
                 targetBlock: '#responsive-content',
-                url: _roleCRUD. url,
+                url: _roleCRUD.url,
                 type: type,
                 data: data,
                 success: function (data, textStatus) {
@@ -327,7 +367,7 @@
             }
             else data.needPager = true;
 
-            window.open(_roleCRUD. url + "ExportExcel?" + $.param(data), "_blank");
+            window.open(_roleCRUD.url + "ExportExcel?" + $.param(data), "_blank");
         }
         , Print: function () {
 

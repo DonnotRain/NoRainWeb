@@ -189,7 +189,7 @@
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FunctionController.cs" />
-    <Compile Include="ControllerForApis\Security\OperatorController.cs" />
+    <Compile Include="ControllerForApis\Security\SysUserController.cs" />
     <Compile Include="Controllers\SysUsersController.cs" />
     <Compile Include="Filters\BackAdminAuthorize.cs" />
     <Compile Include="Filters\AdminAuthorize.cs" />

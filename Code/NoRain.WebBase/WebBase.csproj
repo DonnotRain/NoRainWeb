@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ApiException.cs" />
     <Compile Include="ApplicationConfig.cs" />
+    <Compile Include="CookieTool.cs" />
     <Compile Include="DBManage.cs" />
     <Compile Include="DPResolver.cs" />
     <Compile Include="EnumHelper.cs" />

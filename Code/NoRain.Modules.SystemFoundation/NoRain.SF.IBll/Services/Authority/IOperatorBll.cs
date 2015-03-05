@@ -9,7 +9,7 @@ namespace NoRain.Business.IBll
 {
     public interface ISysUserBll : ICommonSecurityBLL
     {
-        Page<SysUser> GetSysUserPager(int page, int rows, string name,int? roleId);
+        Page<SysUser> GetSysUserPager(int page, int rows, string name);
         SysUser Add(SysUser entity);
         SysUser Edit(SysUser entity);
 

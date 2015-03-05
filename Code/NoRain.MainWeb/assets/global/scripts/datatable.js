@@ -42,12 +42,16 @@ var Datatable = function () {
                 dataTable: {
                     //<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r> 原来的
                     "dom": "<'table-scrollable't><'row'<'col-md-12 col-sm-12'pli>>", // datatable layout
-                    "pageLength": 10, // default records per page
+                    "pageLength": 20, // default records per page
+                    "orderMulti": false,
+                    "ordering": false,
+                    "searching": false,
+                    "bSortClasses": false,
+                    "bSortMulti": false,
                     "language": { // language settings
                         // metronic spesific
                         "metronicGroupActions": "_TOTAL_ 条记录 已选:  ",
                         "metronicAjaxRequestGeneralError": "请求失败，请检查网络连接或服务器状态。",
-
                         // data tables spesific
                         "lengthMenu": "<span class='seperator'>|</span>显示 _MENU_ 条记录",
                         "info": "<span class='seperator'>|</span>共 _TOTAL_ 条记录",
@@ -197,7 +201,7 @@ var Datatable = function () {
                 $.uniform.update(set);
                 countSelectedRecords();
             });
-              
+
             // handle row's checkbox click
             table.on('change', 'tbody > tr > td:nth-child(1) input[type="checkbox"]', function () {
                 countSelectedRecords();

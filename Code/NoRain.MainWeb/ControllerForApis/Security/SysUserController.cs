@@ -12,6 +12,8 @@ using System.Web;
 using System.Web.Http;
 using NoRainRights;
 using MainWeb.Filters;
+using NoRain.Business.Model.Request;
+using NoRain.Business.Model.Response;
 
 namespace MainWeb.Controllers.API
 {
@@ -24,13 +26,26 @@ namespace MainWeb.Controllers.API
             m_SysUserBll = DPResolver.Resolver<ISysUserBll>();
         }
 
-        public object GetPager(int page, int rows, string name,int? roleId)
+        public object GetPager(int page, int rows, string name)
         {
-            var pageResult = m_SysUserBll.GetSysUserPager(page, rows, name, roleId);
+            var pageResult = m_SysUserBll.GetSysUserPager(page, rows, name);
 
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
+        [Route("API/SysUser/DataTablePager")]
+        public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]RolePagerCondition condition)
+        {
+            var pageResult = m_SysUserBll.GetSysUserPager(reqestParams.start / reqestParams.length + 1,reqestParams.length, condition.Name);
 
+
+            return new DataTablePager<SysUser>()
+            {
+                draw = reqestParams.draw,
+                recordsTotal = pageResult.TotalItems,
+                recordsFiltered = pageResult.TotalItems,
+                data = pageResult.Items
+            };
+        }
         public object Post(SysUser entity)
         {
             entity = m_SysUserBll.Add(entity);
@@ -52,7 +67,7 @@ namespace MainWeb.Controllers.API
                 var items = new List<SysUser>();
                 itemsStr.ForEach(m =>
                 {
-                    var item = m_SysUserBll.Find<SysUser>("WHERE ID=@0", int.Parse(m));
+                    var item = m_SysUserBll.Find<SysUser>("WHERE ID=@0", m);
                     if (item != null) items.Add(item);
                 });
                 m_SysUserBll.Delete(items);
