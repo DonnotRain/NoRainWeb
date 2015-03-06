@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FunctionController.cs" />
     <Compile Include="ControllerForApis\Security\SysUserController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\SysUsersController.cs" />
     <Compile Include="Filters\BackAdminAuthorize.cs" />
     <Compile Include="Filters\AdminAuthorize.cs" />
@@ -6196,6 +6197,7 @@
     <Content Include="Views\Function\IconChoose.cshtml" />
     <Content Include="Views\SysUsers\Index.cshtml" />
     <Content Include="Views\SysUsers\Create.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

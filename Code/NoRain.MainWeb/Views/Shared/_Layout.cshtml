@@ -28,11 +28,9 @@
     <link href="~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
 
     <!-- END GLOBAL MANDATORY STYLES -->
-
     <!-- BEGIN PAGELEVEL STYLES -->
     @RenderSection("CommonHeader", false)
     <!-- END PAGELEVEL STYLES -->
-
     <!-- BEGIN THEME STYLES -->
     <link href="~/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
@@ -47,15 +45,6 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
-<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
-<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
-<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
-<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
-<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
-<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-fixed">
     <!-- BEGIN HEADER -->
     <div class="page-header navbar navbar-fixed-top">
@@ -63,7 +52,8 @@
         <div class="page-header-inner">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="@Url.Action("Index", "Home")" style="font-size: 18px;padding-top: 10px;color: white;text-decoration: none;">Web框架之业务系统
+                <a href="@Url.Action("Index", "Home")" style="font-size: 18px;padding-top: 10px;color: white;text-decoration: none;">
+                    Web框架之业务系统
                 </a>
                 <div class="menu-toggler sidebar-toggler hide">
                     <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -93,7 +83,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="extra_profile.html">
+                                <a href="@Url.Action("Index", "UserProfile")">
                                     <i class="icon-user"></i>我的主页
                                 </a>
                             </li>
@@ -133,7 +123,7 @@
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-quick-sidebar-toggler">
-                        <a href="javascript:;" class="dropdown-toggle"data-original-title="选择主题"  id="btnChooseTheme">
+                        <a href="javascript:;" class="dropdown-toggle" data-original-title="选择主题" id="btnChooseTheme">
                             <i class="icon-settings"></i>
                         </a>
                     </li>
@@ -238,11 +228,9 @@
                     </div>
                 </div>
                 <!-- END STYLE CUSTOMIZER -->
-
                 <!--[if lt IE 8]>
                     <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
                 <![endif]-->
-
                 <!-- BEGIN 渲染子页面内容-->
                 @RenderBody()
                 <!-- END 渲染子页面内容-->
@@ -285,11 +273,10 @@
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     @RenderSection("PlugScripts", required: false)
     <!-- END PAGE LEVEL PLUGINS -->
-
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="~/assets/global/scripts/metronic.js" type="text/javascript"></script>
     <script src="~/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
-  @*  <script src="~/assets/admin/layout/scripts/quick-sidebar.js"></script>*@
+    @*  <script src="~/assets/admin/layout/scripts/quick-sidebar.js"></script>*@
     <script src="~/assets/admin/NoRain/scripts/ThemeSelect.js"></script>
     <script src="~/Scripts/NoRain.Tools.js"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
@@ -297,7 +284,7 @@
         jQuery(document).ready(function () {
             Metronic.init(); // init metronic core components
             Layout.init(); // init current layout
-           // QuickSidebar.init(); // init quick sidebar
+            // QuickSidebar.init(); // init quick sidebar
             ThemeSelect.init(); // init ThemeSelect features
         });
     </script>
