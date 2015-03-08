@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>DataTables-ASP.NET-MVC</id>
+    <version>4.0.0</version>
+    <title>DataTables-ASP.NET-MVC</title>
+    <authors>Johannes Brunner</authors>
+    <owners>Johannes Brunner</owners>
+    <projectUrl>https://github.com/johannes-brunner/DataTables-ASP.NET-MVC</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This projects supplies C# classes for ASP.NET MVC 4 if jQuery DataTables is used as data grid component
+and server side processing is enabled.</description>
+    <summary>This projects supplies C# classes for ASP.NET MVC 4 if jQuery DataTables is used as data grid component
+and server side processing is enabled.</summary>
+    <copyright>Johannes Brunner</copyright>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Web.Abstractions" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

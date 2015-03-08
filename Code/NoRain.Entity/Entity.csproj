@@ -40,13 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Database.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="PetaPoco.cs" />
-    <Compile Include="Partial\Security\User.cs" />
-    <Compile Include="Partial\Security\Function.cs" />
-    <Compile Include="Partial\Sys\CategoryItem.cs" />
+    <Compile Include="Security\User.cs" />
+    <Compile Include="Security\Function.cs" />
+    <Compile Include="Sys\CategoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\RightsDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

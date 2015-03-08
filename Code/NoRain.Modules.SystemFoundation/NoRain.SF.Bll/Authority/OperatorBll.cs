@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NoRainRights;
+
 using NoRain.Business.IDal;
+using DefaultConnection;
 
 namespace NoRain.Business.Bll
 {

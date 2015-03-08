@@ -8,7 +8,8 @@ namespace NoRain.Business.WebBase
 {
     public class LoggerHelper
     {
-        private static readonly ILog logger = LogManager.GetLogger(Assembly.Load(new AssemblyName("NoRain.MainWeb")), "LogFileAppender");
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        //    private static readonly ILog logger = LogManager.GetLogger(Assembly.Load(new AssemblyName("NoRain.MainWeb")), "LogFileAppender");
         public static ILog Logger { get { return logger; } }
     }
 }

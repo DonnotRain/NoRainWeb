@@ -1,0 +1,133 @@
+﻿<!--BEGIN 添加和编辑的表单 -->
+<div id="mainDlg" class="modal fade" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static" data-width="400" data-draggable="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="responsive-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">标题</h4>
+            </div>
+            <div class="modal-body">
+                @* form-row-seperated*@
+                <form class="form-horizontal" role="form" method="post" id="fm">
+                    <div class="form-body">
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button>
+                            输入信息有误，请检查后重试(全部选项卡)。
+                        </div>
+                        <div class="alert alert-success display-hide">
+                            <button class="close" data-close="alert"></button>
+                            输入验证成功!
+                        </div>
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="#tab_base" data-toggle="tab">基础信息</a>
+                            </li>
+                            <li>
+                                <a href="#tab_contact" data-toggle="tab">联系方式</a>
+                            </li>
+                            <li>
+                                <a href="#tab_authority" data-toggle="tab">权限相关 </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_base">
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label required">系统用户名</label>
+                                    <div class="col-md-4">
+                                        <input name="Name" class="form-control required" type="text" id="Name" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label required">姓名</label>
+                                    <div class="col-md-4">
+                                        <input name="FullName" class="form-control required" type="text" id="FullName" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label required">登录密码</label>
+                                    <div class="col-md-4">
+                                        <input name="Password" class="form-control required" type="password" id="Password" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label required">密码确认</label>
+                                    <div class="col-md-4">
+                                        <input name="PasswordConfirm" class="form-control required" type="password" id="PasswordConfirm" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab_contact">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">移动电话</label>
+                                    <div class="col-md-4">
+                                        <input name="MobilePhone" class="form-control" type="text" id="MobilePhone" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">办公电话</label>
+                                    <div class="col-md-4">
+                                        <input name="OfficePhone" class="form-control" type="text" id="OfficePhone" value="" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">家庭电话</label>
+                                    <div class="col-md-4">
+                                        <input name="HomePhone" class="form-control" type="text" id="HomePhone" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">电子邮箱</label>
+                                    <div class="col-md-4">
+                                        <input name="Email" class="form-control" type="email" id="Email" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">身份证号</label>
+                                    <div class="col-md-4">
+                                        <input name="IdentityCard" class="form-control" type="text" id="IdentityCard" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">家庭住址</label>
+                                    <div class="col-md-4">
+                                        <input name="Address" class="form-control" type="text" id="Address" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab_authority">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">角色分配</label>
+                                    <div class="col-md-4">
+                                        <select name="RoleIds" id="RoleIds" class="form-control mineSelect2" data-placeholder="用户拥有的角色" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">选项</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="icheck-inline">
+                                                <label>
+                                                    <input type="checkbox" id="IsEnabledCheck" name="IsEnabled" checked="checked" class="icheck" />启用
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="IsSuperAdminCheck" name="IsSuperAdmin" checked="checked"  class="icheck" />超级管理员
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ID" id="ID" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" onclick="SysUsers.Save();">保存</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

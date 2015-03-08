@@ -1,0 +1,86 @@
+﻿@{
+    var plugs = BusinessWeb.Areas.Back.Models.PlugParser.Parser();
+    var rootPath = "http://" + Request.Url.Authority;
+}
+<ul class="page-sidebar-menu page-sidebar-menu-light" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+    <li class="sidebar-toggler-wrapper">
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        <div class="sidebar-toggler">
+        </div>
+        <!-- END SIDEBAR TOGGLER BUTTON -->
+    </li>
+    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+    <li class="sidebar-search-wrapper">
+        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+        <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+        <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+        <form class="sidebar-search " action="extra_search.html" method="POST">
+            <a href="javascript:;" class="remove">
+                <i class="icon-close"></i>
+            </a>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="搜索...">
+                <span class="input-group-btn">
+                    <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+                </span>
+            </div>
+        </form>
+        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+    </li>
+
+    @{
+
+        BusinessWeb.Areas.Back.Models.PlugDisplay currentPlug = null;
+    }
+    @foreach (var plug in plugs)
+    {
+        var currentPath = Request.Url.AbsolutePath;
+
+        var topClass = "";
+
+        if (plug.Children != null && plug.Children.Count > 0)
+        {
+            var temp = plug.Children.FirstOrDefault(m => currentPath.Length > 1 && m.PlugUrl.Contains(currentPath));
+            if (temp != null) { topClass = "open active"; currentPlug = temp; }
+        }
+        if (plugs.IndexOf(plug) == 0)
+        {
+            topClass += " start ";
+        }
+        <li class="@topClass">
+            <a href="@(string.IsNullOrEmpty(plug.PlugUrl) ? "javascript:;" : (rootPath + plug.PlugUrl))">
+                <i class="@plug.ImageClass"></i>
+                <span class="title">@plug.PlugName</span>
+                <span class="arrow "></span>
+            </a>
+            @if (plug.Children != null && plug.Children.Count > 0)
+            {               
+                <ul class="sub-menu">
+                    @foreach (var secondPlug in plug.Children)
+                    {
+                        var subClass = "";
+                        if (currentPlug == secondPlug)
+                        {
+                            subClass = "active";
+                        }
+                        <li class="@subClass" id="li_menu_@secondPlug.PlugCode">
+                            <a href="@(rootPath + secondPlug.PlugUrl)">
+                                <i class="icon-double-angle-right"></i><i class="@secondPlug.ImageClass"></i>
+                                <span class="label-PlugName">@secondPlug.PlugName</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+   
+</ul>
+<script type="text/javascript">
+    var rootPath = '@rootPath';
+    try {
+        ace.settings.check('sidebar', 'collapsed');
+    } catch (e) {
+    }
+</script>

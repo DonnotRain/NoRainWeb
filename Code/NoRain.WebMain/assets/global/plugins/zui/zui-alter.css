@@ -1,0 +1,13 @@
+﻿.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    margin-left: 0px;
+}
+
+.form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+    padding-top: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-horizontal div.radio > span {
+    margin-top: 0px;
+}

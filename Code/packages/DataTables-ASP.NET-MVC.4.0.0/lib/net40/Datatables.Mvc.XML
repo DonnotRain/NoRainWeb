@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Datatables.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Datatables.Mvc.DataTable">
+            <summary>
+            This class represents a jquery.dataTable request
+            object. This class can be used as parameter
+            in a Controllers Actions method. The Jquery.datatable
+            parameter are bound automatically to this object.
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.sEcho">
+            <summary>
+            Information for DataTables to use for rendering
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.iDisplayStart">
+            <summary>
+            Display start point
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.iDisplayLength">
+            <summary>
+            Number of records to display
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.iColumns">
+            <summary>
+            Number of columns being displayed (useful for getting individual column search info)
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.sSearch">
+            <summary>
+            Global search field
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.bEscapeRegex">
+            <summary>
+            Global search is regex or not
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.bSortables">
+            <summary>
+            Indicator for if a column is flagged as sortable or not on the client-side
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.bSearchables">
+            <summary>
+            Indicator for if a column is flagged as searchable or not on the client-side
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.sSearchs">
+            <summary>
+            Individual column filter
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.bEscapeRegexs">
+            <summary>
+            Individual column filter is regex or not
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.iSortingCols">
+            <summary>
+            Number of columns to sort on
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.iSortCols">
+            <summary>
+            Column being sorted on (you will need to decode this number for your database)
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.DataTable.sSortDirs">
+            <summary>
+            Direction to be sorted - "desc" or "asc". Note that the prefix for this variable is wrong in 1.5.x where iSortDir_(int) was used)
+            </summary>
+        </member>
+        <member name="T:Datatables.Mvc.DataTableSortDirection">
+            <summary>
+            The sort order of a column.
+            </summary>
+        </member>
+        <member name="F:Datatables.Mvc.DataTableSortDirection.Ascending">
+            <summary>
+            Sort the column ascending
+            </summary>
+        </member>
+        <member name="F:Datatables.Mvc.DataTableSortDirection.Descending">
+            <summary>
+            Sort the column descending
+            </summary>
+        </member>
+        <member name="T:Datatables.Mvc.DataTableModelBinder">
+            <summary>
+            This type is the ModelBinder for jquery.datatables
+            Add this type to MVC modelbinders to bind jquery.datatables
+            requests to <see cref="T:Datatables.Mvc.DataTable"/>
+            </summary>
+        </member>
+        <member name="T:Datatables.Mvc.DataTableResult">
+            <summary>
+            This class represents an MVC Action result for
+            a jquery.datatables response.
+            </summary>
+        </member>
+        <member name="T:Datatables.Mvc.IDataTableResult`1">
+            <summary>
+            A common interface for datatables results
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.ContentEncoding">
+            <summary>
+            This property sets, gets the encoding used to serialize the .Net object to json.
+            If this property is not set, the encoding from the Response is used.
+            </summary>       
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.ContentType">
+            <summary>
+            This property sets, gets the content Type.
+            The default value is application/json
+            </summary>
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.JsonRequestBehavior">
+            <summary>
+            Gets or sets the json request behavior.
+            The default behaviour is DenyGet requests.
+            </summary>
+            <value>
+            The json request behavior.
+            </value>
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.iTotalDisplayRecords">
+            <summary>
+            Total records, after filtering (i.e. the total number of records after filtering has been applied - 
+            not just the number of records being returned in this result set)
+            </summary>        
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.iTotalRecords">
+            <summary>
+            Total records, before filtering (i.e. the total number of records in the database)
+            </summary>        
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.sColumns">
+            <summary>
+            Optional - this is a string of column names, comma separated (used in combination with sName) 
+            which will allow DataTables to reorder data on the client-side if required for display
+            </summary>        
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.sEcho">
+            <summary>
+            An unaltered copy of sEcho sent from the client side. 
+            This parameter will change with each draw (it is basically a draw count) - 
+            so it is important that this is implemented. Note that it strongly recommended 
+            for security reasons that you 'cast' this parameter to an integer 
+            in order to prevent Cross Site Scripting (XSS) attacks.
+            </summary> 
+        </member>
+        <member name="P:Datatables.Mvc.IDataTableResult`1.aaData">
+            <summary>
+            The data in a 2D array
+            Fill this structure with the plain table data
+            represented as string.
+            </summary> 
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.sEcho">
+            <summary>
+            An unaltered copy of sEcho sent from the client side. 
+            This parameter will change with each draw (it is basically a draw count) - 
+            so it is important that this is implemented. Note that it strongly recommended 
+            for security reasons that you 'cast' this parameter to an integer 
+            in order to prevent Cross Site Scripting (XSS) attacks.
+            </summary>                        
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.iTotalRecords">
+            <summary>
+            Total records, before filtering (i.e. the total number of records in the database)
+            </summary>                
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.iTotalDisplayRecords">
+            <summary>
+            Total records, after filtering (i.e. the total number of records after filtering has been applied - 
+            not just the number of records being returned in this result set)
+            </summary>        
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.sColumns">
+            <summary>
+            Optional - this is a string of column names, comma separated (used in combination with sName) 
+            which will allow DataTables to reorder data on the client-side if required for display
+            </summary>                
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.aaData">
+            <summary>
+            The data in a 2D array
+            Fill this structure with the plain table data
+            represented as string.
+            </summary>                
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.ContentEncoding">
+            <summary>
+            This property sets, gets the encoding used to serialize the .Net object to json.
+            If this property is not set, the encoding from the Response is used.
+            </summary>               
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.ContentType">
+            <summary>
+            This property sets, gets the content Type.
+            The default value is application/json
+            </summary>        
+        </member>
+        <member name="P:Datatables.Mvc.DataTableResult.JsonRequestBehavior">
+            <summary>
+            Gets or sets the json request behavior.
+            The default behaviour is DenyGet requests.
+            </summary>
+            <value>
+            The json request behavior.
+            </value>        
+        </member>
+        <member name="T:Datatables.Mvc.DataTableSerializationData">
+            <summary>
+            This class is used as helper object to serialize data
+            to json with standard .net mechanism.
+            </summary>
+        </member>
+    </members>
+</doc>

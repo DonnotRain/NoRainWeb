@@ -1,0 +1,61 @@
+﻿<!--BEGIN 添加和编辑的表单 -->
+<div id="itemDlg" class="modal fade" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static" data-width="400" data-draggable="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="itemDlg-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">插件</h4>
+            </div>
+            <div class="modal-body">
+                @* form-row-seperated*@
+                <form class="form-horizontal" role="form" method="post" id="fmItem">
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入信息有误，请检查后重试。
+                    </div>
+                    <div class="alert alert-success display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入验证成功!
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">所属分类</label>
+                        <div class="col-md-4">
+                          <label class="form-control" id="BelongCategory" style="border:none"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">分类项编号</label>
+                        <div class="col-md-4">
+                            <input name="Code" class="form-control required" type="text" id="Code_Item" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">分类项值</label>
+                        <div class="col-md-4">
+                            <input name="ItemContent" class="form-control required" type="text" id="ItemContent_Item" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">排序</label>
+                        <div class="col-md-4">
+                            <input name="Sort" class="form-control" type="text" id="Sort_Item" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">参数描述</label>
+                        <div class="col-md-8">
+                            <textarea name="Description" class="form-control required" rows="6" id="Description_Item"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="Id_Item" name="Id" value="" />
+                    <input type="hidden" id="CategoryTypeId" name="CategoryTypeId" value="" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" onclick="SysCategoryItem.Save();">保存</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END 添加和编辑的表单e -->

@@ -11,7 +11,7 @@ namespace NoRain.Business.Dao
 {
     public class CommonSecurityDao : BaseDao, ICommonSecurityDao
     {
-        public CommonSecurityDao() : base("NoRainRights")
+        public CommonSecurityDao() : base("DefaultConnection")
         {
         }
     }

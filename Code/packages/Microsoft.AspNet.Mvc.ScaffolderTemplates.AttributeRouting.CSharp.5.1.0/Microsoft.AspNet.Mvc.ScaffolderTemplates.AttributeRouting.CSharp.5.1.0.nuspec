@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.Mvc.ScaffolderTemplates.AttributeRouting.CSharp</id>
+    <version>5.1.0</version>
+    <title>Microsoft ASP.NET MVC Scaffolding Controller Templates (C#) with Attribute Routing</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ENU.htm</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This package provides C# controller scaffolder templates for ASP.NET MVC 5 or newer that generate controllers decorated with attribute routes.</description>
+    <releaseNotes>Please visit http://go.microsoft.com/fwlink/?LinkId=389866 to view the release notes.</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>Microsoft AspNet Mvc AspNetMvc Attribute Routing AttributeRouting</tags>
+  </metadata>
+</package>

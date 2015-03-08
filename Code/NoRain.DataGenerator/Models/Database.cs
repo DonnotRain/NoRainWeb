@@ -158,6 +158,133 @@ namespace DefaultConnection
 		[Column] public DateTime? CreateTime { get; set; }
 		[Column] public int IsDeleted { get; set; }
 	}
+    
+	[TableName("Functions")]
+	[PrimaryKey("ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class Function : DefaultConnectionDB.Record<Function>  
+    {
+		[Column] public int ID { get; set; }
+		[Column] public int PID { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public string ControlID { get; set; }
+		[Column] public string Path { get; set; }
+		[Column] public int? FunctionType { get; set; }
+		[Column] public int? Sort { get; set; }
+		[Column] public string ImageIndex { get; set; }
+		[Column] public bool? IsEnabled { get; set; }
+		[Column] public bool? IsCanDelete { get; set; }
+	}
+    
+	[TableName("OU")]
+	[PrimaryKey("ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class OU : DefaultConnectionDB.Record<OU>  
+    {
+		[Column] public int ID { get; set; }
+		[Column] public int PID { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public string Address { get; set; }
+		[Column] public string Note { get; set; }
+		[Column] public bool Position { get; set; }
+		[Column] public int OUOrder { get; set; }
+		[Column] public string Path { get; set; }
+	}
+    
+	[TableName("OU_Role")]
+	[PrimaryKey("OU_ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class OU_Role : DefaultConnectionDB.Record<OU_Role>  
+    {
+		[Column] public int OU_ID { get; set; }
+		[Column] public int Role_ID { get; set; }
+		[Column] public int TopOUID { get; set; }
+	}
+    
+	[TableName("OU_User")]
+	[ExplicitColumns]
+    public partial class OU_User : DefaultConnectionDB.Record<OU_User>  
+    {
+		[Column] public string User_ID { get; set; }
+		[Column] public int OU_ID { get; set; }
+	}
+    
+	[TableName("Role")]
+	[PrimaryKey("ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class Role : DefaultConnectionDB.Record<Role>  
+    {
+		[Column] public int ID { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public string Note { get; set; }
+		[Column] public short IsEnabled { get; set; }
+	}
+    
+	[TableName("Role_Function")]
+	[PrimaryKey("Role_ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class Role_Function : DefaultConnectionDB.Record<Role_Function>  
+    {
+		[Column] public int Role_ID { get; set; }
+		[Column] public int Function_ID { get; set; }
+	}
+    
+	[TableName("SysOperators")]
+	[ExplicitColumns]
+    public partial class SysUser : DefaultConnectionDB.Record<SysUser>  
+    {
+		[Column] public Guid ID { get; set; }
+		[Column] public int? PID { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public string Password { get; set; }
+		[Column] public string FullName { get; set; }
+		[Column] public bool? IsExpire { get; set; }
+		[Column] public string Title { get; set; }
+		[Column] public string IdentityCard { get; set; }
+		[Column] public string MobilePhone { get; set; }
+		[Column] public string OfficePhone { get; set; }
+		[Column] public string HomePhone { get; set; }
+		[Column] public string Email { get; set; }
+		[Column] public string Address { get; set; }
+		[Column] public string CustomField { get; set; }
+		[Column] public int TopOUID { get; set; }
+		[Column] public string Remark { get; set; }
+		[Column] public int IsDeleted { get; set; }
+		[Column] public DateTime? ModifyTime { get; set; }
+		[Column] public DateTime? CreateTime { get; set; }
+		[Column] public int IsSuperAdmin { get; set; }
+	}
+    
+	[TableName("SystemAuthorize")]
+	[PrimaryKey("ID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class SystemAuthorize : DefaultConnectionDB.Record<SystemAuthorize>  
+    {
+		[Column] public int ID { get; set; }
+		[Column] public string SystemType_OID { get; set; }
+		[Column] public string Content { get; set; }
+	}
+    
+	[TableName("SystemType")]
+	[PrimaryKey("OID", autoIncrement=false)]
+	[ExplicitColumns]
+    public partial class SystemType : DefaultConnectionDB.Record<SystemType>  
+    {
+		[Column] public string OID { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public string CustomID { get; set; }
+		[Column] public string Authorize { get; set; }
+		[Column] public string Note { get; set; }
+	}
+    
+	[TableName("User_Role")]
+	[ExplicitColumns]
+    public partial class User_Role : DefaultConnectionDB.Record<User_Role>  
+    {
+		[Column] public string User_ID { get; set; }
+		[Column] public int Role_ID { get; set; }
+		[Column] public int TopOUID { get; set; }
+	}
 }
 
 

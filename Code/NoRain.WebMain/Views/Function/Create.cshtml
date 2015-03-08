@@ -1,0 +1,122 @@
+﻿<!-- responsive -->
+<div id="responsive" class="modal fade" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static" data-width="400" data-draggable="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="responsive-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">插件</h4>
+            </div>
+            <div class="modal-body">
+                @* form-row-seperated*@
+                <form class="form-horizontal" role="form" method="post" id="fm">
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入信息有误，请检查后重试。
+                    </div>
+                    <div class="alert alert-success display-hide">
+                        <button class="close" data-close="alert"></button>
+                        输入验证成功!
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">类型</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <div class="icheck-inline">
+                                    <label>
+                                        <input type="radio" id="IsModule" name="FunctionType" value="4" class="icheck" />子模块
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsMenu" name="FunctionType" value="1" class="icheck" />菜单页面项
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsNotMenu" name="FunctionType" value="2" class="icheck" />非菜单页面模块
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="IsFunction" name="FunctionType" value="3" class="icheck" />页面功能
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">模块名称</label>
+                        <div class="col-md-4">
+                            <input name="Name" class="form-control required" type="text" id="Name" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">模块编号</label>
+                        <div class="col-md-4">
+                            <input name="ControlID" class="form-control required" type="text" id="ControlID" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">上级模块</label>
+                        <div class="col-md-4">
+                            <input name="PID" class="form-control" type="text" id="PID" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">菜单图标</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user" id="iconSample"></i>
+                                </span>
+
+                                <input id="ImageIndex" name="ImageIndex" readonly class="form-control" type="text" placeholder="图标类名">
+                                <span class="input-group-btn">
+                                    <button id="btnChooseIcon" class="btn btn-success" type="button">选择图标</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">插件地址</label>
+                        <div class="col-md-8">
+                            <input name="Path" class="form-control" type="text" id="Path" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">显示顺序</label>
+                        <div class="col-md-4">
+                            <input name="Sort" type="text" id="Sort" class="spinner-input form-control required" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">授权角色</label>
+                        <div class="col-md-4">
+                            <select name="RoleIds" id="RoleIds" class="form-control mineSelect2" data-placeholder="授权的角色" multiple="multiple"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label required">选项</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <div class="icheck-inline">
+                                    <label>
+                                        <input type="checkbox" id="IsEnabledCheck" name="IsEnabled" checked="checked" class="icheck" />启用
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="AllowDeleteCheck" name="IsCanDelete"  checked="checked" class="icheck" />允许删除
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="ID" name="ID" value="" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" onclick="SysFunction.Save();">保存</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- responsive -->
