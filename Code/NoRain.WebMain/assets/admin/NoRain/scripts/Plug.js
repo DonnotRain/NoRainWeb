@@ -142,7 +142,7 @@
         initInputs: function () {
 
             //加载父节点
-            $.getJSON(currentUrl + "AlljsTreeData", {}, function (json) {
+            $.getJSON(currentUrl + "AlljsTreeData", { "someParam": "temp" }, function (json) {
                 var rootItem = NoRainTools.deepcopy(json[0]);
                 rootItem["id"] = "-1";
                 rootItem["name"] = "系统根目录";
@@ -154,7 +154,7 @@
             });
 
             $.CommonAjax({
-                url: window.rootPath + "/API/Role/",
+                url: window.rootPath + "/API/Role/All",
                 type: "get",
                 success: function (data) {
                     NoRainTools.LoadSelectOption($("#RoleIds"), data, "Name", "ID", false);
@@ -342,7 +342,7 @@
 
     function rebuildFunctionCombo() {
         //加载父节点
-        $.getJSON(currentUrl + "AlljsTreeData", {}, function (json) {
+        $.getJSON(currentUrl + "AlljsTreeData", { "someParam": "temp" }, function (json) {
             var rootItem = NoRainTools.deepcopy(json[0]);
             rootItem["id"] = "-1";
             rootItem["name"] = "系统根目录";

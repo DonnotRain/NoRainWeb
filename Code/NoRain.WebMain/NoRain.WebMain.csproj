@@ -191,14 +191,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="ControllerForApis\CategoryController.cs" />
-    <Compile Include="ControllerForApis\CategoryItemController.cs" />
-    <Compile Include="ControllerForApis\FileItemController.cs" />
-    <Compile Include="ControllerForApis\ParametersController.cs" />
-    <Compile Include="ControllerForApis\Security\FunctionController.cs" />
-    <Compile Include="ControllerForApis\Security\RoleController.cs" />
-    <Compile Include="ControllerForApis\Security\SysUserController.cs" />
-    <Compile Include="ControllerForApis\Security\WebAuthorityController.cs" />
+    <Compile Include="ControllerApis\CategoryController.cs" />
+    <Compile Include="ControllerApis\CategoryItemController.cs" />
+    <Compile Include="ControllerApis\FileItemController.cs" />
+    <Compile Include="ControllerApis\ParametersController.cs" />
+    <Compile Include="ControllerApis\FunctionController.cs" />
+    <Compile Include="ControllerApis\RoleController.cs" />
+    <Compile Include="ControllerApis\SysUserController.cs" />
+    <Compile Include="ControllerApis\WebAuthorityController.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FunctionController.cs" />
@@ -608,6 +608,8 @@
     <Content Include="assets\admin\layout\scripts\demo.js" />
     <Content Include="assets\admin\layout\scripts\layout.js" />
     <Content Include="assets\admin\layout\scripts\quick-sidebar.js" />
+    <Content Include="assets\admin\NoRain\css\EasyUI.Custom.css" />
+    <Content Include="assets\admin\NoRain\css\Plug.css" />
     <Content Include="assets\admin\NoRain\scripts\Plug.js" />
     <Content Include="assets\admin\NoRain\scripts\SysCategory.js" />
     <Content Include="assets\admin\NoRain\scripts\SysCategoryItem.js" />
@@ -5805,7 +5807,9 @@
     <Content Include="assets\global\plugins\zui\lib\imgcutter\zui.imgcutter.css.map" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\kindeditor.css.map" />
     <Content Include="assets\global\plugins\zui\lib\kindeditor\themes\default\default.psd" />
-    <Content Include="Config\Connections.config" />
+    <Content Include="Config\Connections.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Settings.config" />
     <Content Include="log4net.config" />
     <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
@@ -5866,7 +5870,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\admin\NoRain\css\" />
     <Folder Include="assets\admin\NoRain\img\" />
     <Folder Include="assets\admin\NoRain\media\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />

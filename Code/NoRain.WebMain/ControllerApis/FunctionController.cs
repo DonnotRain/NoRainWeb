@@ -31,32 +31,14 @@ namespace MainWeb.Controllers.API
             return m_roleBll.GetRoleFunctions(id);
         }
 
-        [GET("API/Function/GetAllTree")]
-        public IEnumerable<ApiTreeNode> GetAll()
-        {
-            var ous = m_functionBll.FindAll<Function>("");
-
-            var result = ous.Select(m => new ApiTreeNode()
-            {
-                id = m.ID.ToString(),
-                name = m.Name,
-                nocheck = false,
-                open = true,
-                pId = m.PID.ToString(),
-                isOrg = ous.Select(node => node.PID).Contains(m.ID),
-                iconSkin = " " + m.ImageIndex
-            });
-
-            return result;
-        }
-
         [GET("API/Function/AlljsTreeData")]
-        public IEnumerable<JsTreeNode> GetAllJsTreeData()
+        public IEnumerable<JsTreeNode> GetAllJsTreeData([FromUri]string someParam)
         {
             var result = m_functionBll.GetAllJsTreeData();
 
             return result;
         }
+
         // GET api/Function/5
         /// <summary>
         ///获取单个单位
