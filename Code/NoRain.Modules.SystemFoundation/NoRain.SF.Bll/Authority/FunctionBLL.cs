@@ -12,7 +12,7 @@ using DefaultConnection;
 
 namespace NoRain.Business.Bll
 {
-    public class FunctionBLL : CommonSecurityBLL, IFunctionBLL, IBaseBLL
+    public class FunctionBLL : CommonService, IFunctionBLL, IBaseBLL
     {
         private IBaseDao _dal;
         public FunctionBLL(ICommonSecurityDao dal)

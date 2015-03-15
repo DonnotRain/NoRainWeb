@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using Autofac;
+using Autofac.Integration.WebApi;
+using Autofac.Integration.Mvc;
 using System.Reflection;
 
 namespace NoRain.Business.WebBase
 {
     public class ApplicationConfig
     {
-
-
         private static ApplicationConfig _config;
 
         static ApplicationConfig()
@@ -42,30 +42,32 @@ namespace NoRain.Business.WebBase
             //_bulider.RegisterType<ServiceInterceptor>().As<IInterceptor>();
 
             DPResolver.Container = this._bulider.Build();
-            //  LogManager.GetLogger(Assembly.Load(new AssemblyName("ZiYinZhanWebServer")), "ZiYinZhanWebServer.Models.LoggerHelper").Debug("程序启动"); ;
-         
-            //bool openDB = DBManage.DB != null;
-          //  openDB = DBManage.SecurityDB != null;
+
         }
+
         public void RegisterTypeAfterInit(Type srcType, Type targetType)
         {
             _bulider.RegisterGeneric(srcType).As(targetType);
         }
 
-        ///// <summary>
-        ///// 注册Controller
-        ///// </summary>
-        ///// <param name="assemblies"></param>
-        //private void RegisterControllers(params  System.Reflection.Assembly[] assemblies)
-        //{
-
-        //    _bulider.RegisterControllers(assemblies);
-        //}
-
         /// <summary>
-        /// 
+        /// 注册Controller
         /// </summary>
         /// <param name="assemblies"></param>
+        public void RegisterMVCControllers(params  System.Reflection.Assembly[] assemblies)
+        {
+            _bulider.RegisterControllers(assemblies);
+        }
+
+        /// <summary>
+        /// 注册Controller
+        /// </summary>
+        /// <param name="assemblies"></param>
+        public void RegisterAPIControllers(params  System.Reflection.Assembly[] assemblies)
+        {
+            _bulider.RegisterApiControllers(assemblies);
+        }
+
         private void RegisterAssebbly(params  System.Reflection.Assembly[] assemblies)
         {
             _bulider.RegisterAssemblyTypes(assemblies)

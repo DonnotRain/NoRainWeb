@@ -43,6 +43,7 @@
     <Compile Include="Services\Authority\IRoleBLL.cs" />
     <Compile Include="Services\Authority\IOperatorBll.cs" />
     <Compile Include="Services\IFileItemBll.cs" />
+    <Compile Include="Services\IStatisticsReportService.cs" />
     <Compile Include="Services\IParameterBll.cs" />
     <Compile Include="Services\Common\IBaseBLL.cs" />
     <Compile Include="Services\Common\ICommonBLL.cs" />

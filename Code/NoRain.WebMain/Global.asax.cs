@@ -1,4 +1,5 @@
-﻿using NoRain.Business.WebBase;
+﻿using Autofac;
+using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac.Integration.Mvc;
 
 namespace NoRain.WebMain
 {
@@ -25,6 +27,7 @@ namespace NoRain.WebMain
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles); var path = Server.MapPath("~/log4net.xml");
             log4net.Config.XmlConfigurator.Configure(new System.IO.FileInfo(path));
+
             //依赖注入
             ApplicationConfig.Intance.Init(o => { },
                                new Assembly[]
@@ -33,6 +36,13 @@ namespace NoRain.WebMain
                                                    Assembly.Load("NoRain.SF.Data"),
                                                    Assembly.Load("NoRain.SF.Entrance")
                                                });
+            //MVC依赖注入
+            ApplicationConfig.Intance.RegisterMVCControllers(Assembly.GetExecutingAssembly());
+
+            //API依赖注入
+            ApplicationConfig.Intance.RegisterAPIControllers(Assembly.GetExecutingAssembly());
+
         }
+
     }
 }

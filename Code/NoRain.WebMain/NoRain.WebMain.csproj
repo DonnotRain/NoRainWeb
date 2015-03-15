@@ -58,6 +58,12 @@
     <Reference Include="Autofac.Configuration">
       <HintPath>..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -197,11 +203,13 @@
     <Compile Include="ControllerApis\ParametersController.cs" />
     <Compile Include="ControllerApis\FunctionController.cs" />
     <Compile Include="ControllerApis\RoleController.cs" />
+    <Compile Include="ControllerApis\StatisticsReportController.cs" />
     <Compile Include="ControllerApis\SysUserController.cs" />
     <Compile Include="ControllerApis\WebAuthorityController.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FunctionController.cs" />
+    <Compile Include="Controllers\StatisticsReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParametersController.cs" />
     <Compile Include="Controllers\RoleFunctionController.cs" />
@@ -615,6 +623,7 @@
     <Content Include="assets\admin\NoRain\scripts\SysCategoryItem.js" />
     <Content Include="assets\admin\NoRain\scripts\SysParameters.js" />
     <Content Include="assets\admin\NoRain\scripts\SysRole.js" />
+    <Content Include="assets\admin\NoRain\scripts\StatisticsReport.js" />
     <Content Include="assets\admin\NoRain\scripts\SysUser.js" />
     <Content Include="assets\admin\NoRain\scripts\ThemeSelect.js" />
     <Content Include="assets\admin\pages\css\about-us.css" />
@@ -5814,6 +5823,9 @@
     <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
     <Content Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
     <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <Content Include="Controllers\CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <Content Include="Controllers\CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
+    <Content Include="Controllers\CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Properties\PublishProfiles\WanNet.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -5867,6 +5879,7 @@
     <Content Include="Views\SysUsers\Create.cshtml" />
     <Content Include="Views\SysUsers\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
+    <Content Include="Views\StatisticsReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

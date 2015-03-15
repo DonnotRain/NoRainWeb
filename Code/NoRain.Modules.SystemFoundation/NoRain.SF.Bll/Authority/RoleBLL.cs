@@ -13,7 +13,7 @@ using DefaultConnection;
 
 namespace NoRain.Business.Bll
 {
-    public class RoleBLL : CommonSecurityBLL, IRoleBLL
+    public class RoleBLL : CommonService, IRoleBLL
     {
         private IRoleDal m_dal;
         public RoleBLL(IRoleDal dal)

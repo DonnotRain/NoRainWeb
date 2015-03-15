@@ -42,7 +42,6 @@
     <Compile Include="Common\BaseDao.cs" />
     <Compile Include="RoleDao.cs" />
     <Compile Include="Common\CommonDao.cs" />
-    <Compile Include="Common\CommonSecurityDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

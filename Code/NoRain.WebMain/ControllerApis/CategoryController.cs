@@ -19,9 +19,9 @@ namespace MainWeb.Controllers.API
         private ICategoryService _categoryService;
 
 
-        public CategoryController()
+        public CategoryController(ICategoryService categoryService)
         {
-            _categoryService = DPResolver.Resolver<ICategoryService>();
+            _categoryService = categoryService;
         }
 
         // GET api/CategoryType
@@ -55,7 +55,7 @@ namespace MainWeb.Controllers.API
             return _categoryService.Find<CategoryType>("Where ID=@0", id);
         }
 
-      
+
         public void Post(CategoryType categoryType)
         {
             _categoryService.AddCategory(categoryType);

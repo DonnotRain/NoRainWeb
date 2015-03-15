@@ -11,7 +11,7 @@ using DefaultConnection;
 
 namespace NoRain.Business.Bll
 {
-    public class SysUserBll : CommonSecurityBLL, ISysUserBll
+    public class SysUserBll : CommonService, ISysUserBll
     {
         private IRoleBLL m_roleBll;
         private IBaseDao _dal;

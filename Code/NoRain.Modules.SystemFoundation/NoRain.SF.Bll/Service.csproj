@@ -41,13 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authority\OperatorBll.cs" />
+    <Compile Include="StatisticsReportService.cs" />
     <Compile Include="Sys\FileItemBLL.cs" />
     <Compile Include="Sys\ParameterBll.cs" />
     <Compile Include="Sys\CategoryBLL.cs" />
     <Compile Include="Authority\FunctionBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />
     <Compile Include="Common\BaseBll.cs" />
-    <Compile Include="Common\CommonAuthorityService.cs" />
     <Compile Include="Common\CommonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
