@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using NoRain.Business.IDal;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
     public class CommonService : BaseService, ICommonService
     {
         public CommonService()
-            : base(DPResolver.Resolver<ICommonDAL>())
+            : base(DPResolver.Resolver<ICommonDao>())
         {
 
         }

@@ -1,6 +1,6 @@
 ﻿using DefaultConnection;
 using NoRain.Business.CommonToolkit;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,15 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public class FileItemBLL : CommonService, IFileItemBll
+    public class FileItemService : CommonService, IFileItemService
     {
-        private ICommonSecurityBLL m_securityBLL;
+        private ICommonService m_securityService;
         private readonly string uploadPath =SysConfigs.UploadPath;
-        public FileItemBLL(ICommonSecurityBLL securityBLL)
+        public FileItemService(ICommonService securityService)
         {
-            m_securityBLL = securityBLL;
+            m_securityService = securityService;
         }
 
         /// <summary>

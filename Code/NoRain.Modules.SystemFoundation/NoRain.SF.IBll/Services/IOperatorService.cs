@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
-    public interface ISysUserBll : ICommonSecurityBLL
+    public interface ISysUserService : ICommonService
     {
         Page<SysUser> GetSysUserPager(int page, int rows, string name);
         SysUser Add(SysUser entity);

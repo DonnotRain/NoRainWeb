@@ -30,7 +30,7 @@ Introduction of zTree (简介)
 (支持 JSON 数据)
 * Support for static and asynchronous data loading node. 
 (支持静态 和 Ajax 异步加载节点数据)
-* Replace the skin / custom icon flexibllly. 
+* Replace the skin / custom icon flexiServicely. 
 (支持任意更换皮肤 / 自定义图标)
 * Support extremely flexible checkbox or radio selection function. 
 (支持极其灵活的 checkbox 或 radio 选择功能)

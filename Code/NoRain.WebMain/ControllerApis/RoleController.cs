@@ -5,7 +5,7 @@ using System.Net;
 using System.Web.Http;
 using NoRain.Business.WebBase;
 
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.Models.Request;
 using MainWeb.Filters;
 using NoRain.Business.Models;
@@ -20,17 +20,17 @@ namespace MainWeb.Controllers.API
     public class RoleController : ApiController
     {
 
-        private IRoleBLL m_roleBll = DPResolver.Resolver<IRoleBLL>();
+        private IRoleService m_roleService = DPResolver.Resolver<IRoleService>();
 
         [GET("API/Role/All")]
         public IEnumerable<Role> Get()
         {
-            return m_roleBll.FindAll<Role>("");
+            return m_roleService.FindAll<Role>("");
         }
 
         public object GetPager(int page, int rows, string name)
         {
-            var pageResult = m_roleBll.GetRolePager(page, rows, name);
+            var pageResult = m_roleService.GetRolePager(page, rows, name);
 
             return new { total = pageResult.TotalItems, rows = pageResult.Items };
         }
@@ -38,7 +38,7 @@ namespace MainWeb.Controllers.API
         [GET("API/Role/DataTablePager")]
         public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]RolePagerCondition condition)
         {
-            var pageResult = m_roleBll.GetRolePager(reqestParams.start / reqestParams.length + 1, reqestParams.length, condition.Name);
+            var pageResult = m_roleService.GetRolePager(reqestParams.start / reqestParams.length + 1, reqestParams.length, condition.Name);
 
 
             return new DataTablePager<Role>()
@@ -58,24 +58,24 @@ namespace MainWeb.Controllers.API
         /// <returns></returns>
         public Role Get(int id)
         {
-            return m_roleBll.Find<Role>("where id=@0", id);
+            return m_roleService.Find<Role>("where id=@0", id);
         }
 
         public object Post(Role entity)
         {
-            entity = m_roleBll.Add(entity);
+            entity = m_roleService.Add(entity);
             return entity;
         }
         [GET("api/Role/SetRoleFunctions")]
         public bool PostRoles(RoleFunctionSetting roleFunction)
         {
-            m_roleBll.SetRoleFunction(roleFunction);
+            m_roleService.SetRoleFunction(roleFunction);
             return true;
         }
 
         public object Put(Role entity)
         {
-            entity = m_roleBll.Edit(entity);
+            entity = m_roleService.Edit(entity);
             return entity;
         }
 
@@ -83,7 +83,7 @@ namespace MainWeb.Controllers.API
         {
             if (!string.IsNullOrEmpty(ids))
             {
-                m_roleBll.DeleteRoles(ids);
+                m_roleService.DeleteRoles(ids);
             }
             else
             {

@@ -8,9 +8,9 @@ using System.Text;
 using NoRain.Business.Models;
 using DefaultConnection;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
-    public interface IRoleBLL : IBaseBLL
+    public interface IRoleService : IBaseService
     {
         IEnumerable<JsTreeNode> GetRoleFunctions(int roleId);
 

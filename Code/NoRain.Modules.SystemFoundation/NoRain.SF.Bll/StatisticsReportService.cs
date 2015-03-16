@@ -1,5 +1,5 @@
 ﻿using DefaultConnection;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.IDal;
 using NoRain.Business.Model.Request;
 using NoRain.Business.WebBase;
@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
     public class StatisticsReportService : CommonService, IStatisticsReportService
     {
         private IBaseDao _dal;
-        public StatisticsReportService(ICommonSecurityDao dal)
+        public StatisticsReportService(ICommonDao dal)
         {
             this._dal = dal;
         }

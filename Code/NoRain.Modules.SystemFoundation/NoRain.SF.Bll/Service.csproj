@@ -40,14 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authority\OperatorBll.cs" />
+    <Compile Include="OperatorService.cs" />
     <Compile Include="StatisticsReportService.cs" />
-    <Compile Include="Sys\FileItemBLL.cs" />
-    <Compile Include="Sys\ParameterBll.cs" />
-    <Compile Include="Sys\CategoryBLL.cs" />
-    <Compile Include="Authority\FunctionBLL.cs" />
-    <Compile Include="Authority\RoleBLL.cs" />
-    <Compile Include="Common\BaseBll.cs" />
+    <Compile Include="FileItemService.cs" />
+    <Compile Include="ParameterService.cs" />
+    <Compile Include="CategoryService.cs" />
+    <Compile Include="FunctionService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="Common\BaseService.cs" />
     <Compile Include="Common\CommonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

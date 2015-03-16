@@ -9,7 +9,7 @@ using System.Configuration;
 using System.Web;
 using System.Threading.Tasks;
 using System.Drawing;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using DefaultConnection;
 using Newtonsoft.Json;
 using NoRain.Business.WebBase;
@@ -23,10 +23,10 @@ namespace MainWeb.Controllers.API
     [MobileServiceMark]
     public class FileItemController : ApiController
     {
-        private IFileItemBll fileItemBll;
+        private IFileItemService fileItemService;
         public FileItemController()
         {
-            fileItemBll = DPResolver.Resolver<IFileItemBll>();
+            fileItemService = DPResolver.Resolver<IFileItemService>();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace MainWeb.Controllers.API
         [POST("API/FileItem/Upload")]
         public FileItem PostFormData()
         {
-            return fileItemBll.UploadFile();
+            return fileItemService.UploadFile();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace MainWeb.Controllers.API
         [GET("api/FileItem/DownloadById")]
         public void GetDownloadByFileId(string fileId)
         {
-            fileItemBll.GetDownloadByFileId(fileId);
+            fileItemService.GetDownloadByFileId(fileId);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace MainWeb.Controllers.API
         [DELETE("api/FileItem/Delete")]
         public FileItem DeleteFileItem([FromBody]string fileItemId)
         {
-            return fileItemBll.DeleteFileItem(fileItemId);
+            return fileItemService.DeleteFileItem(fileItemId);
         }
     }
 }

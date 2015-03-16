@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
-    public interface ICommonService : IBaseBLL
+    public interface ICommonService : IBaseService
     {
     }
 }

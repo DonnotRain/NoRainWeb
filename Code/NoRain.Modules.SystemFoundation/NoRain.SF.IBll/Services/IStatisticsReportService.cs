@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
     public interface IStatisticsReportService : ICommonService
     {

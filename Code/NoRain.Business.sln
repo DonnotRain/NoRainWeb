@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "NoRain.Model\Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "NoRain.Entity\Entity.csproj", "{E5AF736E-BA28-4B20-87FD-732853FDC5CF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{F418E471-69CB-4457-8A6E-EC572E965F86}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoRain.Foundation", "NoRain.Foundation", "{F418E471-69CB-4457-8A6E-EC572E965F86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "NoRain.Modules.SystemFoundation\NoRain.SF.Bll\Service.csproj", "{1A822090-E850-48AB-A12B-DA44FD80C53F}"
 EndProject

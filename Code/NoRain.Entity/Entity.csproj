@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="PetaPoco.cs" />
-    <Compile Include="Security\User.cs" />
-    <Compile Include="Security\Function.cs" />
-    <Compile Include="Sys\CategoryItem.cs" />
+    <Compile Include="Extend\User.cs" />
+    <Compile Include="Extend\Function.cs" />
+    <Compile Include="Extend\CategoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

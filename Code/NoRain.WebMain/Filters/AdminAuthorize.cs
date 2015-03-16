@@ -1,4 +1,4 @@
-﻿using NoRain.Business.IBll;
+﻿using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace BusinessWeb.Filters
 {
     public class AdminAuthorizeAttribute : AuthorizeAttribute
     {
-        private ICommonSecurityBLL m_securityBll = DPResolver.Resolver<ICommonSecurityBLL>();
+        private ICommonService m_securityService = DPResolver.Resolver<ICommonService>();
 
         public AdminAuthorizeAttribute()
         {

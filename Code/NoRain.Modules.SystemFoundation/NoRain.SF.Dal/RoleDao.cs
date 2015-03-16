@@ -8,7 +8,7 @@ using System.Text;
 
 namespace NoRain.Business.Dao
 {
-    public class RoleDao :CommonDao, IRoleDal
+    public class RoleDao :CommonDao, IRoleDao
     {
 
         public void DeleteRoleUser(int roleId)

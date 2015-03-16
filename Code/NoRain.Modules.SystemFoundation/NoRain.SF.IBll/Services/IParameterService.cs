@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
-    public interface IParameterBll : ICommonService
+    public interface IParameterService : ICommonService
     {
         Page<SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value);
         SysParameter Add(SysParameter Parameter);

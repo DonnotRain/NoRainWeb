@@ -1,5 +1,5 @@
 ﻿using BusinessWeb.Filters;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
@@ -12,11 +12,11 @@ namespace MainWeb.Controllers
     [AdminAuthorize]
     public class HomeController : Controller
     {
-        private IParameterBll m_parameterBll;
+        private IParameterService m_parameterService;
      
         public HomeController()
         {
-            m_parameterBll = DPResolver.Resolver<IParameterBll>();
+            m_parameterService = DPResolver.Resolver<IParameterService>();
         }
 
         [AdminAuthorize]
@@ -31,10 +31,10 @@ namespace MainWeb.Controllers
         public ActionResult Settings()
         {
             //获取系统名称参数
-            var sysName = m_parameterBll.GetSysName("系统名称").ValueContent;
-            var upTime = m_parameterBll.GetSysName("上班时间").ValueContent;
-            var downTime = m_parameterBll.GetSysName("下班时间").ValueContent;
-            var distance = m_parameterBll.GetSysName("允许的签到误差距离").ValueContent;
+            var sysName = m_parameterService.GetSysName("系统名称").ValueContent;
+            var upTime = m_parameterService.GetSysName("上班时间").ValueContent;
+            var downTime = m_parameterService.GetSysName("下班时间").ValueContent;
+            var distance = m_parameterService.GetSysName("允许的签到误差距离").ValueContent;
 
             ViewBag.AttendDistance = distance;
 
@@ -52,10 +52,10 @@ namespace MainWeb.Controllers
             try
             {
                 //获取系统名称参数
-                var systemName = m_parameterBll.SetSysName(sysName, "系统名称").ValueContent;
-                var upTimeParam = m_parameterBll.SetSysName(upTime, "上班时间").ValueContent;
-                var downTimeParam = m_parameterBll.SetSysName(downTime, "下班时间").ValueContent;
-                var distance = m_parameterBll.SetSysName(attendDistance, "允许的签到误差距离").ValueContent;
+                var systemName = m_parameterService.SetSysName(sysName, "系统名称").ValueContent;
+                var upTimeParam = m_parameterService.SetSysName(upTime, "上班时间").ValueContent;
+                var downTimeParam = m_parameterService.SetSysName(downTime, "下班时间").ValueContent;
+                var distance = m_parameterService.SetSysName(attendDistance, "允许的签到误差距离").ValueContent;
                 ViewBag.SysName = systemName;
                 ViewBag.UpTime = upTimeParam;
                 ViewBag.DownTime = downTimeParam;

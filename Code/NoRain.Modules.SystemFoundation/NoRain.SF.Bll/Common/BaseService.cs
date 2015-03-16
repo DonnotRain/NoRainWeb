@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.IDal;
 using PetaPoco;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public abstract class BaseService : IBaseBLL
+    public abstract class BaseService : IBaseService
     {
         internal IBaseDao m_baseDAL;
 

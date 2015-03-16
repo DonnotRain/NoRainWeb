@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using DefaultConnection;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using MainWeb.Filters;
 using NoRain.Business.Model.Request;

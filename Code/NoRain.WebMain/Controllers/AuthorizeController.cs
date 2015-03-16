@@ -1,6 +1,6 @@
 ﻿using BusinessWeb.Filters;
 using DefaultConnection;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
@@ -18,10 +18,10 @@ namespace MainWeb.Controllers
 {
     public class AuthorizeController : Controller
     {
-        ICommonSecurityBLL m_bll;
+        ICommonService m_Service;
         public AuthorizeController()
         {
-            m_bll = DPResolver.Resolver<ICommonSecurityBLL>();
+            m_Service = DPResolver.Resolver<ICommonService>();
         }
 
         public ActionResult Login(bool? logout, string url)
@@ -42,7 +42,7 @@ namespace MainWeb.Controllers
             result.Data = login;
             //先判断有没有相关用户名
 
-            var isNameExist = m_bll.Find<SysUser>("WHERE Name=@0 ", login.username) != null;
+            var isNameExist = m_Service.Find<SysUser>("WHERE Name=@0 ", login.username) != null;
             if (!isNameExist)
             {
                 result.OnError("用户名不存在!");
@@ -50,7 +50,7 @@ namespace MainWeb.Controllers
 
             login.password = NoRain.Business.CommonToolkit.CommonToolkit.GetMD5Password(login.password);
 
-            var user = m_bll.Find<SysUser>("WHERE Name=@0 AND Password=@1", login.username, login.password);
+            var user = m_Service.Find<SysUser>("WHERE Name=@0 AND Password=@1", login.username, login.password);
 
             if (user == null)
             {
@@ -79,7 +79,7 @@ namespace MainWeb.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string password, string newPassword, string confirmPassword, string validateCode)
         {
-            var bll = DPResolver.Resolver<ISysUserBll>();
+            var Service = DPResolver.Resolver<ISysUserService>();
 
             ViewBag.Success = false;
             if (validateCode != Session["__VCode"].ToString())
@@ -89,7 +89,7 @@ namespace MainWeb.Controllers
             }
             try
             {
-                bll.ChangePwd(password, newPassword, confirmPassword);
+                Service.ChangePwd(password, newPassword, confirmPassword);
 
                 ViewBag.Success = true;
             }

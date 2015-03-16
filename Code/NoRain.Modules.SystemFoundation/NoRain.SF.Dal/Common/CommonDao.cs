@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NoRain.Business.Dao
 {
-    public class CommonDao : BaseDao, ICommonDAL
+    public class CommonDao : BaseDao, ICommonDao
     {
         public CommonDao() : base("DefaultConnection")
         {

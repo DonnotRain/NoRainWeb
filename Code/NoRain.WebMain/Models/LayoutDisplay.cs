@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Ajax.Utilities;
 using NoRain.Business.WebBase;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using DefaultConnection;
 
 
@@ -27,24 +27,24 @@ namespace BusinessWeb.Areas.Back.Models
 
     public class PlugParser
     {
-        private static ICommonSecurityBLL m_bll = DPResolver.Resolver<ICommonSecurityBLL>();
-        private static IParameterBll m_parametebll = DPResolver.Resolver<IParameterBll>();
+        private static ICommonService m_Service = DPResolver.Resolver<ICommonService>();
+        private static IParameterService m_parameteService = DPResolver.Resolver<IParameterService>();
         public static List<PlugDisplay> Parser()
         {
             if (string.IsNullOrEmpty(SysContext.UserId)) return new List<PlugDisplay>();
                 
-            var funcList = m_bll.FindAll<Function>("WHERE ISENABLED=1").ToList();  //不进行权限控制时
+            var funcList = m_Service.FindAll<Function>("WHERE ISENABLED=1").ToList();  //不进行权限控制时
            // var funcList = new List<Function>();
 
-            var roleBLL = DPResolver.Resolver<IRoleBLL>();
+            var roleService = DPResolver.Resolver<IRoleService>();
             //获取当前用户全部角色的权限
-            var roleInfos = roleBLL.GetUserRoles(new Guid(SysContext.UserId));
+            var roleInfos = roleService.GetUserRoles(new Guid(SysContext.UserId));
 
-            var functionBLL = DPResolver.Resolver<IFunctionBLL>();
+            var functionService = DPResolver.Resolver<IFunctionService>();
 
             roleInfos.ToList().ForEach(m =>
             {
-                var currentRoleFuncs = functionBLL.GetRoleFunctions(m.ID).OrderBy(model => model.Sort);
+                var currentRoleFuncs = functionService.GetRoleFunctions(m.ID).OrderBy(model => model.Sort);
                 currentRoleFuncs.ToList().ForEach(func =>
                 {
                     if (!funcList.Select(model => model.ID).Contains(func.ID))
@@ -75,8 +75,8 @@ namespace BusinessWeb.Areas.Back.Models
         public static List<Function> GetSubFunctionByUrl(string url)
         {
             //url = url.ToUpper();
-            //var functionBLL = new FunctionBLL();
-            //var currentFunction = functionBLL.Find<Function>(m => m.Path != null & m.Path.ToUpper().Contains(url));
+            //var functionService = new FunctionService();
+            //var currentFunction = functionService.Find<Function>(m => m.Path != null & m.Path.ToUpper().Contains(url));
 
             ////获取当前用户全部角色的权限
             //var roleInfos = SecurityHelper.SecurityInst.GetRolesByUser(SecurityHelper.CurrentUserName);
@@ -84,7 +84,7 @@ namespace BusinessWeb.Areas.Back.Models
 
             //roleInfos.ToList().ForEach(m =>
             //{
-            //    var currentRoleFuncs = functionBLL.GetRoleFunctions(m.ID);
+            //    var currentRoleFuncs = functionService.GetRoleFunctions(m.ID);
             //    currentRoleFuncs.ToList().ForEach(func =>
             //    {
             //        if (!funcList.Select(model => model.ID).Contains(func.ID))
@@ -108,7 +108,7 @@ namespace BusinessWeb.Areas.Back.Models
             var sysName = "";
             try
             {
-                sysName = m_parametebll.GetSysName("系统名称").ValueContent;
+                sysName = m_parameteService.GetSysName("系统名称").ValueContent;
             }
             catch
             {

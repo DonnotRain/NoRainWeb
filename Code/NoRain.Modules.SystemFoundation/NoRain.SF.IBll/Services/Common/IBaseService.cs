@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
-    public interface IBaseBLL
+    public interface IBaseService
     {
         T Update<T>(T entity) where T : class;
         T Insert<T>(T entity) where T : class;

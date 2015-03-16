@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 
 namespace NoRain.WebMain
 {
@@ -36,12 +37,18 @@ namespace NoRain.WebMain
                                                    Assembly.Load("NoRain.SF.Data"),
                                                    Assembly.Load("NoRain.SF.Entrance")
                                                });
+            //API依赖注入
+            var configuration = GlobalConfiguration.Configuration;
+            ApplicationConfig.Intance.RegisterAPIControllers(Assembly.GetExecutingAssembly());
+            var container = DPResolver.Container;
+            var resolver = new AutofacWebApiDependencyResolver(container);
+            configuration.DependencyResolver = resolver;          
+
+
             //MVC依赖注入
             ApplicationConfig.Intance.RegisterMVCControllers(Assembly.GetExecutingAssembly());
-
-            //API依赖注入
-            ApplicationConfig.Intance.RegisterAPIControllers(Assembly.GetExecutingAssembly());
-
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));    
+         
         }
 
     }

@@ -1,5 +1,4 @@
-﻿using NoRain.Business.IBll;
-using NoRain.Business.WebBase;
+﻿using NoRain.Business.WebBase;
 using PetaPoco;
 using System;
 using System.Collections.Generic;
@@ -8,17 +7,18 @@ using System.Text;
 
 using NoRain.Business.IDal;
 using DefaultConnection;
+using NoRain.Business.IService;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public class SysUserBll : CommonService, ISysUserBll
+    public class SysUserService : CommonService, ISysUserService
     {
-        private IRoleBLL m_roleBll;
+        private IRoleService m_roleService;
         private IBaseDao _dal;
 
-        public SysUserBll(IRoleBLL roleBll, ICommonSecurityDao dal)
+        public SysUserService(IRoleService roleService, ICommonDao dal)
         {
-            m_roleBll = roleBll; this._dal = dal;
+            m_roleService = roleService; this._dal = dal;
         }
         public PetaPoco.Page<SysUser> GetSysUserPager(int pageIndex, int pageSize, string name)
         {
@@ -37,7 +37,7 @@ namespace NoRain.Business.Bll
 
             page.Items.ForEach(m =>
             {
-                var roles = m_roleBll.GetUserRoles(m.ID);
+                var roles = m_roleService.GetUserRoles(m.ID);
                 m.Roles = roles;
                 m.RoleIds = roles.Select(r => r.ID.ToString()).ToArray();
             });

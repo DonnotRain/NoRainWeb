@@ -4,25 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.IDal;
 using NoRain.Business.WebBase;
 using NoRain.Business.Models.Request;
 using NoRain.Business.Models;
 using DefaultConnection;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public class RoleBLL : CommonService, IRoleBLL
+    public class RoleService : CommonService, IRoleService
     {
-        private IRoleDal m_dal;
-        public RoleBLL(IRoleDal dal)
+        private IRoleDao m_dal;
+        public RoleService(IRoleDao dal)
         {
             m_dal = dal;
         }
         public IEnumerable<JsTreeNode> GetRoleFunctions(int roleId)
         {
-            var functions = DPResolver.Resolver<IFunctionBLL>().GetRoleFunctions(roleId).ToList().Select(m => m.ID).ToArray();
+            var functions = DPResolver.Resolver<IFunctionService>().GetRoleFunctions(roleId).ToList().Select(m => m.ID).ToArray();
             var allFunction = FindAll<Function>();
             return ConvertFunctionsToTree(allFunction, functions, -1);
         }

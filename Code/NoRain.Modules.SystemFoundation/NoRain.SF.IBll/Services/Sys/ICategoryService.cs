@@ -8,7 +8,7 @@ using PetaPoco;
 using DefaultConnection;
 using NoRain.Business.Models;
 
-namespace NoRain.Business.IBll
+namespace NoRain.Business.IService
 {
     public interface ICategoryService : ICommonService
     {

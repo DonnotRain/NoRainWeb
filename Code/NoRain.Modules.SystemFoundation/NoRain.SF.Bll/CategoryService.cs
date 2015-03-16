@@ -1,5 +1,5 @@
 ﻿using DefaultConnection;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.Models;
 using NoRain.Business.WebBase;
 using PetaPoco;
@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public class CategoryBLL : CommonService, ICategoryService
+    public class CategoryService : CommonService, ICategoryService
     {
-        public CategoryBLL()
+        public CategoryService()
         {
 
         }

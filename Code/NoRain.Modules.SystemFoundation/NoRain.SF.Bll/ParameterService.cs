@@ -1,5 +1,5 @@
 ﻿using DefaultConnection;
-using NoRain.Business.IBll;
+using NoRain.Business.IService;
 using NoRain.Business.IDal;
 using NoRain.Business.Model.Request;
 using NoRain.Business.WebBase;
@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NoRain.Business.Bll
+namespace NoRain.Business.Service
 {
-    public class ParameterBll : CommonService, IParameterBll
+    public class ParameterService : CommonService, IParameterService
     {
         public PetaPoco.Page<DefaultConnection.SysParameter> GetParameterPager(int pageIndex, int pageSize, string name, string value)
         {

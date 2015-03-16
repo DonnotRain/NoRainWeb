@@ -1,4 +1,4 @@
-﻿using NoRain.Business.IBll;
+﻿using NoRain.Business.IService;
 using NoRain.Business.WebBase;
 using System;
 using System.Collections.Generic;
@@ -22,16 +22,16 @@ namespace MainWeb.Controllers.API
     [ServiceValidate()]
     public class StatisticsReportController : ApiController
     {
-        private IStatisticsReportService m_Bll;
+        private IStatisticsReportService m_Service;
         public StatisticsReportController()
         {
-            m_Bll = DPResolver.Resolver<IStatisticsReportService>();
+            m_Service = DPResolver.Resolver<IStatisticsReportService>();
         }
 
         [GET("API/StatisticsReport/DataTablePager")]
         public object GetDataTablePager([FromUri]DataTablesRequest reqestParams, [FromUri]RolePagerCondition condition)
         {
-            var pageResult = m_Bll.GetReportResults();
+            var pageResult = m_Service.GetReportResults();
 
 
             return pageResult;

@@ -8,12 +8,14 @@ namespace NoRain.Business.WebBase
 {
     public static class DPResolver
     {
-        internal static Autofac.IContainer Container;
+        internal static Autofac.IContainer _container;
 
         public static T Resolver<T>()
         {
-            return Container.Resolve<T>();
+            return _container.Resolve<T>();
         }
 
+        //公开容器
+        public static Autofac.IContainer Container { get { return _container; } }
     }
 }
